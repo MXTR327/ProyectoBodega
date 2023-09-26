@@ -1,0 +1,24 @@
+﻿<Window x:Class="ProyectoBodega.VentanaProductos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoBodega"
+        mc:Ignorable="d"
+        Title="VentanaProductos" Height="1038" Width="1920" WindowState="Maximized">
+    <Grid x:Name="ventanaIndex" Loaded="ventanaIndex_Loaded">
+        <DataGrid x:Name="dgProducto" HorizontalAlignment="Left" Height="288" Margin="22,146,0,0" VerticalAlignment="Top" Width="641" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="ID" Width="*"/>
+                <DataGridCheckBoxColumn Header="Nombre" Width="*"/>
+                <DataGridCheckBoxColumn Header="Precio Compra" Width="*"/>
+                <DataGridCheckBoxColumn Header="Precio Venta" Width="*"/>
+                <DataGridCheckBoxColumn Header="Stock" Width="*"/>
+                <DataGridCheckBoxColumn Header="Categoria" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Buscar" HorizontalAlignment="Left" Height="55" Margin="638,91,0,0" VerticalAlignment="Top" Width="97" FontSize="30" FontFamily="Maiandra GD" FontWeight="Bold" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtBuscadorProducto" HorizontalAlignment="Left" Height="50" Margin="735,91,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="519" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Center" TextChanged="txtBuscadorProducto_TextChanged"/>
+
+    </Grid>
+</Window>
