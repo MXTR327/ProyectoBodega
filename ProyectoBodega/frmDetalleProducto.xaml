@@ -1,0 +1,39 @@
+﻿<Window x:Class="ProyectoBodega.frmDetalleProducto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoBodega"
+        mc:Ignorable="d"
+        Title="frmDetalleProducto" Height="690" Width="801" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid Margin="0,0,0,-6">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="502" Margin="437,129,0,0" VerticalAlignment="Top" Width="339"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="40" Margin="21,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="331" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" Text="Si nombre"/>
+        <Label Content="Nombre del producto" HorizontalAlignment="Left" Margin="21,70,0,0" VerticalAlignment="Top" Width="280" FontSize="25" FontFamily="Maiandra GD"/>
+        <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Height="42" Margin="21,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="331" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" Text="0,00" PreviewKeyDown="txtPrecio_PreviewKeyDown"/>
+        <Label Content="Precio del producto" HorizontalAlignment="Left" Margin="21,166,0,0" VerticalAlignment="Top" Width="280" FontSize="25" FontFamily="Maiandra GD"/>
+        <TextBox x:Name="txtStockInicial" HorizontalAlignment="Left" Height="40" Margin="21,305,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" Text="0"/>
+        <Label Content="Stock inicial" HorizontalAlignment="Left" Margin="20,260,0,0" VerticalAlignment="Top" Width="140" FontSize="25" FontFamily="Maiandra GD" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="txtStockFinal" HorizontalAlignment="Left" Height="42" Margin="211,303,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" Text="0"/>
+        <Label Content="Stock final" HorizontalAlignment="Left" Margin="211,259,0,0" VerticalAlignment="Top" Width="139" FontSize="25" FontFamily="Maiandra GD" HorizontalContentAlignment="Center"/>
+        <Button x:Name="btnContinuar" Content="Continuar" HorizontalAlignment="Left" Height="101" Margin="22,350,0,0" VerticalAlignment="Top" Width="330" Click="btnContinuar_Click"/>
+        <Button x:Name="btnCambiarPrecio" Content="Cambiar Precio" HorizontalAlignment="Left" Height="84" Margin="20,466,0,0" VerticalAlignment="Top" Width="330" Click="btnCambiarPrecio_Click"/>
+        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="56" Margin="21,575,0,0" VerticalAlignment="Top" Width="330" Click="btnCancelar_Click"/>
+        <TextBox x:Name="txtCantidad" HorizontalAlignment="Left" Height="40" Margin="437,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="txtCantidad_TextChanged" PreviewKeyDown="txtCantidad_PreviewKeyDown"/>
+        <Label Content="Cantidad de productos a vender&#xA;" HorizontalAlignment="Left" Margin="417,39,0,0" VerticalAlignment="Top" Width="371" FontSize="25" FontFamily="Maiandra GD" Height="40" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button x:Name="btnRetroceso" Content="C" HorizontalAlignment="Left" Height="100" Width="100" VerticalAlignment="Top" Margin="662,170,0,0" Click="InsertarNumero" />
+        <Button Content="2" HorizontalAlignment="Left" Height="100" Width="100" VerticalAlignment="Top" Margin="557,274,0,0" Click="InsertarNumero"/>
+        <Button Content="3" HorizontalAlignment="Left" Height="100" Width="100" VerticalAlignment="Top" Margin="662,274,0,0" Click="InsertarNumero"/>
+        <Button Content="1" HorizontalAlignment="Left" Height="100" Width="100" VerticalAlignment="Top" Margin="452,274,0,0" Click="InsertarNumero"/>
+        <Button Content="6" HorizontalAlignment="Left" Height="100" Width="100" VerticalAlignment="Top" Margin="662,379,0,0" Click="InsertarNumero"/>
+        <Button Content="5" HorizontalAlignment="Left" Height="100" Width="100" VerticalAlignment="Top" Margin="557,379,0,0" Click="InsertarNumero"/>
+        <Button Content="4" HorizontalAlignment="Left" Height="100" Width="100" VerticalAlignment="Top" Margin="452,379,0,0" Click="InsertarNumero"/>
+        <Button Content="7" HorizontalAlignment="Left" Height="100" Width="100" VerticalAlignment="Top" Margin="452,485,0,0" Click="InsertarNumero"/>
+        <Button Content="8" HorizontalAlignment="Left" Height="100" Width="100" VerticalAlignment="Top" Margin="557,485,0,0" Click="InsertarNumero"/>
+        <Button Content="9" HorizontalAlignment="Left" Height="100" Width="100" VerticalAlignment="Top" Margin="662,485,0,0" Click="InsertarNumero"/>
+        <Button Content="0" HorizontalAlignment="Left" Height="100" Width="100" VerticalAlignment="Top" Margin="452,170,0,0" Click="InsertarNumero" />
+        <Button x:Name="btnClear" Content="CE" HorizontalAlignment="Left" Height="100" Width="100" VerticalAlignment="Top" Margin="557,170,0,0" Click="InsertarNumero" />
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="40" Margin="69,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="174" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" Text="0"/>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="21,19,0,0" VerticalAlignment="Top" Width="48" FontSize="25" FontFamily="Maiandra GD"/>
+    </Grid>
+</Window>

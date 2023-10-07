@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="frmAgregarProducto" Height="689" Width="1029">
+        Title="frmAgregarProducto" Height="959" Width="1491" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown">
     <Window.Resources>
         <Style x:Key="IngresarButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#007ACC" />
@@ -50,54 +50,119 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    <Grid Margin="0,0,10,22">
-        <Button x:Name="BtnIngresar" Content="Agregar Categoria" Style="{StaticResource IngresarButtonStyle}" Height="52" Width="613" Click="BtnIngresar_Click" Margin="0,460,0,0" FontFamily="Maiandra GD" FontSize="25" HorizontalAlignment="Center" />
-        <Grid VerticalAlignment="Top" HorizontalAlignment="Center" Width="999" Margin="0,82,0,0" Height="343">
-            <Label Content="Nombre de la Categoria" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Width="286" HorizontalAlignment="Left" Margin="10,10,0,289" />
-            <TextBox x:Name="txtUsuario" Height="38" CharacterCasing="Upper" Margin="12,53,12,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" >
-                <TextBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.356"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="1.235"/>
-                    </TransformGroup>
-                </TextBox.RenderTransform>
-            </TextBox>
-            <Label Content="Direccion" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Width="117" HorizontalAlignment="Left" Margin="10,122,0,177" />
-            <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Margin="132,125,0,0">
-                <CheckBox x:Name="chkDireccion" Click="chkTelefono_Click" Checked="chkDireccion_Checked" Height="15" Width="16" />
-            </Viewbox>
-            <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Margin="256,236,0,0">
-                <CheckBox x:Name="chkContacto" Click="chkTelefono_Click" Checked="chkDireccion_Checked" Height="15" Width="16" />
-            </Viewbox>
-            <TextBox x:Name="txtUsuario_Copiar" Height="39" CharacterCasing="Upper" Margin="12,165,12,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" >
-                <TextBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.356"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="1.235"/>
-                    </TransformGroup>
-                </TextBox.RenderTransform>
-            </TextBox>
-            <Label Content="Numero de contacto" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Width="251" HorizontalAlignment="Left" Margin="10,232,0,65" />
-            <TextBox x:Name="txtUsuario_Copiar1" Height="50" CharacterCasing="Upper" Margin="12,275,12,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" >
-                <TextBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform AngleY="0.356"/>
-                        <RotateTransform/>
-                        <TranslateTransform Y="1.235"/>
-                    </TransformGroup>
-                </TextBox.RenderTransform>
-            </TextBox>
-        </Grid>
-
-        <GridSplitter HorizontalAlignment="Left" Height="5" Margin="13,450,0,0" VerticalAlignment="Top" Width="610" />
-        <Button x:Name="btnRegistrar" Content="Salir" Style="{StaticResource ActionButtonStyle}" Height="52" Width="202" Margin="421,527,0,0" Click="btnRegistrar_Click" FontFamily="Maiandra GD" FontSize="20" />
-        <Label Content="Agregar nueva Categoria" FontSize="35" FontFamily="Bookman Old Style" FontWeight="Bold" Width="460" HorizontalAlignment="Center" Margin="0,24,0,569" />
-        <GridSplitter HorizontalAlignment="Center" Height="5" Margin="0,517,0,0" VerticalAlignment="Top" Width="613" />
+    <Grid Margin="0,0,10,-6">
+        <Border BorderBrush="Black" BorderThickness="1" Margin="759,574,10,0" VerticalAlignment="Top" Height="269" Grid.ColumnSpan="2"/>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="28,574,741,0" VerticalAlignment="Top" Height="269"/>
+        <Label Content="Agregar nuevo Producto" FontSize="35" FontFamily="Bookman Old Style" FontWeight="Bold" Margin="510,24,485,838" />
+        <Button x:Name="btnAgregarProducto" Content="Agregar Producto" Style="{StaticResource IngresarButtonStyle}" Height="52" Width="407" Margin="333,861,0,0" FontFamily="Maiandra GD" FontSize="25" Click="btnAgregarProducto_Click" />
+        <Button x:Name="btnSalir" Content="Salir" Style="{StaticResource ActionButtonStyle}" Height="52" Width="407" Margin="759,861,0,0" FontFamily="Maiandra GD" FontSize="20" Click="btnSalir_Click" Grid.ColumnSpan="2" />
+        <Label Content="Agregar nueva Categoria" FontSize="35" FontFamily="Bookman Old Style" FontWeight="Bold" Width="460" HorizontalAlignment="Left" Margin="510,24,0,904" />
+        <Border BorderBrush="Black" BorderThickness="1" Margin="28,87,10,0" VerticalAlignment="Top" Height="465" Grid.ColumnSpan="2">
+            <Grid HorizontalAlignment="Center" Width="1423" Margin="0,9,0,9">
+                <TextBox x:Name="txtNombre" Height="50" Margin="12,51,770,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtPrimeraLetraMayuscula_TextChanged" >
+                    <TextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="0.356"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="1.235"/>
+                        </TransformGroup>
+                    </TextBox.RenderTransform>
+                </TextBox>
+                <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Margin="132,125,0,0"/>
+                <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Margin="256,236,0,0"/>
+                <TextBox x:Name="txtDescripcion" Height="50" Margin="12,163,767,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtPrimeraLetraMayuscula_TextChanged" IsReadOnly="True" >
+                    <TextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="0.356"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="1.235"/>
+                        </TransformGroup>
+                    </TextBox.RenderTransform>
+                </TextBox>
+                <TextBox x:Name="txtMedida" Height="50" Margin="14,271,1011,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30">
+                    <TextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="0.356"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="1.235"/>
+                        </TransformGroup>
+                    </TextBox.RenderTransform>
+                </TextBox>
+                <TextBox x:Name="txtStock" Height="50" Margin="15,375,1010,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtCalcularGanancias_TextChanged" PreviewKeyDown="txtStock_PreviewKeyDown">
+                    <TextBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="0.356"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="1.235"/>
+                        </TransformGroup>
+                    </TextBox.RenderTransform>
+                </TextBox>
+                <Label Content="Medida" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1160,175" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="251" />
+                <Label Content="Stock" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1157,71" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="251" />
+                <Label Content="Marca" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,400,181" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="251" />
+                <Label Content="Categoria" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,400,300" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="251" />
+                <Label Content="Proveedor" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,400,396" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="251" />
+                <Label Content="Nombre del producto" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1127,396" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="286" />
+                <Label Content="Descripción del Producto" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1098,287" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="305" />
+                <ComboBox x:Name="cmbMarca" HorizontalAlignment="Left" Height="50" Margin="772,271,0,0" VerticalAlignment="Top" Width="641"/>
+                <ComboBox x:Name="cmbCategoria" HorizontalAlignment="Left" Height="50" Margin="772,163,0,0" VerticalAlignment="Top" Width="641"/>
+                <ComboBox x:Name="cmbProveedor" HorizontalAlignment="Left" Height="50" Margin="772,51,0,0" VerticalAlignment="Top" Width="641"/>
+                <Label Content="Precio de Compra" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1145,-126" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="250" />
+                <Label Content="Precio de Venta" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1145,-229" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="250" />
+                <Label Content="Ganancia Total" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,419,-229" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="250" />
+                <Label Content="Ganancia por Unidad" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,400,-128" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="269" />
+                <Label Content="Precio" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1163,-89" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="250" />
+                <Label Content="Ganancias" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,439,-89" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="250" />
+                <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Margin="325,115,0,0">
+                    <CheckBox x:Name="chkContacto"  Height="15" Width="16" IsChecked="False" Click="chkContacto_Click"/>
+                </Viewbox>
+            </Grid>
+        </Border>
+        <TextBox x:Name="txtPrecioCompra" Height="50" Margin="61,671,768,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtCalcularGanancias_TextChanged" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" >
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.356"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="1.235"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox x:Name="txtPrecioVenta" Height="50" Margin="63,774,766,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" TextChanged="txtCalcularGanancias_TextChanged">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.356"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="1.235"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox x:Name="txtGananciaPorUnidad" Height="50" CharacterCasing="Upper" Margin="789,672,40,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" >
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.356"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="1.235"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <TextBox x:Name="txtGananciaTotal" Height="50" CharacterCasing="Upper" Margin="789,774,40,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" >
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.356"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="1.235"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        
     </Grid>
 </Window>
     

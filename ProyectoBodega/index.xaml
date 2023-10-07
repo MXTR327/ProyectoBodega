@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
         Title="index" Height="1038" Width="1920" WindowState="Maximized">
-    <Grid x:Name="ventanaIndex" Loaded="ventanaIndex_Loaded">
-        <DataGrid x:Name="dgProducto" HorizontalAlignment="Left" Height="288" Margin="22,146,0,0" VerticalAlignment="Top" Width="1232" AutoGenerateColumns="False">
+    <Grid x:Name="ventanaIndex" Loaded="ventanaIndex_Loaded" RenderTransformOrigin="0.5,0.484">
+        <DataGrid x:Name="dgProducto" HorizontalAlignment="Left" Height="288" Margin="22,146,0,0" VerticalAlignment="Top" Width="1232" AutoGenerateColumns="False" SelectionMode="Single" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="TopColumn" Header="Top" Width="70" Binding="{Binding Top}" />
                 <DataGridTextColumn x:Name="idProducto" Header="ID" Width="60" Binding="{Binding idProducto}" />
@@ -19,38 +19,39 @@
                 <DataGridTextColumn x:Name="VecesVendido" Header="Veces Vendidas" Width="130" Binding="{Binding VecesVendido}" />
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="dgVenta" HorizontalAlignment="Left" Height="377" Margin="22,529,0,0" VerticalAlignment="Top" Width="1232">
+        <DataGrid x:Name="dgVenta" HorizontalAlignment="Left" Height="377" Margin="22,529,0,0" VerticalAlignment="Top" Width="1232" SelectionMode="Single" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="Cuenta" Header="" Width="50"/>
+                <DataGridTextColumn x:Name="Cuenta" Header="" Width="50" Binding="{Binding Cuenta}"/>
                 <DataGridTextColumn x:Name="codigo" Header="ID" Width="60" Binding="{Binding idProducto}" />
                 <DataGridTextColumn x:Name="nombreproductoVenta" Header="Nombre Producto" Width="300" Binding="{Binding nombre_producto}" />
                 <DataGridTextColumn x:Name="Precio" Header="Precio" Width="*" Binding="{Binding precio_compra}" />
-                <DataGridTextColumn x:Name="Cantidad" Header="Cantidad" Width="*" Binding="{Binding precio_venta}" />
-                <DataGridTextColumn x:Name="total" Header="Total a Pagar" Width="150"/>
+                <DataGridTextColumn x:Name="Cantidad" Header="Cantidad" Width="*" Binding="{Binding Cantidad}" />
+                <DataGridTextColumn x:Name="total" Header="Total a Pagar" Width="150" Binding="{Binding Total}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Total" HorizontalAlignment="Left" Height="112" Margin="735,900,0,0" VerticalAlignment="Top" Width="225" FontSize="80" FontFamily="Calibri" FontWeight="Bold" VerticalContentAlignment="Center"/>
-        <Label Content="0,00" HorizontalAlignment="Left" Height="112" Margin="960,886,0,0" VerticalAlignment="Center" Width="225" FontSize="80" FontFamily="Calibri" FontWeight="Bold" VerticalContentAlignment="Center"/>
+        <Label x:Name="lblTotal" Content="0,00" HorizontalAlignment="Left" Height="112" Margin="960,898,0,0" VerticalAlignment="Top" Width="504" FontSize="80" FontFamily="Calibri" FontWeight="Bold" VerticalContentAlignment="Center"/>
         <TextBox x:Name="txtIdVendedor" HorizontalAlignment="Left" Height="76" Margin="22,910,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Width="78" FontSize="60" FontFamily="Microsoft Sans Serif" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" IsEnabled="False"/>
         <TextBox x:Name="txtNombreVendedor" HorizontalAlignment="Left" Height="76" Margin="133,910,0,0" TextWrapping="Wrap" Text="Anonimo" VerticalAlignment="Center" Width="493" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Center" IsReadOnly="True" IsEnabled="False"/>
         <Label Content="Codigo" HorizontalAlignment="Left" Height="54" Margin="22,470,0,0" VerticalAlignment="Top" Width="151" FontSize="30" FontFamily="Maiandra GD" FontWeight="Bold" VerticalContentAlignment="Center"/>
         <Label Content="Nombre Producto" HorizontalAlignment="Left" Height="54" Margin="437,468,0,0" VerticalAlignment="Top" Width="258" FontSize="30" FontFamily="Maiandra GD" FontWeight="Bold" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="txtBuscarPorCodigo" HorizontalAlignment="Left" Height="50" Margin="135,468,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Center" MaxLength="5" InputScope="Number" />
-        <TextBox x:Name="txtBuscarPorNombre" HorizontalAlignment="Left" Height="50" Margin="700,468,0,0" TextWrapping="Wrap" Text="&#xD;&#xA;" VerticalAlignment="Top" Width="512" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Center"/>
-        <Button Content="+" HorizontalAlignment="Left" Height="50" Margin="266,468,0,0" VerticalAlignment="Top" Width="42" FontSize="50" VerticalContentAlignment="Center" RenderTransformOrigin="-0.143,0.651" Padding="1,-15,1,1"/>
-        <Button Content="+" HorizontalAlignment="Left" Height="50" Margin="1212,468,0,0" VerticalAlignment="Top" Width="42" FontSize="50" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="1,-15,1,1"/>
+        <TextBox x:Name="txtBuscarPorCodigo" HorizontalAlignment="Left" Height="50" Margin="135,468,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Center" MaxLength="5" InputScope="Number" HorizontalContentAlignment="Center" PreviewKeyDown="txtCantidad_PreviewKeyDown" />
+        <TextBox x:Name="txtBuscarPorNombre" HorizontalAlignment="Left" Height="50" Margin="700,468,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="512" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="txtPrimeraLetraMayuscula_TextChanged"/>
+        <Button x:Name="btnBuscarCodigo" Content="+" HorizontalAlignment="Left" Height="50" Margin="266,468,0,0" VerticalAlignment="Top" Width="42" FontSize="50" VerticalContentAlignment="Center" RenderTransformOrigin="-0.143,0.651" Padding="1,-15,1,1" Click="btnBuscarCodigo_Click"/>
+        <Button x:Name="btnBuscarNombre" Content="+" HorizontalAlignment="Left" Height="50" Margin="1212,468,0,0" VerticalAlignment="Top" Width="42" FontSize="50" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="1,-15,1,1" Click="btnBuscarNombre_Click"/>
         <Label Content="Buscar" HorizontalAlignment="Left" Height="55" Margin="638,91,0,0" VerticalAlignment="Top" Width="97" FontSize="30" FontFamily="Maiandra GD" FontWeight="Bold" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="txtBuscadorProducto" HorizontalAlignment="Left" Height="50" Margin="735,91,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="519" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Center" TextChanged="txtBuscadorProducto_TextChanged"/>
+        <TextBox x:Name="txtBuscadorProducto" HorizontalAlignment="Left" Height="50" Margin="735,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="519" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Center" TextChanged="txtBuscadorProducto_TextChanged"/>
         <Label Content="Bodega Angelo" HorizontalAlignment="Left" Height="112" Margin="10,10,0,0" VerticalAlignment="Top" Width="508" FontSize="80" FontFamily="Calibri" FontWeight="Bold" VerticalContentAlignment="Center"/>
-        <Button x:Name="btnSeleccionar" Content="Seleccionar" HorizontalAlignment="Left" Height="288" Margin="1259,146,0,0" VerticalAlignment="Top" Width="156" HorizontalContentAlignment="Center" FontSize="30"/>
-        <Button x:Name="brnBorrarFila" Content="Borrar" HorizontalAlignment="Left" Height="76" Margin="1260,529,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30"/>
-        <Button x:Name="btnCobrarVenta" Content="Cobrar" HorizontalAlignment="Left" Height="231" Margin="1260,610,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30"/>
-        <Button x:Name="btnCancelarVenta" Content="Cancelar Venta" HorizontalAlignment="Left" Height="60" Margin="1260,846,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30"/>
+        <Button x:Name="btnSeleccionar" Content="Seleccionar" HorizontalAlignment="Left" Height="288" Margin="1259,146,0,0" VerticalAlignment="Top" Width="156" HorizontalContentAlignment="Center" FontSize="30" Click="btnSeleccionar_Click"/>
+        <Button x:Name="brnBorrarFila" Content="Borrar" HorizontalAlignment="Left" Height="76" Margin="1260,529,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30" Click="brnBorrarFila_Click"/>
+        <Button x:Name="btnCobrarVenta" Content="Cobrar" HorizontalAlignment="Left" Height="231" Margin="1260,610,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30" Click="btnCobrarVenta_Click"/>
+        <Button x:Name="btnCancelarVenta" Content="Cancelar Venta" HorizontalAlignment="Left" Height="60" Margin="1260,846,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30" Click="btnCancelarVenta_Click"/>
         <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Height="60" Margin="1706,932,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30" Click="btnSalir_Click"/>
-        <Button x:Name="btnCerrarSesion" Content="Cerrar sesion" HorizontalAlignment="Left" Height="87" Margin="1706,819,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30"/>
-        <Button x:Name="btnVendedores" Content="Vendedores" HorizontalAlignment="Left" Height="111" Margin="1706,667,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30"/>
-        <Button x:Name="btnVentas" Content="Ventas" HorizontalAlignment="Left" Height="111" Margin="1706,436,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30"/>
-        <Button x:Name="btnInventario" Content="Inventario" HorizontalAlignment="Left" Height="110" Margin="1706,552,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30"/>
+        <Button x:Name="btnCerrarSesion" Content="Cerrar sesion" HorizontalAlignment="Left" Height="87" Margin="1706,819,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30" Click="btnCerrarSesion_Click"/>
+        <Button x:Name="btnVendedores" Content="Vendedores" HorizontalAlignment="Left" Height="111" Margin="1706,667,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30" Click="btnVendedores_Click"/>
+        <Button x:Name="btnVentas" Content="Ventas" HorizontalAlignment="Left" Height="111" Margin="1706,436,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30" Click="btnVentas_Click"/>
+        <Button x:Name="btnInventario" Content="Inventario" HorizontalAlignment="Left" Height="110" Margin="1706,552,0,0" VerticalAlignment="Top" Width="204" HorizontalContentAlignment="Center" FontSize="30" Click="btnInventario_Click"/>
+        <Button x:Name="btnVentas_Copiar" Content="Generar reporte" HorizontalAlignment="Left" Height="111" Margin="1637,320,0,0" VerticalAlignment="Top" Width="273" HorizontalContentAlignment="Center" FontSize="30" Click="btnVentas_Click" VerticalContentAlignment="Center"/>
 
     </Grid>
 </Window>

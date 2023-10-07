@@ -1,0 +1,149 @@
+﻿using System;
+using System.Windows;
+using System.Windows.Input;
+using System.Windows.Controls;
+using Negocio;
+using System.Data;
+
+namespace ProyectoBodega
+{
+    public partial class frmCobrar : Window
+    {
+        internal index indexVentana;
+
+        public frmCobrar()
+        {
+            InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtTotal.Text = (string)indexVentana.lblTotal.Content;
+        }
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        private void txtPago_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtPago.Text) && !string.IsNullOrWhiteSpace(txtTotal.Text))
+            {
+                txtCambio.Text = (double.Parse(txtPago.Text) - double.Parse(txtTotal.Text)).ToString("F2");
+            }
+            else
+            {
+                txtCambio.Text = "0,00";
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtControlarDouble_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (!(Char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) ||
+                  (e.Key == Key.OemComma && textBox.Text.IndexOf(',') == -1) ||
+                  e.Key == Key.Left || e.Key == Key.Right || e.Key == Key.Back || e.Key == Key.Delete || e.Key == Key.Home || e.Key == Key.End))
+            {
+                e.Handled = true;
+            }
+            if (e.Key == Key.OemComma && textBox.Text.IndexOf(',') != -1)
+            {
+                e.Handled = true;
+            }
+            if (e.Key == Key.OemComma)
+            {
+                int commaIndex = textBox.Text.IndexOf(',');
+                if (commaIndex != -1 && textBox.Text.Length - commaIndex > 2)
+                {
+                    e.Handled = true;
+                }
+            }
+            int indexOfComma = textBox.Text.IndexOf(',');
+            if (indexOfComma != -1)
+            {
+                string decimalPart = textBox.Text.Substring(indexOfComma + 1);
+                if (decimalPart.Length >= 2 && e.Key != Key.Back)
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtPrimeraLetraMayuscula_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if (!string.IsNullOrEmpty(textBox.Text))
+            {
+                string newText = char.ToUpper(textBox.Text[0]) + textBox.Text.Substring(1).ToLower();
+                textBox.Text = newText;
+                textBox.SelectionStart = textBox.Text.Length;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void btnAceptar_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPago.Text))
+            {
+                MessageBox.Show("Agregue un pago", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtPago.Focus();
+            }
+            else if (!(double.Parse(txtCambio.Text) >= 0))
+            {
+                MessageBox.Show("No hay suficiente dinero", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtPago.Focus();
+            }
+            else
+            {
+                Seleccionar();
+            }
+        }
+        private void Seleccionar()
+        {
+            string nombre_cliente = txtNombre.Text;
+            int idVendedor = Convert.ToInt32(indexVentana.idvendedor);
+
+            if (!double.TryParse(txtTotal.Text, out double total_venta))
+            {
+                MessageBox.Show("El valor en el campo 'Total' no es válido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            double ganancia = 0;
+
+            if (!double.TryParse(txtCambio.Text, out double vuelto))
+            {
+                MessageBox.Show("El valor en el campo 'Cambio' no es válido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            CN_frmCobrar venta = new CN_frmCobrar(nombre_cliente, idVendedor, total_venta, ganancia, vuelto);
+            int idVenta = venta.AgregarVenta();
+
+            double gananciaTotalProductos = 0;
+
+            if (indexVentana.dgVenta.Items.Count > 0)
+            {
+                foreach (var item in indexVentana.dgVenta.Items)
+                {
+                    DataRowView fila = (DataRowView)item;
+                    int idProducto = Convert.ToInt32(fila["idProducto"]);
+                    int cantidadProducto = Convert.ToInt32(fila["Cantidad"]);
+                    double precioUnitarioProducto = Convert.ToDouble(fila["precio_compra"]);
+
+                    CN_frmCobrar detalleVenta = new CN_frmCobrar(idVenta, idProducto, cantidadProducto, precioUnitarioProducto);
+                    double gananciaProducto = detalleVenta.AgregarDetalleVenta();
+
+                    gananciaTotalProductos += gananciaProducto;
+                }
+            }
+
+            CN_frmCobrar actualizarVenta = new CN_frmCobrar(idVenta, gananciaTotalProductos);
+            bool rpta = actualizarVenta.ActualizarGananciaVenta();
+
+            MessageBox.Show("Venta realizada correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            indexVentana.CargarProducto();
+            indexVentana.tablaVenta.Rows.Clear();
+            Close();
+        }
+    }
+}

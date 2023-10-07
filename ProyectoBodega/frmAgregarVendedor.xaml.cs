@@ -1,29 +1,71 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Negocio;
+using System.Data;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Forms;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Negocio;
 
 namespace ProyectoBodega
 {
     public partial class frmAgregarVendedor : Window
     {
-        private object ventanaEmpleados;
+        internal ventanaEmpleados ventanaEmpleados;
 
         public frmAgregarVendedor()
         {
             InitializeComponent();
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtUsuario.Focus();
+            if ((string)this.Tag != "Crear")
+            {
+
+                lblFrm.Content = "Actualizar Vendedor";
+                btnAgregarVendedor.Content = "Actualizar Vendedor";
+                txtCodigo.Visibility = Visibility.Visible;
+                lblCodigo.Visibility = Visibility.Visible;
+
+                txtbUsuario.Visibility = Visibility.Collapsed;
+                txtbNombre.Visibility = Visibility.Collapsed;
+                if (string.IsNullOrWhiteSpace(txtDireccion.Text))
+                {
+                    txtbDireccion.Visibility = Visibility.Collapsed;
+                }
+                if (string.IsNullOrWhiteSpace(txtTelefono.Text))
+                {
+                    txtbTelefono.Visibility = Visibility.Collapsed;
+                }
+
+                //----------------------------------------------------------------------------------------\\
+                DataRowView filaSeleccionada = (DataRowView)ventanaEmpleados.dgVendedores.SelectedItem;
+
+                string Id = filaSeleccionada["idVendedor"].ToString();
+                string nombre = filaSeleccionada["nombre_vendedor"].ToString();
+                string telefono = filaSeleccionada["telefono"].ToString();
+                string direccion = filaSeleccionada["direccion"].ToString();
+                string usuario = filaSeleccionada["usuario"].ToString();
+
+                nombreVendedor_primero = nombre;
+
+                txtCodigo.Text = Id;
+                txtUsuario.Text = usuario;
+                txtNombre.Text = nombre;
+
+                if (!string.IsNullOrEmpty(telefono))
+                {
+                    chkTelefono.IsChecked = true;
+                    txtTelefono.IsReadOnly = false;
+                    txtTelefono.Text = telefono;
+                }
+                if (!string.IsNullOrEmpty(direccion))
+                {
+                    chkDireccion.IsChecked = true;
+                    txtDireccion.IsReadOnly = false;
+                    txtDireccion.Text = direccion;
+                }
+                txtUsuario.Focus();
+            }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -32,16 +74,36 @@ namespace ProyectoBodega
         private void chkDireccion_Click(object sender, RoutedEventArgs e)
         {
             txtDireccion.Text = "";
-            txtDireccion.IsEnabled = !txtDireccion.IsEnabled;
+            txtDireccion.IsReadOnly = !txtDireccion.IsReadOnly;
+            if (txtDireccion.IsReadOnly==false)
+            {
+                gridDireccion.Cursor = Cursors.IBeam;
+                txtDireccion.Focus();
+            }
+            else
+            {
+                gridDireccion.Cursor = Cursors.Arrow;
+                txtbDireccion.Visibility = Visibility.Visible;
+            }
         }
         private void chkTelefono_Click(object sender, RoutedEventArgs e)
         {
             txtTelefono.Text = "";
-            txtTelefono.IsEnabled = !txtTelefono.IsEnabled;
+            txtTelefono.IsReadOnly = !txtTelefono.IsReadOnly;
+            if (txtTelefono.IsReadOnly==false)
+            {
+                gridTelefono.Cursor = Cursors.IBeam;
+                txtTelefono.Focus();
+            }
+            else
+            {
+                gridTelefono.Cursor = Cursors.Arrow;
+                txtbTelefono.Visibility = Visibility.Visible;
+            }
         }
-        private void txtNombre_TextChanged(object sender, TextChangedEventArgs e)
+        private void primeraLetraMayuscula_TextChanged(object sender, TextChangedEventArgs e)
         {
-            System.Windows.Controls.TextBox textBox = (System.Windows.Controls.TextBox)sender;
+            TextBox textBox = (TextBox)sender;
 
             if (!string.IsNullOrEmpty(textBox.Text))
             {
@@ -50,15 +112,19 @@ namespace ProyectoBodega
                 textBox.SelectionStart = textBox.Text.Length;
             }
         }
-        private void txtTelefono_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void txtTelefono_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (!char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) && e.Key != Key.Back || (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control && e.Key == Key.V)
             {
                 e.Handled = true;
             }
         }
+        CN_frmAgregarVendedor cn_vendedor = new CN_frmAgregarVendedor();
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        public string nombreVendedor_primero;
         private void btnAgregarVendedor_Click(object sender, RoutedEventArgs e)
         {
+            string id= txtCodigo.Text;
             string usuario = txtUsuario.Text;
             string nombre = txtNombre.Text;
             string telefono = txtTelefono.Text;
@@ -66,43 +132,146 @@ namespace ProyectoBodega
 
             if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(nombre))
             {
-                System.Windows.MessageBox.Show("No puede dejar campos obligatorios vacios", "Error");
+                MessageBox.Show("No puede dejar campos obligatorios vacios", "Error");
                 txtUsuario.Focus();
                 return;
             }
-            CN_frmAgregarVendedor cn_agregarvendedor = new CN_frmAgregarVendedor(usuario, nombre, telefono, direccion);
-            if (cn_agregarvendedor.verificarExistencia())
+
+            CN_frmAgregarVendedor cn_agregarvendedor = new CN_frmAgregarVendedor(id, usuario, nombre, telefono, direccion);
+
+            if((string)this.Tag == "Crear")
             {
-                if (cn_agregarvendedor.AgregarVendedor())
+                if (cn_agregarvendedor.verificarExistencia())
                 {
-                    System.Windows.MessageBox.Show("El vendedor se agrego correctamente", "Exito!!");
-                    txtUsuario.Text = string.Empty;
-                    txtNombre.Text = string.Empty;
-                    txtTelefono.Text = string.Empty;
-                    txtDireccion.Text = string.Empty;
-                    txtUsuario.Focus();
+                    if (cn_agregarvendedor.AgregarVendedor())
+                    {
+                        MessageBox.Show("El vendedor se agrego correctamente", "Exito!!");
+                        txtUsuario.Text = string.Empty;
+                        txtNombre.Text = string.Empty;
+                        txtTelefono.Text = string.Empty;
+                        txtDireccion.Text = string.Empty;
+                        txtUsuario.Focus();
 
-                    //if (ventanaEmpleados != null)
-                    //{
-                    //    ventanaEmpleados.CargarVendedor();
+                        if (ventanaEmpleados != null)
+                        {
+                            ventanaEmpleados.CargarVendedores();
 
-                    //    DataGridViewCellEventArgs cellClickArgs = new DataGridViewCellEventArgs(1, 0);
-                    //    if (ventanaEmpleados.dgvVendedores.RowCount > 0)
-                    //    {
-                    //        ventanaEmpleados.dgvVendedores_CellClick(ventanaEmpleados.dgvVendedores, cellClickArgs);
-                    //    }
-                    //}
+                            if (ventanaEmpleados.dgVendedores.Items.Count > 0)
+                            {
+                                ventanaEmpleados.dgVendedores.SelectedIndex = 0;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrio un error al intentar insertar el vendedor", "Error");
+                        txtUsuario.Focus();
+                    }
                 }
                 else
                 {
-                    System.Windows.MessageBox.Show("Ocurrio un error al intentar insertar el vendedor", "Error");
+                    MessageBox.Show("Ya existe un vendedor con este usuario", "Error");
                     txtUsuario.Focus();
                 }
             }
             else
             {
-                System.Windows.MessageBox.Show("Ya existe un vendedor con este usuario", "Error");
-                txtUsuario.Focus();
+                if (nombreVendedor_primero != nombre)
+                {
+                    cn_vendedor.Usuario = usuario;
+                    if (!cn_vendedor.verificarExistencia())
+                    {
+                        MessageBox.Show("El proveedor ya existe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        txtNombre.Focus();
+                        return;
+                    }
+                }
+                if (cn_agregarvendedor.ActualizarVendedor())
+                {
+                    if (ventanaEmpleados != null)
+                    {
+                        ventanaEmpleados.CargarVendedores();
+                    }
+                    MessageBox.Show("El vendedor se Actualizó correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    nombreVendedor_primero = nombre;
+                    txtNombre.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Error al intentar Actualizar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    txtNombre.Focus();
+                }
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbUsuario.Visibility = Visibility.Collapsed;
+        }
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
+            {
+                txtbUsuario.Visibility = Visibility.Visible;
+            }
+        }
+        private void usuario_Click(object sender, MouseButtonEventArgs e)
+        {
+            txtUsuario.Focus();
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void nombre_Click(object sender, MouseButtonEventArgs e)
+        {
+            txtNombre.Focus();
+        }
+
+        private void txtNombre_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbNombre.Visibility = Visibility.Collapsed;
+        }
+        private void txtNombre_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
+            {
+                txtbNombre.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void telefono_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (chkTelefono.IsChecked == true)
+            {
+                txtTelefono.Focus();
+            }
+        }
+        private void txtTelefono_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbTelefono.Visibility = Visibility.Collapsed;
+        }
+        private void txtTelefono_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTelefono.Text))
+            {
+                txtbTelefono.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void direccion_Click(object sender, MouseButtonEventArgs e)
+        {
+            if (chkDireccion.IsChecked == true)
+            {
+                txtDireccion.Focus();
+            }
+        }
+        private void txtDireccion_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbDireccion.Visibility = Visibility.Collapsed;
+        }
+        private void txtDireccion_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
+            {
+                txtbDireccion.Visibility = Visibility.Visible;
             }
         }
     }

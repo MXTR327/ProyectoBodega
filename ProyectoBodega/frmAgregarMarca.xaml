@@ -5,74 +5,135 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="frmAgregarMarca" Height="381" Width="590" WindowStartupLocation="CenterScreen">
+        Title="frmAgregarMarca" Height="817" Width="922" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized">
+    <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
     <Window.Resources>
-        <Style x:Key="IngresarButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#007ACC" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="Margin" Value="58,377,0,0" />
-            <Setter Property="Width" Value="476" />
-            <Setter Property="Height" Value="51" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#005C99" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
-        <Style x:Key="TextBoxStyle" TargetType="TextBox">
-            <Setter Property="FontSize" Value="14.25" />
-            <Setter Property="FontFamily" Value="Microsoft Sans Serif" />
-            <Setter Property="Height" Value="44" />
-            <Setter Property="Width" Value="451" />
-            <Setter Property="Margin" Value="0,0,3,0" />
-            <Setter Property="HorizontalAlignment" Value="Right" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-        </Style>
-
-        <Style x:Key="ActionButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#007ACC" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="Margin" Value="58,480,0,0" />
-            <Setter Property="Width" Value="203" />
-            <Setter Property="Height" Value="51" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#005C99" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
     </Window.Resources>
-    <Grid Margin="0,0,0,-6">
-        <Grid.ColumnDefinitions>
-        </Grid.ColumnDefinitions>
-        <Button x:Name="BtnIngresar" Content="Agregar Marca" Style="{StaticResource IngresarButtonStyle}" Height="51" Width="476" Click="BtnIngresar_Click" Margin="49,218,0,0" FontFamily="Maiandra GD" FontSize="25" />
+    <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="img/fondo.jpg"/>
+        </Grid.Background>
 
-        <Border BorderBrush="Black" BorderThickness="1" Margin="49,82,49,0" VerticalAlignment="Top">
-            <Grid Height="129" HorizontalAlignment="Center" Width="492">
-                <Label Content="Nombre de la Marca" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Width="247" HorizontalAlignment="Left" Margin="10,10,0,81" />
-                <TextBox x:Name="txtUsuario" Height="50" CharacterCasing="Upper" Margin="12,53,12,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" >
-                    <TextBox.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleY="0.356"/>
-                            <RotateTransform/>
-                            <TranslateTransform Y="1.235"/>
-                        </TransformGroup>
-                    </TextBox.RenderTransform>
+        <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+        <Border HorizontalAlignment="Center" Width="510" Background="White" CornerRadius="10,10,10,10" VerticalAlignment="Center" Height="650">
+            <Grid>
+
+                <Label x:Name="lblMarca" Content="Nueva Marca" FontSize="35" FontFamily="Bahnschrift" Width="456" HorizontalAlignment="Center" Margin="0,48,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+                <Label Content="Nombre de la Marca" FontSize="25" FontFamily="Bahnschrift" Width="247" HorizontalAlignment="Left" Margin="24,180,0,420" />
+
+                <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="nombre_Click" Margin="0,243,1,346">
+                    <TextBox x:Name="txtNombre" Height="50" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtNombre_TextChanged" Margin="25,4,24,0" BorderThickness="0,0,0,2" GotFocus="txtNombre_GotFocus" LostFocus="txtNombre_LostFocus" Padding="43,0,0,0"/>
+                    <TextBlock x:Name="txtbNombre" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="69,0,0,14" Foreground="Gray" FontSize="30" Width="416"><Run Language="es-pe" Text="Ingrese el nombre de la Marca"/></TextBlock>
+                    <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/nombreP.png" Stretch="Fill" Opacity="0.55"/>
+                </Grid>
+
+
+
+                <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+                <Button x:Name="btnAgregarMarca" Content="Agregar Marca" Width="460" Height="51" Margin="16,353,17,246" FontFamily="Maiandra GD" FontSize="25" Click="btnAgregarMarca_Click" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="470" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="52" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="460" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="51" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Width" Value="476" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="25">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FFEB85FD" Offset="0"/>
+                            <GradientStop Color="#FF5596EC" Offset="0.5"/>
+                            <GradientStop Color="#FF0BC2FF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <Button x:Name="btnSalir" Content="Salir" Height="50" Width="202" Margin="0,0,25,55"  FontFamily="Maiandra GD" FontSize="20" Click="btnSalir_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="218" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="57" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="208" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="54" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#007ACC" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Width" Value="476" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="29">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FFD32F2F" Offset="0"/>
+                            <GradientStop Color="#FF953232" Offset="0.5"/>
+                            <GradientStop Color="#FF701616" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <TextBox x:Name="txtCodigo" Margin="402,104,27,493" TextWrapping="Wrap" Text="0" FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" BorderThickness="0,0,0,2" IsEnabled="False" Visibility="Hidden">
+                    <TextBox.Style>
+                        <Style TargetType="{x:Type TextBox}">
+                            <Style.Triggers>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Foreground" Value="#000000"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
                 </TextBox>
+                <Label x:Name="lblCodigo" Content="ID:" HorizontalAlignment="Left" Margin="358,122,0,491" Width="50" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" Visibility="Hidden"/>
             </Grid>
         </Border>
+        <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
 
-        <GridSplitter HorizontalAlignment="Left" Height="5" Margin="49,274,0,0" VerticalAlignment="Top" Width="476" />
-        <Button x:Name="btnRegistrar" Content="Salir" Style="{StaticResource ActionButtonStyle}" Height="51" Width="202" Margin="323,298,0,0" Click="btnRegistrar_Click" FontFamily="Maiandra GD" FontSize="20" />
-        <Label Content="Agregar nueva Marca" FontSize="35" FontFamily="Bookman Old Style" FontWeight="Bold" Width="400" HorizontalAlignment="Center" Margin="0,24,0,280" />
+
     </Grid>
 </Window>

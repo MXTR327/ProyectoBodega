@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="frmAgregarProveedor" Height="605" Width="643">
+        Title="frmAgregarProveedor" Height="636" Width="643" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" Loaded="Window_Loaded">
     <Window.Resources>
         <Style x:Key="IngresarButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#007ACC" />
@@ -50,13 +50,14 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    <Grid Margin="0,0,10,8">
-        <Button x:Name="BtnIngresar" Content="Agregar Categoria" Style="{StaticResource IngresarButtonStyle}" Height="52" Width="613" Click="BtnIngresar_Click" Margin="0,460,0,0" FontFamily="Maiandra GD" FontSize="25" HorizontalAlignment="Center" />
+    <Grid Margin="0,0,0,13">
+        <Label x:Name="lblProveedor" Content="Crear un Nuevo Proveedor" FontSize="35" FontFamily="Bookman Old Style" FontWeight="Bold" Width="509" HorizontalAlignment="Left" Margin="13,15,0,0" VerticalAlignment="Top" Height="67" />
+        <Button x:Name="btnAgregarProveedor" Content="Agregar Proveedor" Style="{StaticResource IngresarButtonStyle}" Height="52" Width="613" Margin="0,460,0,0" FontFamily="Maiandra GD" FontSize="25" HorizontalAlignment="Center" Click="btnAgregarProveedor_Click" />
 
         <Border BorderBrush="Black" BorderThickness="1" Margin="10,82,10,0" VerticalAlignment="Top" Height="363">
             <Grid HorizontalAlignment="Center" Width="598" Margin="0,9,0,9">
-                <Label Content="Nombre de la Categoria" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Width="286" HorizontalAlignment="Left" Margin="10,10,0,289" />
-                <TextBox x:Name="txtUsuario" Height="50" CharacterCasing="Upper" Margin="12,53,12,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" >
+                <Label Content="Nombre del Proveedor" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Width="286" HorizontalAlignment="Left" Margin="10,10,0,289" />
+                <TextBox x:Name="txtNombre" Height="50" Margin="12,53,12,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtNombre_TextChanged" >
                     <TextBox.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -68,12 +69,12 @@
                 </TextBox>
                 <Label Content="Direccion" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Width="117" HorizontalAlignment="Left" Margin="10,122,0,177" />
                 <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Margin="132,125,0,0">
-                    <CheckBox x:Name="chkDireccion" Click="chkTelefono_Click" Checked="chkDireccion_Checked" Height="15" Width="16" />
+                    <CheckBox x:Name="chkDireccion" Height="15" Width="16" Click="chkDireccion_Click" IsChecked="False"/>
                 </Viewbox>
                 <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Margin="256,236,0,0">
-                    <CheckBox x:Name="chkContacto" Click="chkTelefono_Click" Checked="chkDireccion_Checked" Height="15" Width="16" />
+                    <CheckBox x:Name="chkContacto"  Height="15" Width="16" IsChecked="False" Click="chkContacto_Click"/>
                 </Viewbox>
-                <TextBox x:Name="txtUsuario_Copiar" Height="50" CharacterCasing="Upper" Margin="12,165,12,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" >
+                <TextBox x:Name="txtDireccion" Height="50" Margin="12,165,12,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" TextChanged="txtDireccion_TextChanged" >
                     <TextBox.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -84,7 +85,7 @@
                     </TextBox.RenderTransform>
                 </TextBox>
                 <Label Content="Numero de contacto" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Width="251" HorizontalAlignment="Left" Margin="10,232,0,65" />
-                <TextBox x:Name="txtUsuario_Copiar1" Height="50" CharacterCasing="Upper" Margin="12,275,12,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" >
+                <TextBox x:Name="txtNumero" Height="50" Margin="12,275,12,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" >
                     <TextBox.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -98,8 +99,9 @@
         </Border>
 
         <GridSplitter HorizontalAlignment="Left" Height="5" Margin="13,450,0,0" VerticalAlignment="Top" Width="610" />
-        <Button x:Name="btnRegistrar" Content="Salir" Style="{StaticResource ActionButtonStyle}" Height="52" Width="202" Margin="421,527,0,0" Click="btnRegistrar_Click" FontFamily="Maiandra GD" FontSize="20" />
-        <Label Content="Agregar nueva Categoria" FontSize="35" FontFamily="Bookman Old Style" FontWeight="Bold" Width="460" HorizontalAlignment="Center" Margin="0,24,0,477" />
+        <Button x:Name="btnSalir" Content="Salir" Style="{StaticResource ActionButtonStyle}" Height="52" Width="202" Margin="421,527,0,0" FontFamily="Maiandra GD" FontSize="20" Click="btnSalir_Click" />
         <GridSplitter HorizontalAlignment="Center" Height="5" Margin="0,517,0,0" VerticalAlignment="Top" Width="613" />
+        <TextBox x:Name="txtCodigo" HorizontalAlignment="Left" Height="53" Margin="535,15,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="80" FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" Visibility="Hidden"/>
+        <Label x:Name="lblCodigo" Content="ID:" HorizontalAlignment="Left" Height="53" Margin="488,15,0,0" VerticalAlignment="Top" Width="50" FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden"/>
     </Grid>
 </Window>

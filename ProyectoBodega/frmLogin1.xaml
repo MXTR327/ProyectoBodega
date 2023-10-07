@@ -5,42 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion"
         mc:Ignorable="d"
-        Title="frmLogin1" Height="596" Width="583" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown">
+        Title="Login" Height="817" Width="932" UseLayoutRounding="True" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" Icon="img/icono.png" WindowState="Maximized">
     <Window.Resources>
-        <Style x:Key="IngresarButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#007ACC" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="Margin" Value="58,377,0,0" />
-            <Setter Property="Width" Value="476" />
-            <Setter Property="Height" Value="51" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#005C99" />
-                </Trigger>
-            </Style.Triggers>
+        <!-- Styles -->
+        <Style x:Key="estiloTextBox" TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="0,0,0,2"/>
         </Style>
 
-        <Style x:Key="TextBoxStyle" TargetType="TextBox">
-            <Setter Property="FontSize" Value="14.25" />
-            <Setter Property="FontFamily" Value="Microsoft Sans Serif" />
-            <Setter Property="Height" Value="44" />
-            <Setter Property="Width" Value="451" />
-            <Setter Property="Margin" Value="0,0,3,0" />
-            <Setter Property="HorizontalAlignment" Value="Right" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-        </Style>
-
-        <Style x:Key="ActionButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#007ACC" />
-            <Setter Property="Foreground" Value="White" />
+        <Style x:Key="BaseButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="16" />
-            <Setter Property="Margin" Value="58,480,0,0" />
-            <Setter Property="Width" Value="203" />
             <Setter Property="Height" Value="51" />
+            <Setter Property="Margin" Value="10" />
             <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="VerticalAlignment" Value="Top" />
             <Style.Triggers>
@@ -50,30 +25,153 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid Margin="-2,0,0,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="img/fondo.jpg"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
-        <Image HorizontalAlignment="Left" Height="175" Margin="222,28,0,0" VerticalAlignment="Top" Width="148" Stretch="Fill" Source="/default.png" />
-        <Button x:Name="BtnIngresar" Content="Ingresar" Style="{StaticResource IngresarButtonStyle}" Height="51" Width="476" Click="BtnIngresar_Click" />
+        <Border HorizontalAlignment="Center" CornerRadius="10" Height="718" VerticalAlignment="Center" Width="384" Background="White" Opacity="0.99">
+            <Grid Margin="0,0,-1,-1">
+                <Label Content="Usuario" FontSize="25" VerticalAlignment="Top" Margin="26,283,0,0" HorizontalAlignment="Left" Width="125" Height="39" FontFamily="Bahnschrift" />
+                <Grid Cursor="IBeam" ForceCursor="True">
+                    <TextBox x:Name="txtUsuario" Style="{StaticResource estiloTextBox}" CharacterCasing="Upper" FontSize="30" Height="64" VerticalAlignment="Top" VerticalContentAlignment="Center" Padding="40,10,0,0" HorizontalAlignment="Center" Width="327" AcceptsReturn="False" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Margin="0,321,0,0"/>
+                    <TextBlock x:Name="placeholderText" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="69,0,0,0" Foreground="Gray" FontSize="30" MouseLeftButtonDown="placeholderText_MouseLeftButtonDown"><Run Language="es-pe" Text="Ingrese Usuario"/></TextBlock>
+                    <Image HorizontalAlignment="Left" Height="36" Margin="31,0,0,0" VerticalAlignment="Center" Width="36" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                    <Button x:Name="BtnIngresar" Content="INGRESAR"  Height="51" Width="340" Click="BtnIngresar_Click" Margin="0,145,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <Button.Triggers>
+                            <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation To="351" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                        <DoubleAnimation To="52" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation To="341" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                        <DoubleAnimation To="51" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Button.Triggers>
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButtonStyle}">
+                                <Setter Property="Background" Value="#007ACC" />
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="Width" Value="476" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="25">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                        <Button.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FFEB85FD" Offset="0"/>
+                                <GradientStop Color="#FF5596EC" Offset="0.5"/>
+                                <GradientStop Color="#FF0BC2FF" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </Grid>
 
-        <Border BorderBrush="Black" BorderThickness="1" Margin="58,231,33,0" VerticalAlignment="Top">
-            <Grid Height="129" Margin="-1,0,-1,0">
-                <Label Content="Usuario" FontSize="20" FontFamily="Microsoft Sans Serif" FontWeight="Bold" Width="90" HorizontalAlignment="Left" Margin="0,10,0,81" />
-                <TextBox x:Name="txtUsuario" Height="50" CharacterCasing="Upper" Margin="12,53,12,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" >
-                    <TextBox.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleY="0.356"/>
-                            <RotateTransform/>
-                            <TranslateTransform Y="1.235"/>
-                        </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
+                <Image HorizontalAlignment="Center" Height="235" VerticalAlignment="Top" Width="197" Stretch="Fill" Source="img/default.png" Margin="0,43,0,0" />
+                <Button x:Name="btnRegistrar" Content="Registrarse" Height="51" Width="222" Margin="22,0,0,94" Click="btnRegistrar_Click" VerticalAlignment="Bottom">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="232" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="52" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="222" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="51" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButtonStyle}">
+                            <Setter Property="Background" Value="#007ACC" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Width" Value="203" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="25">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FFEB85FD" Offset="0.0"/>
+                            <GradientStop Color="#FF0BC2FF" Offset="0.4"/>
+                            <GradientStop Color="#FF3642A6" Offset="1.0"/>
+                        </LinearGradientBrush>
+
+                    </Button.Background>
+                </Button>
+                <Button x:Name="BtnSalir" Content="Salir" Width="94" Height="51" Margin="0,0,26,94" Click="BtnSalir_Click" RenderTransformOrigin="0.481,0.455" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="104" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="52" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="94" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="51" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButtonStyle}">
+                            <Setter Property="Background" Value="#007ACC" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Width" Value="203" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FFD32F2F" Offset="0"/>
+                            <GradientStop Color="#FF953232" Offset="0.5"/>
+                            <GradientStop Color="#FF701616" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </Grid>
         </Border>
-
-        <GridSplitter HorizontalAlignment="Left" Height="5" Margin="58,468,0,0" VerticalAlignment="Top" Width="476" Grid.ColumnSpan="3" />
-        <Button x:Name="btnRegistrar" Content="Registrarse" Style="{StaticResource ActionButtonStyle}" Height="51" Width="202" Margin="58,478,0,0" Click="btnRegistrar_Click" />
-        <Button x:Name="BtnSalir" Content="Salir" Style="{StaticResource ActionButtonStyle}" Width="141" Height="51" Margin="393,477,0,0" Grid.ColumnSpan="3" Click="BtnSalir_Click" />
     </Grid>
 </Window>

@@ -1,0 +1,152 @@
+﻿using Negocio;
+using System;
+using System.Data;
+using System.Windows;
+using System.Windows.Controls;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+
+namespace ProyectoBodega
+{
+    public partial class ventanaVentas : Window
+    {
+        CN_ventanaVentas cn_ventanaventas = new CN_ventanaVentas();
+        private string filtroFecha;
+
+        public ventanaVentas()
+        {
+            InitializeComponent();
+        }
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            filtroFecha = "";
+            CargarVentas();
+            CargarDetalleVentas();
+
+            dpFecha.SelectedDate = DateTime.Now;
+        }
+        private void dpFecha_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is DatePicker datePicker)
+            {
+                DateTime? fechaSeleccionada = datePicker.SelectedDate;
+
+                if (fechaSeleccionada.HasValue)
+                {
+                    filtroFecha = fechaSeleccionada.Value.Date.ToString("dd/MM/yyyy");
+                    CargarVentas();
+                }
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void CalcularGananciasTotales()
+        {
+            double suma = 0;
+            for (int i = 0; i < dgVentas.Items.Count; i++)
+            {
+                var fila = dgVentas.Items[i];
+
+                if (fila is DataRowView dataRowView)
+                {
+                    suma += Convert.ToDouble(dataRowView["ganancia"]?.ToString() ?? "0");
+                }
+                else
+                {
+                }
+            }
+            lblGanancia.Content = suma.ToString("F2");
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void CargarVentas()
+        {
+            DataTable dt = cn_ventanaventas.tblVentas(filtroFecha);
+            dgVentas.ItemsSource = dt.DefaultView;
+            CalcularGananciasTotales();
+        }
+        private void CargarDetalleVentas()
+        {
+            if (dgVentas.Items.Count > 0)
+            {
+                dgVentas.SelectedIndex = 0;
+                DataRowView filaSeleccionada = (DataRowView)dgVentas.SelectedItem;
+                string Id = filaSeleccionada["idVenta"].ToString();
+                DataTable dt = cn_ventanaventas.tblDetalleVenta(Id);
+                dgProductosVenta.ItemsSource = dt.DefaultView;
+
+                CargarDetalleProductos();
+            }
+            else
+            {
+                txtID.Text = "Sin Productos";
+                txtNombre.Text = txtDescripcion.Text = txtCategoria.Text = txtProveedor.Text = txtMarca.Text = txtPrecioCompra.Text =
+                txtPrecioVenta.Text = txtMedida.Text = txtStock.Text = txtUnidadGanancia.Text = txtGananciaTotal.Text = "Inexistente";
+            }
+        }
+        private void CargarDetalleProductos()
+        {
+            if (dgProductosVenta.Items.Count > 0)
+            {
+                dgProductosVenta.SelectedIndex = 0;
+
+                DataRowView filaSeleccionada = (DataRowView)dgProductosVenta.SelectedItem;
+                if (filaSeleccionada != null)
+                {
+                    string IdProducto = filaSeleccionada["idProducto"].ToString();
+                    string cantidad = filaSeleccionada["Cantidad"].ToString();
+                    DataTable DetalleProducto = cn_ventanaventas.tblDetalleProducto(IdProducto);
+
+                    if (DetalleProducto.Rows.Count > 0)
+                    {
+                        DataRow Filaproducto = DetalleProducto.Rows[0];
+                        txtID.Text = IdProducto;
+                        txtNombre.Text = Filaproducto["nombre_producto"].ToString();
+                        txtDescripcion.Text = Filaproducto["descripcion"].ToString();
+                        txtCategoria.Text = Filaproducto["nombre_categoria"].ToString();
+                        txtProveedor.Text = Filaproducto["nombre_proveedor"].ToString();
+                        txtMarca.Text = Filaproducto["nombre_marca"].ToString();
+                        txtPrecioCompra.Text = Filaproducto["precio_compra"].ToString();
+                        txtPrecioVenta.Text = Filaproducto["precio_venta"].ToString();
+                        txtMedida.Text = Filaproducto["medida"].ToString();
+                        txtStock.Text = Filaproducto["stock"].ToString();
+                        double gananciaUnidad = double.Parse(txtPrecioVenta.Text) - double.Parse(txtPrecioCompra.Text);
+                        double gananciaTotal = gananciaUnidad * int.Parse(cantidad);
+                        txtUnidadGanancia.Text = gananciaUnidad.ToString();
+                        txtGananciaTotal.Text = gananciaTotal.ToString();
+                    }
+                    else
+                    {
+                        txtID.Text = "Sin Productos";
+                        txtNombre.Text = txtDescripcion.Text = txtCategoria.Text = txtProveedor.Text = txtMarca.Text = txtPrecioCompra.Text =
+                        txtPrecioVenta.Text = txtMedida.Text = txtStock.Text = txtUnidadGanancia.Text = txtGananciaTotal.Text = "Inexistente";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No selecciono ningun producto", "Error");
+                }
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void dgVentas_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            CargarDetalleVentas();
+        }
+        private void dgProductosVenta_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            CargarDetalleProductos();
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void btnFechaHoy_Click(object sender, RoutedEventArgs e)
+        {
+            dpFecha.SelectedDate = DateTime.Now;
+        }
+        private void btnReestablecerFecha_Click(object sender, RoutedEventArgs e)
+        {
+            dpFecha.SelectedDate = null;
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+    }
+}

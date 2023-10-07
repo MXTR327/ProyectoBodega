@@ -5,62 +5,169 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Agregar Vendedor" Height="485" Width="559" WindowStartupLocation="CenterScreen">
+        Title="Agregar Vendedor" Height="960" Width="951" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="/img/icono.png" WindowState="Maximized">
+    <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
     <Window.Resources>
-        <Style TargetType="TextBox">
-            <Setter Property="Margin" Value="0 10" />
-            <Setter Property="Padding" Value="10" />
-            <Setter Property="BorderThickness" Value="2" />
-            <Setter Property="BorderBrush" Value="#007ACC" />
-            <Setter Property="Background" Value="#F2F2F2" />
-            <Setter Property="Foreground" Value="#333" />
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="FontFamily" Value="Arial" />
-            <Setter Property="Height" Value="40" />
-            <Setter Property="Width" Value="300" />
-        </Style>
-        <Style TargetType="Button" x:Key="ModernButton">
-            <Setter Property="Margin" Value="0 20" />
-            <Setter Property="Padding" Value="15" />
-            <Setter Property="Background" Value="#007ACC" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="Cursor" Value="Hand" />
-            <Setter Property="FontSize" Value="20" />
-            <Setter Property="FontFamily" Value="Arial" />
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#005A9E" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+
     </Window.Resources>
-    <Grid Margin="0,10,10,6" HorizontalAlignment="Right" Width="539">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <TextBox x:Name="txtUsuario" Width="344" Height="51" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="134,0,0,0" Grid.Row="1" CharacterCasing="Upper" FontSize="27" MaxLength="60" VerticalContentAlignment="Center"/>
-        <TextBox x:Name="txtNombre" Width="344" Height="51" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="134,0,0,0" Grid.Row="2" TextChanged="txtNombre_TextChanged" FontSize="20" MaxLength="60" VerticalContentAlignment="Center" />
-        <TextBox x:Name="txtDireccion" Width="346" Height="51" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="134,0,0,13" Grid.Row="3" IsEnabled="False" FontSize="20" MaxLength="60" VerticalContentAlignment="Center" />
-        <TextBox x:Name="txtTelefono" Width="344" Height="51" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="136,0,0,0" Grid.Row="4" IsEnabled="False" FontSize="27" PreviewKeyDown="txtTelefono_PreviewKeyDown" MaxLength="9" VerticalContentAlignment="Center"/>
-        <Button Content="Salir" Style="{StaticResource ModernButton}" Width="172" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Click="Button_Click" Height="53" Margin="349,8,0,0" Grid.Row="5"/>
-        
-        <Button x:Name="btnAgregarVendedor" Content="Agregar Vendedor" Style="{StaticResource ModernButton}" Width="202" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,8,0,0" Grid.Row="5" Click="btnAgregarVendedor_Click" />
-        <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Height="39" Margin="480,20,0,0" Grid.Row="3">
-            <CheckBox x:Name="chkDireccion" Click="chkDireccion_Click" />
-        </Viewbox>
-        <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Height="39" Margin="480,20,0,0" Grid.Row="4">
-            <CheckBox x:Name="chkTelefono" Click="chkTelefono_Click" />
-        </Viewbox>
-        <Label Content="Usuario:" FontSize="25" VerticalAlignment="Top" Margin="10,21,398,0" Grid.Row="1" Height="40" />
-        <Label Content="Nombre:" FontSize="25" VerticalAlignment="Bottom" Margin="7,0,401,7" Grid.Row="2" Height="48" />
-        <Label Content="Teléfono:" FontSize="25" Margin="7,16,401,4" Grid.Row="4" />
-        <Label Content="Dirección:" FontSize="25" Margin="7,14,401,8" Grid.Row="3" />
-        <Label Content="Agregar Nuevo Vendedor" VerticalAlignment="Center" FontSize="30" FontWeight="Bold" Margin="86,0,66,0"/>
+    <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="img/fondo.jpg"/>
+        </Grid.Background>
+        <Border HorizontalAlignment="Center" CornerRadius="10" Height="875" VerticalAlignment="Center" Width="559" Background="White" Opacity="0.99">
+            <Grid>
+                <Label x:Name="lblFrm" Content="Nuevo Vendedor" VerticalAlignment="Top" FontSize="40" Margin="0,48,0,0" HorizontalAlignment="Center" Width="388" Height="61" FontFamily="Bahnschrift" HorizontalContentAlignment="Center"/>
+
+                <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="usuario_Click" Margin="0,211,1,604">
+                    <TextBox x:Name="txtUsuario"  Width="497" Height="51" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,9" CharacterCasing="Upper" FontSize="27" MaxLength="60" VerticalContentAlignment="Center" Padding="37,0,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" BorderThickness="0,0,0,2"></TextBox>
+                    <TextBlock x:Name="txtbUsuario" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="69,0,0,14" Foreground="Gray" FontSize="30" Width="349"><Run Language="es-pe" Text="Ingrese su nuevo Usuario"/></TextBlock>
+                    <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                </Grid>
+
+                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="nombre_Click" Margin="0,333,0,472">
+                    <TextBox x:Name="txtNombre" Width="497" Height="52" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,7,0,0" TextChanged="primeraLetraMayuscula_TextChanged" FontSize="20" MaxLength="60" VerticalContentAlignment="Center" Padding="37,0,0,0" GotFocus="txtNombre_GotFocus" LostFocus="txtNombre_LostFocus" BorderThickness="0,0,0,2" />
+                    <TextBlock x:Name="txtbNombre" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="70,0,0,17" Foreground="Gray" FontSize="30" Width="406"><Run Language="es-pe" Text="Ingrese su Nombre completo"/></TextBlock>
+                    <Image HorizontalAlignment="Left" Height="36" Margin="31,0,0,20" VerticalAlignment="Bottom" Width="34" Source="img/nombreIco.png" Stretch="Fill" Opacity="0.7"/>
+                </Grid>
+
+                <Grid x:Name="gridDireccion" Cursor="Arrow" ForceCursor="True" MouseLeftButtonDown="direccion_Click" Margin="0,462,0,343">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="101*"/>
+                        <ColumnDefinition Width="458*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="txtDireccion" Width="497" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,4,0,0" FontSize="20" MaxLength="60" VerticalContentAlignment="Center" IsReadOnly="True" GotFocus="txtDireccion_GotFocus" LostFocus="txtDireccion_LostFocus" Padding="37,0,0,0" TextChanged="primeraLetraMayuscula_TextChanged" Grid.ColumnSpan="2" BorderThickness="0,0,0,2"/>
+                    <TextBlock x:Name="txtbDireccion" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="70,0,0,23" Foreground="Gray" FontSize="30" Width="450" Grid.ColumnSpan="2" ><Run Language="es-pe" Text="Ingrese su Dirección( Opcional )"/></TextBlock>
+                    <Image HorizontalAlignment="Left" Height="36" Margin="28,9,0,0" VerticalAlignment="Top" Width="39" Source="img/direccion.png" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.35,0.533"/>
+                </Grid>
+
+
+                <Grid x:Name="gridTelefono" Cursor="Arrow" ForceCursor="True" MouseLeftButtonDown="telefono_Click" Margin="0,590,0,229">
+                    <TextBox x:Name="txtTelefono" Width="497" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,-1,0,0" FontSize="27" PreviewKeyDown="txtTelefono_PreviewKeyDown" MaxLength="9" VerticalContentAlignment="Center" IsReadOnly="True" GotFocus="txtTelefono_GotFocus" LostFocus="txtTelefono_LostFocus" Padding="37,0,0,0" BorderThickness="0,0,0,2"/>
+                    <TextBlock x:Name="txtbTelefono" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="71,0,0,14" Foreground="Gray" FontSize="30" Width="421"><Run Language="es-pe" Text="Ingrese su Teléfono( Opcional )"/></TextBlock>
+                    <Image HorizontalAlignment="Left" Height="36" Margin="33,0,0,15" VerticalAlignment="Bottom" Width="34" Source="img/telefonoIco.png" Stretch="Fill" Opacity="0.7"/>
+                </Grid>
+
+
+
+                <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+
+                <Label Content="Usuario" FontSize="25" VerticalAlignment="Top" Height="40" HorizontalAlignment="Left" Width="128" Margin="32,169,0,0" FontFamily="Bahnschrift" />
+                <Label Content="Nombre" FontSize="25" VerticalAlignment="Top" Margin="32,293,0,0" Height="40" HorizontalAlignment="Left" Width="128" FontFamily="Bahnschrift" />
+                <Label Content="Teléfono" FontSize="25" Margin="32,549,0,0" HorizontalAlignment="Left" Width="118" Height="40" VerticalAlignment="Top" FontFamily="Bahnschrift" />
+                <Label Content="Dirección" FontSize="25" Margin="32,422,0,0" HorizontalAlignment="Left" Width="118" Height="40" VerticalAlignment="Top" FontFamily="Bahnschrift" />
+
+                <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+                <Button Content="Salir" Width="172" HorizontalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Button_Click" Height="54" Margin="0,780,31,0" FontSize="19">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="182" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="57" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="172" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="54" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#007ACC" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Width" Value="476" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="29">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FFD32F2F" Offset="0"/>
+                            <GradientStop Color="#FF953232" Offset="0.5"/>
+                            <GradientStop Color="#FF701616" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <Button x:Name="btnAgregarVendedor" Content="Agregar Vendedor" Width="510" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,512,0,0" Click="btnAgregarVendedor_Click" Height="54" FontSize="19" VerticalAlignment="Center" >
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="520" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="57" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="510" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="54" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Width" Value="476" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="25">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FFEB85FD" Offset="0"/>
+                            <GradientStop Color="#FF5596EC" Offset="0.5"/>
+                            <GradientStop Color="#FF0BC2FF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+                <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Margin="150,420,0,0" Cursor="Hand" ForceCursor="True">
+                    <CheckBox x:Name="chkDireccion" Click="chkDireccion_Click" RenderTransformOrigin="0.51,0.558" />
+                </Viewbox>
+                <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Height="39" Margin="150,547,0,0" Cursor="Hand" ForceCursor="True">
+                    <CheckBox x:Name="chkTelefono" Click="chkTelefono_Click" />
+                </Viewbox>
+                <TextBox x:Name="txtCodigo" HorizontalAlignment="Left" Height="48" Margin="462,112,0,0" TextWrapping="Wrap" Text="1234" VerticalAlignment="Top" Width="64" FontWeight="Bold" FontSize="25" VerticalScrollBarVisibility="Disabled" RenderTransformOrigin="0.525,-0.027" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" IsEnabled="False" Visibility="Hidden">
+                    <TextBox.Style>
+                        <Style TargetType="{x:Type TextBox}">
+                            <Style.Triggers>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Foreground" Value="#000000"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                <Label x:Name="lblCodigo" Content="ID:" Height="38" Margin="426,126,0,0" VerticalAlignment="Top" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" HorizontalAlignment="Left" Width="38" Visibility="Hidden"/>
+            </Grid>
+        </Border>
+
     </Grid>
 </Window>

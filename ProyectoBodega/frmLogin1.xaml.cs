@@ -1,20 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Windows;
-using Negocio;
+﻿using Negocio;
 using ProyectoBodega;
-using System.Windows.Forms;
+using System.Data;
+using System.Windows;
+using System.Windows.Input;
 using MessageBox = System.Windows.MessageBox;
 
 namespace Presentacion
@@ -73,6 +61,7 @@ namespace Presentacion
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
             frmAgregarVendedor agregarVendedor = new frmAgregarVendedor();
+            agregarVendedor.Tag = "Crear";
             agregarVendedor.ShowDialog();
         }
 
@@ -87,6 +76,22 @@ namespace Presentacion
             {
                 BtnIngresar_Click(sender, e);
             }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            placeholderText.Visibility = Visibility.Collapsed;
+        }
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
+            {
+                placeholderText.Visibility = Visibility.Visible;
+            }
+        }
+        private void placeholderText_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            txtUsuario.Focus();
         }
     }
 }

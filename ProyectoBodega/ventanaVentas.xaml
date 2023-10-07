@@ -1,0 +1,97 @@
+﻿<Window x:Class="ProyectoBodega.ventanaVentas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoBodega"
+        mc:Ignorable="d"
+        Title="ventanaVentas" Height="979" Width="1465" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="442*"/>
+            <ColumnDefinition Width="291*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="664,512,15,0" RenderTransformOrigin="0.5,0.5" Height="352" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+        </Border>
+
+        <Label Content="Ventas" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" VerticalAlignment="Top" Width="187" FontSize="25" FontWeight="Bold" FontFamily="Tahoma" VerticalContentAlignment="Center"/>
+        <DataGrid x:Name="dgVentas" Height="350" VerticalAlignment="Top" CanUserAddRows="False" Margin="10,107,15,0" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgVentas_SelectionChanged" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="60" Binding="{Binding idVenta}"/>
+                <DataGridTextColumn Header="Fecha" Width="100" Binding="{Binding fecha}"/>
+                <DataGridTextColumn Header="Hora" Width="100" Binding="{Binding hora}"/>
+                <DataGridTextColumn Header="Nombre Cliente" Width="200" Binding="{Binding nombre_cliente}"/>
+                <DataGridTextColumn Header="Nombre Vendedor" Width="200" Binding="{Binding nombre_vendedor}"/>
+                <DataGridTextColumn Header="Total" Width="*" Binding="{Binding Total_Venta}"/>
+                <DataGridTextColumn Header="Ganancia" Width="*" Binding="{Binding ganancia}"/>
+                <DataGridTextColumn Header="Vuelto" Width="*" Binding="{Binding Vuelto}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnSalir" Content="Salir" Margin="300,878,15,10" FontSize="20" Click="btnSalir_Click" Grid.Column="1"/>
+        <Label Content="Productos Vendidos" HorizontalAlignment="Left" Height="50" Margin="10,462,0,0" VerticalAlignment="Top" Width="292" FontSize="25" FontWeight="Bold" FontFamily="Tahoma" VerticalContentAlignment="Center"/>
+        <DataGrid x:Name="dgProductosVenta" CanUserAddRows="False" Margin="10,512,0,0" HorizontalAlignment="Left" Width="649" Height="352" VerticalAlignment="Top" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgProductosVenta_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="60" Binding="{Binding idDetalle_venta}"/>
+                <DataGridTextColumn Header="idProducto" Width="250" Binding="{Binding idProducto}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Producto" Width="250" Binding="{Binding nombre_producto}"/>
+                <DataGridTextColumn Header="Cantidad" Width="*" Binding="{Binding Cantidad}"/>
+                <DataGridTextColumn Header="Precio Unitario" Width="*" Binding="{Binding Precio_Unitario}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="ID" HorizontalAlignment="Left" Margin="740,527,0,0" Width="128" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="36" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtID" HorizontalAlignment="Left" Margin="873,527,0,0" TextWrapping="Wrap" Width="176" FontSize="20" FontFamily="Segoe UI Emoji" FontWeight="Bold" Height="36" VerticalAlignment="Top" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="740,568,0,0" Width="128" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="36" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtNombre" Margin="873,568,0,0" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Left" Width="347" FontFamily="Segoe UI Emoji" FontWeight="Bold" Height="36" VerticalAlignment="Top" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <Label Content="Descripcion" HorizontalAlignment="Left" Margin="740,609,0,0" Width="128" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="36" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtDescripcion" Margin="873,609,124,0" TextWrapping="Wrap" FontSize="20" FontFamily="Segoe UI Emoji" FontWeight="Bold" Height="36" VerticalAlignment="Top" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <Label Content="Categoria" HorizontalAlignment="Left" Margin="740,650,0,0" Width="128" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="36" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCategoria" Margin="873,650,405,0" TextWrapping="Wrap" FontSize="20" FontFamily="Segoe UI Emoji" FontWeight="Bold" Height="36" VerticalAlignment="Top" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <Label Content="Marca" HorizontalAlignment="Left" Margin="740,691,0,0" Width="128" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="36" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtMarca" Margin="873,691,405,0" TextWrapping="Wrap" FontSize="20" FontFamily="Segoe UI Emoji" FontWeight="Bold" Height="36" VerticalAlignment="Top" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <Label Content="Precio Compra S/." HorizontalAlignment="Left" Margin="694,732,0,0" Width="174" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="36" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtPrecioCompra" Margin="873,732,405,0" TextWrapping="Wrap" FontSize="20" FontFamily="Segoe UI Emoji" FontWeight="Bold" Height="36" VerticalAlignment="Top" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <Label Content="Medida" HorizontalAlignment="Left" Margin="740,773,0,0" Width="128" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="36" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtMedida" Margin="873,773,405,0" TextWrapping="Wrap" FontSize="20" FontFamily="Segoe UI Emoji" FontWeight="Bold" Height="36" VerticalAlignment="Top" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <Label Content="Ganancia Unidad S/." HorizontalAlignment="Left" Margin="672,814,0,0" Width="196" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="36" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtUnidadGanancia" Margin="873,814,405,0" TextWrapping="Wrap" FontSize="20" FontFamily="Segoe UI Emoji" FontWeight="Bold" Height="36" VerticalAlignment="Top" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <Label Content="Proveedor" HorizontalAlignment="Left" Margin="256,650,0,0" Width="108" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="36" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox x:Name="txtProveedor" Margin="370,650,36,0" TextWrapping="Wrap" FontSize="20" FontFamily="Segoe UI Emoji" FontWeight="Bold" Height="36" VerticalAlignment="Top" IsReadOnly="True" Grid.Column="1"/>
+        <Label Content="Precio Venta S/." HorizontalAlignment="Left" Margin="210,0,0,195" Width="154" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Height="36" VerticalAlignment="Bottom" Grid.Column="1">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.31"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.495"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <TextBox x:Name="txtPrecioVenta" Margin="370,0,36,195" TextWrapping="Wrap" FontSize="20" FontFamily="Segoe UI Emoji" FontWeight="Bold" Height="36" VerticalAlignment="Bottom" IsReadOnly="True" Grid.Column="1"/>
+        <Label Content="Stock" HorizontalAlignment="Left" Margin="236,0,0,154" Width="128" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="36" VerticalAlignment="Bottom" Grid.Column="1"/>
+        <TextBox x:Name="txtStock" Margin="370,0,36,154" TextWrapping="Wrap" FontSize="20" FontFamily="Segoe UI Emoji" FontWeight="Bold" Height="36" VerticalAlignment="Bottom" IsReadOnly="True" Grid.Column="1"/>
+        <Label Content="Ganancia Total S/." HorizontalAlignment="Left" Margin="186,0,0,113" Width="178" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="36" VerticalAlignment="Bottom" Grid.Column="1"/>
+        <TextBox x:Name="txtGananciaTotal" Margin="370,0,36,113" TextWrapping="Wrap" FontSize="20" FontFamily="Segoe UI Emoji" FontWeight="Bold" Height="36" VerticalAlignment="Bottom" IsReadOnly="True" Grid.Column="1"/>
+        <DatePicker x:Name="dpFecha" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="432" Height="49" FontSize="25" FontFamily="Microsoft JhengHei" FontWeight="Bold" SelectedDateFormat="Long" SelectedDateChanged="dpFecha_SelectedDateChanged" DisplayDate="2023-04-10">
+            <DatePicker.Resources>
+                <Style TargetType="DatePickerTextBox">
+                    <Setter Property="IsReadOnly" Value="True"/>
+                    <Setter Property="IsEnabled" Value="False"/>
+                </Style>
+            </DatePicker.Resources>
+        </DatePicker>
+        <Label Content="Ganancia Total:" HorizontalAlignment="Left" Margin="230,61,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Grid.Column="1"/>
+        <Label x:Name="lblGanancia" Content="0,00" HorizontalAlignment="Left" Margin="408,61,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Rockwell" Grid.Column="1"/>
+        <Button x:Name="btnFechaHoy" Content="Hoy" HorizontalAlignment="Left" Height="50" Margin="442,53,0,0" VerticalAlignment="Top" Width="130" FontSize="40" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Padding="1,-15,1,1" Click="btnFechaHoy_Click"/>
+        <Button x:Name="btnReestablecerFecha" Content="Siempre" HorizontalAlignment="Left" Height="50" Margin="577,53,0,0" VerticalAlignment="Top" Width="187" FontSize="40" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.5,0.5" Padding="1,-15,1,1" Click="btnReestablecerFecha_Click"/>
+
+
+    </Grid>
+</Window>
