@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Login" Height="817" Width="932" UseLayoutRounding="True" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" Icon="img/icono.png" WindowState="Maximized">
     <Window.Resources>
-        <!-- Styles -->
+        <!-- Styles asdawdsawd -->
         <Style x:Key="estiloTextBox" TargetType="TextBox">
             <Setter Property="BorderThickness" Value="0,0,0,2"/>
         </Style>
