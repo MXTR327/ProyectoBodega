@@ -26,7 +26,13 @@ namespace ProyectoBodega
         }
         private void Aceptar_Click(object sender, RoutedEventArgs e)
         {
-            ValorIngresado = InputTextBox.Text;
+            if (string.IsNullOrEmpty(txtUsuario.Text))
+            {
+                MessageBox.Show("No puede dejar campos vacios","Alerta");
+                txtUsuario.Focus();
+                return;
+            }
+            ValorIngresado = txtUsuario.Text;
             DialogResult = true;
         }
         private void Cancelar_Click(object sender, RoutedEventArgs e)
@@ -37,7 +43,25 @@ namespace ProyectoBodega
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            InputTextBox.Focus();
+            txtUsuario.Focus();
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void nombre_Click(object sender, MouseButtonEventArgs e)
+        {
+            txtUsuario.Focus();
+        }
+
+        private void txtUsuario_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbUsuario.Visibility = Visibility.Collapsed;
+        }
+
+        private void txtUsuario_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
+            {
+                txtbUsuario.Visibility = Visibility.Visible;
+            }
         }
     }
 }
