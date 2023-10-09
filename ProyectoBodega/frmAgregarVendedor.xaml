@@ -18,7 +18,7 @@
         </Grid.Background>
         <Border HorizontalAlignment="Center" CornerRadius="10" Height="875" VerticalAlignment="Center" Width="559" Background="White" Opacity="0.99">
             <Grid>
-                <Label x:Name="lblFrm" Content="Nuevo Vendedor" VerticalAlignment="Top" FontSize="40" Margin="0,48,0,0" HorizontalAlignment="Center" Width="388" Height="61" FontFamily="Bahnschrift" HorizontalContentAlignment="Center"/>
+                <Label x:Name="lblFrm" Content="Nuevo Vendedor" VerticalAlignment="Top" FontSize="40" Margin="0,48,0,0" HorizontalAlignment="Center" Width="492" Height="61" FontFamily="Bahnschrift" HorizontalContentAlignment="Center"/>
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
                 <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="usuario_Click" Margin="0,211,1,604">
@@ -34,10 +34,6 @@
                 </Grid>
 
                 <Grid x:Name="gridDireccion" Cursor="Arrow" ForceCursor="True" MouseLeftButtonDown="direccion_Click" Margin="0,462,0,343">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="101*"/>
-                        <ColumnDefinition Width="458*"/>
-                    </Grid.ColumnDefinitions>
                     <TextBox x:Name="txtDireccion" Width="497" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,4,0,0" FontSize="20" MaxLength="60" VerticalContentAlignment="Center" IsReadOnly="True" GotFocus="txtDireccion_GotFocus" LostFocus="txtDireccion_LostFocus" Padding="37,0,0,0" TextChanged="primeraLetraMayuscula_TextChanged" Grid.ColumnSpan="2" BorderThickness="0,0,0,2"/>
                     <TextBlock x:Name="txtbDireccion" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="70,0,0,23" Foreground="Gray" FontSize="30" Width="450" Grid.ColumnSpan="2" ><Run Language="es-pe" Text="Ingrese su Dirección( Opcional )"/></TextBlock>
                     <Image HorizontalAlignment="Left" Height="36" Margin="28,9,0,0" VerticalAlignment="Top" Width="39" Source="img/direccion.png" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.35,0.533"/>
