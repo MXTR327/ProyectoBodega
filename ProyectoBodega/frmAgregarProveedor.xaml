@@ -136,7 +136,7 @@
                     </Button.Background>
                 </Button>
 
-                <TextBox x:Name="txtCodigo" HorizontalAlignment="Left" Height="39" Margin="454,112,0,0" TextWrapping="Wrap" Text="1234" VerticalAlignment="Top" Width="80" FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" VerticalScrollBarVisibility="Disabled" BorderThickness="0,0,0,2" IsEnabled="False">
+                <TextBox x:Name="txtCodigo" HorizontalAlignment="Left" Height="39" Margin="454,112,0,0" TextWrapping="Wrap" Text="1234" VerticalAlignment="Top" Width="80" FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" VerticalScrollBarVisibility="Disabled" BorderThickness="0,0,0,2" IsEnabled="False" Visibility="Hidden">
                     <TextBox.Style>
                         <Style TargetType="{x:Type TextBox}">
                             <Style.Triggers>
@@ -147,7 +147,7 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-                <Label x:Name="lblCodigo" Content="ID:" HorizontalAlignment="Left" Height="45" Margin="412,115,0,0" VerticalAlignment="Top" Width="50" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift"/>
+                <Label x:Name="lblCodigo" Content="ID:" HorizontalAlignment="Left" Height="45" Margin="412,115,0,0" VerticalAlignment="Top" Width="50" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" Visibility="Hidden"/>
             </Grid>
         </Border>
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->

@@ -5,164 +5,161 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="frmAgregarProducto" Height="959" Width="1491" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown">
+        Title="frmAgregarProducto" Height="1016" Width="1700" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized">
     <Window.Resources>
-        <Style x:Key="IngresarButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#007ACC" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="Margin" Value="58,377,0,0" />
-            <Setter Property="Width" Value="476" />
-            <Setter Property="Height" Value="51" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-            <Setter Property="Grid.ColumnSpan" Value="2" />
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#005C99" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
 
-        <Style x:Key="TextBoxStyle" TargetType="TextBox">
-            <Setter Property="FontSize" Value="14.25" />
-            <Setter Property="FontFamily" Value="Microsoft Sans Serif" />
-            <Setter Property="Height" Value="44" />
-            <Setter Property="Width" Value="451" />
-            <Setter Property="Margin" Value="0,0,3,0" />
-            <Setter Property="HorizontalAlignment" Value="Right" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-        </Style>
-
-        <Style x:Key="ActionButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#007ACC" />
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="Margin" Value="58,480,0,0" />
-            <Setter Property="Width" Value="203" />
-            <Setter Property="Height" Value="51" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#005C99" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
     </Window.Resources>
-    <Grid Margin="0,0,10,-6">
-        <Border BorderBrush="Black" BorderThickness="1" Margin="759,574,10,0" VerticalAlignment="Top" Height="269" Grid.ColumnSpan="2"/>
-        <Border BorderBrush="Black" BorderThickness="1" Margin="28,574,741,0" VerticalAlignment="Top" Height="269"/>
-        <Label Content="Agregar nuevo Producto" FontSize="35" FontFamily="Bookman Old Style" FontWeight="Bold" Margin="510,24,485,838" />
-        <Button x:Name="btnAgregarProducto" Content="Agregar Producto" Style="{StaticResource IngresarButtonStyle}" Height="52" Width="407" Margin="333,861,0,0" FontFamily="Maiandra GD" FontSize="25" Click="btnAgregarProducto_Click" />
-        <Button x:Name="btnSalir" Content="Salir" Style="{StaticResource ActionButtonStyle}" Height="52" Width="407" Margin="759,861,0,0" FontFamily="Maiandra GD" FontSize="20" Click="btnSalir_Click" Grid.ColumnSpan="2" />
-        <Label Content="Agregar nueva Categoria" FontSize="35" FontFamily="Bookman Old Style" FontWeight="Bold" Width="460" HorizontalAlignment="Left" Margin="510,24,0,904" />
-        <Border BorderBrush="Black" BorderThickness="1" Margin="28,87,10,0" VerticalAlignment="Top" Height="465" Grid.ColumnSpan="2">
-            <Grid HorizontalAlignment="Center" Width="1423" Margin="0,9,0,9">
-                <TextBox x:Name="txtNombre" Height="50" Margin="12,51,770,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtPrimeraLetraMayuscula_TextChanged" >
-                    <TextBox.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleY="0.356"/>
-                            <RotateTransform/>
-                            <TranslateTransform Y="1.235"/>
-                        </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
-                <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Margin="132,125,0,0"/>
-                <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Margin="256,236,0,0"/>
-                <TextBox x:Name="txtDescripcion" Height="50" Margin="12,163,767,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtPrimeraLetraMayuscula_TextChanged" IsReadOnly="True" >
-                    <TextBox.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleY="0.356"/>
-                            <RotateTransform/>
-                            <TranslateTransform Y="1.235"/>
-                        </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
-                <TextBox x:Name="txtMedida" Height="50" Margin="14,271,1011,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30">
-                    <TextBox.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleY="0.356"/>
-                            <RotateTransform/>
-                            <TranslateTransform Y="1.235"/>
-                        </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
-                <TextBox x:Name="txtStock" Height="50" Margin="15,375,1010,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtCalcularGanancias_TextChanged" PreviewKeyDown="txtStock_PreviewKeyDown">
-                    <TextBox.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform AngleY="0.356"/>
-                            <RotateTransform/>
-                            <TranslateTransform Y="1.235"/>
-                        </TransformGroup>
-                    </TextBox.RenderTransform>
-                </TextBox>
-                <Label Content="Medida" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1160,175" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="251" />
-                <Label Content="Stock" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1157,71" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="251" />
-                <Label Content="Marca" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,400,181" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="251" />
-                <Label Content="Categoria" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,400,300" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="251" />
-                <Label Content="Proveedor" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,400,396" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="251" />
-                <Label Content="Nombre del producto" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1127,396" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="286" />
-                <Label Content="Descripción del Producto" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1098,287" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="305" />
-                <ComboBox x:Name="cmbMarca" HorizontalAlignment="Left" Height="50" Margin="772,271,0,0" VerticalAlignment="Top" Width="641"/>
-                <ComboBox x:Name="cmbCategoria" HorizontalAlignment="Left" Height="50" Margin="772,163,0,0" VerticalAlignment="Top" Width="641"/>
-                <ComboBox x:Name="cmbProveedor" HorizontalAlignment="Left" Height="50" Margin="772,51,0,0" VerticalAlignment="Top" Width="641"/>
-                <Label Content="Precio de Compra" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1145,-126" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="250" />
-                <Label Content="Precio de Venta" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1145,-229" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="250" />
-                <Label Content="Ganancia Total" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,419,-229" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="250" />
-                <Label Content="Ganancia por Unidad" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,400,-128" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="269" />
-                <Label Content="Precio" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1163,-89" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="250" />
-                <Label Content="Ganancias" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,439,-89" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="250" />
-                <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Margin="325,115,0,0">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="img/fondo.jpg"/>
+        </Grid.Background>
+        <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+        <Border  HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Width="1104" Background="White" Opacity="0.99" Height="944">
+            <Grid>
+                <Label Content="Agregar nuevo Producto" FontSize="40" FontFamily="Bahnschrift" Margin="0,32,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="774" />
+
+                <Label Content="Medida" FontSize="25" FontFamily="Bahnschrift" Height="43" VerticalAlignment="Bottom" Margin="694,0,0,794" HorizontalAlignment="Left" Width="296" />
+                <Label Content="Stock" FontSize="25" FontFamily="Bahnschrift" Height="43" VerticalAlignment="Bottom" Margin="694,0,0,664" HorizontalAlignment="Left" Width="296" />
+                <Label Content="Marca" FontSize="25" FontFamily="Bahnschrift" Margin="748,0,219,527" Height="43" VerticalAlignment="Bottom" />
+                <Label Content="Categoria" FontSize="25" FontFamily="Bahnschrift" Margin="20,0,887,527" Height="43" VerticalAlignment="Bottom" />
+                <Label Content="Proveedor" FontSize="25" FontFamily="Bahnschrift" Margin="389,0,498,527" Height="43" VerticalAlignment="Bottom" />
+                <Label Content="Nombre del producto" FontSize="25" FontFamily="Bahnschrift" Margin="20,0,0,794" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="296" />
+                <Label Content="Descripción del Producto" FontSize="25" FontFamily="Bahnschrift" Margin="20,0,0,664" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="296" />
+
+                <Label Content="Precio de Compra" FontSize="25" FontFamily="Bahnschrift" Margin="23,0,0,330" Height="42" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
+                <Label Content="Precio de Venta" FontSize="25" FontFamily="Bahnschrift" Margin="23,0,0,205" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
+                <Label Content="Ganancia Total" FontSize="25" FontFamily="Bahnschrift" Margin="573,0,0,205" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
+                <Label Content="Ganancia por Unidad" FontSize="25" FontFamily="Bahnschrift" Margin="569,0,0,335" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
+                <Label Content="Precio" FontSize="25" FontFamily="Bahnschrift" Margin="23,0,0,400" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
+                <Label Content="Ganancias" FontSize="25" FontFamily="Bahnschrift" Margin="569,0,0,400" Height="44" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
+
+                <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="nombre_Click" Margin="0,155,0,723" HorizontalAlignment="Left" Width="665">
+                    <TextBox x:Name="txtNombre" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtPrimeraLetraMayuscula_TextChanged" Margin="27,0,10,0" BorderThickness="0,0,0,2" Padding="37,0,0,0"></TextBox>
+                    <TextBlock x:Name="txtbNombre" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="69,11,0,0" Foreground="Gray" FontSize="30" Width="461" Text="Ingrese el Nombre del Producto"/>
+                    <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                </Grid>
+
+                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="descripcion_Click" Margin="0,282,0,596" HorizontalAlignment="Left" Width="665">
+                    <TextBox x:Name="txtDescripcion" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtPrimeraLetraMayuscula_TextChanged" IsReadOnly="True" Margin="28,0,8,0" BorderThickness="0,0,0,2" Padding="37,0,0,0" />
+                    <TextBlock x:Name="txtbDescripcion" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="69,11,0,0" Foreground="Gray" FontSize="30" Width="461" Text="Ingrese Descripcion"/>
+                    <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                </Grid>
+
+                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="medida_Click" Margin="680,155,0,723" HorizontalAlignment="Left" Width="409">
+                    <TextBox x:Name="txtMedida" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" Margin="25,0,10,0" BorderThickness="0,0,0,2" Padding="37,0,0,0"></TextBox>
+                    <TextBlock x:Name="txtbMedida" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="71,11,0,0" Foreground="Gray" FontSize="30" Width="328" Text="Ingrese Medida"/>
+                    <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                </Grid>
+
+                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="stock_Click" Margin="686,280,0,598" HorizontalAlignment="Left" Width="403">
+                    <TextBox x:Name="txtStock" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtCalcularGanancias_TextChanged" PreviewKeyDown="txtStock_PreviewKeyDown" Margin="24,0,10,0" BorderThickness="0,0,0,2" Padding="37,0,0,0"></TextBox>
+                    <TextBlock x:Name="txtbStock" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="71,11,0,0" Foreground="Gray" FontSize="30" Width="322"><Run Text="Ingrese "/><Run Language="es-pe" Text="Stock"/></TextBlock>
+                    <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                </Grid>
+
+
+                <TextBox x:Name="txtPrecioCompra" Height="50" Margin="27,619,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtCalcularGanancias_TextChanged" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" BorderThickness="0,0,0,2" Padding="37,0,0,0" HorizontalAlignment="Left" Width="481" />
+                <TextBox x:Name="txtPrecioVenta" Height="50" Margin="26,744,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" TextChanged="txtCalcularGanancias_TextChanged" BorderThickness="0,0,0,2" Padding="37,0,0,0" HorizontalAlignment="Left" Width="482"/>
+                <TextBox x:Name="txtGananciaPorUnidad" Height="50" CharacterCasing="Upper" Margin="669,614,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="37,0,0,0" HorizontalAlignment="Left" Width="408" />
+                <TextBox x:Name="txtGananciaTotal" Height="50" CharacterCasing="Upper" Margin="669,744,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="37,0,0,0" HorizontalAlignment="Left" Width="408" />
+                <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+                <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Margin="321,237,0,0" Cursor="Hand">
                     <CheckBox x:Name="chkContacto"  Height="15" Width="16" IsChecked="False" Click="chkContacto_Click"/>
                 </Viewbox>
+                <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+                <ComboBox x:Name="cmbMarca" Height="50" Margin="748,420,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="341"/>
+                <ComboBox x:Name="cmbCategoria" Height="50" Margin="28,420,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="341"/>
+                <ComboBox x:Name="cmbProveedor" Height="50" Margin="389,420,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="341"/>
+                <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+                <Button x:Name="btnAgregarProducto" Content="Agregar Producto" Height="54" Width="510   " Margin="0,850,0,40" FontFamily="Maiandra GD" FontSize="25" Click="btnAgregarProducto_Click" HorizontalAlignment="Center">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="520" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="57" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="510" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="54" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Width" Value="476" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="25">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FFEB85FD" Offset="0"/>
+                            <GradientStop Color="#FF5596EC" Offset="0.5"/>
+                            <GradientStop Color="#FF0BC2FF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnSalir" Content="Salir" Height="54" Width="172" Margin="905,850,0,40" FontFamily="Maiandra GD" FontSize="20" Click="btnSalir_Click" HorizontalAlignment="Left">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="182" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="57" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="172" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="54" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#007ACC" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Width" Value="476" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="29">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FFD32F2F" Offset="0"/>
+                            <GradientStop Color="#FF953232" Offset="0.5"/>
+                            <GradientStop Color="#FF701616" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </Grid>
         </Border>
-        <TextBox x:Name="txtPrecioCompra" Height="50" Margin="61,671,768,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtCalcularGanancias_TextChanged" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" >
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.356"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="1.235"/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
-        <TextBox x:Name="txtPrecioVenta" Height="50" Margin="63,774,766,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" TextChanged="txtCalcularGanancias_TextChanged">
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.356"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="1.235"/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
-        <TextBox x:Name="txtGananciaPorUnidad" Height="50" CharacterCasing="Upper" Margin="789,672,40,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" >
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.356"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="1.235"/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
-        <TextBox x:Name="txtGananciaTotal" Height="50" CharacterCasing="Upper" Margin="789,774,40,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" >
-            <TextBox.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.356"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="1.235"/>
-                </TransformGroup>
-            </TextBox.RenderTransform>
-        </TextBox>
-        
     </Grid>
 </Window>
     
