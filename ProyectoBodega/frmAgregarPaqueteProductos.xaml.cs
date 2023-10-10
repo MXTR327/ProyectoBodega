@@ -28,10 +28,20 @@ namespace ProyectoBodega
             CargarlistaMarca();
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
-        private void chkDireccion_Click(object sender, RoutedEventArgs e)
+        private void chkDescripcion_Click(object sender, RoutedEventArgs e)
         {
             txtDescripcion.Text = "";
             txtDescripcion.IsReadOnly = !txtDescripcion.IsReadOnly;
+            if (txtDescripcion.IsReadOnly == false)
+            {
+                gridDescripcion.Cursor = Cursors.IBeam;
+                txtDescripcion.Focus();
+            }
+            else
+            {
+                gridDescripcion.Cursor = Cursors.Arrow;
+                txtbDescripcion.Visibility = Visibility.Visible;
+            }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void CargarComboBox(ComboBox comboBox, DataTable dt, string valueMember, string displayMember, string defaultValue, int selectedIndex)
@@ -92,7 +102,7 @@ namespace ProyectoBodega
             }
             else
             {
-                txtUnidadPrecioCompra.Text = "0";
+                txtUnidadPrecioCompra.Text = "0,00";
             }
             txtUnidadCompraTotal.Text = (stockUnidad * double.Parse(txtUnidadPrecioCompra.Text)).ToString("F2");
             txtPaqueteGananciaPaquete.Text = (precioVentaPaquete - precioCompraPaquete).ToString("F2");
@@ -273,6 +283,105 @@ namespace ProyectoBodega
                 string newText = char.ToUpper(textBox.Text[0]) + textBox.Text.Substring(1).ToLower();
                 textBox.Text = newText;
                 textBox.SelectionStart = textBox.Text.Length;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtNombre_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbNombre.Visibility=Visibility.Collapsed;
+        }
+        private void txtNombre_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                txtbNombre.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtMedida_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbMedida.Visibility = Visibility.Collapsed;
+        }
+        private void txtMedida_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMedida.Text))
+            {
+                txtbMedida.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtDescripcion_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (chkDescripcion.IsChecked == true)
+            {
+                txtbDescripcion.Visibility = Visibility.Collapsed;
+            }
+        }
+        private void txtDescripcion_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtDescripcion.Text))
+            {
+                txtbDescripcion.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtPaqueteStock_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbPaqueteStock.Visibility = Visibility.Collapsed;
+        }
+        private void txtPaqueteStock_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPaqueteStock.Text))
+            {
+                txtbPaqueteStock.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtUnidadStock_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbUnidadStock.Visibility = Visibility.Collapsed;
+        }
+        private void txtUnidadStock_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtUnidadStock.Text))
+            {
+                txtbUnidadStock.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtPaquetePrecioCompra_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbPaquetePrecioCompra.Visibility = Visibility.Collapsed;
+        }
+        private void txtPaquetePrecioCompra_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPaquetePrecioCompra.Text))
+            {
+                txtbPaquetePrecioCompra.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtPaquetePrecioVenta_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbPaquetePrecioVenta.Visibility = Visibility.Collapsed;
+        }
+        private void txtPaquetePrecioVenta_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPaquetePrecioVenta.Text))
+            {
+                txtbPaquetePrecioVenta.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtUnidadPrecioVenta_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbUnidadPrecioVenta.Visibility = Visibility.Collapsed;
+        }
+        private void txtUnidadPrecioVenta_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtUnidadPrecioVenta.Text))
+            {
+                txtbUnidadPrecioVenta.Visibility = Visibility.Visible;
             }
         }
     }
