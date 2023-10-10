@@ -21,33 +21,30 @@
                 <Label x:Name="lblFrm" Content="Nuevo Vendedor" VerticalAlignment="Top" FontSize="40" Margin="0,48,0,0" HorizontalAlignment="Center" Width="492" Height="61" FontFamily="Bahnschrift" HorizontalContentAlignment="Center"/>
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="usuario_Click" Margin="0,211,1,604">
-                    <TextBox x:Name="txtUsuario"  Width="497" Height="51" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,9" CharacterCasing="Upper" FontSize="27" MaxLength="60" VerticalContentAlignment="Center" Padding="37,0,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" BorderThickness="0,0,0,2"></TextBox>
-                    <TextBlock x:Name="txtbUsuario" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="69,0,0,14" Foreground="Gray" FontSize="30" Width="349"><Run Language="es-pe" Text="Ingrese su nuevo Usuario"/></TextBlock>
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="0,211,1,604">
                     <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                    <TextBlock x:Name="txtbUsuario" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="69,0,0,14" Foreground="Gray" FontSize="30" Width="349"><Run Language="es-pe" Text="Ingrese su nuevo Usuario"/></TextBlock>
+                    <TextBox x:Name="txtUsuario"  Width="497" Height="51" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,9" CharacterCasing="Upper" FontSize="27" MaxLength="60" VerticalContentAlignment="Center" Padding="37,0,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" BorderThickness="0,0,0,2" Background="{x:Null}"/>
                 </Grid>
 
-                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="nombre_Click" Margin="0,333,0,472">
-                    <TextBox x:Name="txtNombre" Width="497" Height="52" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,7,0,0" TextChanged="primeraLetraMayuscula_TextChanged" FontSize="20" MaxLength="60" VerticalContentAlignment="Center" Padding="37,0,0,0" GotFocus="txtNombre_GotFocus" LostFocus="txtNombre_LostFocus" BorderThickness="0,0,0,2" />
-                    <TextBlock x:Name="txtbNombre" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="70,0,0,17" Foreground="Gray" FontSize="30" Width="406"><Run Language="es-pe" Text="Ingrese su Nombre completo"/></TextBlock>
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="0,333,0,472">
                     <Image HorizontalAlignment="Left" Height="36" Margin="31,0,0,20" VerticalAlignment="Bottom" Width="34" Source="img/nombreIco.png" Stretch="Fill" Opacity="0.7"/>
+                    <TextBlock x:Name="txtbNombre" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="70,0,0,17" Foreground="Gray" FontSize="30" Width="406"><Run Language="es-pe" Text="Ingrese su Nombre completo"/></TextBlock>
+                    <TextBox x:Name="txtNombre" Width="497" Height="52" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,7,0,0" TextChanged="primeraLetraMayuscula_TextChanged" FontSize="20" MaxLength="60" VerticalContentAlignment="Center" Padding="37,0,0,0" GotFocus="txtNombre_GotFocus" LostFocus="txtNombre_LostFocus" BorderThickness="0,0,0,2" Background="{x:Null}" />
                 </Grid>
 
-                <Grid x:Name="gridDireccion" Cursor="Arrow" ForceCursor="True" MouseLeftButtonDown="direccion_Click" Margin="0,462,0,343">
-                    <TextBox x:Name="txtDireccion" Width="497" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,4,0,0" FontSize="20" MaxLength="60" VerticalContentAlignment="Center" IsReadOnly="True" GotFocus="txtDireccion_GotFocus" LostFocus="txtDireccion_LostFocus" Padding="37,0,0,0" TextChanged="primeraLetraMayuscula_TextChanged" Grid.ColumnSpan="2" BorderThickness="0,0,0,2"/>
-                    <TextBlock x:Name="txtbDireccion" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="70,0,0,23" Foreground="Gray" FontSize="30" Width="450" Grid.ColumnSpan="2" ><Run Language="es-pe" Text="Ingrese su Dirección( Opcional )"/></TextBlock>
+                <Grid x:Name="gridDireccion" Cursor="Arrow" ForceCursor="True" Margin="0,462,0,343">
                     <Image HorizontalAlignment="Left" Height="36" Margin="28,9,0,0" VerticalAlignment="Top" Width="39" Source="img/direccion.png" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.35,0.533"/>
+                    <TextBlock x:Name="txtbDireccion" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="70,0,0,23" Foreground="Gray" FontSize="30" Width="450" Grid.ColumnSpan="2" ><Run Language="es-pe" Text="Ingrese su Dirección( Opcional )"/></TextBlock>
+                    <TextBox x:Name="txtDireccion" Width="497" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,4,0,0" FontSize="20" MaxLength="60" VerticalContentAlignment="Center" IsReadOnly="True" GotFocus="txtDireccion_GotFocus" LostFocus="txtDireccion_LostFocus" Padding="37,0,0,0" TextChanged="primeraLetraMayuscula_TextChanged" Grid.ColumnSpan="2" BorderThickness="0,0,0,2" Background="{x:Null}"/>
                 </Grid>
 
 
-                <Grid x:Name="gridTelefono" Cursor="Arrow" ForceCursor="True" MouseLeftButtonDown="telefono_Click" Margin="0,590,0,229">
-                    <TextBox x:Name="txtTelefono" Width="497" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,-1,0,0" FontSize="27" PreviewKeyDown="txtTelefono_PreviewKeyDown" MaxLength="9" VerticalContentAlignment="Center" IsReadOnly="True" GotFocus="txtTelefono_GotFocus" LostFocus="txtTelefono_LostFocus" Padding="37,0,0,0" BorderThickness="0,0,0,2"/>
-                    <TextBlock x:Name="txtbTelefono" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="71,0,0,14" Foreground="Gray" FontSize="30" Width="421"><Run Language="es-pe" Text="Ingrese su Teléfono( Opcional )"/></TextBlock>
+                <Grid x:Name="gridTelefono" Cursor="Arrow" ForceCursor="True" Margin="0,590,0,229">
                     <Image HorizontalAlignment="Left" Height="36" Margin="33,0,0,15" VerticalAlignment="Bottom" Width="34" Source="img/telefonoIco.png" Stretch="Fill" Opacity="0.7"/>
+                    <TextBlock x:Name="txtbTelefono" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="71,0,0,14" Foreground="Gray" FontSize="30" Width="421"><Run Language="es-pe" Text="Ingrese su Teléfono( Opcional )"/></TextBlock>
+                    <TextBox x:Name="txtTelefono" Width="497" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,-1,0,0" FontSize="27" PreviewKeyDown="txtTelefono_PreviewKeyDown" MaxLength="9" VerticalContentAlignment="Center" IsReadOnly="True" GotFocus="txtTelefono_GotFocus" LostFocus="txtTelefono_LostFocus" Padding="37,0,0,0" BorderThickness="0,0,0,2" Background="{x:Null}"/>
                 </Grid>
-
-
-
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
 
                 <Label Content="Usuario" FontSize="25" VerticalAlignment="Top" Height="40" HorizontalAlignment="Left" Width="128" Margin="32,169,0,0" FontFamily="Bahnschrift" />

@@ -215,16 +215,7 @@ namespace ProyectoBodega
                 txtbUsuario.Visibility = Visibility.Visible;
             }
         }
-        private void usuario_Click(object sender, MouseButtonEventArgs e)
-        {
-            txtUsuario.Focus();
-        }
         //------------------------------------------------------------------------------------------------------------------------------\\
-        private void nombre_Click(object sender, MouseButtonEventArgs e)
-        {
-            txtNombre.Focus();
-        }
-
         private void txtNombre_GotFocus(object sender, RoutedEventArgs e)
         {
             txtbNombre.Visibility = Visibility.Collapsed;
@@ -237,13 +228,6 @@ namespace ProyectoBodega
             }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
-        private void telefono_Click(object sender, MouseButtonEventArgs e)
-        {
-            if (chkTelefono.IsChecked == true)
-            {
-                txtTelefono.Focus();
-            }
-        }
         private void txtTelefono_GotFocus(object sender, RoutedEventArgs e)
         {
             txtbTelefono.Visibility = Visibility.Collapsed;
@@ -256,13 +240,6 @@ namespace ProyectoBodega
             }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
-        private void direccion_Click(object sender, MouseButtonEventArgs e)
-        {
-            if (chkDireccion.IsChecked == true)
-            {
-                txtDireccion.Focus();
-            }
-        }
         private void txtDireccion_GotFocus(object sender, RoutedEventArgs e)
         {
             txtbDireccion.Visibility = Visibility.Collapsed;

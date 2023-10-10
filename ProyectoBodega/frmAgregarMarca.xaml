@@ -23,10 +23,10 @@
                 <Label Content="Nombre de la Marca" FontSize="25" FontFamily="Bahnschrift" Width="247" HorizontalAlignment="Left" Margin="24,180,0,420" />
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="nombre_Click" Margin="0,243,1,346">
-                    <TextBox x:Name="txtNombre" Height="50" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtNombre_TextChanged" Margin="25,4,24,0" BorderThickness="0,0,0,2" GotFocus="txtNombre_GotFocus" LostFocus="txtNombre_LostFocus" Padding="43,0,0,0"/>
-                    <TextBlock x:Name="txtbNombre" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="69,0,0,14" Foreground="Gray" FontSize="30" Width="416"><Run Language="es-pe" Text="Ingrese el nombre de la Marca"/></TextBlock>
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="0,243,1,346">
                     <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/nombreP.png" Stretch="Fill" Opacity="0.55"/>
+                    <TextBlock x:Name="txtbNombre" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="69,0,0,14" Foreground="Gray" FontSize="30" Width="416"><Run Language="es-pe" Text="Ingrese el nombre de la Marca"/></TextBlock>
+                    <TextBox x:Name="txtNombre" Height="50" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtNombre_TextChanged" Margin="25,4,24,0" BorderThickness="0,0,0,2" GotFocus="txtNombre_GotFocus" LostFocus="txtNombre_LostFocus" Padding="43,0,0,0" Background="{x:Null}"/>
                 </Grid>
 
 

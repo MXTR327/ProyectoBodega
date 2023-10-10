@@ -46,11 +46,7 @@ namespace ProyectoBodega
             txtUsuario.Focus();
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
-        private void nombre_Click(object sender, MouseButtonEventArgs e)
-        {
-            txtUsuario.Focus();
-        }
-
+        
         private void txtUsuario_GotFocus(object sender, RoutedEventArgs e)
         {
             txtbUsuario.Visibility = Visibility.Collapsed;

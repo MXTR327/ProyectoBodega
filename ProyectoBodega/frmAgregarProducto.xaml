@@ -27,43 +27,59 @@
                 <Label Content="Nombre del producto" FontSize="25" FontFamily="Bahnschrift" Margin="20,0,0,794" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="296" />
                 <Label Content="Descripción del Producto" FontSize="25" FontFamily="Bahnschrift" Margin="20,0,0,664" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="296" />
 
-                <Label Content="Precio de Compra" FontSize="25" FontFamily="Bahnschrift" Margin="23,0,0,330" Height="42" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
+                <Label Content="Precio de Compra" FontSize="25" FontFamily="Bahnschrift" Margin="23,0,0,334" Height="42" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
                 <Label Content="Precio de Venta" FontSize="25" FontFamily="Bahnschrift" Margin="23,0,0,205" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
-                <Label Content="Ganancia Total" FontSize="25" FontFamily="Bahnschrift" Margin="573,0,0,205" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
-                <Label Content="Ganancia por Unidad" FontSize="25" FontFamily="Bahnschrift" Margin="569,0,0,335" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
+                <Label Content="Ganancia Total" FontSize="25" FontFamily="Bahnschrift" Margin="618,0,0,211" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
+                <Label Content="Ganancia por Unidad" FontSize="25" FontFamily="Bahnschrift" Margin="618,0,0,333" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
                 <Label Content="Precio" FontSize="25" FontFamily="Bahnschrift" Margin="23,0,0,400" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
-                <Label Content="Ganancias" FontSize="25" FontFamily="Bahnschrift" Margin="569,0,0,400" Height="44" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
+                <Label Content="Ganancias" FontSize="25" FontFamily="Bahnschrift" Margin="618,0,0,398" Height="44" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="250" />
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="nombre_Click" Margin="0,155,0,723" HorizontalAlignment="Left" Width="665">
-                    <TextBox x:Name="txtNombre" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtPrimeraLetraMayuscula_TextChanged" Margin="27,0,10,0" BorderThickness="0,0,0,2" Padding="37,0,0,0"></TextBox>
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="0,155,0,723" HorizontalAlignment="Left" Width="665">
                     <TextBlock x:Name="txtbNombre" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="69,11,0,0" Foreground="Gray" FontSize="30" Width="461" Text="Ingrese el Nombre del Producto"/>
                     <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                    <TextBox x:Name="txtNombre" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtPrimeraLetraMayuscula_TextChanged" Margin="27,0,10,0" BorderThickness="0,0,0,2" Padding="40,0,0,0" Background="{x:Null}"/>
                 </Grid>
 
-                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="descripcion_Click" Margin="0,282,0,596" HorizontalAlignment="Left" Width="665">
-                    <TextBox x:Name="txtDescripcion" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtPrimeraLetraMayuscula_TextChanged" IsReadOnly="True" Margin="28,0,8,0" BorderThickness="0,0,0,2" Padding="37,0,0,0" />
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="0,282,0,596" HorizontalAlignment="Left" Width="665">
                     <TextBlock x:Name="txtbDescripcion" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="69,11,0,0" Foreground="Gray" FontSize="30" Width="461" Text="Ingrese Descripcion"/>
                     <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                    <TextBox x:Name="txtDescripcion" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtPrimeraLetraMayuscula_TextChanged" IsReadOnly="True" Margin="28,0,8,0" BorderThickness="0,0,0,2" Padding="40,0,0,0" Background="{x:Null}" />
                 </Grid>
 
-                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="medida_Click" Margin="680,155,0,723" HorizontalAlignment="Left" Width="409">
-                    <TextBox x:Name="txtMedida" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" Margin="25,0,10,0" BorderThickness="0,0,0,2" Padding="37,0,0,0"></TextBox>
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="680,155,0,723" HorizontalAlignment="Left" Width="409">
+                    <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
                     <TextBlock x:Name="txtbMedida" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="71,11,0,0" Foreground="Gray" FontSize="30" Width="328" Text="Ingrese Medida"/>
-                    <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                    <TextBox x:Name="txtMedida" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" Margin="25,0,10,0" BorderThickness="0,0,0,2" Padding="40,0,0,0" Background="{x:Null}"/>
                 </Grid>
 
-                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="stock_Click" Margin="686,280,0,598" HorizontalAlignment="Left" Width="403">
-                    <TextBox x:Name="txtStock" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtCalcularGanancias_TextChanged" PreviewKeyDown="txtStock_PreviewKeyDown" Margin="24,0,10,0" BorderThickness="0,0,0,2" Padding="37,0,0,0"></TextBox>
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="686,280,0,598" HorizontalAlignment="Left" Width="403">
+                    <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
                     <TextBlock x:Name="txtbStock" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="71,11,0,0" Foreground="Gray" FontSize="30" Width="322"><Run Text="Ingrese "/><Run Language="es-pe" Text="Stock"/></TextBlock>
-                    <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                    <TextBox x:Name="txtStock" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtCalcularGanancias_TextChanged" PreviewKeyDown="txtStock_PreviewKeyDown" Margin="24,0,10,0" BorderThickness="0,0,0,2" Padding="40,0,0,0" Background="{x:Null}"/>
                 </Grid>
 
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="0,619,0,259" HorizontalAlignment="Left" Width="552">
+                    <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                    <TextBlock x:Name="txtbPrecioCompra" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="71,11,0,0" Foreground="Gray" FontSize="30" Width="322"><Run Language="es-pe" Text="Ingrese Precio Compra"/></TextBlock>
+                    <TextBox x:Name="txtPrecioCompra" Height="50" Margin="28,0,0,0" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtCalcularGanancias_TextChanged" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" BorderThickness="0,0,0,2" Padding="40,0,0,0" HorizontalAlignment="Left" Width="456" Background="{x:Null}" />
+                </Grid>
 
-                <TextBox x:Name="txtPrecioCompra" Height="50" Margin="27,619,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtCalcularGanancias_TextChanged" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" BorderThickness="0,0,0,2" Padding="37,0,0,0" HorizontalAlignment="Left" Width="481" />
-                <TextBox x:Name="txtPrecioVenta" Height="50" Margin="26,744,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" TextChanged="txtCalcularGanancias_TextChanged" BorderThickness="0,0,0,2" Padding="37,0,0,0" HorizontalAlignment="Left" Width="482"/>
-                <TextBox x:Name="txtGananciaPorUnidad" Height="50" CharacterCasing="Upper" Margin="669,614,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="37,0,0,0" HorizontalAlignment="Left" Width="408" />
-                <TextBox x:Name="txtGananciaTotal" Height="50" CharacterCasing="Upper" Margin="669,744,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="37,0,0,0" HorizontalAlignment="Left" Width="408" />
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="0,744,0,134" HorizontalAlignment="Left" Width="552">
+                    <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                    <TextBlock x:Name="txtbPrecioVenta" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="71,11,0,0" Foreground="Gray" FontSize="30" Width="322"><Run Text="Ingrese "/><Run Language="es-pe" Text="Precio Venta"/></TextBlock>
+                    <TextBox x:Name="txtPrecioVenta" Height="50" Margin="28,0,0,0" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" TextChanged="txtCalcularGanancias_TextChanged" BorderThickness="0,0,0,2" Padding="42,0,0,0" HorizontalAlignment="Left" Width="471" Background="{x:Null}"/>
+                </Grid>
+
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="552,611,0,267" HorizontalAlignment="Left" Width="552">
+                    <Image HorizontalAlignment="Left" Height="44" Margin="69,0,0,0" VerticalAlignment="Center" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                    <TextBox x:Name="txtGananciaPorUnidad" Height="50" CharacterCasing="Upper" Margin="69,10,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="40,0,0,0" HorizontalAlignment="Left" Width="457" Background="{x:Null}" />
+                </Grid>
+
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="552,744,0,134" HorizontalAlignment="Left" Width="552">
+                    <Image HorizontalAlignment="Left" Height="44" Margin="73,0,0,14" VerticalAlignment="Bottom" Width="44" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                    <TextBox x:Name="txtGananciaTotal" Height="50" CharacterCasing="Upper" Margin="73,0,0,0" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="40,0,0,0" HorizontalAlignment="Left" Width="457" Background="{x:Null}" />
+                </Grid>
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
                 <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Margin="321,237,0,0" Cursor="Hand">
                     <CheckBox x:Name="chkContacto"  Height="15" Width="16" IsChecked="False" Click="chkContacto_Click"/>

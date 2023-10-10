@@ -13,10 +13,10 @@
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
 
-                <Grid Cursor="IBeam" ForceCursor="True" MouseLeftButtonDown="nombre_Click" Margin="0,275,1,373">
-                    <TextBox x:Name="txtUsuario" CharacterCasing="Upper" FontSize="25" VerticalContentAlignment="Center" HorizontalAlignment="Center" Width="496" BorderThickness="0,0,0,2" Margin="0,8,0,0" Height="44" VerticalAlignment="Top" Padding="45,0,0,7" GotFocus="txtUsuario_GotFocus" LostFocus="txtUsuario_LostFocus" />
-                    <TextBlock x:Name="txtbUsuario" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="77,5,0,0" Foreground="Gray" FontSize="30" Width="451"><Run Language="es-pe" Text="Ingrese Usuario"/></TextBlock>
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="0,275,1,373">
                     <Image Margin="31,6,486,23" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                    <TextBlock x:Name="txtbUsuario" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="77,5,0,0" Foreground="Gray" FontSize="30" Width="451"><Run Language="es-pe" Text="Ingrese Usuario"/></TextBlock>
+                    <TextBox x:Name="txtUsuario" CharacterCasing="Upper" FontSize="25" VerticalContentAlignment="Center" HorizontalAlignment="Center" Width="496" BorderThickness="0,0,0,2" Margin="0,8,0,0" Height="44" VerticalAlignment="Top" Padding="45,0,0,7" GotFocus="txtUsuario_GotFocus" LostFocus="txtUsuario_LostFocus" Background="{x:Null}" />
                 </Grid>
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
                 <Button Content="Aceptar" Click="Aceptar_Click" Margin="0,537,0,0" Height="54" VerticalAlignment="Top" HorizontalAlignment="Center" Width="510" FontSize="25" FontFamily="Maiandra GD">
