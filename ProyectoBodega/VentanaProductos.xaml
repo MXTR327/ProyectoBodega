@@ -14,7 +14,7 @@
             <Label Content="Proveedor" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,314,233" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="137" />
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="287" Margin="1448,393,0,0" VerticalAlignment="Top" Width="462">
-            <Label Content="Categoria&#xA;" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,327,233" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="124" />
+            <Label Content="Categoría&#xA;" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,327,233" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="124" />
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="287" Margin="1448,695,0,0" VerticalAlignment="Top" Width="462">
             <Label Content="Marca" FontSize="25" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,349,233" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="102" />
@@ -43,7 +43,7 @@
             </TextBox.RenderTransform>
         </TextBox>
         <Label Content="Precio Venta  S/." FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,746,453" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="164" />
-        <Label Content="Categoria" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1096,614" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100" />
+        <Label Content="Categoría" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1096,614" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="100" />
         <TextBox x:Name="txtDescripcion" Height="34" CharacterCasing="Upper" Margin="825,283,823,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="20" VerticalContentAlignment="Center" TextChanged="txtPrimeraLetraMayuscula_TextChanged" >
             <TextBox.RenderTransform>
                 <TransformGroup>
@@ -54,7 +54,7 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Label Content="Descripcion" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1098,693" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="118" />
+        <Label Content="Descripción" FontSize="20" FontFamily="Maiandra GD" FontWeight="Bold" Margin="0,0,1098,693" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="118" />
         <TextBox x:Name="txtNombre" Height="34" CharacterCasing="Upper" Margin="825,201,850,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="20" VerticalContentAlignment="Center" TextChanged="txtPrimeraLetraMayuscula_TextChanged" >
             <TextBox.RenderTransform>
                 <TransformGroup>

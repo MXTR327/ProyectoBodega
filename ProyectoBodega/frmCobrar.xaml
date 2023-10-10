@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="frmCobrar" Height="578" Width="819" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Grid>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Center" Height="50" Margin="0,62,0,0" TextWrapping="Wrap" Text="Anonimo" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Center" FontSize="25" FontFamily="Bookman Old Style" HorizontalContentAlignment="Center" FontWeight="Bold" TextChanged="txtPrimeraLetraMayuscula_TextChanged"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Center" Height="50" Margin="0,62,0,0" TextWrapping="Wrap" Text="Anónimo" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Center" FontSize="25" FontFamily="Bookman Old Style" HorizontalContentAlignment="Center" FontWeight="Bold" TextChanged="txtPrimeraLetraMayuscula_TextChanged"/>
         <Label Content="Nombre del Cliente(Opcional)" HorizontalAlignment="Center" Margin="0,16,0,0" VerticalAlignment="Top" Width="446" FontSize="30" FontFamily="Maiandra GD" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
         <TextBox x:Name="txtTotal" HorizontalAlignment="Center" Height="50" Margin="0,163,0,0" TextWrapping="Wrap" Text="0,00" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Center" FontSize="25" FontFamily="Bookman Old Style" HorizontalContentAlignment="Center" FontWeight="Bold" IsReadOnly="True"/>
         <Label Content="TOTAL" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top" Width="446" FontSize="30" FontFamily="Maiandra GD" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>

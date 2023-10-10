@@ -53,7 +53,7 @@
                 <Label Content="Dirección" FontSize="25" Margin="32,422,0,0" HorizontalAlignment="Left" Width="118" Height="40" VerticalAlignment="Top" FontFamily="Bahnschrift" />
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Button Content="Salir" Width="172" HorizontalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Button_Click" Height="54" Margin="0,780,31,0" FontSize="19">
+                <Button Content="Salir" Width="172" HorizontalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Button_Click" Height="54" Margin="0,780,31,0" FontSize="23" FontFamily="Maiandra GD">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>
@@ -97,7 +97,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnAgregarVendedor" Content="Agregar Vendedor" Width="510" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,512,0,0" Click="btnAgregarVendedor_Click" Height="54" FontSize="19" VerticalAlignment="Center" >
+                <Button x:Name="btnAgregarVendedor" Content="Agregar Vendedor" Width="510" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,512,0,0" Click="btnAgregarVendedor_Click" Height="54" FontSize="23" VerticalAlignment="Center" FontFamily="Maiandra GD" >
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>

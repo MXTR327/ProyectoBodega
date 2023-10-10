@@ -8,7 +8,7 @@
         </Grid.Background>
         <Border HorizontalAlignment="Center" CornerRadius="10" Height="718" VerticalAlignment="Center" Width="560" Background="White" Opacity="0.99">
             <Grid>
-                <Label Content="Confirmacion" FontSize="40" FontFamily="Bahnschrift" Width="496" HorizontalAlignment="Center" Margin="0,48,0,0" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" />
+                <Label Content="Confirmación" FontSize="40" FontFamily="Bahnschrift" Width="496" HorizontalAlignment="Center" Margin="0,48,0,0" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" />
                 <Label FontSize="25" FontFamily="Bahnschrift" Height="46" VerticalAlignment="Top" Content="Ingrese su usuario" HorizontalAlignment="Left" Width="232" Margin="32,201,0,0"/>
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->

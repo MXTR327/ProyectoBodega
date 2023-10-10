@@ -22,7 +22,7 @@
                 <Label Content="Medida" FontSize="25" FontFamily="Bahnschrift" Height="43" VerticalAlignment="Bottom" Margin="694,0,0,794" HorizontalAlignment="Left" Width="296" />
                 <Label Content="Stock" FontSize="25" FontFamily="Bahnschrift" Height="43" VerticalAlignment="Bottom" Margin="694,0,0,664" HorizontalAlignment="Left" Width="296" />
                 <Label Content="Marca" FontSize="25" FontFamily="Bahnschrift" Margin="748,0,219,527" Height="43" VerticalAlignment="Bottom" />
-                <Label Content="Categoria" FontSize="25" FontFamily="Bahnschrift" Margin="20,0,887,527" Height="43" VerticalAlignment="Bottom" />
+                <Label Content="Categoría" FontSize="25" FontFamily="Bahnschrift" Margin="20,0,887,527" Height="43" VerticalAlignment="Bottom" />
                 <Label Content="Proveedor" FontSize="25" FontFamily="Bahnschrift" Margin="389,0,498,527" Height="43" VerticalAlignment="Bottom" />
                 <Label Content="Nombre del producto" FontSize="25" FontFamily="Bahnschrift" Margin="20,0,0,794" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="296" />
                 <Label Content="Descripción del Producto" FontSize="25" FontFamily="Bahnschrift" Margin="20,0,0,664" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="296" />
@@ -42,7 +42,7 @@
                 </Grid>
 
                 <Grid x:Name="gridDescripcion" Cursor="Arrow" ForceCursor="True" Margin="0,282,0,596" HorizontalAlignment="Left" Width="665">
-                    <TextBlock x:Name="txtbDescripcion" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="69,11,0,0" Foreground="Gray" FontSize="30" Width="461" Text="Ingrese Descripcion( Opcional )"/>
+                    <TextBlock x:Name="txtbDescripcion" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="69,11,0,0" Foreground="Gray" FontSize="30" Width="461" Text="Ingrese Descripción( Opcional )"/>
                     <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/descr.png" Stretch="Fill" Opacity="0.6"/>
                     <TextBox x:Name="txtDescripcion" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtPrimeraLetraMayuscula_TextChanged" IsReadOnly="True" Margin="28,0,8,0" BorderThickness="0,0,0,2" Padding="50,0,0,5" Background="{x:Null}" GotFocus="txtDescripcion_GotFocus" LostFocus="txtDescripcion_LostFocus" />
                 </Grid>

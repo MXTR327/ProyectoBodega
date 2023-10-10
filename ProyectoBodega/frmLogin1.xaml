@@ -84,7 +84,7 @@
                 </Grid>
 
                 <Image HorizontalAlignment="Center" Height="235" VerticalAlignment="Top" Width="197" Stretch="Fill" Source="img/default.png" Margin="0,43,0,0" />
-                <Button x:Name="btnRegistrar" Content="Registrarse" Height="51" Width="222" Margin="22,0,0,94" Click="btnRegistrar_Click" VerticalAlignment="Bottom">
+                <Button x:Name="btnRegistrar" Content="Registrarse" Height="51" Width="222" Margin="22,0,0,94" Click="btnRegistrar_Click" VerticalAlignment="Bottom" FontSize="20" FontFamily="Maiandra GD">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
@@ -128,7 +128,7 @@
 
                     </Button.Background>
                 </Button>
-                <Button x:Name="BtnSalir" Content="Salir" Width="94" Height="51" Margin="0,0,26,94" Click="BtnSalir_Click" RenderTransformOrigin="0.481,0.455" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <Button x:Name="BtnSalir" Content="Salir" Width="94" Height="51" Margin="0,0,26,94" Click="BtnSalir_Click" RenderTransformOrigin="0.481,0.455" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontFamily="Maiandra GD">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
