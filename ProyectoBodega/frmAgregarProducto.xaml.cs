@@ -221,8 +221,8 @@ namespace ProyectoBodega
             }
             else
             {
-                txtGananciaPorUnidad.Text = "0,00";
-                txtGananciaTotal.Text = "0,00";
+                txtGananciaPorUnidad.Text = "00,00";
+                txtGananciaTotal.Text = "00,00";
             }
         }
         private void txtStock_PreviewKeyDown(object sender, KeyEventArgs e)

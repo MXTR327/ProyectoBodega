@@ -266,6 +266,24 @@
   <ItemGroup>
     <Resource Include="img\nombreP.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\ganancia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\precioCompra.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\gananciaT.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\precioVenta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\medida.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
