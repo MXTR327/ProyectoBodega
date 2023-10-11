@@ -133,6 +133,12 @@ namespace ProyectoBodega
                     txtPrecioCompra.Text = "";
                     txtPrecioVenta.Text = "";
                     txtNombre.Focus();
+
+                    txtbMedida.Visibility = Visibility.Visible;
+                    txtbDescripcion.Visibility = Visibility.Visible;
+                    txtbStock.Visibility = Visibility.Visible;
+                    txtbPrecioCompra.Visibility = Visibility.Visible;
+                    txtbPrecioVenta.Visibility = Visibility.Visible;
                 }
                 else
                 {

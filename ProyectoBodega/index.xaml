@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="index" Height="1038" Width="1920" WindowState="Maximized">
     <Grid x:Name="ventanaIndex" Loaded="ventanaIndex_Loaded" RenderTransformOrigin="0.5,0.484">
-        <DataGrid x:Name="dgProducto" HorizontalAlignment="Left" Height="288" Margin="22,146,0,0" VerticalAlignment="Top" Width="1232" AutoGenerateColumns="False" SelectionMode="Single" CanUserAddRows="False">
+        <DataGrid x:Name="dgProducto" HorizontalAlignment="Left" Height="288" Margin="22,146,0,0" VerticalAlignment="Top" Width="1232" AutoGenerateColumns="False" SelectionMode="Single" CanUserAddRows="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="TopColumn" Header="Top" Width="70" Binding="{Binding Top}" />
                 <DataGridTextColumn x:Name="idProducto" Header="ID" Width="60" Binding="{Binding idProducto}" />
@@ -19,7 +19,7 @@
                 <DataGridTextColumn x:Name="VecesVendido" Header="Veces Vendidas" Width="130" Binding="{Binding VecesVendido}" />
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid x:Name="dgVenta" HorizontalAlignment="Left" Height="377" Margin="22,529,0,0" VerticalAlignment="Top" Width="1232" SelectionMode="Single" AutoGenerateColumns="False" CanUserAddRows="False">
+        <DataGrid x:Name="dgVenta" HorizontalAlignment="Left" Height="377" Margin="22,529,0,0" VerticalAlignment="Top" Width="1232" SelectionMode="Single" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="Cuenta" Header="" Width="50" Binding="{Binding Cuenta}"/>
                 <DataGridTextColumn x:Name="codigo" Header="ID" Width="60" Binding="{Binding idProducto}" />

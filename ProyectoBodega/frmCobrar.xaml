@@ -5,18 +5,116 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="frmCobrar" Height="578" Width="819" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Center" Height="50" Margin="0,62,0,0" TextWrapping="Wrap" Text="Anónimo" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Center" FontSize="25" FontFamily="Bookman Old Style" HorizontalContentAlignment="Center" FontWeight="Bold" TextChanged="txtPrimeraLetraMayuscula_TextChanged"/>
-        <Label Content="Nombre del Cliente(Opcional)" HorizontalAlignment="Center" Margin="0,16,0,0" VerticalAlignment="Top" Width="446" FontSize="30" FontFamily="Maiandra GD" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
-        <TextBox x:Name="txtTotal" HorizontalAlignment="Center" Height="50" Margin="0,163,0,0" TextWrapping="Wrap" Text="0,00" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Center" FontSize="25" FontFamily="Bookman Old Style" HorizontalContentAlignment="Center" FontWeight="Bold" IsReadOnly="True"/>
-        <Label Content="TOTAL" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top" Width="446" FontSize="30" FontFamily="Maiandra GD" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
-        <TextBox x:Name="txtPago" HorizontalAlignment="Center" Height="50" Margin="0,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Center" FontSize="25" FontFamily="Bookman Old Style" HorizontalContentAlignment="Center" FontWeight="Bold" TextChanged="txtPago_TextChanged"/>
-        <Label Content="PAGO" HorizontalAlignment="Center" Margin="0,218,0,0" VerticalAlignment="Top" Width="446" FontSize="30" FontFamily="Maiandra GD" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
-        <TextBox x:Name="txtCambio" HorizontalAlignment="Center" Height="50" Margin="0,365,0,0" TextWrapping="Wrap" Text="0,00" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Center" FontSize="25" FontFamily="Bookman Old Style" HorizontalContentAlignment="Center" FontWeight="Bold" IsReadOnly="True"/>
-        <Label Content="CAMBIO" HorizontalAlignment="Center" Margin="0,319,0,0" VerticalAlignment="Top" Width="446" FontSize="30" FontFamily="Maiandra GD" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
-        <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Center" Height="87" Margin="0,420,0,0" VerticalAlignment="Top" Width="270" FontSize="25" FontWeight="Bold" Click="btnAceptar_Click"/>
-        <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="66" Margin="639,441,0,0" VerticalAlignment="Top" Width="142" FontSize="25" FontWeight="Bold" Click="btnCancelar_Click"/>
+        Title="frmCobrar" Height="700" Width="629" 
+        WindowStartupLocation="CenterScreen" 
+        Loaded="Window_Loaded" 
+        WindowStyle="None" 
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Border x:Name="Ventana" Background="White"  MouseLeftButtonDown="Border_MouseLeftButtonDown" Cursor="Arrow" CornerRadius="12,12,12,12" BorderThickness="2,2,2,2" BorderBrush="Black">
+        
+        <Grid>
+            <TextBox x:Name="txtNombre" HorizontalAlignment="Center" Height="40" Margin="0,164,0,0" TextWrapping="Wrap" Text="Anónimo" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Bottom" FontSize="30" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" TextChanged="txtPrimeraLetraMayuscula_TextChanged" BorderThickness="0,0,0,2" Padding="0,0,0,-1"/>
+            <Label Content="Nombre del Cliente(Opcional)" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top" Width="446" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="40"/>
 
-    </Grid>
+            <TextBox x:Name="txtTotal" HorizontalAlignment="Center" Height="40" Margin="0,276,0,0" TextWrapping="Wrap" Text="0,00" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Bottom" FontSize="30" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="0,0,0,-1"/>
+            <Label Content="TOTAL" HorizontalAlignment="Center" Margin="0,229,0,0" VerticalAlignment="Top" Width="446" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="40"/>
+
+            <TextBox x:Name="txtPago" HorizontalAlignment="Center" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Bottom" FontSize="30" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" TextChanged="txtPago_TextChanged" BorderThickness="0,0,0,2" Margin="0,375,0,0" Padding="0,0,0,-1" PreviewKeyDown="txtControlarDouble_PreviewKeyDown"/>
+            <Label Content="PAGO" HorizontalAlignment="Center" VerticalAlignment="Center" Width="446" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="40"/>
+
+            <TextBox x:Name="txtCambio" HorizontalAlignment="Center" Height="40" Margin="0,473,0,0" TextWrapping="Wrap" Text="0,00" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Bottom" FontSize="30" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="0,0,0,-1"/>
+            <Label Content="CAMBIO" HorizontalAlignment="Center" Margin="0,426,0,0" VerticalAlignment="Top" Width="446" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+
+
+            <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Center" Height="54" Margin="0,540,0,0" VerticalAlignment="Top" Width="563" FontSize="25" Click="btnAceptar_Click" FontFamily="Maiandra GD">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation To="520" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                <DoubleAnimation To="57" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation To="510" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                <DoubleAnimation To="54" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="Width" Value="476" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="25">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FFEB85FD" Offset="0"/>
+                        <GradientStop Color="#FF5596EC" Offset="0.5"/>
+                        <GradientStop Color="#FF0BC2FF" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="54" Margin="388,622,0,0" VerticalAlignment="Top" Width="208" FontSize="25" Click="btnCancelar_Click" FontFamily="Maiandra GD">
+                <Button.Triggers>
+                    <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation To="218" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                <DoubleAnimation To="57" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation To="208" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                <DoubleAnimation To="54" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Button.Triggers>
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Background" Value="#007ACC" />
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="Width" Value="476" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="29">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FFD32F2F" Offset="0"/>
+                        <GradientStop Color="#FF953232" Offset="0.5"/>
+                        <GradientStop Color="#FF701616" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Label Content="Pago en Efectivo" HorizontalAlignment="Left" Margin="103,47,0,0" VerticalAlignment="Top" Width="446" FontSize="40" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+        </Grid>
+    </Border>
 </Window>

@@ -194,12 +194,21 @@ namespace ProyectoBodega
                 txtPaquetePrecioVenta.Text = "";
                 txtMedida.Text = "";
                 txtPaqueteStock.Text = "";
+                txtUnidadStock.Text = "";
                 cmbCategoria.SelectedValue = 0;
                 cmbProveedor.SelectedValue = 0;
                 cmbMarca.SelectedValue = 0;
                 txtUnidadPrecioCompra.Text = "";
                 txtUnidadPrecioVenta.Text = "";
-                txtUnidadTotal.Text = "";
+
+                txtNombre.Focus();
+                txtbMedida.Visibility = Visibility.Visible;
+                txtbDescripcion.Visibility = Visibility.Visible;
+                txtbPaqueteStock.Visibility = Visibility.Visible;
+                txtbUnidadStock.Visibility = Visibility.Visible;
+                txtbPaquetePrecioCompra.Visibility = Visibility.Visible;
+                txtbPaquetePrecioVenta.Visibility = Visibility.Visible;
+                txtbUnidadPrecioVenta.Visibility = Visibility.Visible;
             }
             else
             {

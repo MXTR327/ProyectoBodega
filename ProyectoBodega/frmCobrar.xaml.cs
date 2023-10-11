@@ -18,33 +18,51 @@ namespace ProyectoBodega
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            txtTotal.Text = (string)indexVentana.lblTotal.Content;
+            if(indexVentana != null)
+            {
+                txtTotal.Text = (string)indexVentana.lblTotal.Content;
+            }
         }
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-        private void txtPago_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void txtPago_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtPago.Text) && !string.IsNullOrWhiteSpace(txtTotal.Text))
             {
-                txtCambio.Text = (double.Parse(txtPago.Text) - double.Parse(txtTotal.Text)).ToString("F2");
+                if (double.TryParse(txtPago.Text, out double pago) && double.TryParse(txtTotal.Text, out double total))
+                {
+                    txtCambio.Text = (pago - total).ToString("F2");
+                }
+                else
+                {
+                    txtCambio.Text = "-1";
+                }
             }
             else
             {
                 txtCambio.Text = "0,00";
             }
         }
+
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtControlarDouble_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             TextBox textBox = sender as TextBox;
-            if (!(Char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) ||
-                  (e.Key == Key.OemComma && textBox.Text.IndexOf(',') == -1) ||
-                  e.Key == Key.Left || e.Key == Key.Right || e.Key == Key.Back || e.Key == Key.Delete || e.Key == Key.Home || e.Key == Key.End))
+            if (e.Key == Key.OemComma && textBox.Text.Length == 0)
             {
                 e.Handled = true;
             }
+            if (e.Key == Key.Right || e.Key == Key.Left)
+            {
+                e.Handled = true;
+            }
+            if (!(Char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) || (e.Key == Key.OemComma && textBox.Text.IndexOf(',') == -1) || e.Key == Key.Back))
+            {
+                e.Handled = true;
+            }
+            
             if (e.Key == Key.OemComma && textBox.Text.IndexOf(',') != -1)
             {
                 e.Handled = true;
@@ -144,6 +162,16 @@ namespace ProyectoBodega
             indexVentana.CargarProducto();
             indexVentana.tablaVenta.Rows.Clear();
             Close();
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Ventana.Cursor = Cursors.SizeAll;
+                DragMove();
+                Ventana.Cursor = Cursors.Arrow;
+            }
         }
     }
 }
