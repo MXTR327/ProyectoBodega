@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Agregar Vendedor" Height="960" Width="951" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="/img/icono.png" WindowState="Maximized">
+        Title="Agregar Vendedor" Height="960" Width="951" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="/img/icono.png" WindowState="Maximized" KeyDown="Window_KeyDown">
     <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
     <Window.Resources>
 
@@ -30,20 +30,20 @@
                 <Grid Cursor="IBeam" ForceCursor="True" Margin="0,333,0,472">
                     <Image HorizontalAlignment="Left" Height="36" Margin="31,0,0,20" VerticalAlignment="Bottom" Width="34" Source="img/nombreIco.png" Stretch="Fill" Opacity="0.7"/>
                     <TextBlock x:Name="txtbNombre" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="70,0,0,17" Foreground="Gray" FontSize="30" Width="406"><Run Language="es-pe" Text="Ingrese su Nombre completo"/></TextBlock>
-                    <TextBox x:Name="txtNombre" Width="497" Height="52" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,7,0,0" TextChanged="primeraLetraMayuscula_TextChanged" FontSize="20" MaxLength="60" VerticalContentAlignment="Center" Padding="37,0,0,0" GotFocus="txtNombre_GotFocus" LostFocus="txtNombre_LostFocus" BorderThickness="0,0,0,2" Background="{x:Null}" />
+                    <TextBox x:Name="txtNombre" Width="497" Height="52" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,7,0,0" TextChanged="primeraLetraMayuscula_TextChanged" FontSize="25" MaxLength="60" VerticalContentAlignment="Center" Padding="37,0,0,0" GotFocus="txtNombre_GotFocus" LostFocus="txtNombre_LostFocus" BorderThickness="0,0,0,2" Background="{x:Null}" />
                 </Grid>
 
                 <Grid x:Name="gridDireccion" Cursor="Arrow" ForceCursor="True" Margin="0,462,0,343">
                     <Image HorizontalAlignment="Left" Height="36" Margin="28,9,0,0" VerticalAlignment="Top" Width="39" Source="img/direccion.png" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.35,0.533"/>
                     <TextBlock x:Name="txtbDireccion" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="70,0,0,23" Foreground="Gray" FontSize="30" Width="450" Grid.ColumnSpan="2" ><Run Language="es-pe" Text="Ingrese su Dirección( Opcional )"/></TextBlock>
-                    <TextBox x:Name="txtDireccion" Width="497" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,4,0,0" FontSize="20" MaxLength="60" VerticalContentAlignment="Center" IsReadOnly="True" GotFocus="txtDireccion_GotFocus" LostFocus="txtDireccion_LostFocus" Padding="37,0,0,0" TextChanged="primeraLetraMayuscula_TextChanged" Grid.ColumnSpan="2" BorderThickness="0,0,0,2" Background="{x:Null}"/>
+                    <TextBox x:Name="txtDireccion" Width="497" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,4,0,0" FontSize="20" MaxLength="60" VerticalContentAlignment="Center" GotFocus="txtDireccion_GotFocus" LostFocus="txtDireccion_LostFocus" Padding="37,0,0,0" TextChanged="primeraLetraMayuscula_TextChanged" Grid.ColumnSpan="2" BorderThickness="0,0,0,2" Background="{x:Null}" IsEnabled="False"/>
                 </Grid>
 
 
                 <Grid x:Name="gridTelefono" Cursor="Arrow" ForceCursor="True" Margin="0,590,0,229">
                     <Image HorizontalAlignment="Left" Height="36" Margin="33,0,0,15" VerticalAlignment="Bottom" Width="34" Source="img/telefonoIco.png" Stretch="Fill" Opacity="0.7"/>
                     <TextBlock x:Name="txtbTelefono" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="71,0,0,14" Foreground="Gray" FontSize="30" Width="421"><Run Language="es-pe" Text="Ingrese su Teléfono( Opcional )"/></TextBlock>
-                    <TextBox x:Name="txtTelefono" Width="497" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,-1,0,0" FontSize="27" PreviewKeyDown="txtTelefono_PreviewKeyDown" MaxLength="9" VerticalContentAlignment="Center" IsReadOnly="True" GotFocus="txtTelefono_GotFocus" LostFocus="txtTelefono_LostFocus" Padding="37,0,0,0" BorderThickness="0,0,0,2" Background="{x:Null}"/>
+                    <TextBox x:Name="txtTelefono" Width="497" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="33,-1,0,0" FontSize="27" PreviewKeyDown="txtTelefono_PreviewKeyDown" MaxLength="9" VerticalContentAlignment="Center" GotFocus="txtTelefono_GotFocus" LostFocus="txtTelefono_LostFocus" Padding="37,0,0,0" BorderThickness="0,0,0,2" Background="{x:Null}" IsEnabled="False"/>
                 </Grid>
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
 
@@ -53,7 +53,7 @@
                 <Label Content="Dirección" FontSize="25" Margin="32,422,0,0" HorizontalAlignment="Left" Width="118" Height="40" VerticalAlignment="Top" FontFamily="Bahnschrift" />
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Button Content="Salir" Width="172" HorizontalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Button_Click" Height="54" Margin="0,780,31,0" FontSize="23" FontFamily="Maiandra GD">
+                <Button x:Name="btnSalir" Content="Salir( Esc )" Width="172" HorizontalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top" Click="BtnSalir_Click" Height="54" Margin="0,780,31,0" FontSize="26" FontFamily="Calibri">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>
@@ -97,7 +97,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnAgregarVendedor" Content="Agregar Vendedor" Width="510" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,512,0,0" Click="btnAgregarVendedor_Click" Height="54" FontSize="23" VerticalAlignment="Center" FontFamily="Maiandra GD" >
+                <Button x:Name="btnAgregarVendedor" Content="Agregar Vendedor( Intro )" Width="510" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,512,0,0" Click="btnAgregarVendedor_Click" Height="54" FontSize="28" VerticalAlignment="Center" FontFamily="Calibri" >
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>
@@ -142,7 +142,7 @@
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
                 <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="39" Margin="150,420,0,0" Cursor="Hand" ForceCursor="True">
-                    <CheckBox x:Name="chkDireccion" Click="chkDireccion_Click" RenderTransformOrigin="0.51,0.558" />
+                    <CheckBox x:Name="chkDireccion" Click="chkDireccion_Click" RenderTransformOrigin="0.51,0.558" IsChecked="False" />
                 </Viewbox>
                 <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top" Width="41" Height="39" Margin="150,547,0,0" Cursor="Hand" ForceCursor="True">
                     <CheckBox x:Name="chkTelefono" Click="chkTelefono_Click" />

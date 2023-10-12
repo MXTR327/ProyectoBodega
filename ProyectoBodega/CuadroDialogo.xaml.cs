@@ -14,12 +14,10 @@ using System.Windows.Shapes;
 
 namespace ProyectoBodega
 {
-    /// <summary>
-    /// Lógica de interacción para CuadroDialogo.xaml
-    /// </summary>
     public partial class CuadroDialogo : Window
     {
         public string ValorIngresado { get; private set; }
+        public string titulo="Sin titulo";
         public CuadroDialogo()
         {
             InitializeComponent();
@@ -43,6 +41,7 @@ namespace ProyectoBodega
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            lblTitulo.Content = titulo;
             txtUsuario.Focus();
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
@@ -57,6 +56,18 @@ namespace ProyectoBodega
             if (string.IsNullOrWhiteSpace(txtUsuario.Text))
             {
                 txtbUsuario.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                Aceptar_Click(sender, e);
+            }
+            else if(e.Key == Key.Escape)
+            {
+                Cancelar_Click(sender, e);
             }
         }
     }

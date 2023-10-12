@@ -2,6 +2,7 @@
 using System.Data;
 using System.Runtime.Remoting.Channels;
 using System.Windows;
+using System.Windows.Input;
 
 namespace ProyectoBodega
 {
@@ -28,8 +29,16 @@ namespace ProyectoBodega
         {
 
             filtro = "";
-            idActual = ventanaIndex.idvendedor;
+            if (ventanaIndex != null)
+            {
+                idActual = ventanaIndex.idvendedor;
+            }
             CargarVendedores();
+
+            if (dgVendedores.Items.Count >0)
+            {
+                dgVendedores.SelectedIndex = 0;
+            }
         }
         public void CargarVendedores()
         {
@@ -39,7 +48,7 @@ namespace ProyectoBodega
         
         private void txtBuscadorVendedor_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            filtro = txtBuscadorProducto.Text;
+            filtro = txtBuscadorVendedor.Text;
             CargarVendedores();
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
@@ -65,6 +74,7 @@ namespace ProyectoBodega
             }
 
             var CuadroDialogo = new CuadroDialogo();
+            CuadroDialogo.titulo = "Borrar Vendedor";
             if (CuadroDialogo.ShowDialog() != true)
             {
                 return;
@@ -109,6 +119,7 @@ namespace ProyectoBodega
                 return;
             }
             var CuadroDialogo = new CuadroDialogo();
+            CuadroDialogo.titulo = "Actualizar Vendedor";
             if (CuadroDialogo.ShowDialog() != true)
             {
                 return;
@@ -122,8 +133,46 @@ namespace ProyectoBodega
 
             frmAgregarVendedor agregarvendedor = new frmAgregarVendedor();
             agregarvendedor.ventanaEmpleados = this;
-            agregarvendedor.Tag = "A";
+            agregarvendedor.Tag = "Actualizar";
             agregarvendedor.ShowDialog();
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtBuscadorVendedor_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbBuscador.Visibility=Visibility.Collapsed;
+        }
+
+        private void txtBuscadorVendedor_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBuscadorVendedor.Text))
+            {
+                txtbBuscador.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void dgVendedores_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            btnActualizarVendedor_Click(sender,e);
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                Close();
+            }
+            else if (e.Key == Key.F1)
+            {
+                btnAgregarVendedor_Click(sender, e);
+            }
+            else if (e.Key == Key.F2)
+            {
+                btnActualizarVendedor_Click(sender, e);
+            }
+            else if (e.Key == Key.F3)
+            {
+                btnBorrarVendedor_Click(sender,e);
+            }
         }
     }
 }

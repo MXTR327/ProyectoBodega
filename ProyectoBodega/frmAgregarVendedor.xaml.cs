@@ -18,9 +18,8 @@ namespace ProyectoBodega
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             txtUsuario.Focus();
-            if ((string)this.Tag != "Crear")
+            if ((string)this.Tag == "Actualizar")
             {
-
                 lblFrm.Content = "Actualizar Vendedor";
                 btnAgregarVendedor.Content = "Actualizar Vendedor";
                 txtCodigo.Visibility = Visibility.Visible;
@@ -55,27 +54,29 @@ namespace ProyectoBodega
                 if (!string.IsNullOrEmpty(telefono))
                 {
                     chkTelefono.IsChecked = true;
-                    txtTelefono.IsReadOnly = false;
-                    txtTelefono.Text = telefono;
+                    txtTelefono.IsEnabled = true;
+                    txtTelefono.Text= telefono;
+                    gridTelefono.Cursor = Cursors.IBeam;
                 }
                 if (!string.IsNullOrEmpty(direccion))
                 {
                     chkDireccion.IsChecked = true;
-                    txtDireccion.IsReadOnly = false;
+                    txtDireccion.IsEnabled = true;
                     txtDireccion.Text = direccion;
+                    gridDireccion.Cursor = Cursors.IBeam;
                 }
                 txtUsuario.Focus();
             }
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnSalir_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
         private void chkDireccion_Click(object sender, RoutedEventArgs e)
         {
+            txtDireccion.IsEnabled = !txtDireccion.IsEnabled;
             txtDireccion.Text = "";
-            txtDireccion.IsReadOnly = !txtDireccion.IsReadOnly;
-            if (txtDireccion.IsReadOnly==false)
+            if (txtDireccion.IsEnabled == IsEnabled)
             {
                 gridDireccion.Cursor = Cursors.IBeam;
                 txtDireccion.Focus();
@@ -88,9 +89,9 @@ namespace ProyectoBodega
         }
         private void chkTelefono_Click(object sender, RoutedEventArgs e)
         {
+            txtTelefono.IsEnabled = !txtTelefono.IsEnabled;
             txtTelefono.Text = "";
-            txtTelefono.IsReadOnly = !txtTelefono.IsReadOnly;
-            if (txtTelefono.IsReadOnly==false)
+            if (txtTelefono.IsEnabled == true)
             {
                 gridTelefono.Cursor = Cursors.IBeam;
                 txtTelefono.Focus();
@@ -249,6 +250,18 @@ namespace ProyectoBodega
             if (string.IsNullOrWhiteSpace(txtDireccion.Text))
             {
                 txtbDireccion.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnAgregarVendedor_Click(sender, e);
+            }
+            else if (e.Key == Key.Escape)
+            {
+                BtnSalir_Click(sender, e);
             }
         }
     }
