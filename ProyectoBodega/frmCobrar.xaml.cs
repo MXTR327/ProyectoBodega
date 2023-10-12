@@ -41,7 +41,7 @@ namespace ProyectoBodega
                     }
                     else
                     {
-                        txtCambio.Foreground = Brushes.Black;
+                        txtCambio.Foreground = Brushes.Green;
                     }
                 }
                 else

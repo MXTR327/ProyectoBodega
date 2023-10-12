@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace ProyectoBodega
 {
@@ -71,6 +72,12 @@ namespace ProyectoBodega
         private void btnCambiarPrecio_Click(object sender, RoutedEventArgs e)
         {
             txtPrecio.IsReadOnly = !txtPrecio.IsReadOnly;
+            
+            if (txtPrecio.IsReadOnly == false)
+            {
+                txtPrecio.SelectAll();
+                txtPrecio.Focus();
+            }
         }
         private void txtCantidad_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -78,6 +85,14 @@ namespace ProyectoBodega
             {
                 int stockFinal = stockInicial - cantidad;
                 txtStockFinal.Text = stockFinal.ToString();
+                if(double.Parse(txtStockFinal.Text) < 0)
+                {
+                    txtStockFinal.Foreground = Brushes.Red;
+                }
+                else
+                {
+                    txtStockFinal.Foreground = Brushes.Black;
+                }
             }
             else
             {
@@ -94,13 +109,19 @@ namespace ProyectoBodega
         private void txtPrecio_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             TextBox textBox = sender as TextBox;
-
-            if (!(Char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) ||
-                  (e.Key == Key.OemComma && textBox.Text.IndexOf(',') == -1) ||
-                  e.Key == Key.Left || e.Key == Key.Right || e.Key == Key.Back || e.Key == Key.Delete || e.Key == Key.Home || e.Key == Key.End))
+            if (e.Key == Key.OemComma && textBox.Text.Length == 0)
             {
                 e.Handled = true;
             }
+            if (e.Key == Key.Right || e.Key == Key.Left)
+            {
+                e.Handled = true;
+            }
+            if (!(Char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) || (e.Key == Key.OemComma && textBox.Text.IndexOf(',') == -1) || e.Key == Key.Back))
+            {
+                e.Handled = true;
+            }
+
             if (e.Key == Key.OemComma && textBox.Text.IndexOf(',') != -1)
             {
                 e.Handled = true;
@@ -123,10 +144,14 @@ namespace ProyectoBodega
                 }
             }
         }
-
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnContinuar_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(txtPrecio.Text) || txtPrecio.Text==",")
+            {
+                MessageBox.Show("Especifique un precio del Producto", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             if (string.IsNullOrEmpty(txtCantidad.Text) || int.Parse(txtCantidad.Text) <= 0)
             {
                 MessageBox.Show("Especifique una cantidad a vender", "Advertencia", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -144,17 +169,31 @@ namespace ProyectoBodega
                 MessageBox.Show("No tiene suficientes productos", "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            txtPrecio.Text = precio.ToString();
+        }
         private void Seleccionar()
         {
             DataRow nuevaFila = ventanaIndex.tablaVenta.NewRow();
             nuevaFila["idProducto"] = Id;
             nuevaFila["nombre_producto"] = nombre;
-            nuevaFila["precio_compra"] = precio;
+            nuevaFila["precio_compra"] = txtPrecio.Text;
             nuevaFila["Cantidad"] = cantidad;
-            nuevaFila["Total"] = cantidad * precio;
+            nuevaFila["Total"] = (cantidad * double.Parse(txtPrecio.Text));
             ventanaIndex.tablaVenta.Rows.Add(nuevaFila);
 
             Close();
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void Arrastrar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Ventana.Cursor = Cursors.SizeAll;
+                DragMove();
+                Ventana.Cursor = Cursors.Arrow;
+            }
         }
 
     }

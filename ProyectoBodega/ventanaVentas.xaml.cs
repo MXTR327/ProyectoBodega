@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace ProyectoBodega
 {
@@ -24,9 +23,13 @@ namespace ProyectoBodega
         {
             filtroFecha = "";
             CargarVentas();
-            CargarDetalleVentas();
 
             dpFecha.SelectedDate = DateTime.Now;
+
+            dgVentas.SelectedIndex = 0;
+            dgProductosVenta.SelectedIndex = 0;
+
+            
         }
         private void dpFecha_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -70,13 +73,16 @@ namespace ProyectoBodega
         {
             if (dgVentas.Items.Count > 0)
             {
-                dgVentas.SelectedIndex = 0;
                 DataRowView filaSeleccionada = (DataRowView)dgVentas.SelectedItem;
-                string Id = filaSeleccionada["idVenta"].ToString();
-                DataTable dt = cn_ventanaventas.tblDetalleVenta(Id);
-                dgProductosVenta.ItemsSource = dt.DefaultView;
+                if(filaSeleccionada != null)
+                {
+                    string Id = filaSeleccionada["idVenta"].ToString();
+                    DataTable dt = cn_ventanaventas.tblDetalleVenta(Id);
 
-                CargarDetalleProductos();
+                    dgProductosVenta.ItemsSource = dt.DefaultView;
+
+                    dgProductosVenta.SelectedIndex = 0;
+                }
             }
             else
             {
@@ -89,8 +95,6 @@ namespace ProyectoBodega
         {
             if (dgProductosVenta.Items.Count > 0)
             {
-                dgProductosVenta.SelectedIndex = 0;
-
                 DataRowView filaSeleccionada = (DataRowView)dgProductosVenta.SelectedItem;
                 if (filaSeleccionada != null)
                 {
@@ -123,18 +127,14 @@ namespace ProyectoBodega
                         txtPrecioVenta.Text = txtMedida.Text = txtStock.Text = txtUnidadGanancia.Text = txtGananciaTotal.Text = "Inexistente";
                     }
                 }
-                else
-                {
-                    MessageBox.Show("No selecciono ningun producto", "Error");
-                }
             }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
-        private void dgVentas_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void dgVentas_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             CargarDetalleVentas();
         }
-        private void dgProductosVenta_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void dgProductosVenta_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             CargarDetalleProductos();
         }
@@ -142,11 +142,19 @@ namespace ProyectoBodega
         private void btnFechaHoy_Click(object sender, RoutedEventArgs e)
         {
             dpFecha.SelectedDate = DateTime.Now;
+            dgVentas.SelectedIndex = 0;
+            dgProductosVenta.SelectedIndex = 0;
         }
         private void btnReestablecerFecha_Click(object sender, RoutedEventArgs e)
         {
+
             dpFecha.SelectedDate = null;
+            filtroFecha = "";
+            CargarVentas();
+            dgVentas.SelectedIndex = 0;
+            dgProductosVenta.SelectedIndex = 0;
         }
+
         //------------------------------------------------------------------------------------------------------------------------------\\
     }
 }

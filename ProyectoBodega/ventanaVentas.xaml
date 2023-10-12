@@ -23,7 +23,7 @@
         </Border>
 
         <Label Content="Ventas" HorizontalAlignment="Left" Height="50" Margin="10,10,0,0" VerticalAlignment="Top" Width="187" FontSize="25" FontWeight="Bold" FontFamily="Tahoma" VerticalContentAlignment="Center"/>
-        <DataGrid x:Name="dgVentas" Height="350" VerticalAlignment="Top" CanUserAddRows="False" Margin="10,107,15,0" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgVentas_SelectionChanged" Grid.ColumnSpan="2">
+        <DataGrid x:Name="dgVentas" Height="350" VerticalAlignment="Top" CanUserAddRows="False" Margin="10,107,15,0" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgVentas_SelectionChanged" Grid.ColumnSpan="2" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Width="60" Binding="{Binding idVenta}"/>
                 <DataGridTextColumn Header="Fecha" Width="100" Binding="{Binding fecha}"/>
