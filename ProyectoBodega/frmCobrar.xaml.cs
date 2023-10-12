@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Windows.Controls;
 using Negocio;
 using System.Data;
+using System.Windows.Media;
 
 namespace ProyectoBodega
 {
@@ -34,6 +35,14 @@ namespace ProyectoBodega
                 if (double.TryParse(txtPago.Text, out double pago) && double.TryParse(txtTotal.Text, out double total))
                 {
                     txtCambio.Text = (pago - total).ToString("F2");
+                    if( double.Parse(txtCambio.Text) < 0)
+                    {
+                        txtCambio.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        txtCambio.Foreground = Brushes.Black;
+                    }
                 }
                 else
                 {
@@ -171,6 +180,34 @@ namespace ProyectoBodega
                 Ventana.Cursor = Cursors.SizeAll;
                 DragMove();
                 Ventana.Cursor = Cursors.Arrow;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtPago_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbPago.Visibility = Visibility.Collapsed;
+        }
+
+        private void txtPago_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtPago.Text))
+            {
+                txtbPago.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtNombre_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                txtNombre.Text = "Anónimo";
+            }
+        }
+        private void txtNombre_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (txtNombre.Text == "Anónimo")
+            {
+                txtNombre.Text = "";
             }
         }
     }

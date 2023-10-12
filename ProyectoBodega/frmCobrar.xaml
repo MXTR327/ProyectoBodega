@@ -12,23 +12,41 @@
         Background="Transparent"
         AllowsTransparency="True">
     <Border x:Name="Ventana" Background="White"  MouseLeftButtonDown="Border_MouseLeftButtonDown" Cursor="Arrow" CornerRadius="12,12,12,12" BorderThickness="2,2,2,2" BorderBrush="Black">
-        
+
         <Grid>
-            <TextBox x:Name="txtNombre" HorizontalAlignment="Center" Height="40" Margin="0,164,0,0" TextWrapping="Wrap" Text="Anónimo" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Bottom" FontSize="30" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" TextChanged="txtPrimeraLetraMayuscula_TextChanged" BorderThickness="0,0,0,2" Padding="0,0,0,-1"/>
-            <Label Content="Nombre del Cliente(Opcional)" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top" Width="446" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="40"/>
 
-            <TextBox x:Name="txtTotal" HorizontalAlignment="Center" Height="40" Margin="0,276,0,0" TextWrapping="Wrap" Text="0,00" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Bottom" FontSize="30" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="0,0,0,-1"/>
+            <Label Content="Nombre del Cliente( Opcional )" HorizontalAlignment="Center" Margin="0,117,0,0" VerticalAlignment="Top" Width="446" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="40"/>
             <Label Content="TOTAL" HorizontalAlignment="Center" Margin="0,229,0,0" VerticalAlignment="Top" Width="446" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="40"/>
-
-            <TextBox x:Name="txtPago" HorizontalAlignment="Center" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Bottom" FontSize="30" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" TextChanged="txtPago_TextChanged" BorderThickness="0,0,0,2" Margin="0,375,0,0" Padding="0,0,0,-1" PreviewKeyDown="txtControlarDouble_PreviewKeyDown"/>
             <Label Content="PAGO" HorizontalAlignment="Center" VerticalAlignment="Center" Width="446" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="40"/>
-
-            <TextBox x:Name="txtCambio" HorizontalAlignment="Center" Height="40" Margin="0,473,0,0" TextWrapping="Wrap" Text="0,00" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Bottom" FontSize="30" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="0,0,0,-1"/>
             <Label Content="CAMBIO" HorizontalAlignment="Center" Margin="0,426,0,0" VerticalAlignment="Top" Width="446" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
 
 
+            <Grid Cursor="IBeam" ForceCursor="True" Margin="0,167,0,467" HorizontalAlignment="Center" Width="625">
+                <Image HorizontalAlignment="Left" Height="44" Margin="156,0,0,3" VerticalAlignment="Center" Width="44" Source="img/nombreIco.png" Stretch="Fill" Opacity="0.7"/>
+                <TextBox x:Name="txtNombre" HorizontalAlignment="Center" Height="40" Margin="0,15,0,0" TextWrapping="Wrap" Text="Anónimo" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Center" FontSize="25" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" TextChanged="txtPrimeraLetraMayuscula_TextChanged" BorderThickness="0,0,0,2" Padding="0,0,0,-1" Background="{x:Null}" LostFocus="txtNombre_LostFocus" PreviewMouseLeftButtonDown="txtNombre_PreviewMouseLeftButtonDown"/>
+            </Grid>
 
-            <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Center" Height="54" Margin="0,540,0,0" VerticalAlignment="Top" Width="563" FontSize="25" Click="btnAceptar_Click" FontFamily="Maiandra GD">
+            <Grid Cursor="IBeam" ForceCursor="True" Margin="0,261,0,373" HorizontalAlignment="Center" Width="625">
+                <Image HorizontalAlignment="Left" Height="44" Margin="156,0,0,3" VerticalAlignment="Center" Width="44" Source="img/precioVenta.png" Stretch="Fill" Opacity="0.7"/>
+                <Label Content="S/." FontSize="36" FontFamily="Bahnschrift" Margin="201,0,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="66" Height="50" FontWeight="Light" />
+                <TextBox x:Name="txtTotal" HorizontalAlignment="Center" Height="40" Margin="0,15,0,0" TextWrapping="Wrap" Text="9999,00" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Bottom" FontSize="30" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="0,0,0,-1" Background="{x:Null}"/>
+            </Grid>
+
+            <Grid Cursor="IBeam" ForceCursor="True" Margin="0,359,0,275" HorizontalAlignment="Center" Width="625">
+                <Image HorizontalAlignment="Left" Height="44" Margin="156,0,0,3" VerticalAlignment="Center" Width="44" Source="img/ganancia.png" Stretch="Fill" Opacity="0.7"/>
+                <Label Content="S/." FontSize="36" FontFamily="Bahnschrift" Margin="206,0,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="66" Height="50" FontWeight="Light" />
+                <TextBlock x:Name="txtbPago" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,14,0,0" Foreground="Gray" FontSize="30" Width="416" Height="42" TextAlignment="Center"><Run Text=""/><Run Language="es-pe" Text="0,00"/></TextBlock>
+                <TextBox x:Name="txtPago" HorizontalAlignment="Center" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Center" FontSize="30" FontFamily="Bahnschrift" TextChanged="txtPago_TextChanged" BorderThickness="0,0,0,2" Margin="0,16,0,0" Padding="0,0,0,-1" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" Background="{x:Null}" HorizontalContentAlignment="Center" GotFocus="txtPago_GotFocus" LostFocus="txtPago_LostFocus" Foreground="#FF040404"/>
+            </Grid>
+
+            <Grid Cursor="IBeam" ForceCursor="True" Margin="0,466,0,168" HorizontalAlignment="Center" Width="625">
+                <Image HorizontalAlignment="Left" Height="44" Margin="156,0,0,3" VerticalAlignment="Center" Width="44" Source="img/gananciaT.png" Stretch="Fill" Opacity="0.7"/>
+                <Label Content="S/." FontSize="36" FontFamily="Bahnschrift" Margin="210,0,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="66" Height="50" FontWeight="Light" />
+                <TextBox x:Name="txtCambio" HorizontalAlignment="Center" Height="40" Margin="0,15,0,0" TextWrapping="Wrap" Text="0,00" VerticalAlignment="Top" Width="416" VerticalContentAlignment="Bottom" FontSize="30" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="0,0,0,-1" Background="{x:Null}"/>
+            </Grid>
+
+
+            <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Center" Margin="0,439,0,0" Width="563" FontSize="25" Click="btnAceptar_Click" FontFamily="Maiandra GD" Height="54" VerticalAlignment="Center" RenderTransformOrigin="0.501,0.522">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="UIElement.MouseEnter">
                         <BeginStoryboard>
@@ -70,7 +88,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnCancelar" Content="Cancelar" HorizontalAlignment="Left" Height="54" Margin="388,622,0,0" VerticalAlignment="Top" Width="208" FontSize="25" Click="btnCancelar_Click" FontFamily="Maiandra GD">
+            <Button x:Name="btnCancelar" Content="Cancelar" Margin="0,0,29,20" Width="208" FontSize="25" Click="btnCancelar_Click" FontFamily="Maiandra GD" HorizontalAlignment="Right" Height="54" VerticalAlignment="Bottom">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="UIElement.MouseEnter">
                         <BeginStoryboard>
@@ -114,6 +132,12 @@
                 </Button.Background>
             </Button>
             <Label Content="Pago en Efectivo" HorizontalAlignment="Left" Margin="103,47,0,0" VerticalAlignment="Top" Width="446" FontSize="40" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+
+
+            <GridSplitter HorizontalAlignment="Center" Height="2" Margin="0,25,0,0" VerticalAlignment="Top" Width="135" Background="#FFD0CDCD"/>
+            <GridSplitter HorizontalAlignment="Center" Height="2" Margin="0,30,0,0" VerticalAlignment="Top" Width="135" Background="#FFD0CDCD"/>
+            <GridSplitter HorizontalAlignment="Center" Height="2" Margin="0,35,0,0" VerticalAlignment="Top" Width="135" Background="#FFD0CDCD"/>
+            <GridSplitter HorizontalAlignment="Center" Height="2" Margin="0,40,0,0" VerticalAlignment="Top" Width="135" Background="#FFD0CDCD"/>
 
         </Grid>
     </Border>
