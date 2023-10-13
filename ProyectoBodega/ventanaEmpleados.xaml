@@ -31,13 +31,14 @@
                         </Style>
 
                         <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="Padding" Value="10,10,0,4"/>
+                            <Setter Property="Padding" Value="0,10,0,4"/>
                             <Setter Property="FontFamily" Value="Bahnschrift SemiLight"/>
                             <Setter Property="Background" Value="#333333"/>
                             <Setter Property="Foreground" Value="White"/>
                             <Setter Property="FontSize" Value="30"/>
                             <Setter Property="BorderBrush" Value="#555555"/>
                             <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
                         </Style>
                     </DataGrid.Resources>
                     <DataGrid.Columns>
@@ -89,7 +90,7 @@
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
 
-                <Button x:Name="btnAgregarVendedor" Content="Agregar Vendedor( F1 )" Width="334" FontSize="20" Click="btnAgregarVendedor_Click" Margin="-730,820,0,0" Height="87" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button x:Name="btnAgregarVendedor" Content="Agregar Vendedor( F1 )" Width="334" FontSize="24" Click="btnAgregarVendedor_Click" Margin="-730,820,0,0" Height="87" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Calibri">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>
@@ -132,7 +133,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnActualizarVendedor" Content="Actualizar Vendedor( F2)" Width="274" FontSize="20" Click="btnActualizarVendedor_Click" Height="87" VerticalAlignment="Center" Margin="-95,820,0,0" HorizontalAlignment="Center">
+                <Button x:Name="btnActualizarVendedor" Content="Actualizar Vendedor( F2)" Width="274" FontSize="24" Click="btnActualizarVendedor_Click" Height="87" VerticalAlignment="Center" Margin="-95,820,0,0" HorizontalAlignment="Center" FontFamily="Calibri">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
@@ -175,7 +176,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnBorrarVendedor" Content="Borrar Vendedor( F3 )" Width="220" FontSize="20" Click="btnBorrarVendedor_Click" Margin="430,820,0,0" HorizontalAlignment="Center" Height="87" VerticalAlignment="Center">
+                <Button x:Name="btnBorrarVendedor" Content="Borrar Vendedor( F3 )" Width="220" FontSize="24" Click="btnBorrarVendedor_Click" Margin="430,820,0,0" HorizontalAlignment="Center" Height="87" VerticalAlignment="Center" FontFamily="Calibri">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>
@@ -219,7 +220,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button Content="Salir( Esc )" FontSize="20" Click="Button_Click" Width="194" Margin="870,820,0,0" HorizontalAlignment="Center" Height="87" VerticalAlignment="Center">
+                <Button Content="Salir( Esc )" FontSize="24" Click="Button_Click" Width="194" Margin="870,820,0,0" HorizontalAlignment="Center" Height="87" VerticalAlignment="Center" FontFamily="Calibri">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>

@@ -538,10 +538,7 @@ namespace ProyectoBodega
             }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
-        private DataTable ObtenerDatosProductos()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
 

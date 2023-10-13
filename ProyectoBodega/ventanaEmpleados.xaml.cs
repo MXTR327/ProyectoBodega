@@ -1,6 +1,5 @@
 ﻿using Negocio;
 using System.Data;
-using System.Runtime.Remoting.Channels;
 using System.Windows;
 using System.Windows.Input;
 

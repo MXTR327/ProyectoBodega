@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace ProyectoBodega
 {
@@ -28,8 +29,6 @@ namespace ProyectoBodega
 
             dgVentas.SelectedIndex = 0;
             dgProductosVenta.SelectedIndex = 0;
-
-            
         }
         private void dpFecha_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -86,6 +85,7 @@ namespace ProyectoBodega
             }
             else
             {
+                dgProductosVenta.ItemsSource = null;
                 txtID.Text = "Sin Productos";
                 txtNombre.Text = txtDescripcion.Text = txtCategoria.Text = txtProveedor.Text = txtMarca.Text = txtPrecioCompra.Text =
                 txtPrecioVenta.Text = txtMedida.Text = txtStock.Text = txtUnidadGanancia.Text = txtGananciaTotal.Text = "Inexistente";
@@ -120,12 +120,6 @@ namespace ProyectoBodega
                         txtUnidadGanancia.Text = gananciaUnidad.ToString();
                         txtGananciaTotal.Text = gananciaTotal.ToString();
                     }
-                    else
-                    {
-                        txtID.Text = "Sin Productos";
-                        txtNombre.Text = txtDescripcion.Text = txtCategoria.Text = txtProveedor.Text = txtMarca.Text = txtPrecioCompra.Text =
-                        txtPrecioVenta.Text = txtMedida.Text = txtStock.Text = txtUnidadGanancia.Text = txtGananciaTotal.Text = "Inexistente";
-                    }
                 }
             }
         }
@@ -154,7 +148,14 @@ namespace ProyectoBodega
             dgVentas.SelectedIndex = 0;
             dgProductosVenta.SelectedIndex = 0;
         }
-
         //------------------------------------------------------------------------------------------------------------------------------\\
+        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if(e.Key == Key.Escape)
+            {
+                Close();
+            }
+        }
+        
     }
 }
