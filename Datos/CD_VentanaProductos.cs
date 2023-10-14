@@ -29,7 +29,7 @@ namespace Datos
         }
         public DataTable tablaProductos(string filtro)
         {
-            return ConseguirTabla($"SELECT idProducto,nombre_producto,precio_compra,precio_venta,stock, nombre_categoria FROM producto p LEFT JOIN categoria c ON p.Categoria_idCategoria = c.idCategoria WHERE nombre_producto like '%{filtro}%'");
+            return ConseguirTabla($"SELECT idProducto,nombre_producto,precio_compra,precio_venta,stock, nombre_categoria FROM producto p LEFT JOIN categoria c ON p.Categoria_idCategoria = c.idCategoria WHERE nombre_producto like '%{filtro}%' ORDER BY stock ASC");
         }
         public DataTable tablaProveedor(string filtro)
         {
