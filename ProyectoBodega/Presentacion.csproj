@@ -303,6 +303,15 @@
   <ItemGroup>
     <Resource Include="img\resetear.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\fondo2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\lupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\ventas.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

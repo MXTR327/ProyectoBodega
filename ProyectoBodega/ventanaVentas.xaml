@@ -14,7 +14,6 @@
         </Grid.Background>
         <Border HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Width="1516" Background="White" Opacity="0.99" Height="928">
             <Grid>
-
                 <Label Content="Ventas Totales" HorizontalAlignment="Center" Height="50" VerticalAlignment="Top" Width="874" FontSize="40" FontFamily="Bahnschrift" VerticalContentAlignment="Center" Margin="0,32,0,0" HorizontalContentAlignment="Center"/>
                 <DataGrid x:Name="dgVentas" Height="374" VerticalAlignment="Top" CanUserAddRows="False" Margin="0,162,0,0" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgVentas_SelectionChanged" SelectionMode="Single" HorizontalAlignment="Center" Width="1474" HeadersVisibility="Column">
                     <DataGrid.Resources>
@@ -218,7 +217,7 @@
                     </DatePicker.Resources>
                 </DatePicker>
                 
-                <Label Content="Ganancia Total:" HorizontalAlignment="Left" Margin="1051,106,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Bahnschrift" Height="42" Width="217"/>
+                <Label Content="Ganancia Total:" HorizontalAlignment="Left" Margin="1051,104,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Bahnschrift" Height="42" Width="217"/>
                 <Label x:Name="lblGanancia" Content="0,00" HorizontalAlignment="Left" Margin="1268,99,0,0" VerticalAlignment="Top" FontSize="40" FontFamily="Bahnschrift" Height="55" Width="227"/>
                 <Button x:Name="btnFechaHoy" Content="Hoy" HorizontalAlignment="Center" Height="55" Margin="-518,-674,0,0" VerticalAlignment="Center" Width="130" FontSize="40" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="1,0,1,0" Click="btnFechaHoy_Click">
                     <Button.Triggers>

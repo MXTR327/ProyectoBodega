@@ -306,9 +306,69 @@ namespace ProyectoBodega
         }
         private void txtCantidad_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (!char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) && e.Key != Key.Back || (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control && e.Key == Key.V)
+            if(e.Key == Key.Enter)
+            {
+                return;
+            }
+            if (!char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) && e.Key != Key.Back  || (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control && e.Key == Key.V)
             {
                 e.Handled = true;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void dgProducto_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            btnSeleccionar_Click(sender, e);
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtBuscadorProducto_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbBuscar.Visibility = Visibility.Collapsed;
+        }
+        private void txtBuscadorProducto_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBuscadorProducto.Text))
+            {
+                txtbBuscar.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtBuscarPorCodigo_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbID.Visibility = Visibility.Collapsed;
+        }
+        private void txtBuscarPorCodigo_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBuscarPorCodigo.Text))
+            {
+                txtbID.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtBuscarPorNombre_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbNombre.Visibility = Visibility.Collapsed;
+        }
+        private void txtBuscarPorNombre_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBuscarPorNombre.Text))
+            {
+                txtbNombre.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtBuscarPorCodigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnBuscarCodigo_Click(btnBuscarCodigo, e);
+            }
+        }
+        private void txtBuscarPorNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btnBuscarNombre_Click(btnBuscarCodigo, e);
             }
         }
     }

@@ -170,6 +170,7 @@ namespace ProyectoBodega
             MessageBox.Show("Venta realizada correctamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             indexVentana.CargarProducto();
             indexVentana.tablaVenta.Rows.Clear();
+            indexVentana.CalcularSumaTotal();
             Close();
         }
         //------------------------------------------------------------------------------------------------------------------------------\\

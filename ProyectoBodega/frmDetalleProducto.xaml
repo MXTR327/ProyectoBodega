@@ -13,7 +13,7 @@
     <Border Background="White" CornerRadius="12,12,12,12" MouseLeftButtonDown="Arrastrar_MouseLeftButtonDown" BorderThickness="2" BorderBrush="Black">
         <Grid>
             <Border HorizontalAlignment="Left" Height="45" Margin="252,277,0,0" VerticalAlignment="Top" Width="45" Background="#FFE8E8E8" CornerRadius="5,5,5,5" BorderThickness="1,1,1,1" BorderBrush="Black" >
-                <Button Content="" Opacity="0.8" BorderThickness="0,0,0,0" Click="Button_Click" HorizontalAlignment="Center" Width="40" Height="40" VerticalAlignment="Center" >
+                <Button Content="" Opacity="0.8" BorderThickness="0,0,0,0" Click="Button_Click" HorizontalAlignment="Center" Width="40" Height="40" VerticalAlignment="Center" Cursor="Hand" >
                     <Button.Background>
                         <ImageBrush ImageSource="/img/resetear.png"/>
                     </Button.Background>
@@ -29,21 +29,21 @@
             <Label Content="Stock inicial" HorizontalAlignment="Left" Margin="21,374,0,0" VerticalAlignment="Top" Width="144" FontSize="25" FontFamily="Bahnschrift" HorizontalContentAlignment="Center"/>
             <Label Content="Stock final" HorizontalAlignment="Left" Margin="214,373,0,0" VerticalAlignment="Top" Width="139" FontSize="25" FontFamily="Bahnschrift" HorizontalContentAlignment="Center"/>
             <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-            <Button x:Name="btnCambiarPrecio" Content="Cambiar Precio" HorizontalAlignment="Center" Height="62" Margin="-395,312,0,0" VerticalAlignment="Center" Width="330" Click="btnCambiarPrecio_Click" FontFamily="Maiandra GD" FontSize="20">
+            <Button x:Name="btnCambiarPrecio" Content="-" HorizontalAlignment="Center" Height="44" Margin="0,0,120,165" VerticalAlignment="Center" Width="45" Click="btnCambiarPrecio_Click" FontFamily="Maiandra GD" FontSize="30" Foreground="Black" FontWeight="Bold" Cursor="Hand">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="UIElement.MouseEnter">
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation To="340" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                <DoubleAnimation To="66" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                <DoubleAnimation To="48" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                <DoubleAnimation To="47" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
                     <EventTrigger RoutedEvent="UIElement.MouseLeave">
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation To="330" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                <DoubleAnimation To="63" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                <DoubleAnimation To="45" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                <DoubleAnimation To="44" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
@@ -55,7 +55,7 @@
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border Background="{TemplateBinding Background}" CornerRadius="26">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="5">
                                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </Border>
                                 </ControlTemplate>
@@ -71,13 +71,13 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnContinuar" Content="Continuar" Margin="-395,630,0,0" Width="330" Click="btnContinuar_Click" FontFamily="Maiandra GD" FontSize="25" HorizontalAlignment="Center" Height="102" VerticalAlignment="Center">
+            <Button x:Name="btnContinuar" Content="Continuar" Margin="0,400,389,0" Width="330" Click="btnContinuar_Click" FontFamily="Maiandra GD" FontSize="25" HorizontalAlignment="Center" Height="186" VerticalAlignment="Center" Cursor="Hand">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="UIElement.MouseEnter">
                         <BeginStoryboard>
                             <Storyboard>
                                 <DoubleAnimation To="340" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                <DoubleAnimation To="105" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                <DoubleAnimation To="191" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
@@ -85,7 +85,7 @@
                         <BeginStoryboard>
                             <Storyboard>
                                 <DoubleAnimation To="330" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                <DoubleAnimation To="102" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                <DoubleAnimation To="186" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
@@ -113,21 +113,21 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnCancelar" Content="Cancelar" Margin="0,0,34,15" Width="330" Click="btnCancelar_Click" FontSize="20" FontFamily="Maiandra GD" HorizontalAlignment="Right" Height="56" VerticalAlignment="Bottom">
+            <Button x:Name="btnCancelar" Content="Cancelar" Margin="0,685,0,0" Width="726" Click="btnCancelar_Click" FontSize="20" FontFamily="Maiandra GD" HorizontalAlignment="Center" Height="47" VerticalAlignment="Center" Cursor="Hand">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="UIElement.MouseEnter">
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation To="340" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                <DoubleAnimation To="58" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                <DoubleAnimation To="731" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                <DoubleAnimation To="49" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
                     <EventTrigger RoutedEvent="UIElement.MouseLeave">
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation To="330" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                <DoubleAnimation To="56" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                <DoubleAnimation To="726" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                <DoubleAnimation To="47" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
@@ -178,26 +178,26 @@
                     </Border>
                 </Grid>
             </Border>
-            <Grid Cursor="IBeam" ForceCursor="True" Margin="0,196,0,509" HorizontalAlignment="Left" Width="370">
+            <Grid Cursor="Arrow" ForceCursor="True" Margin="0,196,0,509" HorizontalAlignment="Left" Width="370">
                 <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/nombreP.png" Stretch="Fill" Opacity="0.85"/>
-                <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="23" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="Sin nombre" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Width="340" Margin="26,0,0,0" Background="{x:Null}"/>
+                <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="23" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="Sin nombre" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Width="340" Margin="26,0,0,0" Background="{x:Null}" Cursor="Arrow"/>
             </Grid>
-            <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="1234" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Margin="62,100,0,0"/>
+            <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="1234" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Margin="62,100,0,0" Cursor="Arrow"/>
 
-            <Grid Cursor="IBeam" ForceCursor="True" Margin="0,310,0,395" HorizontalAlignment="Left" Width="370">
+            <Grid Cursor="Arrow" ForceCursor="True" Margin="0,310,0,395" HorizontalAlignment="Left" Width="370">
                 <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/precioVenta.png" Stretch="Fill" Opacity="0.7"/>
                 <Label Content="S/." FontSize="36" FontFamily="Bahnschrift" Margin="65,0,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="66" Height="50" FontWeight="Light" />
-                <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="0,00" PreviewKeyDown="txtPrecio_PreviewKeyDown" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Width="342" Background="{x:Null}" Margin="25,0,0,0"/>
+                <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="0,00" PreviewKeyDown="txtPrecio_PreviewKeyDown" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Width="342" Background="{x:Null}" Margin="25,0,0,0" Cursor="Arrow"/>
             </Grid>
 
 
-            <Grid Cursor="IBeam" ForceCursor="True" Margin="17,405,0,300" HorizontalAlignment="Left" Width="170">
+            <Grid Cursor="Arrow" ForceCursor="True" Margin="17,405,0,300" HorizontalAlignment="Left" Width="170">
                 <Image HorizontalAlignment="Left" Height="44" Margin="0,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/stock.png" Stretch="Fill" Opacity="0.3"/>
-                <TextBox x:Name="txtStockInicial" HorizontalAlignment="Center" Height="40" TextWrapping="Wrap" VerticalAlignment="Center" Width="168" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="0" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Background="{x:Null}"/>
+                <TextBox x:Name="txtStockInicial" HorizontalAlignment="Center" Height="40" TextWrapping="Wrap" VerticalAlignment="Center" Width="168" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="0" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Background="{x:Null}" Cursor="Arrow"/>
             </Grid>
-            <Grid Cursor="IBeam" ForceCursor="True" Margin="200,403,0,300" HorizontalAlignment="Left" Width="170">
+            <Grid Cursor="Arrow" ForceCursor="True" Margin="200,403,0,300" HorizontalAlignment="Left" Width="170">
                 <Image HorizontalAlignment="Left" Height="44" Margin="0,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/stock.png" Stretch="Fill" Opacity="0.8"/>
-                <TextBox x:Name="txtStockFinal" HorizontalAlignment="Center" Height="42" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="0" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Background="{x:Null}"/>
+                <TextBox x:Name="txtStockFinal" HorizontalAlignment="Center" Height="42" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="0" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Background="{x:Null}" Cursor="Arrow"/>
             </Grid>
 
             <Label Content="ID:" HorizontalAlignment="Left" Margin="20,102,0,0" VerticalAlignment="Top" Width="48" FontSize="28" FontFamily="Bahnschrift"/>

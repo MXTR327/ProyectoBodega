@@ -38,6 +38,7 @@ namespace ProyectoBodega
                 txtStockInicial.Text = stock.ToString();
                 txtStockFinal.Text = stock.ToString();
             }
+            txtCantidad.Focus();
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void InsertarNumero(object sender, RoutedEventArgs e)
