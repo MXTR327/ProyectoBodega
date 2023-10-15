@@ -58,6 +58,10 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtControlarDouble_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Enter || e.Key == Key.Escape)
+            {
+                return;
+            }
             TextBox textBox = sender as TextBox;
             if (e.Key == Key.OemComma && textBox.Text.Length == 0)
             {
@@ -209,6 +213,18 @@ namespace ProyectoBodega
             if (txtNombre.Text == "Anónimo")
             {
                 txtNombre.Text = "";
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                Close();
+            }
+            else if (e.Key == Key.Enter)
+            {
+                btnAceptar_Click(sender, e);
             }
         }
     }

@@ -538,7 +538,65 @@ namespace ProyectoBodega
             }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
-        
+        private void txtBuscadorProducto_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbBuscar.Visibility = Visibility.Collapsed;
+        }
+
+        private void txtBuscadorProducto_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBuscadorProducto.Text))
+            {
+                txtbBuscar.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtBuscadorProveedor_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbBuscarProveedor.Visibility=Visibility.Collapsed;
+        }
+
+        private void txtBuscadorProveedor_LostFocus(object sender, RoutedEventArgs e)
+        {   
+            if (string.IsNullOrEmpty(txtBuscadorProveedor.Text))
+            {
+                txtbBuscarProveedor.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtBuscadorCategoria_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbBuscarCategoria.Visibility=Visibility.Collapsed;
+        }
+
+        private void txtBuscadorCategoria_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBuscadorCategoria.Text))
+            {
+                txtbBuscarCategoria.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void txtBuscadorMarca_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtbBuscarMarca.Visibility=Visibility.Collapsed;
+        }
+
+        private void txtBuscadorMarca_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtBuscadorMarca.Text))
+            {
+                txtbBuscarMarca.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Escape)
+            {
+                Close();
+            }
+        }
     }
 }
 

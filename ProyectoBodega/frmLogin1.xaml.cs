@@ -93,5 +93,21 @@ namespace Presentacion
         {
             txtUsuario.Focus();
         }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                Close();
+            }
+            else if (e.Key == Key.Enter)
+            {
+                BtnIngresar_Click(sender, e);
+            }
+            else if(e.Key == Key.F1)
+            {
+                btnRegistrar_Click(sender, e);
+            }
+        }
     }
 }

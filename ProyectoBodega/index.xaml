@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="index" Height="1028" Width="1920" WindowState="Maximized">
+        Title="Ventana Principal" Height="1028" Width="1920" WindowState="Maximized" Icon="/img/icono.png" ShowInTaskbar="False" KeyDown="Window_KeyDown">
     <Grid x:Name="ventanaIndex" Loaded="ventanaIndex_Loaded" RenderTransformOrigin="0.5,0.484">
 
-        <Button x:Name="btnVendedores" Content="Vendedores" HorizontalAlignment="Center" Height="235" Margin="1720,500,0,0" VerticalAlignment="Center" Width="167" HorizontalContentAlignment="Center" FontSize="30" Click="btnVendedores_Click" FontFamily="Calibri">
+        <Button x:Name="btnVendedores" Content="Vendedores( F3 )" HorizontalAlignment="Center" Height="235" Margin="1720,500,0,0" VerticalAlignment="Center" Width="167" HorizontalContentAlignment="Center" FontSize="23" Click="btnVendedores_Click" FontFamily="Calibri">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="UIElement.MouseEnter">
                     <BeginStoryboard>
@@ -52,7 +52,7 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="btnVentas" Content="Ventas" HorizontalAlignment="Center" Height="235" Margin="1720,0,0,463" VerticalAlignment="Center" Width="167" HorizontalContentAlignment="Center" FontSize="30" Click="btnVentas_Click" FontFamily="Calibri">
+        <Button x:Name="btnVentas" Content="Ventas( F1 )" HorizontalAlignment="Center" Height="235" Margin="1720,0,0,463" VerticalAlignment="Center" Width="167" HorizontalContentAlignment="Center" FontSize="23" Click="btnVentas_Click" FontFamily="Calibri">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="UIElement.MouseEnter">
                     <BeginStoryboard>
@@ -95,7 +95,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnInventario" Content="Inventario" HorizontalAlignment="Center" Height="235" Margin="1720,18,0,0" VerticalAlignment="Center" Width="167" HorizontalContentAlignment="Center" FontSize="30" Click="btnInventario_Click" FontFamily="Calibri">
+        <Button x:Name="btnInventario" Content="Inventario( F2 )" HorizontalAlignment="Center" Height="235" Margin="1720,18,0,0" VerticalAlignment="Center" Width="167" HorizontalContentAlignment="Center" FontSize="23" Click="btnInventario_Click" FontFamily="Calibri">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="UIElement.MouseEnter">
                     <BeginStoryboard>
@@ -245,7 +245,7 @@
                     </Grid>
 
                     <Grid Cursor="IBeam" ForceCursor="True" Margin="882,105,0,773" HorizontalAlignment="Left" Width="523">
-                        <Image HorizontalAlignment="Left" Height="44" Margin="15,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/nombreP.png" Stretch="Fill" Opacity="0.85"/>
+                        <Image HorizontalAlignment="Left" Margin="15,6,0,6" Width="44" Source="img/nombreP.png" Stretch="Fill" Opacity="0.85"/>
                         <TextBlock x:Name="txtbNombre" VerticalAlignment="Top" Margin="10,13,0,0" Foreground="Gray" FontSize="30" Text="Nombre del Producto" Padding="55,0,0,0" Height="50"/>
                         <TextBox x:Name="txtBuscarPorNombre" Height="50" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Bottom" TextChanged="txtPrimeraLetraMayuscula_TextChanged" BorderThickness="0,0,0,2" Background="{x:Null}" Padding="55,0,0,0" GotFocus="txtBuscarPorNombre_GotFocus" LostFocus="txtBuscarPorNombre_LostFocus" KeyDown="txtBuscarPorNombre_KeyDown"/>
                     </Grid>

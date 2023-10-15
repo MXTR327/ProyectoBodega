@@ -115,6 +115,10 @@ namespace ProyectoBodega
         }
         private void txtTelefono_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Enter || e.Key == Key.Escape)
+            {
+                return;
+            }
             if (!char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) && e.Key != Key.Back || (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control && e.Key == Key.V)
             {
                 e.Handled = true;

@@ -196,5 +196,18 @@ namespace ProyectoBodega
                 txtbDescripcion.Visibility = Visibility.Visible;
             }
         }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key==Key.Escape)
+            {
+                Close();
+            }
+            else if(e.Key==Key.Enter)
+            {
+                btnAgregar_Click(sender,e);
+
+            }
+        }
     }
 }

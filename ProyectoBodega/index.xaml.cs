@@ -306,7 +306,7 @@ namespace ProyectoBodega
         }
         private void txtCantidad_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Enter)
+            if (e.Key == Key.Enter || e.Key == Key.Escape)
             {
                 return;
             }
@@ -369,6 +369,22 @@ namespace ProyectoBodega
             if (e.Key == Key.Enter)
             {
                 btnBuscarNombre_Click(btnBuscarCodigo, e);
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F1)
+            {
+                btnVentas_Click(sender, e);
+            }
+            else if (e.Key == Key.F2)
+            {
+                btnInventario_Click(sender, e);
+            }
+            else if (e.Key == Key.F3)
+            {
+                btnVendedores_Click(sender, e);
             }
         }
     }

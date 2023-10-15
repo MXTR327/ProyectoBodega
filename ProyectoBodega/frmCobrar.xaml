@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="frmCobrar" Height="700" Width="548" 
+        Title="Cobrar Venta" Height="700" Width="548" 
         WindowStartupLocation="CenterScreen" 
         Loaded="Window_Loaded" 
         WindowStyle="None" 
         Background="Transparent"
-        AllowsTransparency="True">
+        AllowsTransparency="True" KeyDown="Window_KeyDown" Icon="/img/icono.png" ShowInTaskbar="False">
     <Border x:Name="Ventana" Background="White"  MouseLeftButtonDown="Border_MouseLeftButtonDown" Cursor="Arrow" CornerRadius="12,12,12,12" BorderThickness="2,2,2,2" BorderBrush="Black">
 
         <Grid>
@@ -46,7 +46,7 @@
             </Grid>
 
 
-            <Button x:Name="btnAceptar" Content="Aceptar" HorizontalAlignment="Center" Margin="0,443,0,0" Width="480" FontSize="25" Click="btnAceptar_Click" FontFamily="Maiandra GD" Height="54" VerticalAlignment="Center" RenderTransformOrigin="0.501,0.522">
+            <Button x:Name="btnAceptar" Content="Aceptar( Intro )" HorizontalAlignment="Center" Margin="0,443,0,0" Width="480" FontSize="27" Click="btnAceptar_Click" FontFamily="Calibri" Height="54" VerticalAlignment="Center" RenderTransformOrigin="0.501,0.522">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="UIElement.MouseEnter">
                         <BeginStoryboard>
@@ -88,7 +88,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnCancelar" Content="Cancelar" Margin="0,0,32,19" Width="208" FontSize="25" Click="btnCancelar_Click" FontFamily="Maiandra GD" HorizontalAlignment="Right" Height="54" VerticalAlignment="Bottom">
+            <Button x:Name="btnCancelar" Content="Cancelar( Esc )" Margin="0,0,32,19" Width="208" FontSize="27" Click="btnCancelar_Click" FontFamily="Calibri" HorizontalAlignment="Right" Height="54" VerticalAlignment="Bottom">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="UIElement.MouseEnter">
                         <BeginStoryboard>

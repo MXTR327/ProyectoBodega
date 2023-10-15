@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="frmAgregarProveedor" Height="960" Width="951" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" Loaded="Window_Loaded" WindowState="Maximized">
+        Title="Formulario Proveedor" Height="960" Width="951" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" ShowInTaskbar="False">
     <Window.Resources>
 
     </Window.Resources>
@@ -50,7 +50,7 @@
                     <CheckBox x:Name="chkNumero"  Height="15" Width="16" IsChecked="False" Click="chkNumero_Click"/>
                 </Viewbox>
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Button x:Name="btnAgregarProveedor" Content="Agregar Proveedor" Height="55" Width="530" Margin="0,473,0,0" FontFamily="Maiandra GD" FontSize="25" HorizontalAlignment="Center" Click="btnAgregarProveedor_Click" VerticalAlignment="Center">
+                <Button x:Name="btnAgregarProveedor" Content="Agregar Proveedor( Intro )" Height="55" Width="530" Margin="0,473,0,0" FontFamily="Calibri" FontSize="28" HorizontalAlignment="Center" Click="btnAgregarProveedor_Click" VerticalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>
@@ -92,7 +92,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnSalir" Content="Salir" Height="54" Width="172" Margin="362,0,0,27" FontFamily="Maiandra GD" FontSize="20" Click="btnSalir_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="0.512,0.565">
+                <Button x:Name="btnSalir" Content="Salir( Esc )" Height="54" Width="172" Margin="362,0,0,27" FontFamily="Calibri" FontSize="28" Click="btnSalir_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="0.512,0.565">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>

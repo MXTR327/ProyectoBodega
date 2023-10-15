@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="VentanaProductos" Height="1038" Width="1920" WindowState="Maximized" Loaded="Window_Loaded">
+        Title="Productos" Height="1038" Width="1920" WindowState="Maximized" Loaded="Window_Loaded" Icon="/img/icono.png" ShowInTaskbar="False" KeyDown="Window_KeyDown">
     <Grid>
         <Label Content="Proveedor" FontSize="30" FontFamily="Bahnschrift" Height="56" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="156" Margin="0,0,398,879" />
         <Label Content="Categoría&#xA;" FontSize="30" FontFamily="Bahnschrift" Height="56" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="156" Margin="0,0,394,543" />
         <Label Content="Marca" FontSize="30" FontFamily="Bahnschrift" Height="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="156" Margin="0,0,394,254" />
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-        <DataGrid x:Name="dgProducto" HorizontalAlignment="Left" Height="439" VerticalAlignment="Top" Width="1282" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single" SelectionChanged="dgProducto_SelectionChanged" Margin="29,198,0,0" HeadersVisibility="Column">
+        <DataGrid x:Name="dgProducto" HorizontalAlignment="Left" Height="432" VerticalAlignment="Top" Width="1282" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" SelectionMode="Single" SelectionChanged="dgProducto_SelectionChanged" Margin="29,200,0,0" HeadersVisibility="Column">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridCell}">
                     <Setter Property="Height" Value="30"/>
@@ -39,12 +39,44 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="60" Binding="{Binding idProducto}"/>
+                <DataGridTextColumn Header="ID" Width="60" Binding="{Binding idProducto}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Header="Nombre" Width="*" Binding="{Binding nombre_producto}"/>
-                <DataGridTextColumn Header="Precio Compra" Width="170" Binding="{Binding precio_compra}"/>
-                <DataGridTextColumn Header="Precio Venta" Width="150" Binding="{Binding precio_venta}"/>
-                <DataGridTextColumn Header="Stock" Width="90" Binding="{Binding stock}"/>
-                <DataGridTextColumn Header="Categoria" Width="250" Binding="{Binding nombre_categoria}"/>
+                <DataGridTextColumn Header="Precio Compra" Width="170" Binding="{Binding precio_compra}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Precio Venta" Width="150" Binding="{Binding precio_venta}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Stock" Width="90" Binding="{Binding stock}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Categoria" Width="300" Binding="{Binding nombre_categoria}"/>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="dgMarca" HorizontalAlignment="Left" Height="138" VerticalAlignment="Top" Width="514" AutoGenerateColumns="False" Margin="1376,796,0,0" CanUserAddRows="False" SelectionMode="Single" IsReadOnly="True" HeadersVisibility="Column">
@@ -75,7 +107,15 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="50" Binding="{Binding idMarca}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="ID" Width="50" Binding="{Binding idMarca}" IsReadOnly="True">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Header="Nombre" Width="*" Binding="{Binding nombre_marca}"/>
             </DataGrid.Columns>
         </DataGrid>
@@ -107,7 +147,15 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="50" Binding="{Binding idCategoria}"/>
+                <DataGridTextColumn Header="ID" Width="50" Binding="{Binding idCategoria}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Header="Nombre" Width="*" Binding="{Binding nombre_categoria}"/>
                 <DataGridTextColumn Header="Descripcion" Width="*" Binding="{Binding descripcion}"/>
             </DataGrid.Columns>
@@ -140,13 +188,29 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="50" Binding="{Binding idProveedor}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="ID" Width="50" Binding="{Binding idProveedor}" IsReadOnly="True">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Header="Nombre" Width="*" Binding="{Binding nombre_proveedor}" />
                 <DataGridTextColumn Header="Direccion" Width="*" Binding="{Binding direccion_proveedor}"/>
-                <DataGridTextColumn Header="Numero" Width="100" Binding="{Binding numero_contacto}"/>
+                <DataGridTextColumn Header="Numero" Width="100" Binding="{Binding numero_contacto}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Buscar" HorizontalAlignment="Left" Height="56" Margin="29,148,0,0" VerticalAlignment="Top" Width="96" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
+        <Label Content="Buscar" HorizontalAlignment="Left" Height="56" Margin="29,149,0,0" VerticalAlignment="Top" Width="96" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
         <TextBox x:Name="txtID" Height="30" CharacterCasing="Upper" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="20" IsReadOnly="True" VerticalContentAlignment="Center" Margin="197,653,1451,0" BorderThickness="0,0,0,2" />
         <TextBox x:Name="txtNombre" Height="30" CharacterCasing="Upper" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="20" VerticalContentAlignment="Center" TextChanged="txtPrimeraLetraMayuscula_TextChanged" Margin="197,723,1451,0" BorderThickness="0,0,0,2" />
@@ -177,9 +241,9 @@
         <Label Content="Ganancia Unidad" FontSize="20" FontFamily="Bahnschrift" Height="32" VerticalAlignment="Bottom" Margin="507,0,1250,87" />
         <Label Content="Ganancia Total" FontSize="20" FontFamily="Bahnschrift" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="163" Margin="0,0,1250,27" />
         <Label Content="Proveedor" FontSize="20" FontFamily="Bahnschrift" Height="32" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="163" Margin="0,0,1250,267" />
-        
+
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-        <Button x:Name="btnCrearProveedor" Content="Crear Proveedor" HorizontalAlignment="Left" Height="53" VerticalAlignment="Top" Width="149" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnCrearProveedor_Click" Margin="1377,343,0,0">
+        <Button x:Name="btnCrearProveedor" Content="Crear Proveedor" HorizontalAlignment="Center" Height="53" VerticalAlignment="Center" Width="149" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnCrearProveedor_Click" Margin="980,0,0,283" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
@@ -221,7 +285,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnActualizaProveedor" Content="Actualizar Proveedor" HorizontalAlignment="Left" Height="54" VerticalAlignment="Top" Width="188" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnActualizaProveedor_Click" Margin="1530,343,0,0">
+        <Button x:Name="btnActualizaProveedor" Content="Actualizar Proveedor" HorizontalAlignment="Center" Height="54" VerticalAlignment="Center" Width="188" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnActualizaProveedor_Click" Margin="1328,0,0,283" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="UIElement.MouseEnter">
                     <BeginStoryboard>
@@ -263,7 +327,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnBorrarProveedor" Content="Borrar Proveedor" HorizontalAlignment="Left" Height="54" VerticalAlignment="Top" Width="168" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnBorrarProveedor_Click" Margin="1723,343,0,0">
+        <Button x:Name="btnBorrarProveedor" Content="Borrar Proveedor" HorizontalAlignment="Center" Height="54" VerticalAlignment="Center" Width="168" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnBorrarProveedor_Click" Margin="1690,0,0,283" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
@@ -307,7 +371,7 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="btnCrearMarca" Content="Crear Marca" HorizontalAlignment="Left" Height="53" VerticalAlignment="Top" Width="149" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnCrearMarca_Click" Margin="1377,939,0,0">
+        <Button x:Name="btnCrearMarca" Content="Crear Marca" HorizontalAlignment="Center" Height="53" VerticalAlignment="Center" Width="149" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnCrearMarca_Click" Margin="982,909,0,0" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
@@ -349,7 +413,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnActualizarMarca" Content="Actualizar Marca" HorizontalAlignment="Left" Height="54" VerticalAlignment="Top" Width="188" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnActualizarMarca_Click" Margin="1530,939,0,0">
+        <Button x:Name="btnActualizarMarca" Content="Actualizar Marca" HorizontalAlignment="Center" Height="54" VerticalAlignment="Center" Width="188" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnActualizarMarca_Click" Margin="1329,909,0,0" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="UIElement.MouseEnter">
                     <BeginStoryboard>
@@ -391,7 +455,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnBorrarMarca" Content="Borrar Marca" HorizontalAlignment="Left" Height="54" VerticalAlignment="Top" Width="168" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnBorrarMarca_Click" Margin="1723,939,0,0">
+        <Button x:Name="btnBorrarMarca" Content="Borrar Marca" HorizontalAlignment="Center" Height="54" VerticalAlignment="Center" Width="168" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnBorrarMarca_Click" Margin="1692,909,0,0" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
@@ -435,7 +499,7 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="btnBorrarCategoria" Content="Borrar Categoria" HorizontalAlignment="Left" Height="54" VerticalAlignment="Top" Width="168" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnBorrarCategoria_Click" Margin="1723,642,0,0">
+        <Button x:Name="btnBorrarCategoria" Content="Borrar Categoria" HorizontalAlignment="Center" Height="54" VerticalAlignment="Center" Width="168" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnBorrarCategoria_Click" Margin="1695,315,0,0" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
@@ -478,7 +542,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnActualizarCategoria" Content="Actualizar Categoria" HorizontalAlignment="Left" Height="54" VerticalAlignment="Top" Width="188" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnActualizarCategoria_Click" Margin="1530,642,0,0">
+        <Button x:Name="btnActualizarCategoria" Content="Actualizar Categoria" HorizontalAlignment="Center" Height="54" VerticalAlignment="Center" Width="188" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnActualizarCategoria_Click" Margin="1328,315,0,0" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="UIElement.MouseEnter">
                     <BeginStoryboard>
@@ -520,7 +584,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnAgregarCategoria" Content="Crear Categoria" HorizontalAlignment="Left" Height="53" VerticalAlignment="Top" Width="149" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnAgregarCategoria_Click" Margin="1377,642,0,0">
+        <Button x:Name="btnAgregarCategoria" Content="Crear Categoria" HorizontalAlignment="Center" Height="53" VerticalAlignment="Center" Width="149" FontFamily="Calibri" FontSize="21" HorizontalContentAlignment="Center" Click="btnAgregarCategoria_Click" Margin="983,315,0,0" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
@@ -563,7 +627,7 @@
             </Button.Background>
         </Button>
 
-        <Button x:Name="btnAgregarProductoPaquete" Content="Agregar Paquete" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="230" FontFamily="Calibri" FontSize="21" Click="btnAgregarProductoPaquete_Click" Margin="990,751,0,0">
+        <Button x:Name="btnAgregarProductoPaquete" Content="Agregar Paquete" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="230" FontFamily="Calibri" FontSize="21" Click="btnAgregarProductoPaquete_Click" Margin="290,535,0,0" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
@@ -605,7 +669,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnAgregarProductoUnidad" Content="Agregar Producto " HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="230" FontFamily="Calibri" FontSize="21" Click="btnAgregarProductoUnidad_Click" Margin="990,650,0,0">
+        <Button x:Name="btnAgregarProductoUnidad" Content="Agregar Producto " HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="230" FontFamily="Calibri" FontSize="21" Click="btnAgregarProductoUnidad_Click" Margin="290,340,0,0" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
@@ -647,7 +711,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnActualizarProducto" Content="Actualizar Producto" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="230" FontFamily="Calibri" FontSize="21" Click="btnActualizarProducto_Click" RenderTransformOrigin="0.223,0.359" Margin="990,847,0,0">
+        <Button x:Name="btnActualizarProducto" Content="Actualizar Producto" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="230" FontFamily="Calibri" FontSize="21" Click="btnActualizarProducto_Click" RenderTransformOrigin="0.223,0.359" Margin="290,730,0,0" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="UIElement.MouseEnter">
                     <BeginStoryboard>
@@ -689,7 +753,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnBorrarProducto" Content="Borrar Producto" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top" Width="230" FontSize="21" FontFamily="Calibri" Click="btnBorrarProducto_Click" Margin="990,938,0,0">
+        <Button x:Name="btnBorrarProducto" Content="Borrar Producto" HorizontalAlignment="Center" Height="60" VerticalAlignment="Center" Width="230" FontSize="21" FontFamily="Calibri" Click="btnBorrarProducto_Click" Margin="290,915,0,0" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
@@ -732,13 +796,13 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnCerrarVentana" Content="Cerrar" HorizontalAlignment="Left" Height="348" VerticalAlignment="Top" Width="75" FontFamily="Calibri" FontSize="21" Click="btnCerrarVentana_Click" Margin="1236,650,0,0">
+        <Button x:Name="btnCerrarVentana" Content="Cerrar&#xD;&#xA;( Esc )" HorizontalAlignment="Center" Height="348" VerticalAlignment="Center" Width="75" FontFamily="Calibri" FontSize="21" Click="btnCerrarVentana_Click" Margin="625,629,0,0" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="UIElement.MouseEnter">
                     <BeginStoryboard>
                         <Storyboard>
                             <DoubleAnimation To="80" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                            <DoubleAnimation To="381" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                            <DoubleAnimation To="350" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
@@ -746,7 +810,7 @@
                     <BeginStoryboard>
                         <Storyboard>
                             <DoubleAnimation To="75" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                            <DoubleAnimation To="378" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                            <DoubleAnimation To="348" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
@@ -779,16 +843,29 @@
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
         <Label Content="Buscar" FontSize="25" FontFamily="Bahnschrift" Margin="0,0,454,814" Height="56" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="96" VerticalContentAlignment="Center" />
         <Label Content="Buscar" FontSize="25" FontFamily="Bahnschrift" Margin="1372,462,0,0" Height="43" VerticalAlignment="Top" HorizontalAlignment="Left" Width="88" />
-        <TextBox x:Name="txtBuscadorProducto" HorizontalAlignment="Left" Height="50" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="450" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Center" TextChanged="txtBuscadorProducto_TextChanged" Margin="130,137,0,0" BorderThickness="0,0,0,2" />
-        <TextBox x:Name="txtBuscadorProveedor" Height="41" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtBuscarProveedor_TextChanged" Margin="1476,150,189,0" BorderThickness="0,0,0,2" >
 
-        </TextBox>
-        <TextBox x:Name="txtBuscadorCategoria" Height="41" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtBuscarCategoria_TextChanged" Margin="1476,453,189,0" BorderThickness="0,0,0,2" Background="{x:Null}" >
+        <Grid Cursor="IBeam" ForceCursor="True" Margin="130,129,0,819" HorizontalAlignment="Left" Width="426">
+            <Image HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="34" Source="img/lupa.png" Stretch="Fill" Opacity="0.85" Margin="1,24,0,0"/>
+            <TextBlock x:Name="txtbBuscar" VerticalAlignment="Top" Foreground="Gray" FontSize="30" Text="Nombre del Producto" Padding="45,0,0,0" Height="50" Margin="0,25,0,0"/>
+            <TextBox x:Name="txtBuscadorProducto" Height="60" VerticalAlignment="Top" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Bottom" TextChanged="txtBuscadorProducto_TextChanged" Margin="0,5,0,0" BorderThickness="0,0,0,2" Background="{x:Null}" Padding="45,0,0,0" GotFocus="txtBuscadorProducto_GotFocus" LostFocus="txtBuscadorProducto_LostFocus" />
+        </Grid>
 
-        </TextBox>
-        <TextBox x:Name="txtBuscadorMarca" Height="41" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtBuscarMarca_TextChanged" Margin="1476,750,194,0" BorderThickness="0,0,0,2" >
+        <Grid Cursor="IBeam" ForceCursor="True" Margin="1466,129,0,828" HorizontalAlignment="Left" Width="423">
+            <TextBlock x:Name="txtbBuscarProveedor" VerticalAlignment="Top" Foreground="Gray" FontSize="30" Text="Nombre del Proveedor" Height="50" Margin="0,23,0,0"/>
+            <TextBox x:Name="txtBuscadorProveedor" Height="41" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtBuscarProveedor_TextChanged" Margin="0,19,0,0" BorderThickness="0,0,0,2" Background="{x:Null}" GotFocus="txtBuscadorProveedor_GotFocus" LostFocus="txtBuscadorProveedor_LostFocus"/>
+        </Grid>
 
-        </TextBox>
+        <Grid Cursor="IBeam" ForceCursor="True" Margin="1468,432,0,525" HorizontalAlignment="Left" Width="423">
+            <TextBlock x:Name="txtbBuscarCategoria" VerticalAlignment="Top" Foreground="Gray" FontSize="30" Text="Nombre de la Categoria" Height="50" Margin="0,23,0,0"/>
+            <TextBox x:Name="txtBuscadorCategoria" Height="41" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtBuscarCategoria_TextChanged" Margin="0,19,0,0" BorderThickness="0,0,0,2" Background="{x:Null}" GotFocus="txtBuscadorCategoria_GotFocus" LostFocus="txtBuscadorCategoria_LostFocus" />
+        </Grid>
+
+        <Grid Cursor="IBeam" ForceCursor="True" Margin="1468,728,0,229" HorizontalAlignment="Left" Width="423">
+            <TextBlock x:Name="txtbBuscarMarca" VerticalAlignment="Top" Foreground="Gray" FontSize="30" Text="Nombre de la Marca" Height="50" Margin="0,23,0,0"/>
+            <TextBox x:Name="txtBuscadorMarca" Height="41" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtBuscarMarca_TextChanged" Margin="0,19,0,0" BorderThickness="0,0,0,2" Background="{x:Null}" GotFocus="txtBuscadorMarca_GotFocus" LostFocus="txtBuscadorMarca_LostFocus" />
+        </Grid>
+
+        <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
         <Label Content="Buscar" FontSize="25" FontFamily="Bahnschrift" Margin="0,0,461,221" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="88" />
         <Label Content="Inventario Productos" HorizontalAlignment="Center" Height="55" Margin="0,28,0,0" VerticalAlignment="Top" Width="430" FontSize="40" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         <Label Content="Productos" HorizontalAlignment="Left" Height="56" Margin="29,87,0,0" VerticalAlignment="Top" Width="156" FontSize="30" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>

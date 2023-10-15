@@ -114,6 +114,10 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtStockPaquete_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Enter || e.Key == Key.Escape)
+            {
+                return;
+            }
             if (!char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) && e.Key != Key.Back || (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control && e.Key == Key.V)
             {
                 e.Handled = true;
@@ -122,7 +126,10 @@ namespace ProyectoBodega
         private void txtPaquetePrecioCompra_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             TextBox textBox = sender as TextBox;
-
+            if (e.Key == Key.Enter || e.Key == Key.Escape)
+            {
+                return;
+            }
             if (!(Char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) ||
                   (e.Key == Key.OemComma && textBox.Text.IndexOf(',') == -1) ||
                   e.Key == Key.Left || e.Key == Key.Right || e.Key == Key.Back || e.Key == Key.Delete || e.Key == Key.Home || e.Key == Key.End))
@@ -391,6 +398,18 @@ namespace ProyectoBodega
             if (string.IsNullOrEmpty(txtUnidadPrecioVenta.Text))
             {
                 txtbUnidadPrecioVenta.Visibility = Visibility.Visible;
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Escape)
+            {
+                Close();
+            }
+            else if (e.Key == Key.Enter)
+            {
+                btnAgregarPaquete_Click(sender, e);
             }
         }
     }

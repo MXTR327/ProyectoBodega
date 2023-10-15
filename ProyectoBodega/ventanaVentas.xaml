@@ -7,7 +7,7 @@
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
 
         mc:Ignorable="d"
-        Title="ventanaVentas" Height="1000" Width="1600" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown">
+        Title="Ventas" Height="1000" Width="1600" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" ShowInTaskbar="False">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>

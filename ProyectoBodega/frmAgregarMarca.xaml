@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="frmAgregarMarca" Height="817" Width="922" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized">
+        Title="Formulario Marca" Height="817" Width="922" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" ShowInTaskbar="False">
     <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
     <Window.Resources>
     </Window.Resources>
@@ -32,7 +32,7 @@
 
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Button x:Name="btnAgregarMarca" Content="Agregar Marca" Width="460" Height="51" Margin="16,353,17,246" FontFamily="Maiandra GD" FontSize="25" Click="btnAgregarMarca_Click" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button x:Name="btnAgregarMarca" Content="Agregar Marca( Intro )" Width="460" Height="51" Margin="16,353,17,246" FontFamily="Calibri" FontSize="28" Click="btnAgregarMarca_Click" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
@@ -75,7 +75,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnSalir" Content="Salir" Height="50" Width="202" Margin="0,0,25,55"  FontFamily="Maiandra GD" FontSize="20" Click="btnSalir_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Button x:Name="btnSalir" Content="Salir( Esc )" Height="50" Width="202" Margin="0,0,25,55"  FontFamily="Calibri" FontSize="28" Click="btnSalir_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="frmAgregarCategoria" Height="817" Width="922" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized">
+        Title="Formulario Categoría" Height="817" Width="922" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" ShowInTaskbar="False">
     <Window.Resources>
 
     </Window.Resources>
@@ -34,7 +34,7 @@
                     <TextBlock x:Name="txtbDescripcion" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="69,0,0,14" Foreground="Gray" FontSize="30" Width="461"><Run Language="es-pe" Text="Ingrese la Descripción( Opcional )"/></TextBlock>
                     <TextBox x:Name="txtDescripcion" Height="50" Margin="35,3,29,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" TextChanged="txtDescripcion_TextChanged" BorderThickness="0,0,0,2" Padding="37,0,0,0" GotFocus="txtDescripcion_GotFocus" LostFocus="txtDescripcion_LostFocus" Background="{x:Null}" />
                 </Grid>
-                <Button x:Name="btnAgregar" Content="Agregar Categoría" Margin="0,307,0,0" FontFamily="Maiandra GD" FontSize="25" Click="btnAgregar_Click" Width="510" HorizontalAlignment="Center" Height="54" VerticalAlignment="Center">
+                <Button x:Name="btnAgregar" Content="Agregar Categoría( Intro )" Margin="0,307,0,0" FontFamily="Calibri" FontSize="28" Click="btnAgregar_Click" Width="510" HorizontalAlignment="Center" Height="54" VerticalAlignment="Center" Cursor="Hand">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
@@ -76,7 +76,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnSalir" Content="Salir" Width="208" Margin="0,0,25,47" FontFamily="Maiandra GD" FontSize="20" Click="btnSalir_Click" UseLayoutRounding="False" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <Button x:Name="btnSalir" Content="Salir( Esc )" Width="208" Margin="0,0,25,47" FontFamily="Calibri" FontSize="28" Click="btnSalir_Click" UseLayoutRounding="False" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Cursor="Hand">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>

@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="frmDetalleProducto" Height="767" Width="774" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded"
+        Title="Agregar Productos" Height="767" Width="774" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded"
         WindowStyle="None" 
         Background="Transparent"
-        AllowsTransparency="True"
+        AllowsTransparency="True" KeyDown="Ventana_KeyDown" Icon="/img/icono.png" ShowInTaskbar="False"
         >
     <Border Background="White" CornerRadius="12,12,12,12" MouseLeftButtonDown="Arrastrar_MouseLeftButtonDown" BorderThickness="2" BorderBrush="Black">
         <Grid>
@@ -71,7 +71,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnContinuar" Content="Continuar" Margin="0,400,389,0" Width="330" Click="btnContinuar_Click" FontFamily="Maiandra GD" FontSize="25" HorizontalAlignment="Center" Height="186" VerticalAlignment="Center" Cursor="Hand">
+            <Button x:Name="btnContinuar" Content="Continuar( Intro )" Margin="0,400,389,0" Width="330" Click="btnContinuar_Click" FontFamily="Calibri" FontSize="28" HorizontalAlignment="Center" Height="186" VerticalAlignment="Center" Cursor="Hand">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="UIElement.MouseEnter">
                         <BeginStoryboard>
@@ -113,7 +113,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnCancelar" Content="Cancelar" Margin="0,685,0,0" Width="726" Click="btnCancelar_Click" FontSize="20" FontFamily="Maiandra GD" HorizontalAlignment="Center" Height="47" VerticalAlignment="Center" Cursor="Hand">
+            <Button x:Name="btnCancelar" Content="Cancelar( Esc )" Margin="0,685,0,0" Width="726" Click="btnCancelar_Click" FontSize="28" FontFamily="Calibri" HorizontalAlignment="Center" Height="47" VerticalAlignment="Center" Cursor="Hand">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="UIElement.MouseEnter">
                         <BeginStoryboard>

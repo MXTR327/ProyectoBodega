@@ -102,6 +102,10 @@ namespace ProyectoBodega
         }
         private void txtCantidad_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Enter || e.Key == Key.Escape)
+            {
+                return;
+            }
             if (!char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) && e.Key != Key.Back || (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control && e.Key == Key.V)
             {
                 e.Handled = true;
@@ -109,6 +113,10 @@ namespace ProyectoBodega
         }
         private void txtPrecio_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Enter || e.Key == Key.Escape)
+            {
+                return;
+            }
             TextBox textBox = sender as TextBox;
             if (e.Key == Key.OemComma && textBox.Text.Length == 0)
             {
@@ -196,6 +204,17 @@ namespace ProyectoBodega
                 Ventana.Cursor = Cursors.Arrow;
             }
         }
-
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void Ventana_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                Close();
+            }
+            else if (e.Key == Key.Enter)
+            {
+                btnContinuar_Click(sender, e);
+            }
+        }
     }
 }
