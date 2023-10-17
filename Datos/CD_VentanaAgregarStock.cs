@@ -15,6 +15,34 @@ namespace Datos
         public SQLiteDataAdapter da;
         public SQLiteCommand cmd;
 
+        public bool AgregarCantidadProductoDB(int idProducto, string cantidadAgregar)
+        {
+            bool rpta = false;
+            try
+            {
+                Conexion.Conectar();
+                string sql = "UPDATE producto SET stock = stock + @cantidad WHERE idProducto = @idProducto";
+                cmd = new SQLiteCommand(sql, Conexion.con);
+                cmd.Parameters.AddWithValue("@idProducto", idProducto);
+                cmd.Parameters.AddWithValue("@cantidad", cantidadAgregar);
+                int rowsAffected = cmd.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    rpta = true;
+                }
+                else
+                {
+                    rpta = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+            }
+            return rpta;
+        }
+
         public DataTable ConseguirTabla(string consulta)
         {
             try

@@ -95,21 +95,21 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnInventario" Content="Inventario( F2 )" HorizontalAlignment="Center" Height="235" Margin="1720,18,0,0" VerticalAlignment="Center" Width="167" HorizontalContentAlignment="Center" FontSize="23" Click="btnInventario_Click" FontFamily="Calibri">
+        <Button x:Name="btnInventario" Content="Inventario( F2 )" HorizontalAlignment="Center" Height="136" Margin="1720,0,0,80" VerticalAlignment="Center" Width="168" HorizontalContentAlignment="Center" FontSize="23" Click="btnInventario_Click" FontFamily="Calibri">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="UIElement.MouseEnter">
                     <BeginStoryboard>
                         <Storyboard>
-                            <DoubleAnimation To="170" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                            <DoubleAnimation To="236" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                            <DoubleAnimation To="171" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                            <DoubleAnimation To="137" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
                 <EventTrigger RoutedEvent="UIElement.MouseLeave">
                     <BeginStoryboard>
                         <Storyboard>
-                            <DoubleAnimation To="167" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                            <DoubleAnimation To="235" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                            <DoubleAnimation To="168" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                            <DoubleAnimation To="136" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
@@ -622,5 +622,48 @@
             <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
         </Grid>
         <GridSplitter HorizontalAlignment="Left" Height="1012" Margin="1722,0,0,0" VerticalAlignment="Center" Width="2" Background="#FFB1B1B1"/>
+        <Button x:Name="btnAgregarStock" Content="Agregar Stock" HorizontalAlignment="Center" Height="95" Margin="1720,161,0,0" VerticalAlignment="Center" Width="168" HorizontalContentAlignment="Center" FontSize="23" FontFamily="Calibri" Click="btnAgregarStock_Click">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation To="171" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                            <DoubleAnimation To="96" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation To="168" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                            <DoubleAnimation To="95" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="#007ACC" />
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="Width" Value="476" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF4CAF50" Offset="0"/>
+                    <GradientStop Color="#FF388E3C" Offset="0.5"/>
+                    <GradientStop Color="#FF2E7D32" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

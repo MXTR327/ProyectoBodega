@@ -387,5 +387,12 @@ namespace ProyectoBodega
                 btnVendedores_Click(sender, e);
             }
         }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void btnAgregarStock_Click(object sender, RoutedEventArgs e)
+        {
+            AgregarStock agregarStock = new AgregarStock();
+            agregarStock.ventanaIndex = this;
+            agregarStock.ShowDialog();
+        }
     }
 }

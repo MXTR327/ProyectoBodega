@@ -20,6 +20,8 @@ namespace ProyectoBodega
     {
         private string filtro;
         CN_VentanaAgregarStock cn_ventanaAgregarStock = new CN_VentanaAgregarStock();
+        internal index ventanaIndex;
+
         public AgregarStock()
         {
             InitializeComponent();
@@ -51,6 +53,15 @@ namespace ProyectoBodega
             if (dgProducto.Items.Count > 0)
             {
                 dgProducto.SelectedIndex = 0;
+                txtCantidad.Text = "";
+                txtbCantidad.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                txtbCantidad.Visibility = Visibility.Collapsed;
+                txtCantidad.Text = "Sin productos";
+                txtStockInicial.Text = "0";
+                txtStockFinal.Text = "0";
             }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
@@ -69,6 +80,17 @@ namespace ProyectoBodega
 
         private void txtStock_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Enter || e.Key == Key.Escape)
+            {
+                return;
+            }
+            if (!(txtCantidad.Text.Contains("-")))
+            {
+                if (e.Key == Key.Subtract || e.Key == Key.OemMinus)
+                {
+                    return;
+                }
+            }
             if (!char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) && e.Key != Key.Back || (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control && e.Key == Key.V)
             {
                 e.Handled = true;
@@ -98,6 +120,7 @@ namespace ProyectoBodega
 
                 txtStockInicial.Text = stock.ToString();
                 txtStockFinal.Text = stock.ToString();
+                txtCantidad.Focus();
             }
         }
 
@@ -123,9 +146,70 @@ namespace ProyectoBodega
         {
             Close();
         }
+        //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
+            if (dgProducto.Items.Count == 0)
+                return;
 
+            DataRowView filaSeleccionada = (DataRowView)dgProducto.SelectedItem;
+
+            if (filaSeleccionada == null)
+                return;
+
+            int indexActual = dgProducto.Items.IndexOf(filaSeleccionada);
+            int stockInicial = int.Parse(txtStockInicial.Text);
+            int stockFinal = int.Parse(txtStockFinal.Text);
+            
+
+            if (stockInicial == stockFinal || stockFinal < 0 || string.IsNullOrEmpty(txtCantidad.Text))
+            {
+                MessageBox.Show("Cantidad no válida", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                txtCantidad.Focus();
+                return;
+            }
+            int id = Convert.ToInt32(filaSeleccionada["idProducto"]);
+            int cantidad = int.Parse(txtCantidad.Text);
+
+            MessageBoxResult result = MessageBox.Show($"¿Está seguro de {(cantidad < 0 ? "disminuir" : "aumentar")} {Math.Abs(cantidad)} al stock?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (result != MessageBoxResult.Yes)
+                return;
+
+            cn_ventanaAgregarStock.idProducto = id;
+            cn_ventanaAgregarStock.cantidadAgregar = txtCantidad.Text;
+
+            bool rpta = cn_ventanaAgregarStock.AgregarCantidad();
+
+            if (rpta)
+            {
+                filtro = txtBuscadorProducto.Text;
+                CargarProducto();
+                dgProducto.SelectedIndex = indexActual;
+                txtCantidad.Text = "";
+                MessageBox.Show("El stock se actualizó correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (ventanaIndex != null)
+                {
+                    ventanaIndex.CargarProducto();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ocurrió un error intentando subir a la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                Close();
+            }
+            else if(e.Key == Key.Enter)
+            {
+                btnAgregar_Click(sender, e);
+            }
         }
     }
 }

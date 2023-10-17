@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProyectoBodega"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="ProyectoBodega.AgregarStock"
         mc:Ignorable="d"
-        Title="AgregarStock" Height="900" Width="1600" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="Agregar Stock" Height="900" Width="1600" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="/img/icono.png" ShowInTaskbar="False" KeyDown="Window_KeyDown">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>
@@ -100,8 +100,91 @@
                 <Label Content="Stock Final" HorizontalAlignment="Left" Margin="1271,364,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
                 <TextBox x:Name="txtStockInicial" HorizontalAlignment="Left" Margin="1037,422,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                 <TextBox x:Name="txtStockFinal" HorizontalAlignment="Left" Margin="1268,419,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red"/>
-                <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Height="138" Margin="1037,505,0,0" VerticalAlignment="Top" Width="430" FontFamily="Calibri" FontSize="40" Click="btnAgregar_Click"/>
-                <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Height="88" Margin="1040,766,0,0" VerticalAlignment="Top" Width="430" FontFamily="Calibri" FontSize="40" Click="btnSalir_Click"/>
+                <Button x:Name="btnAgregar" Content="Agregar( Intro )" HorizontalAlignment="Center" Height="138" Margin="1022,250,0,0" VerticalAlignment="Center" Width="430" FontFamily="Calibri" FontSize="40" Click="btnAgregar_Click">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="435" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="140" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="430" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="138" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Width" Value="476" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FFEB85FD" Offset="0"/>
+                            <GradientStop Color="#FF5596EC" Offset="0.5"/>
+                            <GradientStop Color="#FF0BC2FF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="btnSalir" Content="Salir( Esc )" HorizontalAlignment="Center" Height="88" Margin="1022,753,0,0" VerticalAlignment="Center" Width="430" FontFamily="Calibri" FontSize="40" Click="btnSalir_Click">
+                    <Button.Triggers>
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="435" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="90" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="430" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="88" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#007ACC" />
+                            <Setter Property="Foreground" Value="White" />
+                            <Setter Property="Width" Value="476" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="#FFD32F2F" Offset="0"/>
+                            <GradientStop Color="#FF953232" Offset="0.5"/>
+                            <GradientStop Color="#FF701616" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </Grid>
         </Border>
     </Grid>
