@@ -84,6 +84,7 @@
     <Compile Include="CN_frmLogin.cs" />
     <Compile Include="CN_frmAgregarProveedor.cs" />
     <Compile Include="CN_index.cs" />
+    <Compile Include="CN_VentanaAgregarStock.cs" />
     <Compile Include="CN_ventanaEmpleados.cs" />
     <Compile Include="CN_VentanaProductos.cs" />
     <Compile Include="CN_ventanaVentas.cs" />

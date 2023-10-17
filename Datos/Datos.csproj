@@ -95,6 +95,7 @@
     <Compile Include="CD_frmCobrar.cs" />
     <Compile Include="CD_frmLogin.cs" />
     <Compile Include="CD_index.cs" />
+    <Compile Include="CD_VentanaAgregarStock.cs" />
     <Compile Include="CD_ventanaEmpleados.cs" />
     <Compile Include="CD_VentanaProductos.cs" />
     <Compile Include="CD_ventanaVentas.cs" />
