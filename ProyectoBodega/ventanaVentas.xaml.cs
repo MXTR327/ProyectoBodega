@@ -61,12 +61,30 @@ namespace ProyectoBodega
             }
             lblGanancia.Content = suma.ToString("F2");
         }
+        private void Total()
+        {
+            double suma = 0;
+            for (int i = 0; i < dgVentas.Items.Count; i++)
+            {
+                var fila = dgVentas.Items[i];
+
+                if (fila is DataRowView dataRowView)
+                {
+                    suma += Convert.ToDouble(dataRowView["Total_Venta"]?.ToString() ?? "0");
+                }
+                else
+                {
+                }
+            }
+            lblTotal.Content = suma.ToString("F2");
+        }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void CargarVentas()
         {
             DataTable dt = cn_ventanaventas.tblVentas(filtroFecha);
             dgVentas.ItemsSource = dt.DefaultView;
             CalcularGananciasTotales();
+            Total();
         }
         private void CargarDetalleVentas()
         {
@@ -149,7 +167,7 @@ namespace ProyectoBodega
             dgProductosVenta.SelectedIndex = 0;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
-        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Escape)
             {

@@ -207,7 +207,7 @@
                         <TextBox x:Name="txtGananciaTotal" TextWrapping="Wrap" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Height="28" VerticalAlignment="Bottom" IsReadOnly="True" Margin="474,0,0,9" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164"/>
                     </Grid>
                 </Border>
-                
+
                 <DatePicker x:Name="dpFecha" HorizontalAlignment="Left" Margin="21,99,0,0" VerticalAlignment="Top" Width="411" Height="56" FontSize="25" FontFamily="Microsoft JhengHei" FontWeight="Bold" SelectedDateFormat="Long" SelectedDateChanged="dpFecha_SelectedDateChanged" DisplayDate="2023-04-10" Padding="2,2,2,0" VerticalContentAlignment="Center">
                     <DatePicker.Resources>
                         <Style TargetType="{x:Type DatePickerTextBox}">
@@ -216,9 +216,9 @@
                         </Style>
                     </DatePicker.Resources>
                 </DatePicker>
-                
-                <Label Content="Ganancia Total:" HorizontalAlignment="Left" Margin="1051,104,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Bahnschrift" Height="42" Width="217"/>
-                <Label x:Name="lblGanancia" Content="0,00" HorizontalAlignment="Left" Margin="1268,99,0,0" VerticalAlignment="Top" FontSize="40" FontFamily="Bahnschrift" Height="55" Width="227"/>
+
+                <Label Content="Ganancia Total:" HorizontalAlignment="Left" Margin="1051,106,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Bahnschrift" Height="42" Width="217"/>
+                <Label x:Name="lblGanancia" Content="0,00" HorizontalAlignment="Left" Margin="1268,102,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Bahnschrift" Height="55" Width="227" VerticalContentAlignment="Center"/>
                 <Button x:Name="btnFechaHoy" Content="Hoy" HorizontalAlignment="Center" Height="55" Margin="-518,-674,0,0" VerticalAlignment="Center" Width="130" FontSize="40" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="1,0,1,0" Click="btnFechaHoy_Click">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
@@ -348,7 +348,9 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                
+                <Label Content="Total:" HorizontalAlignment="Left" Margin="762,106,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Bahnschrift" Height="42" Width="98"/>
+                <Label x:Name="lblTotal" Content="0,00" HorizontalAlignment="Left" Margin="850,102,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Bahnschrift" Height="55" Width="196" VerticalContentAlignment="Center"/>
+
             </Grid>
         </Border>
     </Grid>

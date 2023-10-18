@@ -373,7 +373,7 @@ namespace ProyectoBodega
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
+        {   
             if (e.Key == Key.F1)
             {
                 btnVentas_Click(sender, e);

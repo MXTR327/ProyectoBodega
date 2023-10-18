@@ -87,29 +87,25 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtStockPaquete_TextChanged(object sender, TextChangedEventArgs e)
         {
-            int stockPaquetes = string.IsNullOrEmpty(txtPaqueteStock.Text) ? 0 : int.Parse(txtPaqueteStock.Text);
-            int stockUnidad = string.IsNullOrEmpty(txtUnidadStock.Text) ? 0 : int.Parse(txtUnidadStock.Text);
-            double precioCompraPaquete = string.IsNullOrEmpty(txtPaquetePrecioCompra.Text) ? 0 : double.Parse(txtPaquetePrecioCompra.Text);
-            double precioVentaPaquete = string.IsNullOrEmpty(txtPaquetePrecioVenta.Text) ? 0 : double.Parse(txtPaquetePrecioVenta.Text);
-            double precioVentaUnidad = string.IsNullOrEmpty(txtUnidadPrecioVenta.Text) ? 0 : double.Parse(txtUnidadPrecioVenta.Text);
+            decimal stockPaquetes = string.IsNullOrEmpty(txtPaqueteStock.Text) ? 0 : decimal.Parse(txtPaqueteStock.Text);
+            decimal stockUnidad = string.IsNullOrEmpty(txtUnidadStock.Text) ? 0 : decimal.Parse(txtUnidadStock.Text);
+            decimal precioCompraPaquete = string.IsNullOrEmpty(txtPaquetePrecioCompra.Text) ? 0 : decimal.Parse(txtPaquetePrecioCompra.Text);
+            decimal precioVentaPaquete = string.IsNullOrEmpty(txtPaquetePrecioVenta.Text) ? 0 : decimal.Parse(txtPaquetePrecioVenta.Text);
+            decimal precioVentaUnidad = string.IsNullOrEmpty(txtUnidadPrecioVenta.Text) ? 0 : decimal.Parse(txtUnidadPrecioVenta.Text);
 
             txtUnidadTotal.Text = (stockPaquetes * stockUnidad).ToString();
+
             txtPaqueteCompraTotal.Text = (stockPaquetes * precioCompraPaquete).ToString("F2");
 
-            if (stockUnidad != 0)
-            {
-                txtUnidadPrecioCompra.Text = (precioCompraPaquete / stockUnidad).ToString("F2");
-            }
-            else
-            {
-                txtUnidadPrecioCompra.Text = "0,00";
-            }
-            txtUnidadCompraTotal.Text = (stockUnidad * double.Parse(txtUnidadPrecioCompra.Text)).ToString("F2");
+            txtUnidadPrecioCompra.Text = precioCompraPaquete.ToString("F2");
+
+            txtUnidadCompraTotal.Text = (stockUnidad * decimal.Parse(txtUnidadPrecioCompra.Text)).ToString("F2");
             txtPaqueteGananciaPaquete.Text = (precioVentaPaquete - precioCompraPaquete).ToString("F2");
-            txtPaqueteGananciaTotal.Text = (double.Parse(txtPaqueteGananciaPaquete.Text) * stockPaquetes).ToString("F2");
-            txtUnidadGananciaUnidad.Text = (precioVentaUnidad - double.Parse(txtUnidadPrecioCompra.Text)).ToString("F2");
-            txtUnidadGananciaTotal.Text = (double.Parse(txtUnidadGananciaUnidad.Text) * double.Parse(txtUnidadTotal.Text)).ToString("F2");
+            txtPaqueteGananciaTotal.Text = (decimal.Parse(txtPaqueteGananciaPaquete.Text) * stockPaquetes).ToString("F2");
+            txtUnidadGananciaUnidad.Text = (precioVentaUnidad - decimal.Parse(txtUnidadPrecioCompra.Text)).ToString("F2");
+            txtUnidadGananciaTotal.Text = (decimal.Parse(txtUnidadGananciaUnidad.Text) * decimal.Parse(txtUnidadTotal.Text)).ToString("F2");
         }
+
 
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtStockPaquete_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -287,7 +283,7 @@ namespace ProyectoBodega
         }
         private void RestaurarCampo(TextBox campo)
         {
-            campo.ClearValue(TextBox.BackgroundProperty);
+            campo.Background = Brushes.Transparent;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtPrimeraLetraMayuscula_TextChanged(object sender, TextChangedEventArgs e)

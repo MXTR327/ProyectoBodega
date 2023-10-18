@@ -193,7 +193,7 @@ namespace ProyectoBodega
         }
         private void RestaurarCampo(TextBox campo)
         {
-            campo.ClearValue(TextBox.BackgroundProperty);
+            campo.Background = Brushes.Transparent;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void Window_PreviewKeyDown(object sender, KeyEventArgs e)

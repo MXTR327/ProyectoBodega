@@ -97,8 +97,8 @@
 
                 <Grid Cursor="IBeam" ForceCursor="True" Margin="756,597,0,281" HorizontalAlignment="Left" Width="348">
                     <Image HorizontalAlignment="Left" Height="44" Margin="69,0,0,0" VerticalAlignment="Center" Width="44" Source="img/precioCompraT.png" Stretch="Fill"/>
-                    <Label Content="S/." FontSize="36" FontFamily="Bahnschrift" Margin="113,10,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="66" Height="50" FontWeight="Light" />
-                    <TextBox x:Name="txtUnidadPrecioCompra" Height="42" Margin="70,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="30" HorizontalAlignment="Left" Width="256" IsReadOnly="True" Text="0,00" BorderThickness="0,0,0,2" Background="{x:Null}" Padding="100,0,0,0" Cursor="Arrow"/>
+                    <Label Content="S/." FontSize="36" FontFamily="Bahnschrift" Margin="113,10,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="66" Height="50" FontWeight="Light" Grid.ColumnSpan="2" />
+                    <TextBox x:Name="txtUnidadPrecioCompra" Height="42" Margin="70,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" VerticalContentAlignment="Center" FontSize="30" HorizontalAlignment="Left" Width="256" IsReadOnly="True" Text="0,00" BorderThickness="0,0,0,2" Background="{x:Null}" Padding="100,0,0,0" Cursor="Arrow" Grid.ColumnSpan="2"/>
                 </Grid>
 
                 <Grid Cursor="IBeam" ForceCursor="True" Margin="200,649,0,229" HorizontalAlignment="Left" Width="348">
