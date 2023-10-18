@@ -19,32 +19,29 @@ namespace ProyectoBodega
         {
             txtNombre.Focus();
 
-            if ((string)this.Tag == "Actualizar")
-            {
-                lblCategoria.Content = "Actualizar Categoria";
-                btnAgregar.Content = "Actualizar Categoria";
-                txtCodigo.Visibility = Visibility.Visible;
-                lblCodigo.Visibility = Visibility.Visible;
+            if ((string)this.Tag != "Actualizar") return;
 
-                DataRowView filaSeleccionada = (DataRowView)ventanaProducto.dgCategoria.SelectedItem;
+            lblCategoria.Content = "Actualizar Categoria";
+            btnAgregar.Content = "Actualizar Categoria";
+            txtCodigo.Visibility = Visibility.Visible;
+            lblCodigo.Visibility = Visibility.Visible;
 
-                string Id = filaSeleccionada["idCategoria"].ToString();
-                string nombre = filaSeleccionada["nombre_categoria"].ToString();
-                string descripcion = filaSeleccionada["descripcion"].ToString();
+            DataRowView filaSeleccionada = (DataRowView)ventanaProducto.dgCategoria.SelectedItem;
 
-                nombreCategoria_primero = nombre;
+            string Id = filaSeleccionada["idCategoria"].ToString();
+            string nombre = filaSeleccionada["nombre_categoria"].ToString();
+            string descripcion = filaSeleccionada["descripcion"].ToString();
 
-                txtCodigo.Text = Id;
-                txtNombre.Text = nombre;
+            nombreCategoria_primero = nombre;
 
-                if (!string.IsNullOrEmpty(descripcion))
-                {
-                    chkDescripcion.IsChecked = true;
-                    txtDescripcion.IsReadOnly = false;
+            txtCodigo.Text = Id;
+            txtNombre.Text = nombre;
 
-                    txtDescripcion.Text = descripcion;
-                }
-            }
+            if (string.IsNullOrEmpty(descripcion)) return;
+
+            chkDescripcion.IsChecked = true;
+            txtDescripcion.IsReadOnly = false;
+            txtDescripcion.Text = descripcion;
         }
         private void chkDescripcion_Click(object sender, RoutedEventArgs e)
         {
@@ -85,45 +82,18 @@ namespace ProyectoBodega
 
             if ((string)this.Tag != "Actualizar")
             {
-                if (cn_frmagregarcategoria.VerificarExistencia(nombreCategoria))
-                {
-                    if (categoria.SubirCategoria())
-                    {
-                        if (ventanaProducto != null)
-                        {
-                            ventanaProducto.CargarProducto();
-                            ventanaProducto.CargarCategoria();
-                            ventanaProducto.CargarlistaCategoria();
-                        }
-                        MessageBox.Show("La Categoria se subió correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                        txtNombre.Text = "";
-                        txtDescripcion.Text = "";
-                        txtNombre.Focus();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al insertar Categorias", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        txtNombre.Focus();
-                    }
-                }
-                else
+                if (!cn_frmagregarcategoria.VerificarExistencia(nombreCategoria))
                 {
                     MessageBox.Show("La Categoria ya existe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     txtNombre.Focus();
+                    return;
                 }
-            }
-            else
-            {
-                if (nombreCategoria_primero != nombreCategoria)
+                if (!categoria.SubirCategoria())
                 {
-                    if (!cn_frmagregarcategoria.VerificarExistencia(nombreCategoria))
-                    {
-                        MessageBox.Show("La Categoria ya existe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        txtNombre.Focus();
-                        return;
-                    }
+                    MessageBox.Show("Error al insertar Categorias", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    txtNombre.Focus();
                 }
-                if (categoria.ActualizarCategoria())
+                else
                 {
                     if (ventanaProducto != null)
                     {
@@ -131,14 +101,34 @@ namespace ProyectoBodega
                         ventanaProducto.CargarCategoria();
                         ventanaProducto.CargarlistaCategoria();
                     }
-                    MessageBox.Show("La Categoria se Actualizó correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    nombreCategoria_primero = nombreCategoria;
+                    MessageBox.Show("La Categoria se subió correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                    txtNombre.Text = "";
+                    txtDescripcion.Text = "";
                     txtNombre.Focus();
                 }
-                else
+            }
+            else
+            {
+                if (nombreCategoria_primero != nombreCategoria && !cn_frmagregarcategoria.VerificarExistencia(nombreCategoria))
+                {
+                    MessageBox.Show("La Categoria ya existe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    txtNombre.Focus();
+                    return;
+                }
+                if (!categoria.ActualizarCategoria())
                 {
                     MessageBox.Show("Error al intentar Actualizar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
                 }
+                if (ventanaProducto != null)
+                {
+                    ventanaProducto.CargarProducto();
+                    ventanaProducto.CargarCategoria();
+                    ventanaProducto.CargarlistaCategoria();
+                }
+                MessageBox.Show("La Categoria se Actualizó correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                nombreCategoria_primero = nombreCategoria;
+                txtNombre.Focus();
             }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
@@ -155,10 +145,7 @@ namespace ProyectoBodega
         }
         private void Window_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
-            {
-                btnAgregar_Click(sender, e);
-            }
+            if (e.Key == Key.Enter) btnAgregar_Click(sender, e);
         }
         private void txtDescripcion_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -179,10 +166,7 @@ namespace ProyectoBodega
 
         private void txtNombre_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
-            {
-                txtbNombre.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrWhiteSpace(txtNombre.Text)) txtbNombre.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtDescripcion_GotFocus(object sender, RoutedEventArgs e)
@@ -191,23 +175,13 @@ namespace ProyectoBodega
         }
         private void txtDescripcion_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
-            {
-                txtbDescripcion.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text)) txtbDescripcion.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key==Key.Escape)
-            {
-                Close();
-            }
-            else if(e.Key==Key.Enter)
-            {
-                btnAgregar_Click(sender,e);
-
-            }
+            if(e.Key==Key.Escape) Close();
+            else if(e.Key==Key.Enter) btnAgregar_Click(sender,e);
         }
     }
 }

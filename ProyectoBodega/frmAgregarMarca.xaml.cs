@@ -61,43 +61,41 @@ namespace ProyectoBodega
 
             if ((string)this.Tag != "Actualizar")
             {
-                if (cn_agregarMarca.verificarExistencia(nombreMarca))
+                if (!cn_agregarMarca.verificarExistencia(nombreMarca))
                 {
-
-                    if (Marca.SubirMarca())
-                    {
-                        if (ventanaProducto != null)
-                        {
-                            ventanaProducto.CargarMarca();
-                            ventanaProducto.CargarlistaMarca();
-                        }
-                        MessageBox.Show("La marca se subió correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtNombre.Text = "";
-                        txtNombre.Focus();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocurrio un error al intentar insertar la Marca", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("La Marca ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtNombre.Focus();
+                    return;
+                }
+                if (!Marca.SubirMarca())
+                {
+                    MessageBox.Show("Ocurrio un error al intentar insertar la Marca", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("La Marca ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (ventanaProducto != null)
+                    {
+                        ventanaProducto.CargarMarca();
+                        ventanaProducto.CargarlistaMarca();
+                    }
+                    MessageBox.Show("La marca se subió correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtNombre.Text = "";
                     txtNombre.Focus();
                 }
             }
             else
             {
-                if (nombreMarca_primero != nombreMarca)
+                if (nombreMarca_primero != nombreMarca && !cn_agregarMarca.verificarExistencia(nombreMarca))
                 {
-                    if (!cn_agregarMarca.verificarExistencia(nombreMarca))
-                    {
-                        MessageBox.Show("La marca ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtNombre.Focus();
-                        return;
-                    }
+                    MessageBox.Show("La marca ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtNombre.Focus();
+                    return;
                 }
-                if (Marca.ActualizarMarca())
+                if (!Marca.ActualizarMarca())
+                {
+                    MessageBox.Show("Error al intentar Actualizar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
                 {
                     if (ventanaProducto != null)
                     {
@@ -108,13 +106,8 @@ namespace ProyectoBodega
                     nombreMarca_primero = nombreMarca;
                     txtNombre.Focus();
                 }
-                else
-                {
-                    MessageBox.Show("Error al intentar Actualizar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
-
-        }
+}
         private void txtNombre_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
@@ -128,10 +121,7 @@ namespace ProyectoBodega
         }
         private void Window_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
-            {
-                btnAgregarMarca_Click(sender, e);
-            }
+            if (e.Key == Key.Enter) btnAgregarMarca_Click(sender, e);
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void nombre_Click(object sender, MouseButtonEventArgs e)
@@ -145,22 +135,13 @@ namespace ProyectoBodega
 
         private void txtNombre_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
-            {
-                txtbNombre.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrWhiteSpace(txtNombre.Text)) txtbNombre.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            if(e.Key == Key.Escape)
-            {
-                Close();
-            }
-            else if (e.Key == Key.Enter)
-            {
-                btnAgregarMarca_Click(sender, e);
-            }
+            if(e.Key == Key.Escape) Close();
+            else if (e.Key == Key.Enter) btnAgregarMarca_Click(sender, e);
         }
     }
 }

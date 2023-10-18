@@ -27,14 +27,10 @@ namespace ProyectoBodega
 
                 txtbUsuario.Visibility = Visibility.Collapsed;
                 txtbNombre.Visibility = Visibility.Collapsed;
-                if (string.IsNullOrWhiteSpace(txtDireccion.Text))
-                {
-                    txtbDireccion.Visibility = Visibility.Collapsed;
-                }
-                if (string.IsNullOrWhiteSpace(txtTelefono.Text))
-                {
-                    txtbTelefono.Visibility = Visibility.Collapsed;
-                }
+
+                if (string.IsNullOrWhiteSpace(txtDireccion.Text)) txtbDireccion.Visibility = Visibility.Collapsed;
+
+                if (string.IsNullOrWhiteSpace(txtTelefono.Text)) txtbTelefono.Visibility = Visibility.Collapsed;
 
                 //----------------------------------------------------------------------------------------\\
                 DataRowView filaSeleccionada = (DataRowView)ventanaEmpleados.dgVendedores.SelectedItem;
@@ -115,10 +111,7 @@ namespace ProyectoBodega
         }
         private void txtTelefono_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter || e.Key == Key.Escape)
-            {
-                return;
-            }
+            if (e.Key == Key.Enter || e.Key == Key.Escape) return;
             if (!char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) && e.Key != Key.Back || (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control && e.Key == Key.V)
             {
                 e.Handled = true;
@@ -146,37 +139,31 @@ namespace ProyectoBodega
 
             if((string)this.Tag == "Crear")
             {
-                if (cn_agregarvendedor.verificarExistencia())
-                {
-                    if (cn_agregarvendedor.AgregarVendedor())
-                    {
-                        MessageBox.Show("El vendedor se agrego correctamente", "Exito!!");
-                        txtUsuario.Text = string.Empty;
-                        txtNombre.Text = string.Empty;
-                        txtTelefono.Text = string.Empty;
-                        txtDireccion.Text = string.Empty;
-                        txtUsuario.Focus();
-
-                        if (ventanaEmpleados != null)
-                        {
-                            ventanaEmpleados.CargarVendedores();
-
-                            if (ventanaEmpleados.dgVendedores.Items.Count > 0)
-                            {
-                                ventanaEmpleados.dgVendedores.SelectedIndex = 0;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocurrio un error al intentar insertar el vendedor", "Error");
-                        txtUsuario.Focus();
-                    }
-                }
-                else
+                if (!cn_agregarvendedor.verificarExistencia())
                 {
                     MessageBox.Show("Ya existe un vendedor con este usuario", "Error");
                     txtUsuario.Focus();
+                    return;
+                }
+                if (!cn_agregarvendedor.AgregarVendedor())
+                {
+                    MessageBox.Show("Ocurrio un error al intentar insertar el vendedor", "Error");
+                    txtUsuario.Focus();
+                    return;
+                }
+                MessageBox.Show("El vendedor se agrego correctamente", "Exito!!");
+                txtUsuario.Text = string.Empty;
+                txtNombre.Text = string.Empty;
+                txtTelefono.Text = string.Empty;
+                txtDireccion.Text = string.Empty;
+                txtUsuario.Focus();
+
+                if (ventanaEmpleados == null) return;
+
+                ventanaEmpleados.CargarVendedores();
+                if (ventanaEmpleados.dgVendedores.Items.Count > 0)
+                {
+                    ventanaEmpleados.dgVendedores.SelectedIndex = 0;
                 }
             }
             else
@@ -191,21 +178,19 @@ namespace ProyectoBodega
                         return;
                     }
                 }
-                if (cn_agregarvendedor.ActualizarVendedor())
-                {
-                    if (ventanaEmpleados != null)
-                    {
-                        ventanaEmpleados.CargarVendedores();
-                    }
-                    MessageBox.Show("El vendedor se Actualizó correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    nombreVendedor_primero = nombre;
-                    txtNombre.Focus();
-                }
-                else
+                if (!cn_agregarvendedor.ActualizarVendedor())
                 {
                     MessageBox.Show("Error al intentar Actualizar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     txtNombre.Focus();
+                    return;
                 }
+                if (ventanaEmpleados != null)
+                {
+                    ventanaEmpleados.CargarVendedores();
+                }
+                MessageBox.Show("El vendedor se Actualizó correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                nombreVendedor_primero = nombre;
+                txtNombre.Focus();
             }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
@@ -215,10 +200,7 @@ namespace ProyectoBodega
         }
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
-            {
-                txtbUsuario.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text)) txtbUsuario.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtNombre_GotFocus(object sender, RoutedEventArgs e)
@@ -227,10 +209,7 @@ namespace ProyectoBodega
         }
         private void txtNombre_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
-            {
-                txtbNombre.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrWhiteSpace(txtNombre.Text)) txtbNombre.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtTelefono_GotFocus(object sender, RoutedEventArgs e)
@@ -239,10 +218,7 @@ namespace ProyectoBodega
         }
         private void txtTelefono_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtTelefono.Text))
-            {
-                txtbTelefono.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrWhiteSpace(txtTelefono.Text)) txtbTelefono.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtDireccion_GotFocus(object sender, RoutedEventArgs e)
@@ -251,22 +227,13 @@ namespace ProyectoBodega
         }
         private void txtDireccion_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
-            {
-                txtbDireccion.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text)) txtbDireccion.Visibility = Visibility.Visible;
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
-            {
-                btnAgregarVendedor_Click(sender, e);
-            }
-            else if (e.Key == Key.Escape)
-            {
-                BtnSalir_Click(sender, e);
-            }
+            if (e.Key == Key.Enter) btnAgregarVendedor_Click(sender, e);
+            else if (e.Key == Key.Escape) BtnSalir_Click(sender, e);
         }
     }
 }

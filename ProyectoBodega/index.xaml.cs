@@ -61,23 +61,18 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         public void CalcularSumaTotal()
         {
-            double suma = 0;
+            decimal suma = 0;
 
-            for (int i = 0; i < dgVenta.Items.Count; i++)
+            foreach (var item in dgVenta.Items)
             {
-                var fila = dgVenta.Items[i];
-
-                if (fila is DataRowView dataRowView)
+                if (item is DataRowView dataRowView && decimal.TryParse(dataRowView["total"]?.ToString(), out decimal total))
                 {
-                    suma += Convert.ToDouble(dataRowView["total"]?.ToString() ?? "0");
-                }
-                else
-                {
+                    suma += total;
                 }
             }
-
             lblTotal.Content = suma.ToString("F2");
         }
+
         public void ContadorProductosVenta()
         {
             for (int i = 0; i < dgVenta.Items.Count; i++)
@@ -86,9 +81,6 @@ namespace ProyectoBodega
                 {
                     var fila = (DataRowView)dgVenta.Items[i];
                     fila["Cuenta"] = (i + 1).ToString();
-                }
-                else
-                {
                 }
             }
         }
@@ -118,28 +110,25 @@ namespace ProyectoBodega
         private void btnSeleccionar_Click(object sender, RoutedEventArgs e)
         {
             DataRowView filaSeleccionada = (DataRowView)dgProducto.SelectedItem;
-            if (filaSeleccionada != null)
-            {
-                string ID = filaSeleccionada["idProducto"].ToString();
-
-                foreach (DataRow fila in tablaVenta.Rows)
-                {
-                    string idProducto = fila["idProducto"].ToString();
-
-                    if (idProducto == ID)
-                    {
-                        MessageBox.Show($"El producto ya fue agregado Elija otro producto","Producto ya existente");
-                        return;
-                    }
-                }
-                frmDetalleProducto detalle = new frmDetalleProducto();
-                detalle.ventanaIndex = this;
-                detalle.ShowDialog();
-            }
-            else
+            if (filaSeleccionada == null)
             {
                 MessageBox.Show("Seleccione una fila", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+            string ID = filaSeleccionada["idProducto"].ToString();
+            foreach (DataRow fila in tablaVenta.Rows)
+            {
+                string idProducto = fila["idProducto"].ToString();
+
+                if (idProducto == ID)
+                {
+                    MessageBox.Show($"El producto ya fue agregado Elija otro producto", "Producto ya existente");
+                    return;
+                }
+            }
+            frmDetalleProducto detalle = new frmDetalleProducto();
+            detalle.ventanaIndex = this;
+            detalle.ShowDialog();
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         public void btnCerrarSesion_Click(object sender, RoutedEventArgs e)
@@ -165,52 +154,46 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnCancelarVenta_Click(object sender, RoutedEventArgs e)
         {
-            if(dgVenta.Items.Count < 0)
-            {
-                MessageBoxResult result = MessageBox.Show($"¿Esta seguro de que desea borrar todos los productos de la venta?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                if (result == MessageBoxResult.Yes)
-                {   
-                    tablaVenta.Rows.Clear();
-                    CalcularSumaTotal();
-                }
-            }
-            else
+            if (dgVenta.Items.Count >= 0)
             {
                 MessageBox.Show("No hay productos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
-            
+            MessageBoxResult result = MessageBox.Show($"¿Esta seguro de que desea borrar todos los productos de la venta?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                tablaVenta.Rows.Clear();
+                CalcularSumaTotal();
+            }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void brnBorrarFila_Click(object sender, RoutedEventArgs e)
         {
             DataRowView filaSeleccionada = (DataRowView)dgVenta.SelectedItem;
-            if (filaSeleccionada != null)
-            {
-                if (tablaVenta.Rows.Count > 0)
-                {
-                    int indicefila = dgVenta.SelectedIndex;
-                    tablaVenta.Rows[indicefila].Delete();
-                    tablaVenta.AcceptChanges();
-                    CalcularSumaTotal();
-                }
-            }
-            else
+            if (filaSeleccionada == null)
             {
                 MessageBox.Show("Seleccione la fila a borrar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (tablaVenta.Rows.Count > 0)
+            {
+                int indicefila = dgVenta.SelectedIndex;
+                tablaVenta.Rows[indicefila].Delete();
+                tablaVenta.AcceptChanges();
+                CalcularSumaTotal();
             }
         }
         private void btnCobrarVenta_Click(object sender, RoutedEventArgs e)
         {
-            if (dgVenta.Items.Count > 0)
-            {
-                frmCobrar frmcobrar = new frmCobrar();
-                frmcobrar.indexVentana = this;
-                frmcobrar.ShowDialog();
-            }
-            else
+            if (dgVenta.Items.Count <= 0)
             {
                 MessageBox.Show("Agregue productos para poder vender", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+            frmCobrar frmcobrar = new frmCobrar();
+            frmcobrar.indexVentana = this;
+            frmcobrar.ShowDialog();
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnBuscarCodigo_Click(object sender, RoutedEventArgs e)
@@ -234,19 +217,17 @@ namespace ProyectoBodega
                     }
                 }
             }
-            if (indiceFila != null)
-            {
-                dgProducto.SelectedItem = indiceFila.Item;
-                dgProducto.ScrollIntoView(indiceFila.Item);
-
-                frmDetalleProducto indexVender = new frmDetalleProducto();
-                indexVender.ventanaIndex = this;
-                indexVender.ShowDialog();
-            }
-            else
+            if (indiceFila == null)
             {
                 MessageBox.Show("Código no encontrado o inexistente intente con otro", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+            dgProducto.SelectedItem = indiceFila.Item;
+            dgProducto.ScrollIntoView(indiceFila.Item);
+
+            frmDetalleProducto indexVender = new frmDetalleProducto();
+            indexVender.ventanaIndex = this;
+            indexVender.ShowDialog();
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnBuscarNombre_Click(object sender, RoutedEventArgs e)
@@ -278,19 +259,17 @@ namespace ProyectoBodega
                     }
                 }
             }
-            if (mejorCoincidencia != null)
-            {
-                dgProducto.SelectedItem = mejorCoincidencia.Item;
-                dgProducto.ScrollIntoView(mejorCoincidencia.Item);
-
-                frmDetalleProducto indexVender = new frmDetalleProducto();
-                indexVender.ventanaIndex = this;
-                indexVender.ShowDialog();
-            }
-            else
+            if (mejorCoincidencia == null)
             {
                 MessageBox.Show("Nombre de producto no encontrado o inexistente. Intente con otro.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+            dgProducto.SelectedItem = mejorCoincidencia.Item;
+            dgProducto.ScrollIntoView(mejorCoincidencia.Item);
+
+            frmDetalleProducto indexVender = new frmDetalleProducto();
+            indexVender.ventanaIndex = this;
+            indexVender.ShowDialog();
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtPrimeraLetraMayuscula_TextChanged(object sender, TextChangedEventArgs e)
@@ -306,10 +285,7 @@ namespace ProyectoBodega
         }
         private void txtCantidad_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter || e.Key == Key.Escape)
-            {
-                return;
-            }
+            if (e.Key == Key.Enter || e.Key == Key.Escape) return;
             if (!char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) && e.Key != Key.Back  || (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control && e.Key == Key.V)
             {
                 e.Handled = true;
@@ -327,10 +303,7 @@ namespace ProyectoBodega
         }
         private void txtBuscadorProducto_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtBuscadorProducto.Text))
-            {
-                txtbBuscar.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtBuscadorProducto.Text)) txtbBuscar.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtBuscarPorCodigo_GotFocus(object sender, RoutedEventArgs e)
@@ -339,10 +312,7 @@ namespace ProyectoBodega
         }
         private void txtBuscarPorCodigo_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtBuscarPorCodigo.Text))
-            {
-                txtbID.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtBuscarPorCodigo.Text)) txtbID.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtBuscarPorNombre_GotFocus(object sender, RoutedEventArgs e)
@@ -351,41 +321,23 @@ namespace ProyectoBodega
         }
         private void txtBuscarPorNombre_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtBuscarPorNombre.Text))
-            {
-                txtbNombre.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtBuscarPorNombre.Text)) txtbNombre.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtBuscarPorCodigo_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
-            {
-                btnBuscarCodigo_Click(btnBuscarCodigo, e);
-            }
+            if (e.Key == Key.Enter) btnBuscarCodigo_Click(btnBuscarCodigo, e);
         }
         private void txtBuscarPorNombre_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
-            {
-                btnBuscarNombre_Click(btnBuscarCodigo, e);
-            }
+            if (e.Key == Key.Enter) btnBuscarNombre_Click(btnBuscarCodigo, e);
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {   
-            if (e.Key == Key.F1)
-            {
-                btnVentas_Click(sender, e);
-            }
-            else if (e.Key == Key.F2)
-            {
-                btnInventario_Click(sender, e);
-            }
-            else if (e.Key == Key.F3)
-            {
-                btnVendedores_Click(sender, e);
-            }
+            if (e.Key == Key.F1) btnVentas_Click(sender, e);
+            else if (e.Key == Key.F2) btnInventario_Click(sender, e);
+            else if (e.Key == Key.F3) btnVendedores_Click(sender, e);
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnAgregarStock_Click(object sender, RoutedEventArgs e)

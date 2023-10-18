@@ -28,16 +28,10 @@ namespace ProyectoBodega
         {
 
             filtro = "";
-            if (ventanaIndex != null)
-            {
-                idActual = ventanaIndex.idvendedor;
-            }
+            if (ventanaIndex != null) idActual = ventanaIndex.idvendedor;
             CargarVendedores();
 
-            if (dgVendedores.Items.Count >0)
-            {
-                dgVendedores.SelectedIndex = 0;
-            }
+            if (dgVendedores.Items.Count >0) dgVendedores.SelectedIndex = 0;
         }
         public void CargarVendedores()
         {
@@ -74,10 +68,9 @@ namespace ProyectoBodega
 
             var CuadroDialogo = new CuadroDialogo();
             CuadroDialogo.titulo = "Borrar Vendedor";
-            if (CuadroDialogo.ShowDialog() != true)
-            {
-                return;
-            }
+
+            if (CuadroDialogo.ShowDialog() != true) return;
+
             string valorIngresado = CuadroDialogo.ValorIngresado;
             if (valorIngresado == null || valorIngresado != filaSeleccionada["usuario"].ToString())
             {
@@ -89,10 +82,8 @@ namespace ProyectoBodega
             string nombre = filaSeleccionada["nombre_vendedor"].ToString();
 
             MessageBoxResult result = MessageBox.Show($"Esta a punto de borrar el siguiente Vendedor:\nID: {Id} \nNombre: {nombre}", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result != MessageBoxResult.Yes)
-            {
-                return;
-            }
+            if (result != MessageBoxResult.Yes) return;
+
             cn_ventanaempleados.idVendedor = Id;
             if (!cn_ventanaempleados.borrarVendedor())
             {
@@ -119,10 +110,9 @@ namespace ProyectoBodega
             }
             var CuadroDialogo = new CuadroDialogo();
             CuadroDialogo.titulo = "Actualizar Vendedor";
-            if (CuadroDialogo.ShowDialog() != true)
-            {
-                return;
-            }
+
+            if (CuadroDialogo.ShowDialog() != true) return;
+
             string valorIngresado = CuadroDialogo.ValorIngresado;
             if (valorIngresado == null || valorIngresado != filaSeleccionada["usuario"].ToString())
             {
@@ -143,10 +133,7 @@ namespace ProyectoBodega
 
         private void txtBuscadorVendedor_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtBuscadorVendedor.Text))
-            {
-                txtbBuscador.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtBuscadorVendedor.Text)) txtbBuscador.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void dgVendedores_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -156,22 +143,10 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            if (e.Key == Key.Escape)
-            {
-                Close();
-            }
-            else if (e.Key == Key.F1)
-            {
-                btnAgregarVendedor_Click(sender, e);
-            }
-            else if (e.Key == Key.F2)
-            {
-                btnActualizarVendedor_Click(sender, e);
-            }
-            else if (e.Key == Key.F3)
-            {
-                btnBorrarVendedor_Click(sender,e);
-            }
+            if (e.Key == Key.Escape) Close();
+            else if (e.Key == Key.F1) btnAgregarVendedor_Click(sender, e);
+            else if (e.Key == Key.F2) btnActualizarVendedor_Click(sender, e);
+            else if (e.Key == Key.F3) btnBorrarVendedor_Click(sender,e);
         }
     }
 }

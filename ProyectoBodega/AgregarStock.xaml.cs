@@ -32,9 +32,7 @@ namespace ProyectoBodega
             filtro = "";
             CargarProducto();
             if (dgProducto.Items.Count > 0)
-            {
-                dgProducto.SelectedIndex = 0;
-            }
+            dgProducto.SelectedIndex = 0;
 
         }
 
@@ -72,29 +70,17 @@ namespace ProyectoBodega
 
         private void txtStock_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtCantidad.Text))
-            {
-                txtbCantidad.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtCantidad.Text)) txtbCantidad.Visibility = Visibility.Visible;
         }
 
         private void txtStock_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter || e.Key == Key.Escape)
-            {
-                return;
-            }
-            if (!(txtCantidad.Text.Contains("-")))
-            {
-                if (e.Key == Key.Subtract || e.Key == Key.OemMinus)
-                {
-                    return;
-                }
-            }
+            if (e.Key == Key.Enter || e.Key == Key.Escape) return;
+
+            if (!(txtCantidad.Text.Contains("-")) && (e.Key == Key.Subtract || e.Key == Key.OemMinus)) return;
+
             if (!char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) && e.Key != Key.Back || (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control && e.Key == Key.V)
-            {
-                e.Handled = true;
-            }
+            e.Handled = true;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtBuscadorProducto_GotFocus(object sender, RoutedEventArgs e)
@@ -104,24 +90,19 @@ namespace ProyectoBodega
 
         private void txtBuscadorProducto_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtBuscadorProducto.Text))
-            {
-                txtbBuscar.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtBuscadorProducto.Text)) txtbBuscar.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void dgProductos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataRowView filaSeleccionada = (DataRowView)dgProducto.SelectedItem;
 
-            if (filaSeleccionada != null)
-            {
-                int stock = Convert.ToInt32(filaSeleccionada["stock"]);
-
-                txtStockInicial.Text = stock.ToString();
-                txtStockFinal.Text = stock.ToString();
-                txtCantidad.Focus();
-            }
+            if (filaSeleccionada == null)
+            return;
+            int stock = Convert.ToInt32(filaSeleccionada["stock"]);
+            txtStockInicial.Text = stock.ToString();
+            txtStockFinal.Text = stock.ToString();
+            txtCantidad.Focus();
         }
 
         private void txtStock_TextChanged(object sender, TextChangedEventArgs e)
@@ -130,10 +111,8 @@ namespace ProyectoBodega
             {
                 int stockFinal = stockInicial + cantidad;
                 txtStockFinal.Text = stockFinal.ToString();
-                if (double.Parse(txtStockFinal.Text) > double.Parse(txtStockInicial.Text))
-                {
-                    txtStockFinal.Foreground = Brushes.Green;
-                }
+                if (int.Parse(txtStockFinal.Text) > int.Parse(txtStockInicial.Text))
+                txtStockFinal.Foreground = Brushes.Green;
             }
             else
             {
@@ -142,20 +121,15 @@ namespace ProyectoBodega
             }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
-        private void btnSalir_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        private void btnSalir_Click(object sender, RoutedEventArgs e){ Close(); }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
-            if (dgProducto.Items.Count == 0)
-                return;
+            if (dgProducto.Items.Count == 0) return;
 
             DataRowView filaSeleccionada = (DataRowView)dgProducto.SelectedItem;
 
-            if (filaSeleccionada == null)
-                return;
+            if (filaSeleccionada == null) return;
 
             int indexActual = dgProducto.Items.IndexOf(filaSeleccionada);
             int stockInicial = int.Parse(txtStockInicial.Text);
@@ -173,29 +147,24 @@ namespace ProyectoBodega
 
             MessageBoxResult result = MessageBox.Show($"¿Está seguro de {(cantidad < 0 ? "disminuir" : "aumentar")} {Math.Abs(cantidad)} al stock?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-            if (result != MessageBoxResult.Yes)
-                return;
+            if (result != MessageBoxResult.Yes) return;
 
             cn_ventanaAgregarStock.idProducto = id;
             cn_ventanaAgregarStock.cantidadAgregar = txtCantidad.Text;
 
             bool rpta = cn_ventanaAgregarStock.AgregarCantidad();
 
-            if (rpta)
+            if (!rpta)
+            MessageBox.Show("Ocurrió un error intentando subir a la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            else
             {
                 filtro = txtBuscadorProducto.Text;
                 CargarProducto();
                 dgProducto.SelectedIndex = indexActual;
                 txtCantidad.Text = "";
                 MessageBox.Show("El stock se actualizó correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                if (ventanaIndex != null)
-                {
-                    ventanaIndex.CargarProducto();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Ocurrió un error intentando subir a la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                if (ventanaIndex != null) ventanaIndex.CargarProducto();
             }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
@@ -203,13 +172,9 @@ namespace ProyectoBodega
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
-            {
-                Close();
-            }
+            Close();
             else if(e.Key == Key.Enter)
-            {
-                btnAgregar_Click(sender, e);
-            }
+            btnAgregar_Click(sender, e);
         }
     }
 }

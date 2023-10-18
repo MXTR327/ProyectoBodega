@@ -16,30 +16,24 @@ namespace Presentacion
         }
         private void BtnIngresar_Click(object sender, RoutedEventArgs e)
         {
-            if (ValidarDatos())
+            if (!ValidarDatos()) return;
+
+            DataTable dt = new DataTable();
+            cn_frmlogin.Usuario = txtUsuario.Text;
+            dt = cn_frmlogin.VerificarUsuario();
+            if (dt.Rows.Count <= 0)
             {
-                DataTable dt = new DataTable();
-
-                cn_frmlogin.Usuario = txtUsuario.Text;
-
-                dt = cn_frmlogin.VerificarUsuario();
-
-                if (dt.Rows.Count > 0)
-                {
-                    string id = dt.Rows[0][0].ToString();
-                    string nombre = dt.Rows[0][1].ToString();
-
-                    index ventanaprincipal = new index();
-                    ventanaprincipal.idvendedor = id;
-                    ventanaprincipal.nombrevendedor = nombre;
-
-                    ((App)System.Windows.Application.Current).ChangeMainWindow(ventanaprincipal);
-                }
-                else
-                {
-                    MessageBox.Show("Acceso NO AUTORIZADO", "Mensaje");
-                }
+                MessageBox.Show("Acceso NO AUTORIZADO", "Mensaje");
+                return;
             }
+            string id = dt.Rows[0][0].ToString();
+            string nombre = dt.Rows[0][1].ToString();
+
+            index ventanaprincipal = new index();
+            ventanaprincipal.idvendedor = id;
+            ventanaprincipal.nombrevendedor = nombre;
+
+            ((App)Application.Current).ChangeMainWindow(ventanaprincipal);
         }
         private bool ValidarDatos()
         {
@@ -52,12 +46,10 @@ namespace Presentacion
             }
             return rpta;
         }
-
         private void BtnSalir_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
-
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
             frmAgregarVendedor agregarVendedor = new frmAgregarVendedor();
@@ -72,10 +64,7 @@ namespace Presentacion
 
         private void Window_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
-            {
-                BtnIngresar_Click(sender, e);
-            }
+            if (e.Key == Key.Enter) BtnIngresar_Click(sender, e);
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -84,10 +73,7 @@ namespace Presentacion
         }
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
-            {
-                placeholderText.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text)) placeholderText.Visibility = Visibility.Visible;
         }
         private void placeholderText_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {

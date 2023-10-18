@@ -53,7 +53,7 @@
                 <Label Content="Dirección" FontSize="25" Margin="32,422,0,0" HorizontalAlignment="Left" Width="118" Height="40" VerticalAlignment="Top" FontFamily="Bahnschrift" />
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Button x:Name="btnSalir" Content="Salir( Esc )" Width="172" HorizontalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Top" Click="BtnSalir_Click" Height="54" Margin="0,780,31,0" FontSize="26" FontFamily="Calibri">
+                <Button x:Name="btnSalir" Content="Salir( Esc )" Width="172" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtnSalir_Click" Height="54" Margin="335,780,0,0" FontSize="26" FontFamily="Calibri">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>

@@ -55,14 +55,7 @@ namespace ProyectoBodega
             comboBox.SelectedValuePath = valueMember;
             comboBox.DisplayMemberPath = displayMember;
 
-            if (selectedIndex >= 0 && selectedIndex < comboBox.Items.Count)
-            {
-                comboBox.SelectedIndex = selectedIndex;
-            }
-            else
-            {
-                comboBox.SelectedIndex = 0;
-            }
+            comboBox.SelectedIndex = selectedIndex >= 0 && selectedIndex < comboBox.Items.Count ? selectedIndex : 0;
         }
         private void CargarlistaProveedor()
         {
@@ -110,10 +103,7 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtStockPaquete_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter || e.Key == Key.Escape)
-            {
-                return;
-            }
+            if (e.Key == Key.Enter || e.Key == Key.Escape) return;
             if (!char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) && e.Key != Key.Back || (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control && e.Key == Key.V)
             {
                 e.Handled = true;
@@ -122,10 +112,7 @@ namespace ProyectoBodega
         private void txtPaquetePrecioCompra_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             TextBox textBox = sender as TextBox;
-            if (e.Key == Key.Enter || e.Key == Key.Escape)
-            {
-                return;
-            }
+            if (e.Key == Key.Enter || e.Key == Key.Escape) return;
             if (!(Char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) ||
                   (e.Key == Key.OemComma && textBox.Text.IndexOf(',') == -1) ||
                   e.Key == Key.Left || e.Key == Key.Right || e.Key == Key.Back || e.Key == Key.Delete || e.Key == Key.Home || e.Key == Key.End))
@@ -157,16 +144,11 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnAgregarPaquete_Click(object sender, RoutedEventArgs e)
         {
-            if (!validar())
-            {
-                return;
-            }
+            if (!validar()) return; 
+
             string nombreProducto = txtNombre.Text;
             string descripcion = txtDescripcion.Text;
-            double precioCompraPack = double.Parse(txtPaquetePrecioCompra.Text);
-            double precioVentaPack = double.Parse(txtPaquetePrecioVenta.Text);
             string medida = txtMedida.Text;
-            int sPack = int.Parse(txtPaqueteStock.Text);
             string idCategoria = cmbCategoria.SelectedValue.ToString();
             string idProveedor = cmbProveedor.SelectedValue.ToString();
             string idMarca = cmbMarca.SelectedValue.ToString();
@@ -174,67 +156,55 @@ namespace ProyectoBodega
             double precioVentaUni = double.Parse(txtUnidadPrecioVenta.Text);
             int sUnidad = int.Parse(txtUnidadTotal.Text);
 
-            CN_frmAgregarPaqueteProductos paquete = new CN_frmAgregarPaqueteProductos("PAQ " + nombreProducto, descripcion, precioCompraPack, precioVentaPack, medida, sPack, idCategoria, idProveedor, idMarca);
             CN_frmAgregarPaqueteProductos unidad = new CN_frmAgregarPaqueteProductos(nombreProducto, descripcion, precioCompraUni, precioVentaUni, medida, sUnidad, idCategoria, idProveedor, idMarca);
-            if (!paquete.VerificarExistencia() || !unidad.VerificarExistencia())
+            if (!unidad.VerificarExistencia())
             {
                 MessageBox.Show("El nombre ya EXISTE, intente con otro nombre", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            bool rptaP = paquete.SubirProducto();
             bool rptaU = unidad.SubirProducto();
-            if (rptaP || rptaU)
-            {
-                ActualizarTablas();
-                if (rptaP)
-                    MessageBox.Show("El Paquete se subió correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                if (rptaU)
-                    MessageBox.Show("Las unidades se subieron correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                txtNombre.Text = "";
-                txtDescripcion.Text = "";
-                txtPaquetePrecioCompra.Text = "";
-                txtPaquetePrecioVenta.Text = "";
-                txtMedida.Text = "";
-                txtPaqueteStock.Text = "";
-                txtUnidadStock.Text = "";
-                cmbCategoria.SelectedValue = 0;
-                cmbProveedor.SelectedValue = 0;
-                cmbMarca.SelectedValue = 0;
-                txtUnidadPrecioCompra.Text = "";
-                txtUnidadPrecioVenta.Text = "";
-
-                txtNombre.Focus();
-                txtbMedida.Visibility = Visibility.Visible;
-                txtbDescripcion.Visibility = Visibility.Visible;
-                txtbPaqueteStock.Visibility = Visibility.Visible;
-                txtbUnidadStock.Visibility = Visibility.Visible;
-                txtbPaquetePrecioCompra.Visibility = Visibility.Visible;
-                txtbPaquetePrecioVenta.Visibility = Visibility.Visible;
-                txtbUnidadPrecioVenta.Visibility = Visibility.Visible;
-            }
-            else
+            if (!rptaU)
             {
                 MessageBox.Show("Error al intentar subir el paquete o las unidades a la base de datos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+
+            ActualizarTablas();
+            MessageBox.Show("El producto se subio correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            txtNombre.Text = "";
+            txtDescripcion.Text = "";
+            txtPaquetePrecioCompra.Text = "";
+            txtPaquetePrecioVenta.Text = "";
+            txtMedida.Text = "";
+            txtPaqueteStock.Text = "";
+            txtUnidadStock.Text = "";
+            cmbCategoria.SelectedValue = 0;
+            cmbProveedor.SelectedValue = 0;
+            cmbMarca.SelectedValue = 0;
+            txtUnidadPrecioCompra.Text = "";
+            txtUnidadPrecioVenta.Text = "";
+
+            txtNombre.Focus();
+            txtbMedida.Visibility = Visibility.Visible;
+            txtbDescripcion.Visibility = Visibility.Visible;
+            txtbPaqueteStock.Visibility = Visibility.Visible;
+            txtbUnidadStock.Visibility = Visibility.Visible;
+            txtbPaquetePrecioCompra.Visibility = Visibility.Visible;
+            txtbPaquetePrecioVenta.Visibility = Visibility.Visible;
+            txtbUnidadPrecioVenta.Visibility = Visibility.Visible;
         }
         private void ActualizarTablas()
         {
             if (VentanaProductos != null)
             {
                 VentanaProductos.CargarProducto();
-                if (VentanaProductos.dgProducto.Items.Count > 0)
-                {
-                    VentanaProductos.dgProducto.SelectedIndex = 0;
-                }
+                if (VentanaProductos.dgProducto.Items.Count > 0) VentanaProductos.dgProducto.SelectedIndex = 0;
             }
             if (VentanaIndex != null)
             {
                 VentanaIndex.CargarProducto();
-                if (VentanaIndex.dgProducto.Items.Count > 0)
-                {
-                    VentanaIndex.dgProducto.SelectedIndex = 0;
-                }
+                if (VentanaIndex.dgProducto.Items.Count > 0) VentanaIndex.dgProducto.SelectedIndex = 0;
             }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
@@ -304,10 +274,7 @@ namespace ProyectoBodega
         }
         private void txtNombre_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombre.Text))
-            {
-                txtbNombre.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtNombre.Text)) txtbNombre.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtMedida_GotFocus(object sender, RoutedEventArgs e)
@@ -316,25 +283,16 @@ namespace ProyectoBodega
         }
         private void txtMedida_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMedida.Text))
-            {
-                txtbMedida.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtMedida.Text)) txtbMedida.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtDescripcion_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (chkDescripcion.IsChecked == true)
-            {
-                txtbDescripcion.Visibility = Visibility.Collapsed;
-            }
+            if (chkDescripcion.IsChecked == true) txtbDescripcion.Visibility = Visibility.Collapsed;
         }
         private void txtDescripcion_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtDescripcion.Text))
-            {
-                txtbDescripcion.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtDescripcion.Text)) txtbDescripcion.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtPaqueteStock_GotFocus(object sender, RoutedEventArgs e)
@@ -343,10 +301,7 @@ namespace ProyectoBodega
         }
         private void txtPaqueteStock_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPaqueteStock.Text))
-            {
-                txtbPaqueteStock.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtPaqueteStock.Text)) txtbPaqueteStock.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtUnidadStock_GotFocus(object sender, RoutedEventArgs e)
@@ -355,10 +310,7 @@ namespace ProyectoBodega
         }
         private void txtUnidadStock_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtUnidadStock.Text))
-            {
-                txtbUnidadStock.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtUnidadStock.Text)) txtbUnidadStock.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtPaquetePrecioCompra_GotFocus(object sender, RoutedEventArgs e)
@@ -367,10 +319,7 @@ namespace ProyectoBodega
         }
         private void txtPaquetePrecioCompra_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPaquetePrecioCompra.Text))
-            {
-                txtbPaquetePrecioCompra.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtPaquetePrecioCompra.Text)) txtbPaquetePrecioCompra.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtPaquetePrecioVenta_GotFocus(object sender, RoutedEventArgs e)
@@ -379,10 +328,7 @@ namespace ProyectoBodega
         }
         private void txtPaquetePrecioVenta_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPaquetePrecioVenta.Text))
-            {
-                txtbPaquetePrecioVenta.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtPaquetePrecioVenta.Text)) txtbPaquetePrecioVenta.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtUnidadPrecioVenta_GotFocus(object sender, RoutedEventArgs e)
@@ -391,22 +337,13 @@ namespace ProyectoBodega
         }
         private void txtUnidadPrecioVenta_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtUnidadPrecioVenta.Text))
-            {
-                txtbUnidadPrecioVenta.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtUnidadPrecioVenta.Text)) txtbUnidadPrecioVenta.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Escape)
-            {
-                Close();
-            }
-            else if (e.Key == Key.Enter)
-            {
-                btnAgregarPaquete_Click(sender, e);
-            }
+            if(e.Key == Key.Escape) Close();
+            else if (e.Key == Key.Enter) btnAgregarPaquete_Click(sender, e);
         }
     }
 }

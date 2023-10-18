@@ -53,22 +53,13 @@ namespace ProyectoBodega
 
         private void txtUsuario_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
-            {
-                txtbUsuario.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrWhiteSpace(txtUsuario.Text)) txtbUsuario.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Enter)
-            {
-                Aceptar_Click(sender, e);
-            }
-            else if(e.Key == Key.Escape)
-            {
-                Cancelar_Click(sender, e);
-            }
+            if(e.Key == Key.Enter) Aceptar_Click(sender, e);
+            else if (e.Key == Key.Escape) Cancelar_Click(sender, e);
         }
     }
 }

@@ -19,10 +19,7 @@ namespace ProyectoBodega
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if(indexVentana != null)
-            {
-                txtTotal.Text = (string)indexVentana.lblTotal.Content;
-            }
+            if(indexVentana != null) txtTotal.Text = (string)indexVentana.lblTotal.Content;
         }
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {
@@ -30,56 +27,44 @@ namespace ProyectoBodega
         }
         private void txtPago_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtPago.Text) && !string.IsNullOrWhiteSpace(txtTotal.Text))
+            if (string.IsNullOrWhiteSpace(txtPago.Text) || string.IsNullOrWhiteSpace(txtTotal.Text))
             {
-                if (double.TryParse(txtPago.Text, out double pago) && double.TryParse(txtTotal.Text, out double total))
-                {
-                    txtCambio.Text = (pago - total).ToString("F2");
-                    if( double.Parse(txtCambio.Text) < 0)
-                    {
-                        txtCambio.Foreground = Brushes.Red;
-                    }
-                    else
-                    {
-                        txtCambio.Foreground = Brushes.Green;
-                    }
-                }
-                else
-                {
-                    txtCambio.Text = "-1";
-                }
+                txtCambio.Text = "0,00";
+                return;
+            }
+
+            if (decimal.TryParse(txtPago.Text, out decimal pago) && decimal.TryParse(txtTotal.Text, out decimal total))
+            {
+                decimal cambio = pago - total;
+                txtCambio.Text = cambio.ToString("F2");
+
+                txtCambio.Foreground = cambio < 0 ? Brushes.Red : Brushes.Green;
             }
             else
             {
-                txtCambio.Text = "0,00";
+                txtCambio.Text = "-1";
             }
         }
+
 
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtControlarDouble_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter || e.Key == Key.Escape)
-            {
-                return;
-            }
+            if (e.Key == Key.Enter || e.Key == Key.Escape) return;
+
             TextBox textBox = sender as TextBox;
-            if (e.Key == Key.OemComma && textBox.Text.Length == 0)
-            {
-                e.Handled = true;
-            }
-            if (e.Key == Key.Right || e.Key == Key.Left)
-            {
-                e.Handled = true;
-            }
+
+            if (e.Key == Key.OemComma && textBox.Text.Length == 0) e.Handled = true;
+
+            if (e.Key == Key.Right || e.Key == Key.Left) e.Handled = true;
+
             if (!(Char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) || (e.Key == Key.OemComma && textBox.Text.IndexOf(',') == -1) || e.Key == Key.Back))
             {
                 e.Handled = true;
             }
             
-            if (e.Key == Key.OemComma && textBox.Text.IndexOf(',') != -1)
-            {
-                e.Handled = true;
-            }
+            if (e.Key == Key.OemComma && textBox.Text.IndexOf(',') != -1) e.Handled = true;
+
             if (e.Key == Key.OemComma)
             {
                 int commaIndex = textBox.Text.IndexOf(',');
@@ -195,37 +180,22 @@ namespace ProyectoBodega
 
         private void txtPago_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPago.Text))
-            {
-                txtbPago.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrEmpty(txtPago.Text)) txtbPago.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtNombre_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombre.Text))
-            {
-                txtNombre.Text = "Anónimo";
-            }
+            if (string.IsNullOrEmpty(txtNombre.Text)) txtNombre.Text = "Anónimo";
         }
         private void txtNombre_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (txtNombre.Text == "Anónimo")
-            {
-                txtNombre.Text = "";
-            }
+            if (txtNombre.Text == "Anónimo") txtNombre.Text = "";
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Escape)
-            {
-                Close();
-            }
-            else if (e.Key == Key.Enter)
-            {
-                btnAceptar_Click(sender, e);
-            }
+            if (e.Key == Key.Escape) Close();
+            else if (e.Key == Key.Enter) btnAceptar_Click(sender, e);
         }
     }
 }

@@ -84,7 +84,7 @@
                 </Grid>
 
                 <Image HorizontalAlignment="Center" Height="235" VerticalAlignment="Top" Width="197" Stretch="Fill" Source="img/default.png" Margin="0,43,0,0" />
-                <Button x:Name="btnRegistrar" Content="Registrarse ( F1 )" Height="51" Width="222" Margin="22,0,0,94" Click="btnRegistrar_Click" VerticalAlignment="Bottom" FontSize="25" FontFamily="Calibri" Cursor="Hand">
+                <Button x:Name="btnRegistrar" Content="Registrarse ( F1 )" Height="51" Width="222" Margin="0,480,120,0" Click="btnRegistrar_Click" VerticalAlignment="Center" FontSize="25" FontFamily="Calibri" Cursor="Hand" HorizontalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
@@ -125,15 +125,14 @@
                             <GradientStop Color="#FF0BC2FF" Offset="0.4"/>
                             <GradientStop Color="#FF3642A6" Offset="1.0"/>
                         </LinearGradientBrush>
-
                     </Button.Background>
                 </Button>
-                <Button x:Name="BtnSalir" Content="Salir( Esc )" Width="110" Height="51" Margin="0,0,26,94" Click="BtnSalir_Click" RenderTransformOrigin="0.481,0.455" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontFamily="Calibri" Cursor="Hand" FontSize="25">
+                <Button x:Name="BtnSalir" Content="Salir( Esc )" Width="110" Height="51" Margin="225,480,0,0" Click="BtnSalir_Click" RenderTransformOrigin="0.481,0.455" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Calibri" Cursor="Hand" FontSize="25">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation To="104" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="114" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
                                     <DoubleAnimation To="52" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                                 </Storyboard>
                             </BeginStoryboard>
@@ -141,7 +140,7 @@
                         <EventTrigger RoutedEvent="UIElement.MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation To="94" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="111" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
                                     <DoubleAnimation To="51" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                                 </Storyboard>
                             </BeginStoryboard>

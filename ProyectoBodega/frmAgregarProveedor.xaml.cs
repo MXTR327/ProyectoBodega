@@ -18,48 +18,41 @@ namespace ProyectoBodega
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             txtNombre.Focus();
-            if ((string)this.Tag == "Actualizar")
+            if ((string)this.Tag != "Actualizar") return;
+
+            lblProveedor.Content = "Actualizar Proveedor";
+            btnAgregarProveedor.Content = "Actualizar Proveedor";
+            txtCodigo.Visibility = Visibility.Visible;
+            lblCodigo.Visibility = Visibility.Visible;
+
+
+            txtbNombre.Visibility = Visibility.Collapsed;
+
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text)) txtbDireccion.Visibility = Visibility.Collapsed;
+
+            if (string.IsNullOrWhiteSpace(txtNumero.Text)) txtbNumero.Visibility = Visibility.Collapsed;
+            //------------------------------------------------------------------------------------------------------------------------------\\
+            DataRowView filaSeleccionada = (DataRowView)ventanaProducto.dgProveedor.SelectedItem;
+            string Id = filaSeleccionada["idProveedor"].ToString();
+            string nombre = filaSeleccionada["nombre_proveedor"].ToString();
+            string direccion = filaSeleccionada["direccion_proveedor"].ToString();
+            string numero = filaSeleccionada["numero_contacto"].ToString();
+            nombreProveedor_primero = nombre;
+            txtCodigo.Text = Id;
+            txtNombre.Text = nombre;
+            if (!string.IsNullOrEmpty(numero))
             {
-                lblProveedor.Content = "Actualizar Proveedor";
-                btnAgregarProveedor.Content = "Actualizar Proveedor";
-                txtCodigo.Visibility = Visibility.Visible;
-                lblCodigo.Visibility = Visibility.Visible;
-
-
-                txtbNombre.Visibility = Visibility.Collapsed;
-
-                if (string.IsNullOrWhiteSpace(txtDireccion.Text))
-                {
-                    txtbDireccion.Visibility = Visibility.Collapsed;
-                }
-                if (string.IsNullOrWhiteSpace(txtNumero.Text))
-                {
-                    txtbNumero.Visibility = Visibility.Collapsed;
-                }
-                //------------------------------------------------------------------------------------------------------------------------------\\
-                DataRowView filaSeleccionada = (DataRowView)ventanaProducto.dgProveedor.SelectedItem;
-                string Id = filaSeleccionada["idProveedor"].ToString();
-                string nombre = filaSeleccionada["nombre_proveedor"].ToString();
-                string direccion = filaSeleccionada["direccion_proveedor"].ToString();
-                string numero = filaSeleccionada["numero_contacto"].ToString();
-                nombreProveedor_primero = nombre;
-                txtCodigo.Text = Id;
-                txtNombre.Text = nombre;
-                if (!string.IsNullOrEmpty(numero))
-                {
-                    chkNumero.IsChecked = true;
-                    txtNumero.IsReadOnly = false;
-                    txtNumero.Text = numero;
-                }
-                if (!string.IsNullOrEmpty(direccion))
-                {
-                    chkDireccion.IsChecked = true;
-                    txtDireccion.IsReadOnly = false;
-
-                    txtDireccion.Text = direccion;
-                }
-                txtNombre.Focus();
+                chkNumero.IsChecked = true;
+                txtNumero.IsReadOnly = false;
+                txtNumero.Text = numero;
             }
+            if (!string.IsNullOrEmpty(direccion))
+            {
+                chkDireccion.IsChecked = true;
+                txtDireccion.IsReadOnly = false;
+                txtDireccion.Text = direccion;
+            }
+            txtNombre.Focus();
         }
         private void chkDireccion_Click(object sender, RoutedEventArgs e)
         {
@@ -112,63 +105,61 @@ namespace ProyectoBodega
 
             CN_frmAgregarProveedor proveedor = new CN_frmAgregarProveedor(idProveedor, nombreProveedor, direccionProveedor, numeroContacto);
 
-            if ((string)this.Tag != "Actualizar")
+            if ((string)this.Tag == "Actualizar")
             {
-                if (cn_frmproveedor.VerificarExistencia(nombreProveedor))
-                {
-                    if (proveedor.SubirProveedor())
-                    {
-                        if (ventanaProducto != null)
-                        {
-                            ventanaProducto.CargarProveedor();
-                            ventanaProducto.CargarlistaProveedor();
-                        }
-                        MessageBox.Show("El proveedor se subió correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                        txtNombre.Text = "";
-                        txtDireccion.Text = "";
-                        txtNumero.Text = "";
-                        txtNombre.Focus();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al intentar Insertar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        txtNombre.Focus();
-                    }
-                }
-                else
+                if (nombreProveedor_primero != nombreProveedor && !cn_frmproveedor.VerificarExistencia(nombreProveedor))
                 {
                     MessageBox.Show("El proveedor ya existe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     txtNombre.Focus();
+                    return;
                 }
-            }
-            else
-            {
-                if (nombreProveedor_primero != nombreProveedor)
-                {
-                    if (!cn_frmproveedor.VerificarExistencia(nombreProveedor))
-                    {
-                        MessageBox.Show("El proveedor ya existe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        txtNombre.Focus();
-                        return;
-                    }
-                }
-                if (proveedor.ActualizarProveedor())
-                {
-                    if (ventanaProducto != null)
-                    {
-                        ventanaProducto.CargarProveedor();
-                        ventanaProducto.CargarlistaProveedor();
-                    }
-                    MessageBox.Show("La Categoria se Actualizó correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-                    nombreProveedor_primero = nombreProveedor;
-                    txtNombre.Focus();
-                }
-                else
+
+                if (!proveedor.ActualizarProveedor())
                 {
                     MessageBox.Show("Error al intentar Actualizar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     txtNombre.Focus();
+                    return;
                 }
+
+                if (ventanaProducto != null)
+                {
+                    ventanaProducto.CargarProveedor();
+                    ventanaProducto.CargarlistaProveedor();
+                }
+
+                MessageBox.Show("La Categoria se Actualizó correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                nombreProveedor_primero = nombreProveedor;
+                txtNombre.Focus();
             }
+            else
+            {
+                if (!cn_frmproveedor.VerificarExistencia(nombreProveedor))
+                {
+                    MessageBox.Show("El proveedor ya existe", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    txtNombre.Focus();
+                    return;
+                }
+
+                if (!proveedor.SubirProveedor())
+                {
+                    MessageBox.Show("Error al intentar Insertar", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    txtNombre.Focus();
+                    return;
+                }
+
+                if (ventanaProducto != null)
+                {
+                    ventanaProducto.CargarProveedor();
+                    ventanaProducto.CargarlistaProveedor();
+                }
+
+                MessageBox.Show("El proveedor se subió correctamente", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
+                txtNombre.Text = "";
+                txtDireccion.Text = "";
+                txtNumero.Text = "";
+                txtNombre.Focus();
+            }
+
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void primeraLetraMayuscula_TextChanged(object sender, TextChangedEventArgs e)
@@ -184,39 +175,29 @@ namespace ProyectoBodega
         }
         private void txtTelefono_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Enter || e.Key == Key.Escape) return;
             if (!char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) && e.Key != Key.Back || (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control && e.Key == Key.V)
             {
                 e.Handled = true;
             }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
-        private void Window_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
-            {
-                btnAgregarProveedor_Click(sender, e);
-            }
+            if (e.Key == Key.Enter) btnAgregarProveedor_Click(sender, e);
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtNombre_GotFocus(object sender, RoutedEventArgs e)
         {
             txtbNombre.Visibility = Visibility.Collapsed;
 
-            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
-            {
-                txtbDireccion.Visibility = Visibility.Visible;
-            }
-            if (string.IsNullOrWhiteSpace(txtNumero.Text))
-            {
-                txtbNumero.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text)) txtbDireccion.Visibility = Visibility.Visible;
+
+            if (string.IsNullOrWhiteSpace(txtNumero.Text)) txtbNumero.Visibility = Visibility.Visible;
         }
         private void txtNombre_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text))
-            {
-                txtbNombre.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrWhiteSpace(txtNombre.Text)) txtbNombre.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtDireccion_GotFocus(object sender, RoutedEventArgs e)
@@ -225,10 +206,7 @@ namespace ProyectoBodega
         }
         private void txtDireccion_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtDireccion.Text))
-            {
-                txtbDireccion.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text)) txtbDireccion.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtNumero_GotFocus(object sender, RoutedEventArgs e)
@@ -237,22 +215,13 @@ namespace ProyectoBodega
         }
         private void txtNumero_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNumero.Text))
-            {
-                txtbNumero.Visibility = Visibility.Visible;
-            }
+            if (string.IsNullOrWhiteSpace(txtNumero.Text)) txtbNumero.Visibility = Visibility.Visible;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Escape)
-            {
-                Close();
-            }
-            else if (e.Key == Key.Enter)
-            {
-                btnAgregarProveedor_Click(sender, e);
-            }
+            if (e.Key == Key.Escape) Close();
+            else if (e.Key == Key.Enter) btnAgregarProveedor_Click(sender, e);
         }
     }
 }

@@ -147,7 +147,7 @@
                 <ComboBox x:Name="cmbProveedor" HorizontalAlignment="Left" Margin="17,286,0,0" VerticalAlignment="Top" Width="350" Height="40" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="20"/>
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
 
-                <Button x:Name="btnAgregarPaquete" Content="Agregar Paquete( Intro )" Margin="293,880,0,0" FontSize="28" FontFamily="Calibri" VerticalContentAlignment="Center" Click="btnAgregarPaquete_Click" Height="54" VerticalAlignment="Top" HorizontalAlignment="Left" Width="510">
+                <Button x:Name="btnAgregarPaquete" Content="Agregar Paquete( Intro )" Margin="0,880,0,0" FontSize="28" FontFamily="Calibri" VerticalContentAlignment="Center" Click="btnAgregarPaquete_Click" Height="54" VerticalAlignment="Center" HorizontalAlignment="Center" Width="510">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>
@@ -189,7 +189,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnSalir" Content="Salir( Esc )" Margin="0,0,10,10" FontSize="28" FontFamily="Calibri" VerticalContentAlignment="Center" Click="btnSalir_Click_1" Width="172" HorizontalAlignment="Right" Height="54" VerticalAlignment="Bottom">
+                <Button x:Name="btnSalir" Content="Salir( Esc )" Margin="900,880,0,0" FontSize="28" FontFamily="Calibri" VerticalContentAlignment="Center" Click="btnSalir_Click_1" Width="172" HorizontalAlignment="Center" Height="54" VerticalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>
