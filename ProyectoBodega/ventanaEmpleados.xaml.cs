@@ -47,10 +47,12 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnAgregarVendedor_Click(object sender, RoutedEventArgs e)
         {
+            this.ShowInTaskbar = false;
             frmAgregarVendedor agregarvendedor = new frmAgregarVendedor();
             agregarvendedor.ventanaEmpleados = this;
             agregarvendedor.Tag = "Crear";
             agregarvendedor.ShowDialog();
+            this.ShowInTaskbar = true;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnBorrarVendedor_Click(object sender, RoutedEventArgs e)
@@ -108,22 +110,28 @@ namespace ProyectoBodega
                 MessageBox.Show("Seleccione una fila a actualizar", "Error");
                 return;
             }
+            this.ShowInTaskbar = false;
             var CuadroDialogo = new CuadroDialogo();
             CuadroDialogo.titulo = "Actualizar Vendedor";
 
-            if (CuadroDialogo.ShowDialog() != true) return;
+            if (CuadroDialogo.ShowDialog() != true) 
+            {
+                this.ShowInTaskbar = true;
+                return; 
+            }
 
             string valorIngresado = CuadroDialogo.ValorIngresado;
             if (valorIngresado == null || valorIngresado != filaSeleccionada["usuario"].ToString())
             {
                 MessageBox.Show("Usuario Incorrecto", "Error");
+                this.ShowInTaskbar = true;
                 return;
             }
-
             frmAgregarVendedor agregarvendedor = new frmAgregarVendedor();
             agregarvendedor.ventanaEmpleados = this;
             agregarvendedor.Tag = "Actualizar";
             agregarvendedor.ShowDialog();
+            this.ShowInTaskbar = true;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtBuscadorVendedor_GotFocus(object sender, RoutedEventArgs e)

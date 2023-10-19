@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Ventana Principal" Height="1028" Width="1920" WindowState="Maximized" Icon="/img/icono.png" ShowInTaskbar="False" KeyDown="Window_KeyDown">
+        Title="Ventana Principal" Height="1028" Width="1920" WindowState="Maximized" Icon="/img/icono.png" KeyDown="Window_KeyDown">
     <Grid x:Name="ventanaIndex" Loaded="ventanaIndex_Loaded" RenderTransformOrigin="0.5,0.484">
 
         <Button x:Name="btnVendedores" Content="Vendedores( F3 )" HorizontalAlignment="Center" Height="235" Margin="1720,500,0,0" VerticalAlignment="Center" Width="167" HorizontalContentAlignment="Center" FontSize="23" Click="btnVendedores_Click" FontFamily="Calibri">

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Formulario Vendedor" Height="960" Width="951" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="/img/icono.png" WindowState="Maximized" KeyDown="Window_KeyDown" ShowInTaskbar="False">
+        Title="Formulario Vendedor" Height="960" Width="951" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="/img/icono.png" WindowState="Maximized" KeyDown="Window_KeyDown">
     <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
     <Window.Resources>
 

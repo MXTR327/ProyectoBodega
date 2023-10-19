@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion"
         mc:Ignorable="d"
-        Title="Iniciar Sesión" Height="817" Width="932" UseLayoutRounding="True" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" Icon="img/icono.png" WindowState="Maximized" KeyDown="Window_KeyDown" ShowInTaskbar="False">
+        Title="Iniciar Sesión" Height="817" Width="932" UseLayoutRounding="True" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" Icon="img/icono.png" WindowState="Maximized" KeyDown="Window_KeyDown">
     <Window.Resources>
         <!-- Styles asdawdsawd -->
         <Style x:Key="estiloTextBox" TargetType="TextBox">

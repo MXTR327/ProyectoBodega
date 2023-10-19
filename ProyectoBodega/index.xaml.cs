@@ -99,13 +99,7 @@ namespace ProyectoBodega
             filtroProductos = txtBuscadorProducto.Text;
             CargarProducto();
         }
-        //------------------------------------------------------------------------------------------------------------------------------\\
-        private void btnInventario_Click(object sender, RoutedEventArgs e)
-        {
-            VentanaProductos ventanaProducto = new VentanaProductos();
-            ventanaProducto.ventanaIndex = this;
-            ventanaProducto.ShowDialog();
-        }
+        
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnSeleccionar_Click(object sender, RoutedEventArgs e)
         {
@@ -127,8 +121,10 @@ namespace ProyectoBodega
                 }
             }
             frmDetalleProducto detalle = new frmDetalleProducto();
+            this.ShowInTaskbar = false;
             detalle.ventanaIndex = this;
             detalle.ShowDialog();
+            this.ShowInTaskbar = true;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         public void btnCerrarSesion_Click(object sender, RoutedEventArgs e)
@@ -141,20 +137,39 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnVendedores_Click(object sender, RoutedEventArgs e)
         {
+            this.ShowInTaskbar = false;
             ventanaEmpleados ventanaempleados = new ventanaEmpleados();
             ventanaempleados.ventanaIndex = this;
             ventanaempleados.ShowDialog();
+            this.ShowInTaskbar = true;
+        }
+        private void btnInventario_Click(object sender, RoutedEventArgs e)
+        {
+            this.ShowInTaskbar = false;
+            VentanaProductos ventanaProducto = new VentanaProductos();
+            ventanaProducto.ventanaIndex = this;
+            ventanaProducto.ShowDialog();
+            this.ShowInTaskbar = true;
+        }
+        private void btnAgregarStock_Click(object sender, RoutedEventArgs e)
+        {
+            this.ShowInTaskbar = false;
+            AgregarStock agregarStock = new AgregarStock();
+            agregarStock.ventanaIndex = this;
+            agregarStock.ShowDialog();
+            this.ShowInTaskbar = true;
         }
         private void btnVentas_Click(object sender, RoutedEventArgs e)
         {
+            this.ShowInTaskbar = false;
             ventanaVentas ventanaventas = new ventanaVentas();
-
             ventanaventas.ShowDialog();
+            this.ShowInTaskbar = true;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnCancelarVenta_Click(object sender, RoutedEventArgs e)
         {
-            if (dgVenta.Items.Count >= 0)
+            if (dgVenta.Items.Count < 1)
             {
                 MessageBox.Show("No hay productos", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -191,9 +206,11 @@ namespace ProyectoBodega
                 MessageBox.Show("Agregue productos para poder vender", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            this.ShowInTaskbar = false;
             frmCobrar frmcobrar = new frmCobrar();
             frmcobrar.indexVentana = this;
             frmcobrar.ShowDialog();
+            this.ShowInTaskbar = true;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnBuscarCodigo_Click(object sender, RoutedEventArgs e)
@@ -340,11 +357,6 @@ namespace ProyectoBodega
             else if (e.Key == Key.F3) btnVendedores_Click(sender, e);
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
-        private void btnAgregarStock_Click(object sender, RoutedEventArgs e)
-        {
-            AgregarStock agregarStock = new AgregarStock();
-            agregarStock.ventanaIndex = this;
-            agregarStock.ShowDialog();
-        }
+        
     }
 }

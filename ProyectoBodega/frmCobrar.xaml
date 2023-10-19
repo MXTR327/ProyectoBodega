@@ -10,7 +10,7 @@
         Loaded="Window_Loaded" 
         WindowStyle="None" 
         Background="Transparent"
-        AllowsTransparency="True" KeyDown="Window_KeyDown" Icon="/img/icono.png" ShowInTaskbar="False">
+        AllowsTransparency="True" KeyDown="Window_KeyDown" Icon="/img/icono.png">
     <Border x:Name="Ventana" Background="White"  MouseLeftButtonDown="Border_MouseLeftButtonDown" Cursor="Arrow" CornerRadius="12,12,12,12" BorderThickness="2,2,2,2" BorderBrush="Black">
 
         <Grid>

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="ProyectoBodega.CuadroDialogo"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Confirmacion" Height="817" Width="922" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown" ShowInTaskbar="False" Icon="/img/icono.png">
+        Title="Confirmacion" Height="817" Width="922" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>

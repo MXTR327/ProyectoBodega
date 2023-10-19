@@ -29,10 +29,12 @@ namespace ProyectoBodega
         }
         private void btnAgregarProductoUnidad_Click(object sender, RoutedEventArgs e)
         {
+            this.ShowInTaskbar = false;
             frmAgregarProducto frmProducto = new frmAgregarProducto();
             frmProducto.VentanaProductos = this;
             frmProducto.VentanaIndex = ventanaIndex;
             frmProducto.ShowDialog();
+            this.ShowInTaskbar = true;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -122,21 +124,27 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnAgregarCategoria_Click(object sender, RoutedEventArgs e)
         {
+            this.ShowInTaskbar = false;
             frmAgregarCategoria frmagregarcategoria = new frmAgregarCategoria();
             frmagregarcategoria.ventanaProducto = this;
             frmagregarcategoria.ShowDialog();
+            this.ShowInTaskbar = true;
         }
         private void btnCrearProveedor_Click(object sender, RoutedEventArgs e)
         {
+            this.ShowInTaskbar = false;
             frmAgregarProveedor frmagregarproveedor = new frmAgregarProveedor();
             frmagregarproveedor.ventanaProducto = this;
             frmagregarproveedor.ShowDialog();
+            this.ShowInTaskbar = true;
         }
         private void btnCrearMarca_Click(object sender, RoutedEventArgs e)
         {
+            this.ShowInTaskbar = false;
             frmAgregarMarca frmagregarmarca = new frmAgregarMarca();
             frmagregarmarca.ventanaProducto = this;
             frmagregarmarca.ShowDialog();
+            this.ShowInTaskbar = true;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnBorrarProveedor_Click(object sender, RoutedEventArgs e)
@@ -272,10 +280,12 @@ namespace ProyectoBodega
                 MessageBox.Show("Seleccione una fila de los proveedores a actualizar", "Error");
                 return;
             }
+            this.ShowInTaskbar = false;
             frmAgregarProveedor frmagregarproveedor = new frmAgregarProveedor();
             frmagregarproveedor.Tag = "Actualizar";
             frmagregarproveedor.ventanaProducto = this;
             frmagregarproveedor.ShowDialog();
+            this.ShowInTaskbar = true;
         }
         private void btnActualizarCategoria_Click(object sender, RoutedEventArgs e)
         {
@@ -286,10 +296,12 @@ namespace ProyectoBodega
                 MessageBox.Show("Seleccione una fila de la categoria a actualizar", "Error");
                 return;
             }
+            this.ShowInTaskbar = false;
             frmAgregarCategoria frmagregarcategoria = new frmAgregarCategoria();
             frmagregarcategoria.Tag = "Actualizar";
             frmagregarcategoria.ventanaProducto = this;
             frmagregarcategoria.ShowDialog();
+            this.ShowInTaskbar = true;
         }
 
         private void btnActualizarMarca_Click(object sender, RoutedEventArgs e)
@@ -301,10 +313,12 @@ namespace ProyectoBodega
                 MessageBox.Show("Seleccione una fila de la marca a actualizar", "Error");
                 return;
             }
+            this.ShowInTaskbar = false;
             frmAgregarMarca frmagregarmarca = new frmAgregarMarca();
             frmagregarmarca.Tag = "Actualizar";
             frmagregarmarca.ventanaProducto = this;
             frmagregarmarca.ShowDialog();
+            this.ShowInTaskbar = true;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void dgProducto_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -462,10 +476,12 @@ namespace ProyectoBodega
         }
         private void btnAgregarProductoPaquete_Click(object sender, RoutedEventArgs e)
         {
+            this.ShowInTaskbar = false;
             frmAgregarPaqueteProductos frmagregarpaqueteproductos = new frmAgregarPaqueteProductos();
             frmagregarpaqueteproductos.VentanaProductos = this;
             frmagregarpaqueteproductos.VentanaIndex = ventanaIndex;
             frmagregarpaqueteproductos.ShowDialog();
+            this.ShowInTaskbar = true;
         }
         private void txtPrimeraLetraMayuscula_TextChanged(object sender, TextChangedEventArgs e)
         {

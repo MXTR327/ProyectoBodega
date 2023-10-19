@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProyectoBodega"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="ProyectoBodega.AgregarStock"
         mc:Ignorable="d"
-        Title="Agregar Stock" Height="900" Width="1600" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="/img/icono.png" ShowInTaskbar="False" KeyDown="Window_KeyDown">
+        Title="Agregar Stock" Height="900" Width="1600" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="/img/icono.png" KeyDown="Window_KeyDown">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>

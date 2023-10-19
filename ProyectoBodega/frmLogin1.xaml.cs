@@ -52,9 +52,11 @@ namespace Presentacion
         }
         private void btnRegistrar_Click(object sender, RoutedEventArgs e)
         {
+            this.ShowInTaskbar = false;
             frmAgregarVendedor agregarVendedor = new frmAgregarVendedor();
             agregarVendedor.Tag = "Crear";
             agregarVendedor.ShowDialog();
+            this.ShowInTaskbar = true;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

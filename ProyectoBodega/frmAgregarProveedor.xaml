@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Formulario Proveedor" Height="960" Width="951" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" ShowInTaskbar="False">
+        Title="Formulario Proveedor" Height="960" Width="951" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png">
     <Window.Resources>
 
     </Window.Resources>
