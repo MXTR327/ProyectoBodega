@@ -24,11 +24,13 @@
                     <TextBlock x:Name="txtbBuscar" VerticalAlignment="Top" Foreground="Gray" FontSize="30" Text="Nombre del Producto" Padding="45,0,0,0" Height="50" Margin="0,25,0,0"/>
                     <TextBox x:Name="txtBuscadorProducto" Height="60" VerticalAlignment="Top" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Bottom" TextChanged="txtBuscadorProducto_TextChanged" Margin="0,5,0,0" BorderThickness="0,0,0,2" Background="{x:Null}" Padding="45,0,0,0" GotFocus="txtBuscadorProducto_GotFocus" LostFocus="txtBuscadorProducto_LostFocus" />
                 </Grid>
+                <Grid x:Name="gdCalcPaq" HorizontalAlignment="Left" VerticalAlignment="Top" Width="430" Margin="1038,238,0,0" Height="97" Visibility="Hidden">
+                    <Label Content="Paquetes" HorizontalAlignment="Left" Margin="25,-1,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
+                    <Label Content="Unidades" HorizontalAlignment="Left" Margin="257,-1,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
 
-                <Grid Cursor="IBeam" ForceCursor="True" Margin="1052,286,0,505" HorizontalAlignment="Left" Width="403" Height="70">
-                    <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/stock.png" Stretch="Fill" Opacity="0.6"/>
-                    <TextBlock x:Name="txtbCantidad" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="25,0,0,0" Foreground="Gray" FontSize="30" Width="368" TextAlignment="Center"><Run Text="Ingrese "/><Run Language="es-pe" Text="Stock"/></TextBlock>
-                    <TextBox x:Name="txtCantidad" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtStock_TextChanged" PreviewKeyDown="txtStock_PreviewKeyDown" Margin="24,0,10,0" BorderThickness="0,0,0,2" Background="{x:Null}" GotFocus="txtStock_GotFocus" LostFocus="txtStock_LostFocus" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="txtPaquetes" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,41,0,0" PreviewKeyDown="SoloNumeros_PreviewKeyDown" TextChanged="CalcularCantidad_TextChanged"/>
+                    <TextBox x:Name="txtUnidades" HorizontalAlignment="Left" Margin="233,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" PreviewKeyDown="SoloNumeros_PreviewKeyDown" TextChanged="CalcularCantidad_TextChanged"/>
+
                 </Grid>
 
                 <DataGrid x:Name="dgProducto" Height="689" VerticalAlignment="Top" CanUserAddRows="False" Margin="10,165,0,0" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgProductos_SelectionChanged" SelectionMode="Single" HorizontalAlignment="Left" Width="1014" HeadersVisibility="Column">
@@ -95,12 +97,19 @@
                     </DataGrid.Columns>
                 </DataGrid>
                 <Label Content="Agregar Stock" HorizontalAlignment="Left" Margin="1138,153,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
-                <Label Content="Cantidad a agregar" HorizontalAlignment="Left" Margin="1101,235,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
-                <Label Content="Stock Inicial" HorizontalAlignment="Left" Margin="1031,365,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
-                <Label Content="Stock Final" HorizontalAlignment="Left" Margin="1271,364,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
-                <TextBox x:Name="txtStockInicial" HorizontalAlignment="Left" Margin="1037,422,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <TextBox x:Name="txtStockFinal" HorizontalAlignment="Left" Margin="1268,419,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red"/>
-                <Button x:Name="btnAgregar" Content="Agregar( Intro )" HorizontalAlignment="Center" Height="138" Margin="1022,250,0,0" VerticalAlignment="Center" Width="430" FontFamily="Calibri" FontSize="40" Click="btnAgregar_Click">
+                <Grid x:Name="gdAgregarUnidades" HorizontalAlignment="Left" Height="232" Margin="1035,240,0,0" VerticalAlignment="Top" Width="436">
+                    <Label Content="Cantidad a agregar" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
+                    <Label Content="Stock Inicial" HorizontalAlignment="Left" Margin="0,130,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
+                    <Label Content="Stock Final" HorizontalAlignment="Left" Margin="240,129,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
+                    <Grid Cursor="IBeam" ForceCursor="True" Margin="21,52,0,110" HorizontalAlignment="Left" Width="403" Height="70">
+                        <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/stock.png" Stretch="Fill" Opacity="0.6"/>
+                        <TextBlock x:Name="txtbCantidad" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="25,0,0,0" Foreground="Gray" FontSize="30" Width="368" TextAlignment="Center"><Run Text="Ingrese "/><Run Language="es-pe" Text="Stock"/></TextBlock>
+                        <TextBox x:Name="txtCantidad" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtStock_TextChanged" PreviewKeyDown="SoloNumeros_PreviewKeyDown" Margin="24,0,10,0" BorderThickness="0,0,0,2" Background="{x:Null}" GotFocus="txtStock_GotFocus" LostFocus="txtStock_LostFocus" HorizontalContentAlignment="Center"/>
+                    </Grid>
+                    <TextBox x:Name="txtStockInicial" HorizontalAlignment="Left" Margin="6,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="txtStockFinal" HorizontalAlignment="Left" Margin="237,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red"/>
+                </Grid>
+                <Button x:Name="btnAgregar" Content="Agregar( Intro )" HorizontalAlignment="Center" Height="138" Margin="1022,450,0,0" VerticalAlignment="Center" Width="430" FontFamily="Calibri" FontSize="40" Click="btnAgregar_Click">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
@@ -185,6 +194,8 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
+                <CheckBox x:Name="chkPaquetes" Content="Calcular Paquete" HorizontalAlignment="Left" Margin="1038,210,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="20" Click="chkPaquetes_Click"/>
+
             </Grid>
         </Border>
     </Grid>

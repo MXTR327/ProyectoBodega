@@ -1,8 +1,10 @@
-﻿using Negocio;
+﻿using ControlzEx.Standard;
+using Negocio;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -33,6 +35,7 @@ namespace ProyectoBodega
             CargarProducto();
             if (dgProducto.Items.Count > 0)
             dgProducto.SelectedIndex = 0;
+
 
         }
 
@@ -73,9 +76,9 @@ namespace ProyectoBodega
             if (string.IsNullOrEmpty(txtCantidad.Text)) txtbCantidad.Visibility = Visibility.Visible;
         }
 
-        private void txtStock_PreviewKeyDown(object sender, KeyEventArgs e)
+        private void SoloNumeros_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter || e.Key == Key.Escape) return;
+            if (e.Key == Key.Enter || e.Key == Key.Escape || e.Key == Key.Tab) return;
 
             if (!(txtCantidad.Text.Contains("-")) && (e.Key == Key.Subtract || e.Key == Key.OemMinus)) return;
 
@@ -168,13 +171,45 @@ namespace ProyectoBodega
             }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
-        
+        private void chkPaquetes_Click(object sender, RoutedEventArgs e)
+        {
+            if (chkPaquetes.IsChecked == true)
+            {
+                gdCalcPaq.Visibility = Visibility.Visible;
+                txtPaquetes.Focus();
+                gdAgregarUnidades.Margin = new Thickness(1035, 333, 0, 0);
+            }
+            else
+            {
+                txtPaquetes.Text = "";
+                txtUnidades.Text = "";
+                gdCalcPaq.Visibility = Visibility.Hidden;
+                gdAgregarUnidades.Margin = new Thickness(1035, 240, 0, 0);
+            }
+        }
+
+        //------------------------------------------------------------------------------------------------------------------------------\\
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Escape)
             Close();
             else if(e.Key == Key.Enter)
             btnAgregar_Click(sender, e);
+        }
+
+        private void CalcularCantidad_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int cantidadPaquetes, cantidadUnidades;
+            if (int.TryParse(txtPaquetes.Text, out cantidadPaquetes) && int.TryParse(txtUnidades.Text, out cantidadUnidades))
+            {
+                txtbCantidad.Visibility = Visibility.Collapsed;
+                txtCantidad.Text = (cantidadPaquetes * cantidadUnidades).ToString();
+            }
+            else
+            {
+                txtbCantidad.Visibility = Visibility.Collapsed;
+                txtCantidad.Text = "0";
+            }
         }
     }
 }
