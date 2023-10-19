@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Productos" Height="1038" Width="1920" WindowState="Maximized" Loaded="Window_Loaded" Icon="/img/icono.png" ShowInTaskbar="False" KeyDown="Window_KeyDown">
+        Title="Productos" Height="1038" Width="1920" WindowState="Maximized" Loaded="Window_Loaded" Icon="/img/icono.png" KeyDown="Window_KeyDown">
     <Grid>
         <Label Content="Proveedor" FontSize="30" FontFamily="Bahnschrift" Height="56" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="156" Margin="0,0,398,879" />
         <Label Content="Categoría&#xA;" FontSize="30" FontFamily="Bahnschrift" Height="56" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="156" Margin="0,0,394,543" />

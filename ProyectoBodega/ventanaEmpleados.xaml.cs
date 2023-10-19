@@ -67,15 +67,20 @@ namespace ProyectoBodega
                 MessageBox.Show("Seleccione una fila a borrar", "Error");
                 return;
             }
-
+            this.ShowInTaskbar = false;
             var CuadroDialogo = new CuadroDialogo();
             CuadroDialogo.titulo = "Borrar Vendedor";
 
-            if (CuadroDialogo.ShowDialog() != true) return;
-
+            if (CuadroDialogo.ShowDialog() != true) 
+            {
+                this.ShowInTaskbar = true;
+                return; 
+            }
             string valorIngresado = CuadroDialogo.ValorIngresado;
+
             if (valorIngresado == null || valorIngresado != filaSeleccionada["usuario"].ToString())
             {
+                this.ShowInTaskbar = true;
                 MessageBox.Show("Usuario Incorrecto", "Error");
                 return;
             }
@@ -99,6 +104,7 @@ namespace ProyectoBodega
                 ventanaIndex.btnCerrarSesion_Click(ventanaIndex.btnCerrarSesion, null);
             }
             CargarVendedores();
+            this.ShowInTaskbar = true;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnActualizarVendedor_Click(object sender, RoutedEventArgs e)
@@ -123,8 +129,8 @@ namespace ProyectoBodega
             string valorIngresado = CuadroDialogo.ValorIngresado;
             if (valorIngresado == null || valorIngresado != filaSeleccionada["usuario"].ToString())
             {
-                MessageBox.Show("Usuario Incorrecto", "Error");
                 this.ShowInTaskbar = true;
+                MessageBox.Show("Usuario Incorrecto", "Error");
                 return;
             }
             frmAgregarVendedor agregarvendedor = new frmAgregarVendedor();

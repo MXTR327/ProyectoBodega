@@ -20,6 +20,7 @@ namespace ProyectoBodega
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             if(indexVentana != null) txtTotal.Text = (string)indexVentana.lblTotal.Content;
+            txtbPago.Focus();
         }
         private void btnCancelar_Click(object sender, RoutedEventArgs e)
         {

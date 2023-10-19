@@ -121,10 +121,8 @@ namespace ProyectoBodega
                 }
             }
             frmDetalleProducto detalle = new frmDetalleProducto();
-            this.ShowInTaskbar = false;
             detalle.ventanaIndex = this;
             detalle.ShowDialog();
-            this.ShowInTaskbar = true;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         public void btnCerrarSesion_Click(object sender, RoutedEventArgs e)
@@ -206,11 +204,9 @@ namespace ProyectoBodega
                 MessageBox.Show("Agregue productos para poder vender", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            this.ShowInTaskbar = false;
             frmCobrar frmcobrar = new frmCobrar();
             frmcobrar.indexVentana = this;
             frmcobrar.ShowDialog();
-            this.ShowInTaskbar = true;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void btnBuscarCodigo_Click(object sender, RoutedEventArgs e)
