@@ -28,7 +28,6 @@ namespace ProyectoBodega
         {
             InitializeComponent();
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             filtro = "";
@@ -38,7 +37,6 @@ namespace ProyectoBodega
 
 
         }
-
         private void CargarProducto()
         {
             DataTable dt = cn_ventanaAgregarStock.tblProducto(filtro);
@@ -46,7 +44,6 @@ namespace ProyectoBodega
 
             
         }
-
         private void txtBuscadorProducto_TextChanged(object sender, TextChangedEventArgs e)
         {
             filtro = txtBuscadorProducto.Text;
@@ -70,12 +67,10 @@ namespace ProyectoBodega
         {
             txtbCantidad.Visibility = Visibility.Collapsed;
         }
-
         private void txtStock_LostFocus(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(txtCantidad.Text)) txtbCantidad.Visibility = Visibility.Visible;
         }
-
         private void SoloNumeros_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter || e.Key == Key.Escape || e.Key == Key.Tab) return;
@@ -90,7 +85,6 @@ namespace ProyectoBodega
         {
             txtbBuscar.Visibility = Visibility.Collapsed;
         }
-
         private void txtBuscadorProducto_LostFocus(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(txtBuscadorProducto.Text)) txtbBuscar.Visibility = Visibility.Visible;
@@ -102,20 +96,25 @@ namespace ProyectoBodega
 
             if (filaSeleccionada == null)
             return;
+
             int stock = Convert.ToInt32(filaSeleccionada["stock"]);
             txtStockInicial.Text = stock.ToString();
             txtStockFinal.Text = stock.ToString();
+            calcular();
             txtCantidad.Focus();
         }
-
         private void txtStock_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            calcular();
+        }
+        private void calcular()
         {
             if (int.TryParse(txtCantidad.Text, out int cantidad) && int.TryParse(txtStockInicial.Text, out int stockInicial))
             {
                 int stockFinal = stockInicial + cantidad;
                 txtStockFinal.Text = stockFinal.ToString();
                 if (int.Parse(txtStockFinal.Text) > int.Parse(txtStockInicial.Text))
-                txtStockFinal.Foreground = Brushes.Green;
+                    txtStockFinal.Foreground = Brushes.Green;
             }
             else
             {
@@ -148,7 +147,7 @@ namespace ProyectoBodega
             int id = Convert.ToInt32(filaSeleccionada["idProducto"]);
             int cantidad = int.Parse(txtCantidad.Text);
 
-            MessageBoxResult result = MessageBox.Show($"¿Está seguro de {(cantidad < 0 ? "disminuir" : "aumentar")} {Math.Abs(cantidad)} al stock?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = MessageBox.Show($"¿Está seguro de {(cantidad < 0 ? "disminuir" : "aumentar")} {Math.Abs(cantidad)} al stock del producto {filaSeleccionada["nombre_producto"]}?", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (result != MessageBoxResult.Yes) return;
 
