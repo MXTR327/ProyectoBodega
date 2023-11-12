@@ -5,7 +5,7 @@ namespace Datos
 {
     public class Conexion
     {
-        public static SQLiteConnection con = new SQLiteConnection("Data Source=max2.db;Version=3;");
+        public static SQLiteConnection con = new SQLiteConnection("Data Source=BodegaDB.db;Version=3;");
         public static void Conectar()
         {
             if (con.State == ConnectionState.Closed)
