@@ -34,8 +34,16 @@ namespace ProyectoBodega
             CargarProducto();
             if (dgProducto.Items.Count > 0)
             dgProducto.SelectedIndex = 0;
-
-
+            else
+            {
+                txtBuscadorProducto.IsEnabled = false;
+                txtbBuscar.Visibility = Visibility.Collapsed;
+                txtBuscadorProducto.Text = "SIN PRODUCTOS";
+                chkPaquetes.IsEnabled = false;
+                txtCantidad.IsEnabled= false;
+                txtbCantidad.Visibility= Visibility.Collapsed;
+                txtCantidad.Text = "SIN PRODUCTOS";
+            }
         }
         private void CargarProducto()
         {
@@ -176,14 +184,14 @@ namespace ProyectoBodega
             {
                 gdCalcPaq.Visibility = Visibility.Visible;
                 txtPaquetes.Focus();
-                gdAgregarUnidades.Margin = new Thickness(1035, 333, 0, 0);
+                gdAgregarUnidades.Margin = new Thickness(922, 300, 0, 275);
             }
             else
             {
                 txtPaquetes.Text = "";
                 txtUnidades.Text = "";
                 gdCalcPaq.Visibility = Visibility.Hidden;
-                gdAgregarUnidades.Margin = new Thickness(1035, 240, 0, 0);
+                gdAgregarUnidades.Margin = new Thickness(922, 201, 0, 275);
             }
         }
 

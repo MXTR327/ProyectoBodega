@@ -40,7 +40,7 @@ namespace ProyectoBodega
             if (string.IsNullOrEmpty(descripcion)) return;
 
             chkDescripcion.IsChecked = true;
-            txtDescripcion.IsReadOnly = false;
+            txtDescripcion.IsReadOnly = true;
             txtDescripcion.Text = descripcion;
         }
         private void chkDescripcion_Click(object sender, RoutedEventArgs e)
@@ -171,7 +171,10 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtDescripcion_GotFocus(object sender, RoutedEventArgs e)
         {
-            txtbDescripcion.Visibility = Visibility.Collapsed;
+            if(txtDescripcion.IsReadOnly == false)
+            {
+                txtbDescripcion.Visibility = Visibility.Collapsed;
+            }
         }
         private void txtDescripcion_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -181,7 +184,7 @@ namespace ProyectoBodega
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Key==Key.Escape) Close();
-            else if(e.Key==Key.Enter) btnAgregar_Click(sender,e);
+            else if(e.Key==Key.Enter) btnAgregar_Click(btnAgregar,e);
         }
     }
 }

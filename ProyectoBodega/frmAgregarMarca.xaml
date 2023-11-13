@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Formulario Marca" Height="817" Width="922" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png">
+        Title="Formulario Marca" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinWidth="1366" MinHeight="768">
     <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
     <Window.Resources>
     </Window.Resources>
@@ -16,14 +16,14 @@
         </Grid.Background>
 
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-        <Border HorizontalAlignment="Center" Width="510" Background="White" CornerRadius="10,10,10,10" VerticalAlignment="Center" Height="650">
+        <Border HorizontalAlignment="Center" Width="560" Background="White" CornerRadius="10,10,10,10" Margin="0,10,0,10">
             <Grid>
 
-                <Label x:Name="lblMarca" Content="Nueva Marca" FontSize="35" FontFamily="Bahnschrift" Width="456" HorizontalAlignment="Center" Margin="0,48,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
-                <Label Content="Nombre de la Marca" FontSize="25" FontFamily="Bahnschrift" Width="247" HorizontalAlignment="Left" Margin="24,180,0,420" />
+                <Label x:Name="lblMarca" Content="Nueva Marca" FontSize="35" FontFamily="Bahnschrift" Width="456" HorizontalAlignment="Center" Margin="0,48,0,0" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="52" VerticalAlignment="Top" />
+                <Label Content="Nombre de la Marca" FontSize="25" FontFamily="Bahnschrift" HorizontalAlignment="Left" Margin="18,231,0,0" VerticalAlignment="Top" />
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Grid Cursor="IBeam" ForceCursor="True" Margin="0,243,1,346">
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="0,315,1,0" Height="61" VerticalAlignment="Top">
                     <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/nombreP.png" Stretch="Fill" Opacity="0.55"/>
                     <TextBlock x:Name="txtbNombre" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="69,0,0,14" Foreground="Gray" FontSize="30" Width="416"><Run Language="es-pe" Text="Ingrese el nombre de la Marca"/></TextBlock>
                     <TextBox x:Name="txtNombre" Height="50" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtNombre_TextChanged" Margin="25,4,24,0" BorderThickness="0,0,0,2" GotFocus="txtNombre_GotFocus" LostFocus="txtNombre_LostFocus" Padding="43,0,0,0" Background="{x:Null}"/>
@@ -32,7 +32,7 @@
 
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Button x:Name="btnAgregarMarca" Content="Agregar Marca( Intro )" Width="460" Height="51" Margin="16,353,17,246" FontFamily="Calibri" FontSize="28" Click="btnAgregarMarca_Click" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button x:Name="btnAgregarMarca" Content="Agregar Marca( Intro )" Width="502" Height="51" Margin="0,430,0,0" FontFamily="Calibri" FontSize="28" Click="btnAgregarMarca_Click" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
@@ -75,7 +75,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnSalir" Content="Salir( Esc )" Height="50" Width="202" Margin="0,0,25,55"  FontFamily="Calibri" FontSize="28" Click="btnSalir_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Button x:Name="btnSalir" Content="Salir( Esc )" Height="50" Width="202" Margin="300,600,0,0"  FontFamily="Calibri" FontSize="28" Click="btnSalir_Click" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
@@ -118,7 +118,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <TextBox x:Name="txtCodigo" Margin="402,104,27,493" TextWrapping="Wrap" Text="0" FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" BorderThickness="0,0,0,2" IsEnabled="False" Visibility="Hidden">
+                <TextBox x:Name="txtCodigo" Margin="402,126,27,0" TextWrapping="Wrap" Text="0" FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" VerticalScrollBarVisibility="Disabled" BorderThickness="0,0,0,2" IsEnabled="False" Height="54" VerticalAlignment="Top" Visibility="Hidden">
                     <TextBox.Style>
                         <Style TargetType="{x:Type TextBox}">
                             <Style.Triggers>
@@ -129,7 +129,7 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-                <Label x:Name="lblCodigo" Content="ID:" HorizontalAlignment="Left" Margin="358,122,0,491" Width="50" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" Visibility="Hidden"/>
+                <Label x:Name="lblCodigo" Content="ID:" HorizontalAlignment="Left" Margin="352,144,0,0" Width="50" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" Height="37" VerticalAlignment="Top" Visibility="Hidden"/>
             </Grid>
         </Border>
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->

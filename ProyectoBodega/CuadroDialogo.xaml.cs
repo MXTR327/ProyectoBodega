@@ -30,13 +30,23 @@ namespace ProyectoBodega
                 txtUsuario.Focus();
                 return;
             }
-            ValorIngresado = txtUsuario.Text;
-            DialogResult = true;
+            if (lblTitulo.Content.ToString() != "Sin titulo")
+            {
+                ValorIngresado = txtUsuario.Text;
+                DialogResult = true;
+            }
         }
         private void Cancelar_Click(object sender, RoutedEventArgs e)
         {
-            ValorIngresado = null;
-            DialogResult = false;
+            if (lblTitulo.Content.ToString() == "Sin titulo")
+            {
+                Close();
+            }
+            else
+            {
+                ValorIngresado = null;
+                DialogResult = false;
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

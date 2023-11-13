@@ -6,34 +6,34 @@
         xmlns:local="clr-namespace:ProyectoBodega"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="ProyectoBodega.AgregarStock"
         mc:Ignorable="d"
-        Title="Agregar Stock" Height="900" Width="1600" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="/img/icono.png" KeyDown="Window_KeyDown">
+        Title="Agregar Stock" Height="768" Width="1366" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="/img/icono.png" KeyDown="Window_KeyDown" MinWidth="1366" MinHeight="768">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-        <Border HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Width="1484" Background="White" Opacity="0.99" Height="864">
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="1311" Background="White" Opacity="0.99" Margin="0,10,0,10">
             <Grid>
                 <Label Content="Actualizar Stock" HorizontalAlignment="Center" Margin="0,18,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
 
-                <Label Content="Productos" HorizontalAlignment="Left" Height="56" Margin="10,54,0,0" VerticalAlignment="Top" Width="156" FontSize="30" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
-                <Label Content="Buscar" HorizontalAlignment="Left" Height="56" Margin="12,109,0,0" VerticalAlignment="Top" Width="96" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
+                <Label Content="Productos" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
+                <Label Content="Buscar" HorizontalAlignment="Left" Margin="12,111,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
 
-                <Grid Cursor="IBeam" ForceCursor="True" Margin="113,89,0,699" HorizontalAlignment="Left" Width="426">
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="113,89,0,572" HorizontalAlignment="Left" Width="426">
                     <Image HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="34" Source="img/lupa.png" Stretch="Fill" Opacity="0.85" Margin="1,24,0,0"/>
                     <TextBlock x:Name="txtbBuscar" VerticalAlignment="Top" Foreground="Gray" FontSize="30" Text="Nombre del Producto" Padding="45,0,0,0" Height="50" Margin="0,25,0,0"/>
                     <TextBox x:Name="txtBuscadorProducto" Height="60" VerticalAlignment="Top" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Bottom" TextChanged="txtBuscadorProducto_TextChanged" Margin="0,5,0,0" BorderThickness="0,0,0,2" Background="{x:Null}" Padding="45,0,0,0" GotFocus="txtBuscadorProducto_GotFocus" LostFocus="txtBuscadorProducto_LostFocus" />
                 </Grid>
-                <Grid x:Name="gdCalcPaq" HorizontalAlignment="Left" VerticalAlignment="Top" Width="430" Margin="1038,238,0,0" Height="97" Visibility="Hidden">
-                    <Label Content="Paquetes" HorizontalAlignment="Left" Margin="25,-1,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
-                    <Label Content="Unidades" HorizontalAlignment="Left" Margin="257,-1,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
+                <Grid x:Name="gdCalcPaq" HorizontalAlignment="Left" VerticalAlignment="Top" Width="379" Margin="922,206,0,0" Height="96" Visibility="Hidden" >
+                    <Label Content="Paquetes" Margin="0,-1,224,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30" HorizontalAlignment="Right" Width="134"/>
+                    <Label Content="Unidades" Margin="0,-1,17,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30" HorizontalAlignment="Right" Width="134"/>
 
-                    <TextBox x:Name="txtPaquetes" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,41,0,0" PreviewKeyDown="SoloNumeros_PreviewKeyDown" TextChanged="CalcularCantidad_TextChanged"/>
-                    <TextBox x:Name="txtUnidades" HorizontalAlignment="Left" Margin="233,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" PreviewKeyDown="SoloNumeros_PreviewKeyDown" TextChanged="CalcularCantidad_TextChanged"/>
+                    <TextBox x:Name="txtPaquetes" HorizontalAlignment="Right" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,51,199,0" PreviewKeyDown="SoloNumeros_PreviewKeyDown" TextChanged="CalcularCantidad_TextChanged"/>
+                    <TextBox x:Name="txtUnidades" Margin="0,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" PreviewKeyDown="SoloNumeros_PreviewKeyDown" TextChanged="CalcularCantidad_TextChanged" HorizontalAlignment="Right" Width="157"/>
 
                 </Grid>
 
-                <DataGrid x:Name="dgProducto" Height="689" VerticalAlignment="Top" CanUserAddRows="False" Margin="10,165,0,0" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgProductos_SelectionChanged" SelectionMode="Single" HorizontalAlignment="Left" Width="1014" HeadersVisibility="Column">
+                <DataGrid x:Name="dgProducto" CanUserAddRows="False" Margin="0,165,394,10" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgProductos_SelectionChanged" SelectionMode="Single" HorizontalAlignment="Right" Width="905" HeadersVisibility="Column">
                     <DataGrid.Resources>
                         <Style TargetType="{x:Type DataGridCell}">
                             <Setter Property="Height" Value="30"/>
@@ -96,34 +96,34 @@
                         </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Label Content="Agregar Stock" HorizontalAlignment="Left" Margin="1138,153,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
-                <Grid x:Name="gdAgregarUnidades" HorizontalAlignment="Left" Height="232" Margin="1035,240,0,0" VerticalAlignment="Top" Width="436">
-                    <Label Content="Cantidad a agregar" HorizontalAlignment="Left" Margin="70,0,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
-                    <Label Content="Stock Inicial" HorizontalAlignment="Left" Margin="0,130,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
-                    <Label Content="Stock Final" HorizontalAlignment="Left" Margin="240,129,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
-                    <Grid Cursor="IBeam" ForceCursor="True" Margin="21,52,0,110" HorizontalAlignment="Left" Width="403" Height="70">
-                        <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/stock.png" Stretch="Fill" Opacity="0.6"/>
-                        <TextBlock x:Name="txtbCantidad" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="25,0,0,0" Foreground="Gray" FontSize="30" Width="368" TextAlignment="Center"><Run Text="Ingrese "/><Run Language="es-pe" Text="Stock"/></TextBlock>
-                        <TextBox x:Name="txtCantidad" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtStock_TextChanged" PreviewKeyDown="SoloNumeros_PreviewKeyDown" Margin="24,0,10,0" BorderThickness="0,0,0,2" Background="{x:Null}" GotFocus="txtStock_GotFocus" LostFocus="txtStock_LostFocus" HorizontalContentAlignment="Center"/>
+                <Label Content="Agregar Stock" HorizontalAlignment="Left" Margin="920,109,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35" Height="55"/>
+                <Grid x:Name="gdAgregarUnidades" HorizontalAlignment="Left" Margin="922,201,0,275" Width="379">
+                    <Label Content="Cantidad a agregar" HorizontalAlignment="Right" Margin="0,18,111,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30"/>
+                    <Label Content="Stock Inicial" HorizontalAlignment="Right" Margin="0,153,199,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30"/>
+                    <Label Content="Stock Final" HorizontalAlignment="Right" Margin="0,150,5,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30"/>
+                    <Grid Cursor="IBeam" ForceCursor="True" Margin="10,64,0,0" HorizontalAlignment="Left" Width="374" Height="70" VerticalAlignment="Top">
+                        <Image HorizontalAlignment="Left" Height="44" Margin="3,0,0,0" VerticalAlignment="Center" Width="44" Source="img/stock.png" Stretch="Fill" Opacity="0.6"/>
+                        <TextBlock x:Name="txtbCantidad" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Gray" FontSize="30" Width="373" TextAlignment="Center"><Run Text="Ingrese "/><Run Language="es-pe" Text="Stock"/></TextBlock>
+                        <TextBox x:Name="txtCantidad" Height="50" VerticalAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtStock_TextChanged" PreviewKeyDown="SoloNumeros_PreviewKeyDown" BorderThickness="0,0,0,2" Background="{x:Null}" GotFocus="txtStock_GotFocus" LostFocus="txtStock_LostFocus" HorizontalContentAlignment="Center"/>
                     </Grid>
-                    <TextBox x:Name="txtStockInicial" HorizontalAlignment="Left" Margin="6,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                    <TextBox x:Name="txtStockFinal" HorizontalAlignment="Left" Margin="237,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red"/>
+                    <TextBox x:Name="txtStockInicial" HorizontalAlignment="Right" Margin="0,201,199,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" Cursor="Arrow"/>
+                    <TextBox x:Name="txtStockFinal" HorizontalAlignment="Right" Margin="0,201,-5,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red" IsReadOnly="True" Cursor="Arrow"/>
                 </Grid>
-                <Button x:Name="btnAgregar" Content="Agregar( Intro )" HorizontalAlignment="Center" Height="138" Margin="1022,450,0,0" VerticalAlignment="Center" Width="430" FontFamily="Calibri" FontSize="40" Click="btnAgregar_Click">
+                <Button x:Name="btnAgregar" Content="Agregar( Intro )" Width="379" FontFamily="Calibri" FontSize="40" Click="btnAgregar_Click" Margin="922,460,0,0" Height="72" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation To="435" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                    <DoubleAnimation To="140" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                    <DoubleAnimation To="384" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="74" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="UIElement.MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation To="430" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                    <DoubleAnimation To="138" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                    <DoubleAnimation To="379" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="72" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -151,21 +151,21 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnSalir" Content="Salir( Esc )" HorizontalAlignment="Center" Height="88" Margin="1022,753,0,0" VerticalAlignment="Center" Width="430" FontFamily="Calibri" FontSize="40" Click="btnSalir_Click">
+                <Button x:Name="btnSalir" Content="Salir( Esc )" HorizontalAlignment="Center" Width="288" FontFamily="Calibri" FontSize="40" Click="btnSalir_Click" Margin="1012,650,0,0" Height="73" VerticalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation To="435" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                    <DoubleAnimation To="90" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                    <DoubleAnimation To="293" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="75" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="UIElement.MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation To="430" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                    <DoubleAnimation To="88" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                    <DoubleAnimation To="288" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="73" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -194,7 +194,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <CheckBox x:Name="chkPaquetes" Content="Calcular Paquete" HorizontalAlignment="Left" Margin="1038,210,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="20" Click="chkPaquetes_Click"/>
+                <CheckBox x:Name="chkPaquetes" Content="Calcular Paquete" HorizontalAlignment="Left" Margin="922,170,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="20" Click="chkPaquetes_Click" Height="31"/>
 
             </Grid>
         </Border>
