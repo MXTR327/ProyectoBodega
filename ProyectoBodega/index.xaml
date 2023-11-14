@@ -576,7 +576,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnVentas" Content="Ventas( F1 )" HorizontalAlignment="Center" Height="143" Margin="1200,0,0,399" VerticalAlignment="Center" Width="147" HorizontalContentAlignment="Center" FontSize="20" Click="btnVentas_Click" FontFamily="Calibri">
+        <Button x:Name="btnVentas" Content="Ventas( F1 )" HorizontalAlignment="Center" Height="143" Margin="1200,0,0,399" VerticalAlignment="Center" Width="147" HorizontalContentAlignment="Center" FontSize="20" Click="btnVentas_Click" FontFamily="Calibri" Padding="1,1,1,1" VerticalContentAlignment="Center">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="UIElement.MouseEnter">
                     <BeginStoryboard>
