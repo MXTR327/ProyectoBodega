@@ -31,7 +31,7 @@
         </Grid.Background>
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
-        <Border HorizontalAlignment="Center" CornerRadius="10" Width="384" Background="White" Opacity="0.99" Margin="0,10,0,10">
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="384" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="685" Margin="0,0,0,25">
             <Grid Margin="0,0,-1,-1">
                 <Label Content="Usuario" FontSize="25" Margin="12,325,0,0" HorizontalAlignment="Left" Width="125" FontFamily="Bahnschrift" Height="39" VerticalAlignment="Top" />
                 <Grid ForceCursor="True">

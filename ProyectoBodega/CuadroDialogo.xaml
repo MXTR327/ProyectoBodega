@@ -6,7 +6,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
-        <Border HorizontalAlignment="Center" CornerRadius="10" Width="560" Background="White" Opacity="0.99" Margin="0,42,0,41">
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="560" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="683" Margin="0,0,0,25">
             <Grid>
                 <Label x:Name="lblTitulo" Content="Sin Titulo" FontSize="40" FontFamily="Bahnschrift" HorizontalAlignment="Center" Margin="0,48,0,0" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" />
                 <Label FontSize="25" FontFamily="Bahnschrift" VerticalAlignment="Top" Content="Ingrese su usuario" HorizontalAlignment="Left" Margin="30,201,0,0"/>
@@ -61,7 +61,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="Cancelar( Esc )" Margin="328,0,0,30" Click="Cancelar_Click" HorizontalAlignment="Left" Width="208" FontSize="27" FontFamily="Calibri" Cursor="Hand" Height="54" VerticalAlignment="Bottom">
+                <Button Content="Cancelar( Esc )" Margin="328,600,0,0" Click="Cancelar_Click" HorizontalAlignment="Center" Width="208" FontSize="27" FontFamily="Calibri" Cursor="Hand" Height="54" VerticalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>

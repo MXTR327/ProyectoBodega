@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Agregar Productos" Height="767" Width="774" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded"
+        Title="Agregar Productos" Height="720" Width="774" Loaded="Window_Loaded"
         WindowStyle="None" 
         Background="Transparent"
-        AllowsTransparency="True" KeyDown="Ventana_KeyDown" Icon="/img/icono.png" ShowInTaskbar="False"
+        AllowsTransparency="True" KeyDown="Ventana_KeyDown" Icon="/img/icono.png" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         >
-    <Border Background="White" CornerRadius="12,12,12,12" MouseLeftButtonDown="Arrastrar_MouseLeftButtonDown" BorderThickness="2" BorderBrush="Black">
+    <Border Background="White" CornerRadius="12,12,12,12" MouseLeftButtonDown="Arrastrar_MouseLeftButtonDown" BorderThickness="2" BorderBrush="Black" MaxHeight="720" MaxWidth="774">
         <Grid>
-            <Border HorizontalAlignment="Left" Height="45" Margin="252,277,0,0" VerticalAlignment="Top" Width="45" Background="#FFE8E8E8" CornerRadius="5,5,5,5" BorderThickness="1,1,1,1" BorderBrush="Black" >
+            <Border HorizontalAlignment="Left" Height="45" Margin="252,0,0,441" VerticalAlignment="Bottom" Width="45" Background="#FFE8E8E8" CornerRadius="5,5,5,5" BorderThickness="1,1,1,1" BorderBrush="Black" >
                 <Button Content="" Opacity="0.8" BorderThickness="0,0,0,0" Click="Button_Click" HorizontalAlignment="Center" Width="40" Height="40" VerticalAlignment="Center" Cursor="Hand" >
                     <Button.Background>
                         <ImageBrush ImageSource="/img/resetear.png"/>
@@ -24,12 +24,12 @@
             <Border HorizontalAlignment="Center" Height="2" Margin="0,25,0,0" VerticalAlignment="Top" Width="136" Background="#FFD0CDCD"/>
             <Border HorizontalAlignment="Center" Height="2" Margin="0,30,0,0" VerticalAlignment="Top" Width="136" Background="#FFD0CDCD"/>
             <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-            <Label Content="Nombre del producto" HorizontalAlignment="Left" Margin="21,156,0,0" VerticalAlignment="Top" Width="280" FontSize="25" FontFamily="Bahnschrift"/>
-            <Label Content="Precio del producto" HorizontalAlignment="Left" Margin="21,280,0,0" VerticalAlignment="Top" Width="235" FontSize="25" FontFamily="Bahnschrift"/>
-            <Label Content="Stock inicial" HorizontalAlignment="Left" Margin="21,374,0,0" VerticalAlignment="Top" Width="144" FontSize="25" FontFamily="Bahnschrift" HorizontalContentAlignment="Center"/>
-            <Label Content="Stock final" HorizontalAlignment="Left" Margin="214,373,0,0" VerticalAlignment="Top" Width="139" FontSize="25" FontFamily="Bahnschrift" HorizontalContentAlignment="Center"/>
+            <Label Content="Nombre del producto" HorizontalAlignment="Left" Margin="21,0,0,567" VerticalAlignment="Bottom" Width="280" FontSize="25" FontFamily="Bahnschrift"/>
+            <Label Content="Precio del producto" HorizontalAlignment="Left" Margin="21,0,0,443" VerticalAlignment="Bottom" Width="235" FontSize="25" FontFamily="Bahnschrift"/>
+            <Label Content="Stock inicial" HorizontalAlignment="Left" Margin="21,0,0,349" VerticalAlignment="Bottom" Width="144" FontSize="25" FontFamily="Bahnschrift" HorizontalContentAlignment="Center"/>
+            <Label Content="Stock final" HorizontalAlignment="Left" Margin="214,0,0,350" VerticalAlignment="Bottom" Width="139" FontSize="25" FontFamily="Bahnschrift" HorizontalContentAlignment="Center"/>
             <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-            <Button x:Name="btnCambiarPrecio" Content="-" HorizontalAlignment="Center" Height="44" Margin="0,0,120,165" VerticalAlignment="Center" Width="45" Click="btnCambiarPrecio_Click" FontFamily="Maiandra GD" FontSize="30" Foreground="Black" FontWeight="Bold" Cursor="Hand">
+            <Button x:Name="btnCambiarPrecio" Content="-" HorizontalAlignment="Center" Height="44" Margin="0,0,120,213" VerticalAlignment="Center" Width="45" Click="btnCambiarPrecio_Click" FontFamily="Maiandra GD" FontSize="30" Foreground="Black" FontWeight="Bold" Cursor="Hand">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="UIElement.MouseEnter">
                         <BeginStoryboard>
@@ -71,7 +71,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnContinuar" Content="Continuar( Intro )" Margin="0,400,389,0" Width="330" Click="btnContinuar_Click" FontFamily="Calibri" FontSize="28" HorizontalAlignment="Center" Height="186" VerticalAlignment="Center" Cursor="Hand">
+            <Button x:Name="btnContinuar" Content="Continuar( Intro )" Margin="0,350,389,0" Width="330" Click="btnContinuar_Click" FontFamily="Calibri" FontSize="28" HorizontalAlignment="Center" Height="186" VerticalAlignment="Center" Cursor="Hand">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="UIElement.MouseEnter">
                         <BeginStoryboard>
@@ -113,7 +113,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button x:Name="btnCancelar" Content="Cancelar( Esc )" Margin="0,685,0,0" Width="726" Click="btnCancelar_Click" FontSize="28" FontFamily="Calibri" HorizontalAlignment="Center" Height="47" VerticalAlignment="Center" Cursor="Hand">
+            <Button x:Name="btnCancelar" Content="Cancelar( Esc )" Margin="0,640,0,0" Width="726" Click="btnCancelar_Click" FontSize="28" FontFamily="Calibri" HorizontalAlignment="Center" Height="47" VerticalAlignment="Center" Cursor="Hand">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="UIElement.MouseEnter">
                         <BeginStoryboard>
@@ -156,7 +156,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Border HorizontalAlignment="Left" Height="542" Margin="389,154,0,0" VerticalAlignment="Top" Width="371">
+            <Border HorizontalAlignment="Left" Height="542" Margin="389,0,0,67" VerticalAlignment="Bottom" Width="371">
                 <Grid Margin="0,-2,0,2">
                     <TextBox x:Name="txtCantidad" HorizontalAlignment="Center" Height="40" Margin="0,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" TextChanged="txtCantidad_TextChanged" PreviewKeyDown="txtCantidad_PreviewKeyDown" BorderThickness="0,0,0,2" FontFamily="Bahnschrift"/>
                     <Label Content="Cantidad de productos a vender&#xA;" HorizontalAlignment="Center" VerticalAlignment="Top" Width="371" FontSize="25" FontFamily="Bahnschrift" Height="40" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,2,0,0"/>
@@ -178,30 +178,30 @@
                     </Border>
                 </Grid>
             </Border>
-            <Grid Cursor="Arrow" ForceCursor="True" Margin="0,196,0,509" HorizontalAlignment="Left" Width="370">
+            <Grid Cursor="Arrow" ForceCursor="True" Margin="0,0,0,509" HorizontalAlignment="Left" Width="370" Height="58" VerticalAlignment="Bottom">
                 <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/nombreP.png" Stretch="Fill" Opacity="0.85"/>
                 <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="23" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="Sin nombre" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Width="340" Margin="26,0,0,0" Background="{x:Null}" Cursor="Arrow"/>
             </Grid>
-            <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="1234" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Margin="62,100,0,0" Cursor="Arrow"/>
+            <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="1234" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Margin="62,0,0,623" Cursor="Arrow"/>
 
-            <Grid Cursor="Arrow" ForceCursor="True" Margin="0,310,0,395" HorizontalAlignment="Left" Width="370">
+            <Grid Cursor="Arrow" ForceCursor="True" Margin="0,0,0,395" HorizontalAlignment="Left" Width="370" Height="58" VerticalAlignment="Bottom">
                 <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/precioVenta.png" Stretch="Fill" Opacity="0.7"/>
                 <Label Content="S/." FontSize="36" FontFamily="Bahnschrift" Margin="65,0,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="66" Height="50" FontWeight="Light" />
                 <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="0,00" PreviewKeyDown="txtPrecio_PreviewKeyDown" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Width="342" Background="{x:Null}" Margin="25,0,0,0" Cursor="Arrow"/>
             </Grid>
 
 
-            <Grid Cursor="Arrow" ForceCursor="True" Margin="17,405,0,300" HorizontalAlignment="Left" Width="170">
+            <Grid Cursor="Arrow" ForceCursor="True" Margin="17,0,0,300" HorizontalAlignment="Left" Width="170" Height="58" VerticalAlignment="Bottom">
                 <Image HorizontalAlignment="Left" Height="44" Margin="0,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/stock.png" Stretch="Fill" Opacity="0.3"/>
                 <TextBox x:Name="txtStockInicial" HorizontalAlignment="Center" Height="40" TextWrapping="Wrap" VerticalAlignment="Center" Width="168" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="0" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Background="{x:Null}" Cursor="Arrow"/>
             </Grid>
-            <Grid Cursor="Arrow" ForceCursor="True" Margin="200,403,0,300" HorizontalAlignment="Left" Width="170">
+            <Grid Cursor="Arrow" ForceCursor="True" Margin="200,0,0,300" HorizontalAlignment="Left" Width="170" Height="60" VerticalAlignment="Bottom">
                 <Image HorizontalAlignment="Left" Height="44" Margin="0,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/stock.png" Stretch="Fill" Opacity="0.8"/>
                 <TextBox x:Name="txtStockFinal" HorizontalAlignment="Center" Height="42" TextWrapping="Wrap" VerticalAlignment="Center" Width="170" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="0" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Background="{x:Null}" Cursor="Arrow"/>
             </Grid>
 
-            <Label Content="ID:" HorizontalAlignment="Left" Margin="20,102,0,0" VerticalAlignment="Top" Width="48" FontSize="28" FontFamily="Bahnschrift"/>
-            <Label Content="Venta de Producto" HorizontalAlignment="Center" Margin="0,48,0,0" VerticalAlignment="Top" Width="618" FontSize="40" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Content="ID:" HorizontalAlignment="Left" Margin="20,0,0,617" VerticalAlignment="Bottom" Width="48" FontSize="28" FontFamily="Bahnschrift"/>
+            <Label Content="Venta de Producto" HorizontalAlignment="Center" Margin="0,26,0,0" Width="618" FontSize="40" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="58" VerticalAlignment="Top"/>
         </Grid>
     </Border>
 </Window>

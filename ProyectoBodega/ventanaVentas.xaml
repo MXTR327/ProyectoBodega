@@ -12,10 +12,10 @@
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
-        <Border VerticalAlignment="Center" CornerRadius="10" Background="White" Opacity="0.99" Height="706" HorizontalAlignment="Center" Width="1303">
+        <Border VerticalAlignment="Center" CornerRadius="10" Background="White" Opacity="0.99" Height="684" HorizontalAlignment="Center" Width="1302" Margin="0,0,0,25">
             <Grid>
                 <Label Content="Registro de Ventas" HorizontalAlignment="Center" Height="55" VerticalAlignment="Top" FontSize="40" FontFamily="Bahnschrift" VerticalContentAlignment="Center" Margin="0,3,0,0" HorizontalContentAlignment="Center"/>
-                <DataGrid x:Name="dgVentas" Height="273" VerticalAlignment="Top" CanUserAddRows="False" Margin="10,120,10,0" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgVentas_SelectionChanged" SelectionMode="Single" HeadersVisibility="Column">
+                <DataGrid x:Name="dgVentas" Height="256" VerticalAlignment="Top" CanUserAddRows="False" Margin="10,120,10,0" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgVentas_SelectionChanged" SelectionMode="Single" HeadersVisibility="Column">
                     <DataGrid.Resources>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Height" Value="30"/>
@@ -111,10 +111,10 @@
                         </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Grid HorizontalAlignment="Center" Margin="0,393,0,0" VerticalAlignment="Top" Width="1283">
+                <Grid HorizontalAlignment="Center" Margin="0,381,0,0" VerticalAlignment="Top" Width="1282" Height="238">
 
-                    <Label Content="Productos Vendidos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" FontSize="30" FontFamily="Bahnschrift" VerticalContentAlignment="Center" Height="45" Margin="-4,0,0,0"/>
-                    <DataGrid x:Name="dgProductosVenta" CanUserAddRows="False" HorizontalAlignment="Left" Width="676" Height="208" VerticalAlignment="Top" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgProductosVenta_SelectionChanged" HeadersVisibility="Column" Margin="0,40,0,0">
+                    <Label Content="Productos Vendidos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" FontSize="30" FontFamily="Bahnschrift" VerticalContentAlignment="Center" Height="45" Margin="-4,-8,0,0"/>
+                    <DataGrid x:Name="dgProductosVenta" CanUserAddRows="False" HorizontalAlignment="Left" Width="676" Height="208" VerticalAlignment="Top" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgProductosVenta_SelectionChanged" HeadersVisibility="Column" Margin="0,28,0,0">
                         <DataGrid.Resources>
                             <Style TargetType="{x:Type DataGridCell}">
                                 <Setter Property="Height" Value="30"/>
@@ -178,7 +178,7 @@
                             </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Grid Height="208" Margin="681,37,0,0" VerticalAlignment="Top">
+                    <Grid Height="208" Margin="681,28,0,0" VerticalAlignment="Top">
                         <Label Content="ID Producto" HorizontalAlignment="Left" Margin="41,0,0,181" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Bottom"/>
                         <Label Content="Nombre Producto" HorizontalAlignment="Left" Margin="-4,0,0,157" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Bottom"/>
                         <Label Content="Descripción" HorizontalAlignment="Left" Margin="39,0,0,130" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Bottom"/>
@@ -219,7 +219,7 @@
 
                 <Label Content="Ganancia Total:" HorizontalAlignment="Left" Margin="946,53,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift"/>
                 <Label x:Name="lblGanancia" Content="0,00" HorizontalAlignment="Left" Margin="1105,54,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" Width="181" VerticalContentAlignment="Center"/>
-                <Button x:Name="btnFechaHoy" Content="Hoy" HorizontalAlignment="Center" Height="55" Margin="0,0,323,530" VerticalAlignment="Center" Width="130" FontSize="40" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="1,0,1,0" Click="btnFechaHoy_Click">
+                <Button x:Name="btnFechaHoy" Content="Hoy" HorizontalAlignment="Center" Height="55" Margin="0,0,323,506" VerticalAlignment="Center" Width="130" FontSize="40" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="1,0,1,0" Click="btnFechaHoy_Click">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>
@@ -262,7 +262,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnReestablecerFecha" Content="Siempre" HorizontalAlignment="Center" Height="55" Margin="0,0,0,530" VerticalAlignment="Center" Width="187" FontSize="40" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0,0,0,0" Click="btnReestablecerFecha_Click">
+                <Button x:Name="btnReestablecerFecha" Content="Siempre" HorizontalAlignment="Center" Height="55" Margin="0,0,0,506" VerticalAlignment="Center" Width="187" FontSize="40" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0,0,0,0" Click="btnReestablecerFecha_Click">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
@@ -305,7 +305,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnSalir" Content="Salir( Esc)" Margin="898,640,0,0" FontSize="40" Click="btnSalir_Click" Width="400" FontFamily="Calibri" HorizontalAlignment="Center" Height="55" VerticalAlignment="Center">
+                <Button x:Name="btnSalir" Content="Salir( Esc)" Margin="895,615,0,0" FontSize="40" Click="btnSalir_Click" Width="400" FontFamily="Calibri" HorizontalAlignment="Center" Height="55" VerticalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>

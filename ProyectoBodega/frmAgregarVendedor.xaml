@@ -14,8 +14,8 @@
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
-        <Border HorizontalAlignment="Center" CornerRadius="10" Width="560" Background="White" Opacity="0.99" Margin="0,10,0,10">
-            <Grid>
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="560" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="699" Margin="0,0,0,25">
+            <Grid Margin="0,0,0,5">
                 <Label x:Name="lblFrm" Content="Nuevo Vendedor" FontSize="40" Margin="128,40,130,0" FontFamily="Bahnschrift" Height="61" MinHeight="61" Width="302" MinWidth="302" VerticalAlignment="Top"/>
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
@@ -50,7 +50,7 @@
                 <Label Content="Teléfono" FontSize="25" Margin="32,485,409,0" FontFamily="Bahnschrift" Height="40" VerticalAlignment="Top" />
                 <Label Content="Dirección" FontSize="25" Margin="32,366,409,0" FontFamily="Bahnschrift" Height="40" VerticalAlignment="Top" />
 
-                <Button x:Name="btnSalir" Content="Salir( Esc )" Width="172" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtnSalir_Click" Height="54" Margin="345,645,0,0" FontSize="26" FontFamily="Calibri">
+                <Button x:Name="btnSalir" Content="Salir( Esc )" Width="172" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtnSalir_Click" Height="54" Margin="345,630,0,0" FontSize="26" FontFamily="Calibri">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>

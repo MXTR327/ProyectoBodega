@@ -12,14 +12,14 @@
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-        <Border HorizontalAlignment="Center" CornerRadius="10" Width="1311" Background="White" Opacity="0.99" Margin="0,10,0,10">
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="1310" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="684" Margin="0,0,0,25">
             <Grid>
                 <Label Content="Actualizar Stock" HorizontalAlignment="Center" Margin="0,18,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
 
                 <Label Content="Productos" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
                 <Label Content="Buscar" HorizontalAlignment="Left" Margin="12,111,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
 
-                <Grid Cursor="IBeam" ForceCursor="True" Margin="113,89,0,572" HorizontalAlignment="Left" Width="426">
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="113,89,0,0" HorizontalAlignment="Left" Width="426" Height="75" VerticalAlignment="Top">
                     <Image HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="34" Source="img/lupa.png" Stretch="Fill" Opacity="0.85" Margin="1,24,0,0"/>
                     <TextBlock x:Name="txtbBuscar" VerticalAlignment="Top" Foreground="Gray" FontSize="30" Text="Nombre del Producto" Padding="45,0,0,0" Height="50" Margin="0,25,0,0"/>
                     <TextBox x:Name="txtBuscadorProducto" Height="60" VerticalAlignment="Top" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Bottom" TextChanged="txtBuscadorProducto_TextChanged" Margin="0,5,0,0" BorderThickness="0,0,0,2" Background="{x:Null}" Padding="45,0,0,0" GotFocus="txtBuscadorProducto_GotFocus" LostFocus="txtBuscadorProducto_LostFocus" />
@@ -97,7 +97,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
                 <Label Content="Agregar Stock" HorizontalAlignment="Left" Margin="920,109,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35" Height="55"/>
-                <Grid x:Name="gdAgregarUnidades" HorizontalAlignment="Left" Margin="922,201,0,275" Width="379">
+                <Grid x:Name="gdAgregarUnidades" HorizontalAlignment="Left" Margin="922,201,0,0" Width="379" Height="260" VerticalAlignment="Top">
                     <Label Content="Cantidad a agregar" HorizontalAlignment="Right" Margin="0,18,111,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30"/>
                     <Label Content="Stock Inicial" HorizontalAlignment="Right" Margin="0,153,199,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30"/>
                     <Label Content="Stock Final" HorizontalAlignment="Right" Margin="0,150,5,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30"/>
@@ -109,7 +109,7 @@
                     <TextBox x:Name="txtStockInicial" HorizontalAlignment="Right" Margin="0,201,199,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" Cursor="Arrow"/>
                     <TextBox x:Name="txtStockFinal" HorizontalAlignment="Right" Margin="0,201,-5,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172" FontFamily="Bahnschrift" FontSize="30" BorderThickness="0,0,0,2" Height="45" Text="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="Red" IsReadOnly="True" Cursor="Arrow"/>
                 </Grid>
-                <Button x:Name="btnAgregar" Content="Agregar( Intro )" Width="379" FontFamily="Calibri" FontSize="40" Click="btnAgregar_Click" Margin="922,460,0,0" Height="72" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button x:Name="btnAgregar" Content="Agregar( Intro )" Width="379" FontFamily="Calibri" FontSize="40" Click="btnAgregar_Click" Margin="915,430,0,0" Height="72" VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
@@ -151,7 +151,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnSalir" Content="Salir( Esc )" HorizontalAlignment="Center" Width="288" FontFamily="Calibri" FontSize="40" Click="btnSalir_Click" Margin="1012,650,0,0" Height="73" VerticalAlignment="Center">
+                <Button x:Name="btnSalir" Content="Salir( Esc )" HorizontalAlignment="Center" Width="288" FontFamily="Calibri" FontSize="40" Click="btnSalir_Click" Margin="1007,590,0,0" Height="73" VerticalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>

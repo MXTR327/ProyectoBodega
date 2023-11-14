@@ -12,7 +12,7 @@
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-        <Border HorizontalAlignment="Center" CornerRadius="10" Width="560" Background="White" Opacity="0.99" Margin="0,10,0,10">
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="560" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="693">
             <Grid>
 
                 <Label x:Name="lblProveedor" Content="Nuevo Proveedor" FontSize="40" FontFamily="Bahnschrift" Width="510" HorizontalAlignment="Center" VerticalAlignment="Top" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,40,0,0" />
@@ -90,7 +90,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnSalir" Content="Salir( Esc )" Height="54" Width="172" Margin="362,640,0,0" FontFamily="Calibri" FontSize="28" Click="btnSalir_Click" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.512,0.565">
+                <Button x:Name="btnSalir" Content="Salir( Esc )" Height="54" Width="172" Margin="362,615,0,0" FontFamily="Calibri" FontSize="28" Click="btnSalir_Click" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.512,0.565">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>

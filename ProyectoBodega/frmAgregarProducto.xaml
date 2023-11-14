@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Formulario Productos" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png">
+        Title="Formulario Productos" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinWidth="1366" MinHeight="768">
     <Window.Resources>
 
     </Window.Resources>
@@ -15,7 +15,7 @@
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-        <Border  HorizontalAlignment="Center" CornerRadius="10" Width="1104" Background="White" Opacity="0.99" Margin="0,0,0,0" VerticalAlignment="Center">
+        <Border  HorizontalAlignment="Center" CornerRadius="10" Width="1104" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="687" Margin="0,0,0,25">
             <Grid Height="714">
                 <Label Content="Agregar nuevo Producto" FontSize="40" FontFamily="Bahnschrift" Margin="0,32,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="774" />
 
@@ -89,12 +89,12 @@
                     <CheckBox x:Name="chkDescripcion"  Height="15" Width="16" IsChecked="False" Click="chkDescripcion_Click"/>
                 </Viewbox>
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <ComboBox x:Name="cmbMarca" Height="50" Margin="748,318,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341"/>
-                <ComboBox x:Name="cmbProveedor" Height="50" Margin="389,318,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341" BorderBrush="White"/>
-                <ComboBox x:Name="cmbCategoria" Height="50" Margin="28,318,0,0" VerticalAlignment="Top" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341"/>
+                <ComboBox x:Name="cmbMarca" Height="50" Margin="748,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341"/>
+                <ComboBox x:Name="cmbProveedor" Height="50" Margin="389,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341" BorderBrush="White"/>
+                <ComboBox x:Name="cmbCategoria" Height="50" Margin="28,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341"/>
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Button x:Name="btnAgregarProducto" Content="Agregar Producto( Intro )" Height="54" Width="510   " Margin="0,620,0,0" FontFamily="Calibri" FontSize="28" Click="btnAgregarProducto_Click" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="btnAgregarProducto" Content="Agregar Producto( Intro )" Height="54" Width="510" Margin="0,590,0,0" FontFamily="Calibri" FontSize="28" Click="btnAgregarProducto_Click" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>
@@ -136,7 +136,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnSalir" Content="Salir( Esc )" Height="54" Width="172" Margin="900,620,0,0" FontFamily="Calibri" FontSize="28" Click="btnSalir_Click" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="btnSalir" Content="Salir( Esc )" Height="54" Width="172" Margin="900,590,0,0" FontFamily="Calibri" FontSize="28" Click="btnSalir_Click" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>
