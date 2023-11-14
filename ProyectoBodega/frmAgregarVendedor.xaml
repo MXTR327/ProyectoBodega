@@ -1,61 +1,58 @@
-﻿<Window x:Class="ProyectoBodega.frmAgregarVendedor"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
+        xmlns:controlzex="urn:controlzex" x:Class="ProyectoBodega.frmAgregarVendedor"
         mc:Ignorable="d"
-        Title="Formulario Vendedor" Height="960" Width="951" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="/img/icono.png" WindowState="Maximized" KeyDown="Window_KeyDown">
+        Title="Formulario Vendedor" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="/img/icono.png" WindowState="Maximized" KeyDown="Window_KeyDown" MinHeight="768" MinWidth="1366">
     <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-    <Window.Resources>
-
-    </Window.Resources>
     <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
     <Grid>
 
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
-        <Border HorizontalAlignment="Center" CornerRadius="10" Width="559" Background="White" Opacity="0.99" Margin="0,35,0,34">
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="560" Background="White" Opacity="0.99" Margin="0,10,0,10">
             <Grid>
-                <Label x:Name="lblFrm" Content="Nuevo Vendedor" FontSize="40" Margin="128,32,129,0" FontFamily="Bahnschrift" Height="61" MinHeight="61" Width="302" MinWidth="302" VerticalAlignment="Top"/>
+                <Label x:Name="lblFrm" Content="Nuevo Vendedor" FontSize="40" Margin="128,40,130,0" FontFamily="Bahnschrift" Height="61" MinHeight="61" Width="302" MinWidth="302" VerticalAlignment="Top"/>
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Grid Cursor="IBeam" ForceCursor="True" Margin="0,211,1,0" Height="60" VerticalAlignment="Top">
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="0,167,1,0" Height="60" VerticalAlignment="Top">
                     <Image Margin="25,4,489,12" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
                     <TextBlock x:Name="txtbUsuario" Margin="69,6,140,14" Foreground="Gray" FontSize="30"><Run Language="es-pe" Text="Ingrese su nuevo Usuario"/></TextBlock>
                     <TextBox x:Name="txtUsuario" Margin="30,0,30,9" CharacterCasing="Upper" FontSize="27" MaxLength="60" VerticalContentAlignment="Center" Padding="37,0,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" BorderThickness="0,0,0,2" Background="{x:Null}"/>
                 </Grid>
 
-                <Grid Cursor="IBeam" ForceCursor="True" Margin="0,333,0,0" Height="70" VerticalAlignment="Top">
+                <Grid Cursor="IBeam" ForceCursor="True" Margin="0,279,0,0" Height="70" VerticalAlignment="Top">
                     <Image HorizontalAlignment="Left" Height="36" Margin="31,0,0,20" VerticalAlignment="Bottom" Width="34" Source="img/nombreIco.png" Stretch="Fill" Opacity="0.7"/>
                     <TextBlock x:Name="txtbNombre" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="70,0,0,17" Foreground="Gray" FontSize="30" Width="406"><Run Language="es-pe" Text="Ingrese su Nombre completo"/></TextBlock>
                     <TextBox x:Name="txtNombre" Width="497" Height="52" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,7,0,0" TextChanged="primeraLetraMayuscula_TextChanged" FontSize="25" MaxLength="60" VerticalContentAlignment="Center" Padding="37,0,0,0" GotFocus="txtNombre_GotFocus" LostFocus="txtNombre_LostFocus" BorderThickness="0,0,0,2" Background="{x:Null}" />
                 </Grid>
 
-                <Grid x:Name="gridDireccion" Cursor="Arrow" ForceCursor="True" Margin="0,462,0,0" Height="70" VerticalAlignment="Top">
+                <Grid x:Name="gridDireccion" Cursor="Arrow" ForceCursor="True" Height="70" VerticalAlignment="Top" Margin="0,405,0,0">
                     <Image HorizontalAlignment="Left" Height="36" Margin="28,9,0,0" VerticalAlignment="Top" Width="39" Source="img/direccion.png" Stretch="Fill" Opacity="0.5" RenderTransformOrigin="0.35,0.533"/>
                     <TextBlock x:Name="txtbDireccion" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="70,0,0,23" Foreground="Gray" FontSize="30" Width="450" Grid.ColumnSpan="2" ><Run Language="es-pe" Text="Ingrese su Dirección( Opcional )"/></TextBlock>
                     <TextBox x:Name="txtDireccion" Width="497" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="31,4,0,0" FontSize="20" MaxLength="60" VerticalContentAlignment="Center" GotFocus="txtDireccion_GotFocus" LostFocus="txtDireccion_LostFocus" Padding="37,0,0,0" TextChanged="primeraLetraMayuscula_TextChanged" Grid.ColumnSpan="2" BorderThickness="0,0,0,2" Background="{x:Null}" IsEnabled="False"/>
                 </Grid>
 
 
-                <Grid x:Name="gridTelefono" Cursor="Arrow" ForceCursor="True" Margin="0,590,0,0" Height="56" VerticalAlignment="Top">
+                <Grid x:Name="gridTelefono" Cursor="Arrow" ForceCursor="True" Margin="0,524,0,0" Height="56" VerticalAlignment="Top">
                     <Image HorizontalAlignment="Left" Height="36" Margin="33,0,0,15" VerticalAlignment="Bottom" Width="34" Source="img/telefonoIco.png" Stretch="Fill" Opacity="0.7"/>
                     <TextBlock x:Name="txtbTelefono" HorizontalAlignment="Left" Margin="71,2,0,14" Foreground="Gray" FontSize="30" Width="421"><Run Language="es-pe" Text="Ingrese su Teléfono( Opcional )"/></TextBlock>
                     <TextBox x:Name="txtTelefono" Width="497" HorizontalAlignment="Left" Margin="33,-1,0,7" FontSize="27" PreviewKeyDown="txtTelefono_PreviewKeyDown" MaxLength="9" VerticalContentAlignment="Center" GotFocus="txtTelefono_GotFocus" LostFocus="txtTelefono_LostFocus" Padding="37,0,0,0" BorderThickness="0,0,0,2" Background="{x:Null}" IsEnabled="False"/>
                 </Grid>
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
 
-                <Label Content="Usuario" FontSize="25" Margin="32,169,399,0" FontFamily="Bahnschrift" Height="40" VerticalAlignment="Top" />
-                <Label Content="Nombre" FontSize="25" Margin="32,293,399,0" FontFamily="Bahnschrift" Height="40" VerticalAlignment="Top" />
-                <Label Content="Teléfono" FontSize="25" Margin="32,549,409,0" FontFamily="Bahnschrift" Height="40" VerticalAlignment="Top" />
-                <Label Content="Dirección" FontSize="25" Margin="32,422,409,0" FontFamily="Bahnschrift" Height="40" VerticalAlignment="Top" />
+                <Label Content="Usuario" FontSize="25" Margin="32,129,399,0" FontFamily="Bahnschrift" Height="40" VerticalAlignment="Top" />
+                <Label Content="Nombre" FontSize="25" Margin="32,239,399,0" FontFamily="Bahnschrift" Height="40" VerticalAlignment="Top" />
+                <Label Content="Teléfono" FontSize="25" Margin="32,485,409,0" FontFamily="Bahnschrift" Height="40" VerticalAlignment="Top" />
+                <Label Content="Dirección" FontSize="25" Margin="32,366,409,0" FontFamily="Bahnschrift" Height="40" VerticalAlignment="Top" />
 
-                <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Button x:Name="btnSalir" Content="Salir( Esc )" Width="172" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtnSalir_Click" Height="54" Margin="335,780,0,0" FontSize="26" FontFamily="Calibri">
+                <Button x:Name="btnSalir" Content="Salir( Esc )" Width="172" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Click="BtnSalir_Click" Height="54" Margin="345,645,0,0" FontSize="26" FontFamily="Calibri">
                     <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation To="182" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
@@ -63,7 +60,7 @@
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation To="172" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
@@ -73,13 +70,13 @@
                         </EventTrigger>
                     </Button.Triggers>
                     <Button.Style>
-                        <Style TargetType="Button">
+                        <Style TargetType="{x:Type Button}">
                             <Setter Property="Background" Value="#007ACC" />
                             <Setter Property="Foreground" Value="White" />
                             <Setter Property="Width" Value="476" />
                             <Setter Property="Template">
                                 <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
+                                    <ControlTemplate TargetType="{x:Type Button}">
                                         <Border Background="{TemplateBinding Background}" CornerRadius="29">
                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                         </Border>
@@ -97,9 +94,9 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnAgregarVendedor" Content="Agregar Vendedor( Intro )" Width="510" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,512,0,0" Click="btnAgregarVendedor_Click" Height="54" FontSize="28" VerticalAlignment="Center" FontFamily="Calibri" >
+                <Button x:Name="btnAgregarVendedor" Content="Agregar Vendedor( Intro )" Width="510" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,510,0,0" Click="btnAgregarVendedor_Click" Height="54" FontSize="28" VerticalAlignment="Center" FontFamily="Calibri" >
                     <Button.Triggers>
-                        <EventTrigger RoutedEvent="Button.MouseEnter">
+                        <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation To="520" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
@@ -107,7 +104,7 @@
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
-                        <EventTrigger RoutedEvent="Button.MouseLeave">
+                        <EventTrigger RoutedEvent="UIElement.MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation To="510" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
@@ -117,12 +114,12 @@
                         </EventTrigger>
                     </Button.Triggers>
                     <Button.Style>
-                        <Style TargetType="Button">
+                        <Style TargetType="{x:Type Button}">
                             <Setter Property="Foreground" Value="White" />
                             <Setter Property="Width" Value="476" />
                             <Setter Property="Template">
                                 <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
+                                    <ControlTemplate TargetType="{x:Type Button}">
                                         <Border Background="{TemplateBinding Background}" CornerRadius="25">
                                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                         </Border>
@@ -141,13 +138,13 @@
                 </Button>
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Viewbox Margin="150,420,369,0" Cursor="Hand" ForceCursor="True" Height="39" VerticalAlignment="Top">
+                <Viewbox Margin="150,366,369,0" Cursor="Hand" ForceCursor="True" Height="39" VerticalAlignment="Top">
                     <CheckBox x:Name="chkDireccion" Click="chkDireccion_Click" RenderTransformOrigin="0.51,0.558" IsChecked="False" />
                 </Viewbox>
-                <Viewbox Margin="150,547,368,0" Cursor="Hand" ForceCursor="True" Height="39" VerticalAlignment="Top">
+                <Viewbox Margin="150,483,368,0" Cursor="Hand" ForceCursor="True" Height="39" VerticalAlignment="Top">
                     <CheckBox x:Name="chkTelefono" Click="chkTelefono_Click" />
                 </Viewbox>
-                <TextBox x:Name="txtCodigo" HorizontalAlignment="Left" Height="48" Margin="462,112,0,0" TextWrapping="Wrap" Text="1234" VerticalAlignment="Top" Width="64" FontWeight="Bold" FontSize="25" VerticalScrollBarVisibility="Disabled" RenderTransformOrigin="0.525,-0.027" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" IsEnabled="False" Visibility="Hidden">
+                <TextBox x:Name="txtCodigo" HorizontalAlignment="Left" Height="48" Margin="462,92,0,0" TextWrapping="Wrap" Text="1234" VerticalAlignment="Top" Width="64" FontWeight="Bold" FontSize="25" VerticalScrollBarVisibility="Disabled" RenderTransformOrigin="0.525,-0.027" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Center" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" IsEnabled="False" Visibility="Hidden">
                     <TextBox.Style>
                         <Style TargetType="{x:Type TextBox}">
                             <Style.Triggers>
@@ -158,7 +155,7 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-                <Label x:Name="lblCodigo" Content="ID:" Height="38" Margin="426,126,0,0" VerticalAlignment="Top" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" HorizontalAlignment="Left" Width="38" Visibility="Hidden"/>
+                <Label x:Name="lblCodigo" Content="ID:" Height="38" Margin="426,104,0,0" VerticalAlignment="Top" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Bahnschrift" HorizontalAlignment="Left" Width="38" Visibility="Hidden"/>
             </Grid>
         </Border>
 

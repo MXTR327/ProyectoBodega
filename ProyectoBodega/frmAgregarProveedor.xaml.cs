@@ -202,7 +202,10 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtDireccion_GotFocus(object sender, RoutedEventArgs e)
         {
-            txtbDireccion.Visibility = Visibility.Collapsed;
+            if (txtDireccion.IsReadOnly == false)
+            {
+                txtbDireccion.Visibility = Visibility.Collapsed;
+            }
         }
         private void txtDireccion_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -211,7 +214,10 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtNumero_GotFocus(object sender, RoutedEventArgs e)
         {
-            txtbNumero.Visibility = Visibility.Collapsed;
+            if (txtNumero.IsReadOnly == false)
+            {
+                txtbNumero.Visibility = Visibility.Collapsed;
+            }
         }
         private void txtNumero_LostFocus(object sender, RoutedEventArgs e)
         {

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion"
         mc:Ignorable="d"
-        Title="Iniciar Sesión" Height="817" Width="932" UseLayoutRounding="True" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" Icon="img/icono.png" WindowState="Maximized" KeyDown="Window_KeyDown" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center">
+        Title="Iniciar Sesión" Height="768" Width="1366" UseLayoutRounding="True" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" Icon="img/icono.png" WindowState="Maximized" KeyDown="Window_KeyDown" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" MinHeight="768" MinWidth="1366">
     <Window.Resources>
         <!-- Styles asdawdsawd -->
         <Style x:Key="estiloTextBox" TargetType="TextBox">
@@ -31,28 +31,30 @@
         </Grid.Background>
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
-        <Border HorizontalAlignment="Center" CornerRadius="10" Width="384" Background="White" Opacity="0.99" Margin="0,42,0,41">
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="384" Background="White" Opacity="0.99" Margin="0,10,0,10">
             <Grid Margin="0,0,-1,-1">
-                <Label Content="Usuario" FontSize="25" Margin="26,0,0,397" HorizontalAlignment="Left" Width="125" FontFamily="Bahnschrift" Height="39" VerticalAlignment="Bottom" />
+                <Label Content="Usuario" FontSize="25" Margin="12,325,0,0" HorizontalAlignment="Left" Width="125" FontFamily="Bahnschrift" Height="39" VerticalAlignment="Top" />
                 <Grid ForceCursor="True">
-                    <Image HorizontalAlignment="Left" Height="36" Margin="31,0,0,341" VerticalAlignment="Bottom" Width="36" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
-                    <TextBlock x:Name="placeholderText" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="69,0,0,339" Foreground="Gray" FontSize="30" MouseLeftButtonDown="placeholderText_MouseLeftButtonDown"><Run Language="es-pe" Text="Ingrese Usuario"/></TextBlock>
-                    <TextBox x:Name="txtUsuario" Style="{StaticResource estiloTextBox}" CharacterCasing="Upper" FontSize="30" VerticalContentAlignment="Center" Padding="40,10,0,0" HorizontalAlignment="Center" Width="327" AcceptsReturn="False" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Margin="0,0,0,334" Background="{x:Null}" Height="64" VerticalAlignment="Bottom"/>
-                    <Button x:Name="BtnIngresar" Content="INGRESAR( Intro )"  Height="51" Width="340" Click="BtnIngresar_Click" Margin="0,145,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand" FontFamily="Calibri" FontSize="25" >
+                    <Grid HorizontalAlignment="Center" Height="64" Margin="0,367,0,0" VerticalAlignment="Top" Width="360">
+                        <Image HorizontalAlignment="Left" Height="36" Margin="2,25,0,0" VerticalAlignment="Top" Width="36" Source="img/userIco.png" Stretch="Fill" Opacity="0.7"/>
+                        <TextBlock x:Name="placeholderText" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40,21,0,0" Foreground="Gray" FontSize="30" MouseLeftButtonDown="placeholderText_MouseLeftButtonDown"><Run Language="es-pe" Text="Ingrese Usuario"/></TextBlock>
+                        <TextBox x:Name="txtUsuario" Style="{StaticResource estiloTextBox}" CharacterCasing="Upper" FontSize="30" VerticalContentAlignment="Center" Padding="40,10,0,0" AcceptsReturn="False" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" Background="{x:Null}" Height="63" VerticalAlignment="Top"/>
+                    </Grid>
+                    <Button x:Name="BtnIngresar" Content="INGRESAR( Intro )"  Height="50" Width="360" Click="BtnIngresar_Click" Margin="0,280,0,0" HorizontalAlignment="Center" Cursor="Hand" FontFamily="Calibri" FontSize="25" VerticalAlignment="Center" >
                         <Button.Triggers>
                             <EventTrigger RoutedEvent="UIElement.MouseEnter">
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation To="351" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                        <DoubleAnimation To="52" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                        <DoubleAnimation To="365" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                        <DoubleAnimation To="53" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
                             <EventTrigger RoutedEvent="UIElement.MouseLeave">
                                 <BeginStoryboard>
                                     <Storyboard>
-                                        <DoubleAnimation To="341" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                        <DoubleAnimation To="51" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                        <DoubleAnimation To="360" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                        <DoubleAnimation To="50" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </EventTrigger>
@@ -83,22 +85,22 @@
                     </Button>
                 </Grid>
 
-                <Image Stretch="Fill" Source="img/default.png" Margin="94,43,94,441" />
-                <Button x:Name="btnRegistrar" Content="Registrarse ( F1 )" Height="51" Width="222" Margin="0,480,120,0" Click="btnRegistrar_Click" VerticalAlignment="Center" FontSize="25" FontFamily="Calibri" Cursor="Hand" HorizontalAlignment="Center">
+                <Image Stretch="Fill" Source="img/default.png" Margin="0,29,0,0" HorizontalAlignment="Center" Width="197" Height="235" VerticalAlignment="Top" />
+                <Button x:Name="btnRegistrar" Content="Registrarse ( F1 )" Height="50" Width="227" Margin="0,590,125,0" Click="btnRegistrar_Click" FontSize="25" FontFamily="Calibri" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
                                     <DoubleAnimation To="232" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                    <DoubleAnimation To="52" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                    <DoubleAnimation To="53" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="UIElement.MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation To="222" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                    <DoubleAnimation To="51" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                    <DoubleAnimation To="227" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="50" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
@@ -127,21 +129,21 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="BtnSalir" Content="Salir( Esc )" Width="110" Height="51" Margin="225,480,0,0" Click="BtnSalir_Click" RenderTransformOrigin="0.481,0.455" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Calibri" Cursor="Hand" FontSize="25">
+                <Button x:Name="BtnSalir" Content="Salir( Esc )" Width="110" Height="50" Margin="253,590,0,0" Click="BtnSalir_Click" RenderTransformOrigin="0.481,0.455" FontFamily="Calibri" Cursor="Hand" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation To="114" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                    <DoubleAnimation To="52" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                    <DoubleAnimation To="115" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="53" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>
                         <EventTrigger RoutedEvent="UIElement.MouseLeave">
                             <BeginStoryboard>
                                 <Storyboard>
-                                    <DoubleAnimation To="111" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                                    <DoubleAnimation To="51" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                                    <DoubleAnimation To="110" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                    <DoubleAnimation To="50" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                                 </Storyboard>
                             </BeginStoryboard>
                         </EventTrigger>

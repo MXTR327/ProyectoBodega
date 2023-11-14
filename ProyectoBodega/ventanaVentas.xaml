@@ -7,15 +7,15 @@
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
 
         mc:Ignorable="d"
-        Title="Ventas" Height="1000" Width="1600" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png">
+        Title="Ventas" Height="768" Width="1366" MinHeight="768" MinWidth="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
-        <Border HorizontalAlignment="Center" VerticalAlignment="Center" CornerRadius="10" Width="1516" Background="White" Opacity="0.99" Height="928">
+        <Border VerticalAlignment="Center" CornerRadius="10" Background="White" Opacity="0.99" Height="706" HorizontalAlignment="Center" Width="1303">
             <Grid>
-                <Label Content="Ventas Totales" HorizontalAlignment="Center" Height="50" VerticalAlignment="Top" Width="874" FontSize="40" FontFamily="Bahnschrift" VerticalContentAlignment="Center" Margin="0,32,0,0" HorizontalContentAlignment="Center"/>
-                <DataGrid x:Name="dgVentas" Height="374" VerticalAlignment="Top" CanUserAddRows="False" Margin="0,162,0,0" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgVentas_SelectionChanged" SelectionMode="Single" HorizontalAlignment="Center" Width="1474" HeadersVisibility="Column">
+                <Label Content="Registro de Ventas" HorizontalAlignment="Center" Height="55" VerticalAlignment="Top" FontSize="40" FontFamily="Bahnschrift" VerticalContentAlignment="Center" Margin="0,3,0,0" HorizontalContentAlignment="Center"/>
+                <DataGrid x:Name="dgVentas" Height="273" VerticalAlignment="Top" CanUserAddRows="False" Margin="10,120,10,0" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgVentas_SelectionChanged" SelectionMode="Single" HeadersVisibility="Column">
                     <DataGrid.Resources>
                         <Style TargetType="DataGridCell">
                             <Setter Property="Height" Value="30"/>
@@ -43,7 +43,7 @@
                         </Style>
                     </DataGrid.Resources>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID" Width="70" Binding="{Binding idVenta}">
+                        <DataGridTextColumn Header="ID" Width="60" Binding="{Binding idVenta}">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="{x:Type TextBlock}">
 
@@ -52,7 +52,7 @@
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Fecha" Width="150" Binding="{Binding fecha}">
+                        <DataGridTextColumn Header="Fecha" Width="130" Binding="{Binding fecha}">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -60,7 +60,7 @@
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Hora" Width="150" Binding="{Binding hora}">
+                        <DataGridTextColumn Header="Hora" Width="100" Binding="{Binding hora}">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -85,7 +85,7 @@
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Total" Width="180" Binding="{Binding Total_Venta}">
+                        <DataGridTextColumn Header="Total" Width="120" Binding="{Binding Total_Venta}">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -93,7 +93,7 @@
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Ganancia" Width="200" Binding="{Binding ganancia}">
+                        <DataGridTextColumn Header="Ganancia" Width="120" Binding="{Binding ganancia}">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -101,73 +101,7 @@
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
-                        <DataGridTextColumn Header="Vuelto" Width="150" Binding="{Binding Vuelto}">
-                            <DataGridTextColumn.ElementStyle>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="VerticalAlignment" Value="Center"/>
-                                    <Setter Property="Padding" Value="10,0,0,0"/>
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-
-                <Label Content="Productos Vendidos" HorizontalAlignment="Left" Height="45" Margin="14,543,0,0" VerticalAlignment="Top" Width="292" FontSize="30" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
-                <DataGrid x:Name="dgProductosVenta" CanUserAddRows="False" Margin="21,589,0,0" HorizontalAlignment="Left" Width="807" Height="279" VerticalAlignment="Top" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgProductosVenta_SelectionChanged" HeadersVisibility="Column">
-                    <DataGrid.Resources>
-                        <Style TargetType="DataGridCell">
-                            <Setter Property="Height" Value="30"/>
-                            <Setter Property="Background" Value="White"/>
-                            <Setter Property="FontSize" Value="18"/>
-                            <Setter Property="FontFamily" Value="Microsoft JhengHei"/>
-                            <Setter Property="BorderBrush" Value="gray"/>
-                            <Setter Property="BorderThickness" Value="1"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsSelected" Value="True">
-                                    <Setter Property="Background" Value="LightSkyBlue"/>
-                                    <Setter Property="Foreground" Value="Black"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="Padding" Value="0,1,0,0"/>
-                            <Setter Property="FontFamily" Value="Bahnschrift SemiLight"/>
-                            <Setter Property="Background" Value="#333333"/>
-                            <Setter Property="Foreground" Value="White"/>
-                            <Setter Property="FontSize" Value="25"/>
-                            <Setter Property="BorderBrush" Value="#555555"/>
-                            <Setter Property="BorderThickness" Value="1"/>
-                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                        </Style>
-                    </DataGrid.Resources>
-
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID" Width="70" Binding="{Binding idDetalle_venta}">
-                            <DataGridTextColumn.ElementStyle>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="VerticalAlignment" Value="Center"/>
-                                    <Setter Property="HorizontalAlignment" Value="Center"/>
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="idProducto" Width="250" Binding="{Binding idProducto}" Visibility="Hidden"/>
-                        <DataGridTextColumn Header="Nombre Producto" Width="*" Binding="{Binding nombre_producto}">
-                            <DataGridTextColumn.ElementStyle>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="VerticalAlignment" Value="Center"/>
-                                    <Setter Property="Padding" Value="10,0,0,0"/>
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="Cantidad" Width="130" Binding="{Binding Cantidad}">
-                            <DataGridTextColumn.ElementStyle>
-                                <Style TargetType="{x:Type TextBlock}">
-                                    <Setter Property="VerticalAlignment" Value="Center"/>
-                                    <Setter Property="Padding" Value="10,0,0,0"/>
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
-                        <DataGridTextColumn Header="Precio Unitario" Width="200" Binding="{Binding Precio_Unitario}">
+                        <DataGridTextColumn Header="Vuelto" Width="110" Binding="{Binding Vuelto}">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="{x:Type TextBlock}">
                                     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -177,38 +111,104 @@
                         </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                <Border HorizontalAlignment="Left" Height="259" Margin="850,593,0,0" VerticalAlignment="Top" Width="645">
-                    <Grid>
+                <Grid HorizontalAlignment="Center" Margin="0,393,0,0" VerticalAlignment="Top" Width="1283">
 
-                        <Label Content="ID Producto" HorizontalAlignment="Left" Margin="29,0,0,233" Width="128" FontSize="20" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Bottom"/>
-                        <Label Content="Nombre Producto" HorizontalAlignment="Left" Margin="-18,0,0,198" Width="174" FontSize="20" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Bottom"/>
-                        <Label Content="Descripción" HorizontalAlignment="Left" Margin="15,0,0,166" Width="141" FontSize="20" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Bottom"/>
-                        <Label Content="Categoría" HorizontalAlignment="Left" Margin="28,0,0,133" Width="128" FontSize="20" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Bottom"/>
-                        <Label Content="Marca" HorizontalAlignment="Left" Margin="29,0,0,102" Width="128" FontSize="20" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Bottom"/>
-                        <Label Content="Precio Compra" HorizontalAlignment="Left" Margin="-18,0,0,71" Width="175" FontSize="20" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Bottom"/>
-                        <Label Content="Medida" HorizontalAlignment="Left" Margin="28,0,0,34" Width="128" FontSize="20" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Bottom"/>
-                        <Label Content="Ganancia Unidad" HorizontalAlignment="Left" Margin="-40,0,0,3" Width="197" FontSize="20" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Bottom"/>
-                        <Label Content="Proveedor" HorizontalAlignment="Left" Margin="367,0,0,135" Width="106" FontSize="20" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Bottom"/>
-                        <Label Content="Precio Venta" HorizontalAlignment="Left" Margin="343,0,0,72" Width="130" FontSize="20" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Height="32" VerticalAlignment="Bottom"/>
-                        <Label Content="Stock Actual" HorizontalAlignment="Left" Margin="343,0,0,37" Width="130" FontSize="20" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Bottom"/>
-                        <Label Content="Ganancia Total" HorizontalAlignment="Left" Margin="331,0,0,6" Width="142" FontSize="20" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="32" VerticalAlignment="Bottom"/>
+                    <Label Content="Productos Vendidos" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" FontSize="30" FontFamily="Bahnschrift" VerticalContentAlignment="Center" Height="45" Margin="-4,0,0,0"/>
+                    <DataGrid x:Name="dgProductosVenta" CanUserAddRows="False" HorizontalAlignment="Left" Width="676" Height="208" VerticalAlignment="Top" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="dgProductosVenta_SelectionChanged" HeadersVisibility="Column" Margin="0,40,0,0">
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridCell}">
+                                <Setter Property="Height" Value="30"/>
+                                <Setter Property="Background" Value="White"/>
+                                <Setter Property="FontSize" Value="18"/>
+                                <Setter Property="FontFamily" Value="Microsoft JhengHei"/>
+                                <Setter Property="BorderBrush" Value="gray"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="LightSkyBlue"/>
+                                        <Setter Property="Foreground" Value="Black"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Padding" Value="0,1,0,0"/>
+                                <Setter Property="FontFamily" Value="Bahnschrift SemiLight"/>
+                                <Setter Property="Background" Value="#333333"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="25"/>
+                                <Setter Property="BorderBrush" Value="#555555"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            </Style>
+                        </DataGrid.Resources>
 
-                        <TextBox x:Name="txtID" HorizontalAlignment="Left" TextWrapping="Wrap" Width="123" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Height="28" VerticalAlignment="Bottom" IsReadOnly="True" Margin="157,0,0,236" Text="Sin Productos" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2"/>
-                        <TextBox x:Name="txtNombre" TextWrapping="Wrap" FontSize="20" HorizontalAlignment="Left" Width="356" FontFamily="Calibri" FontWeight="Bold" Height="28" VerticalAlignment="Bottom" IsReadOnly="True" Margin="157,0,0,201" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2"/>
-                        <TextBox x:Name="txtDescripcion" TextWrapping="Wrap" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Height="28" VerticalAlignment="Bottom" IsReadOnly="True" Margin="157,0,0,169" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="356"/>
-                        <TextBox x:Name="txtCategoria" TextWrapping="Wrap" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Height="28" VerticalAlignment="Bottom" IsReadOnly="True" Margin="157,0,0,137" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164"/>
-                        <TextBox x:Name="txtMarca" TextWrapping="Wrap" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Height="28" VerticalAlignment="Bottom" IsReadOnly="True" Margin="157,0,0,106" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164"/>
-                        <TextBox x:Name="txtPrecioCompra" TextWrapping="Wrap" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Height="28" VerticalAlignment="Bottom" IsReadOnly="True" Margin="157,0,0,73" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164"/>
-                        <TextBox x:Name="txtMedida" TextWrapping="Wrap" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Height="28" VerticalAlignment="Bottom" IsReadOnly="True" Margin="157,0,0,40" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164"/>
-                        <TextBox x:Name="txtUnidadGanancia" TextWrapping="Wrap" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Height="28" VerticalAlignment="Bottom" IsReadOnly="True" Margin="157,0,0,7" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164"/>
-                        <TextBox x:Name="txtProveedor" TextWrapping="Wrap" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Height="28" VerticalAlignment="Bottom" IsReadOnly="True" Margin="474,0,0,137" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164"/>
-                        <TextBox x:Name="txtPrecioVenta" TextWrapping="Wrap" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Height="28" VerticalAlignment="Bottom" IsReadOnly="True" Margin="474,0,0,75" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164"/>
-                        <TextBox x:Name="txtStock" TextWrapping="Wrap" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Height="28" VerticalAlignment="Bottom" IsReadOnly="True" Margin="474,0,0,42" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164"/>
-                        <TextBox x:Name="txtGananciaTotal" TextWrapping="Wrap" FontSize="20" FontFamily="Calibri" FontWeight="Bold" Height="28" VerticalAlignment="Bottom" IsReadOnly="True" Margin="474,0,0,9" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164"/>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Width="50" Binding="{Binding idDetalle_venta}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="idProducto" Width="250" Binding="{Binding idProducto}" Visibility="Hidden"/>
+                            <DataGridTextColumn Header="Nombre Producto" Width="*" Binding="{Binding nombre_producto}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="Padding" Value="10,0,0,0"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Cantidad" Width="120" Binding="{Binding Cantidad}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="Padding" Value="10,0,0,0"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Precio Unitario" Width="180" Binding="{Binding Precio_Unitario}">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                        <Setter Property="Padding" Value="10,0,0,0"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Grid Height="208" Margin="681,37,0,0" VerticalAlignment="Top">
+                        <Label Content="ID Producto" HorizontalAlignment="Left" Margin="41,0,0,181" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Bottom"/>
+                        <Label Content="Nombre Producto" HorizontalAlignment="Left" Margin="-4,0,0,157" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Bottom"/>
+                        <Label Content="Descripción" HorizontalAlignment="Left" Margin="39,0,0,130" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Bottom"/>
+                        <Label Content="Categoría" HorizontalAlignment="Left" Margin="56,0,0,104" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Bottom"/>
+                        <Label Content="Marca" HorizontalAlignment="Left" Margin="82,0,0,77" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Bottom"/>
+                        <Label Content="Precio Compra" HorizontalAlignment="Left" Margin="16,0,0,51" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Bottom"/>
+                        <Label Content="Medida" HorizontalAlignment="Left" Margin="75,0,0,24" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Bottom"/>
+                        <Label Content="Ganancia Unidad" HorizontalAlignment="Left" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="25" VerticalAlignment="Bottom" Margin="2,0,0,0"/>
+                        <Label Content="Proveedor" HorizontalAlignment="Left" Margin="342,0,0,105" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Bottom"/>
+                        <Label Content="Precio Venta" HorizontalAlignment="Left" Margin="324,0,0,51" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Height="30" VerticalAlignment="Bottom"/>
+                        <Label Content="Stock Actual" HorizontalAlignment="Left" Margin="324,0,0,26" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Bottom"/>
+                        <Label Content="Ganancia Total" HorizontalAlignment="Left" Margin="308,0,0,-3" FontSize="17" FontFamily="Bahnschrift" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" VerticalAlignment="Bottom"/>
+
+                        <TextBox x:Name="txtID" HorizontalAlignment="Left" TextWrapping="Wrap" Width="123" FontSize="17" FontFamily="Calibri" FontWeight="Bold" IsReadOnly="True" Margin="140,0,0,185" Text="Sin Productos" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" Height="23" VerticalAlignment="Bottom"/>
+                        <TextBox x:Name="txtNombre" TextWrapping="Wrap" FontSize="17" HorizontalAlignment="Left" Width="356" FontFamily="Calibri" FontWeight="Bold" IsReadOnly="True" Margin="139,0,0,160" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" Height="23" VerticalAlignment="Bottom"/>
+                        <TextBox x:Name="txtDescripcion" TextWrapping="Wrap" FontSize="17" FontFamily="Calibri" FontWeight="Bold" IsReadOnly="True" Margin="139,0,0,135" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="356" Height="23" VerticalAlignment="Bottom"/>
+                        <TextBox x:Name="txtCategoria" TextWrapping="Wrap" FontSize="17" FontFamily="Calibri" FontWeight="Bold" IsReadOnly="True" Margin="139,0,0,109" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164" Height="23" VerticalAlignment="Bottom"/>
+                        <TextBox x:Name="txtMarca" TextWrapping="Wrap" FontSize="17" FontFamily="Calibri" FontWeight="Bold" IsReadOnly="True" Margin="139,0,0,82" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164" Height="23" VerticalAlignment="Bottom"/>
+                        <TextBox x:Name="txtPrecioCompra" TextWrapping="Wrap" FontSize="17" FontFamily="Calibri" FontWeight="Bold" IsReadOnly="True" Margin="139,0,0,56" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164" Height="23" VerticalAlignment="Bottom"/>
+                        <TextBox x:Name="txtMedida" TextWrapping="Wrap" FontSize="17" FontFamily="Calibri" FontWeight="Bold" IsReadOnly="True" Margin="139,0,0,29" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164" Height="23" VerticalAlignment="Bottom"/>
+                        <TextBox x:Name="txtUnidadGanancia" TextWrapping="Wrap" FontSize="17" FontFamily="Calibri" FontWeight="Bold" IsReadOnly="True" Margin="139,0,0,1" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164" Height="23" VerticalAlignment="Bottom"/>
+                        <TextBox x:Name="txtProveedor" TextWrapping="Wrap" FontSize="17" FontFamily="Calibri" FontWeight="Bold" IsReadOnly="True" Margin="431,0,0,111" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164" Height="23" VerticalAlignment="Bottom"/>
+                        <TextBox x:Name="txtPrecioVenta" TextWrapping="Wrap" FontSize="17" FontFamily="Calibri" FontWeight="Bold" IsReadOnly="True" Margin="431,0,0,57" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164" Height="23" VerticalAlignment="Bottom"/>
+                        <TextBox x:Name="txtStock" TextWrapping="Wrap" FontSize="17" FontFamily="Calibri" FontWeight="Bold" IsReadOnly="True" Margin="431,0,0,31" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164" Height="23" VerticalAlignment="Bottom"/>
+                        <TextBox x:Name="txtGananciaTotal" TextWrapping="Wrap" FontSize="17" FontFamily="Calibri" FontWeight="Bold" IsReadOnly="True" Margin="431,0,0,3" Text="Inexistente" VerticalContentAlignment="Bottom" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="164" Height="23" VerticalAlignment="Bottom"/>
                     </Grid>
-                </Border>
 
-                <DatePicker x:Name="dpFecha" HorizontalAlignment="Left" Margin="21,99,0,0" VerticalAlignment="Top" Width="411" Height="56" FontSize="20" FontFamily="Microsoft JhengHei" FontWeight="Bold" SelectedDateFormat="Long" SelectedDateChanged="dpFecha_SelectedDateChanged" DisplayDate="2023-04-10" Padding="2,2,2,0" VerticalContentAlignment="Center">
+                </Grid>
+
+                <DatePicker x:Name="dpFecha" HorizontalAlignment="Left" Margin="11,61,0,0" VerticalAlignment="Top" Width="411" Height="56" FontSize="20" FontFamily="Microsoft JhengHei" FontWeight="Bold" SelectedDateFormat="Long" SelectedDateChanged="dpFecha_SelectedDateChanged" DisplayDate="2023-04-10" Padding="2,2,2,0" VerticalContentAlignment="Center">
                     <DatePicker.Resources>
                         <Style TargetType="{x:Type DatePickerTextBox}">
                             <Setter Property="IsReadOnly" Value="True"/>
@@ -217,9 +217,9 @@
                     </DatePicker.Resources>
                 </DatePicker>
 
-                <Label Content="Ganancia Total:" HorizontalAlignment="Left" Margin="1065,106,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Bahnschrift" Height="42" Width="217"/>
-                <Label x:Name="lblGanancia" Content="0,00" HorizontalAlignment="Left" Margin="1298,102,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Bahnschrift" Height="55" Width="197" VerticalContentAlignment="Center"/>
-                <Button x:Name="btnFechaHoy" Content="Hoy" HorizontalAlignment="Center" Height="55" Margin="-518,-674,0,0" VerticalAlignment="Center" Width="130" FontSize="40" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="1,0,1,0" Click="btnFechaHoy_Click">
+                <Label Content="Ganancia Total:" HorizontalAlignment="Left" Margin="946,53,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift"/>
+                <Label x:Name="lblGanancia" Content="0,00" HorizontalAlignment="Left" Margin="1105,54,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" Width="181" VerticalContentAlignment="Center"/>
+                <Button x:Name="btnFechaHoy" Content="Hoy" HorizontalAlignment="Center" Height="55" Margin="0,0,323,530" VerticalAlignment="Center" Width="130" FontSize="40" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="1,0,1,0" Click="btnFechaHoy_Click">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="Button.MouseEnter">
                             <BeginStoryboard>
@@ -262,7 +262,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button x:Name="btnReestablecerFecha" Content="Siempre" HorizontalAlignment="Center" Height="55" Margin="-190,-674,0,0" VerticalAlignment="Center" Width="187" FontSize="40" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0,0,0,0" Click="btnReestablecerFecha_Click">
+                <Button x:Name="btnReestablecerFecha" Content="Siempre" HorizontalAlignment="Center" Height="55" Margin="0,0,0,530" VerticalAlignment="Center" Width="187" FontSize="40" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0,0,0,0" Click="btnReestablecerFecha_Click">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
@@ -305,7 +305,7 @@
                     </Button.Background>
                 </Button>
 
-                <Button x:Name="btnSalir" Content="Salir( Esc)" Margin="1080,0,0,-840" FontSize="40" Click="btnSalir_Click" Width="400" FontFamily="Calibri" HorizontalAlignment="Center" Height="55" VerticalAlignment="Center">
+                <Button x:Name="btnSalir" Content="Salir( Esc)" Margin="898,640,0,0" FontSize="40" Click="btnSalir_Click" Width="400" FontFamily="Calibri" HorizontalAlignment="Center" Height="55" VerticalAlignment="Center">
                     <Button.Triggers>
                         <EventTrigger RoutedEvent="UIElement.MouseEnter">
                             <BeginStoryboard>
@@ -348,8 +348,8 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Label Content="Total:" HorizontalAlignment="Left" Margin="774,106,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Bahnschrift" Height="42" Width="96"/>
-                <Label x:Name="lblTotal" Content="0,00" HorizontalAlignment="Left" Margin="873,102,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Bahnschrift" Height="55" Width="181" VerticalContentAlignment="Center"/>
+                <Label Content="Total:" HorizontalAlignment="Left" Margin="1034,83,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift"/>
+                <Label x:Name="lblTotal" Content="0,00" HorizontalAlignment="Left" Margin="1107,83,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" Width="181" VerticalContentAlignment="Center"/>
 
             </Grid>
         </Border>
