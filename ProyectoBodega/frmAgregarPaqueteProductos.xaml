@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Formulario Productos" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinWidth="1366" MinHeight="768">
+        Title="Formulario Productos" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinWidth="1316" MinHeight="718">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-        <Border HorizontalAlignment="Center" CornerRadius="10" Width="1104" Background="White" Opacity="0.99" Height="686" VerticalAlignment="Center" Margin="0,0,0,25">
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="1104" Background="White" Opacity="0.99" Height="686" VerticalAlignment="Center">
             <Grid>
                 <Label Content="Agregar Producto Y Paquete" HorizontalAlignment="Center" Margin="0,12,0,0" VerticalAlignment="Top" Width="1104" FontSize="20" FontFamily="Microsoft JhengHei" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center"/>
                 <Label Content="Nombre" HorizontalAlignment="Left" Margin="15,42,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" Width="102"/>

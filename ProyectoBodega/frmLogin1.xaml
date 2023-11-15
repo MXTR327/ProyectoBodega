@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Presentacion"
         mc:Ignorable="d"
-        Title="Iniciar Sesión" Height="768" Width="1366" UseLayoutRounding="True" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" Icon="img/icono.png" WindowState="Maximized" KeyDown="Window_KeyDown" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" MinHeight="768" MinWidth="1366">
+        Title="Iniciar Sesión" Height="768" Width="1366" UseLayoutRounding="True" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" Icon="img/icono.png" WindowState="Maximized" KeyDown="Window_KeyDown" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" MinHeight="718" MinWidth="1316">
     <Window.Resources>
         <!-- Styles asdawdsawd -->
         <Style x:Key="estiloTextBox" TargetType="TextBox">
@@ -31,7 +31,7 @@
         </Grid.Background>
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
-        <Border HorizontalAlignment="Center" CornerRadius="10" Width="384" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="685" Margin="0,0,0,25">
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="384" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="685">
             <Grid Margin="0,0,-1,-1">
                 <Label Content="Usuario" FontSize="25" Margin="12,325,0,0" HorizontalAlignment="Left" Width="125" FontFamily="Bahnschrift" Height="39" VerticalAlignment="Top" />
                 <Grid ForceCursor="True">

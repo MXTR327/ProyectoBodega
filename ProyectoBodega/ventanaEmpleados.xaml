@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Vendedores" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized" BorderThickness="1,1,1,1" BorderBrush="Black" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinHeight="768" MinWidth="1366">
+        Title="Vendedores" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized" BorderThickness="1,1,1,1" BorderBrush="Black" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinHeight="718" MinWidth="1316">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-        <Border HorizontalAlignment="Center" CornerRadius="10" Width="1104" Background="White" Opacity="0.99" Height="685" VerticalAlignment="Center" Margin="0,0,0,25">
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="1104" Background="White" Opacity="0.99" Height="685" VerticalAlignment="Center">
             <Grid>
                 <DataGrid x:Name="dgVendedores" CanUserAddRows="False" Margin="0,133,0,0" AutoGenerateColumns="False" HorizontalAlignment="Center" Width="1064" CanUserResizeRows="False" HeadersVisibility="Column" SelectionMode="Single" IsReadOnly="True" Background="White" RowBackground="White" BorderThickness="3,0,3,3" VerticalContentAlignment="Center" MouseDoubleClick="dgVendedores_MouseDoubleClick" BorderBrush="#FF757575" RenderTransformOrigin="0.5,0.476" Height="448" VerticalAlignment="Top">
                     <DataGrid.Resources>

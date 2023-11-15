@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Formulario Marca" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinWidth="1366" MinHeight="768">
+        Title="Formulario Marca" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinWidth="1316" MinHeight="718">
     <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
     <Window.Resources>
     </Window.Resources>
@@ -16,7 +16,7 @@
         </Grid.Background>
 
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-        <Border HorizontalAlignment="Center" Width="560" Background="White" CornerRadius="10,10,10,10" VerticalAlignment="Center" Height="687" Margin="0,0,0,25">
+        <Border HorizontalAlignment="Center" Width="560" Background="White" CornerRadius="10,10,10,10" VerticalAlignment="Center" Height="687" Margin="0,0,0,2">
             <Grid>
 
                 <Label x:Name="lblMarca" Content="Nueva Marca" FontSize="35" FontFamily="Bahnschrift" Width="456" HorizontalAlignment="Center" Margin="0,48,0,0" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="52" VerticalAlignment="Top" />

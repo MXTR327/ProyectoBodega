@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Formulario Productos" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinWidth="1366" MinHeight="768">
+        Title="Formulario Productos" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinWidth="1316" MinHeight="718">
     <Window.Resources>
 
     </Window.Resources>
@@ -15,7 +15,7 @@
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-        <Border  HorizontalAlignment="Center" CornerRadius="10" Width="1104" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="687" Margin="0,0,0,25">
+        <Border  HorizontalAlignment="Center" CornerRadius="10" Width="1104" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="687">
             <Grid Height="714">
                 <Label Content="Agregar nuevo Producto" FontSize="40" FontFamily="Bahnschrift" Margin="0,32,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="774" />
 

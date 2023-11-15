@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:ProyectoBodega"
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="ProyectoBodega.AgregarStock"
         mc:Ignorable="d"
-        Title="Agregar Stock" Height="768" Width="1366" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="/img/icono.png" KeyDown="Window_KeyDown" MinWidth="1366" MinHeight="768">
+        Title="Agregar Stock" Height="768" Width="1366" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="/img/icono.png" KeyDown="Window_KeyDown" MinWidth="1316" MinHeight="718">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-        <Border HorizontalAlignment="Center" CornerRadius="10" Width="1310" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="684" Margin="0,0,0,25">
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="1310" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="684">
             <Grid>
                 <Label Content="Actualizar Stock" HorizontalAlignment="Center" Margin="0,18,0,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="35"/>
 

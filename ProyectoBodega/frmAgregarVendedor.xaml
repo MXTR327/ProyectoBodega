@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProyectoBodega"
         xmlns:controlzex="urn:controlzex" x:Class="ProyectoBodega.frmAgregarVendedor"
         mc:Ignorable="d"
-        Title="Formulario Vendedor" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="/img/icono.png" WindowState="Maximized" KeyDown="Window_KeyDown" MinHeight="768" MinWidth="1366">
+        Title="Formulario Vendedor" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Icon="/img/icono.png" WindowState="Maximized" KeyDown="Window_KeyDown" MinHeight="718" MinWidth="1316">
     <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
     <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
     <Grid>
@@ -14,7 +14,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
-        <Border HorizontalAlignment="Center" CornerRadius="10" Width="560" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="699" Margin="0,0,0,25">
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="560" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="699">
             <Grid Margin="0,0,0,5">
                 <Label x:Name="lblFrm" Content="Nuevo Vendedor" FontSize="40" Margin="128,40,130,0" FontFamily="Bahnschrift" Height="61" MinHeight="61" Width="302" MinWidth="302" VerticalAlignment="Top"/>
 

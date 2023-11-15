@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Formulario Categoría" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinWidth="1366" MinHeight="768">
+        Title="Formulario Categoría" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinWidth="1316" MinHeight="718">
     <Window.Resources>
 
     </Window.Resources>
@@ -16,7 +16,7 @@
         </Grid.Background>
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
 
-        <Border HorizontalAlignment="Center" CornerRadius="10" Width="560" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="687" Margin="0,0,0,25">
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="560" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="687">
             <Grid>
                 <Label x:Name="lblCategoria" Content="Nueva Categoría" FontSize="40" FontFamily="Bahnschrift" Width="496" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" />
 

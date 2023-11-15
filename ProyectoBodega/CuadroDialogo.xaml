@@ -1,12 +1,12 @@
 ﻿<Window x:Class="ProyectoBodega.CuadroDialogo"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Confirmacion" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinWidth="1366" MinHeight="768">
+        Title="Confirmacion" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinWidth="1316" MinHeight="718">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
-        <Border HorizontalAlignment="Center" CornerRadius="10" Width="560" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="683" Margin="0,0,0,25">
+        <Border HorizontalAlignment="Center" CornerRadius="10" Width="560" Background="White" Opacity="0.99" VerticalAlignment="Center" Height="683">
             <Grid>
                 <Label x:Name="lblTitulo" Content="Sin Titulo" FontSize="40" FontFamily="Bahnschrift" HorizontalAlignment="Center" Margin="0,48,0,0" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" />
                 <Label FontSize="25" FontFamily="Bahnschrift" VerticalAlignment="Top" Content="Ingrese su usuario" HorizontalAlignment="Left" Margin="30,201,0,0"/>

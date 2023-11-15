@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoBodega"
         mc:Ignorable="d"
-        Title="Ventana Principal" Height="768" Width="1366" WindowState="Maximized" Icon="/img/icono.png" KeyDown="Window_KeyDown" MinHeight="768" MinWidth="1366">
+        Title="Ventana Principal" Height="768" Width="1366" WindowState="Maximized" Icon="/img/icono.png" KeyDown="Window_KeyDown" MinHeight="718" MinWidth="1356">
     <Grid x:Name="ventanaIndex" Loaded="ventanaIndex_Loaded" RenderTransformOrigin="0.5,0.484">
         <Grid Margin="0,0,165,0">
             <Grid.Background>
                 <ImageBrush ImageSource="img/fondo.jpg"/>
             </Grid.Background>
-            <Border Background="White" CornerRadius="15,15,15,15" HorizontalAlignment="Center" Width="1170" VerticalAlignment="Center" Height="700" Margin="0,0,0,25">
+            <Border Background="White" CornerRadius="15,15,15,15" HorizontalAlignment="Center" Width="1170" VerticalAlignment="Center" Height="700">
                 <Grid>
                     <Label Content="Total" HorizontalAlignment="Left" FontSize="50" FontFamily="Bahnschrift" VerticalContentAlignment="Center" Margin="771,0,0,-6" Foreground="#FF080808" Height="60" VerticalAlignment="Bottom"/>
                     <Label x:Name="lblTotal" Content="0,00" HorizontalAlignment="Left" Width="257" FontSize="40" FontFamily="Bahnschrift" VerticalContentAlignment="Center" Margin="910,0,0,-14" Foreground="#FF080808" Height="64" VerticalAlignment="Bottom"/>
@@ -619,7 +619,7 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnCerrarSesion" Content="Cerrar sesion" Height="70" Margin="1200,0,0,650" VerticalAlignment="Center" Width="154" HorizontalContentAlignment="Center" FontSize="20" Click="btnCerrarSesion_Click" FontFamily="Calibri" HorizontalAlignment="Center">
+        <Button x:Name="btnCerrarSesion" Content="Cerrar sesion" Height="70" Margin="1200,0,0,630" VerticalAlignment="Center" Width="154" HorizontalContentAlignment="Center" FontSize="20" Click="btnCerrarSesion_Click" FontFamily="Calibri" HorizontalAlignment="Center">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="UIElement.MouseEnter">
                     <BeginStoryboard>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProyectoBodega"
         xmlns:controlzex="urn:controlzex" x:Class="ProyectoBodega.frmAgregarProveedor"
         mc:Ignorable="d"
-        Title="Formulario Proveedor" Height="768" Width="1366" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinHeight="768" MinWidth="1366">
+        Title="Formulario Proveedor" Height="768" Width="1366" WindowStartupLocation="CenterScreen" PreviewKeyDown="Window_PreviewKeyDown" Loaded="Window_Loaded" WindowState="Maximized" KeyDown="Window_KeyDown" Icon="/img/icono.png" MinHeight="718" MinWidth="1316">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>
