@@ -17,7 +17,7 @@
                 <Style TargetType="{x:Type DataGridCell}">
                     <Setter Property="Height" Value="30"/>
                     <Setter Property="Background" Value="White"/>
-                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="FontSize" Value="17"/>
                     <Setter Property="FontFamily" Value="Microsoft JhengHei"/>
                     <Setter Property="BorderBrush" Value="gray"/>
                     <Setter Property="BorderThickness" Value="1"/>
@@ -49,7 +49,14 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Nombre" Width="*" Binding="{Binding nombre_producto}"/>
+                <DataGridTextColumn Header="Nombre" Width="*" Binding="{Binding nombre_producto}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Padding" Value="3,0,0,0"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Header="Precio Compra" Width="160" Binding="{Binding precio_compra}">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
@@ -77,7 +84,14 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Categoria" Width="150" Binding="{Binding nombre_categoria}"/>
+                <DataGridTextColumn Header="Categoria" Width="150" Binding="{Binding nombre_categoria}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Padding" Value="3,0,0,0"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="dgMarca" HorizontalAlignment="Right" Height="116" VerticalAlignment="Top" Width="429" AutoGenerateColumns="False" Margin="0,544,7,0" CanUserAddRows="False" SelectionMode="Single" IsReadOnly="True" HeadersVisibility="Column">
@@ -85,7 +99,7 @@
                 <Style TargetType="{x:Type DataGridCell}">
                     <Setter Property="Height" Value="30"/>
                     <Setter Property="Background" Value="White"/>
-                    <Setter Property="FontSize" Value="18"/>
+                    <Setter Property="FontSize" Value="13"/>
                     <Setter Property="FontFamily" Value="Microsoft JhengHei"/>
                     <Setter Property="BorderBrush" Value="gray"/>
                     <Setter Property="BorderThickness" Value="1"/>
@@ -108,7 +122,7 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="50" Binding="{Binding idMarca}" IsReadOnly="True">
+                <DataGridTextColumn Header="ID" Width="33" Binding="{Binding idMarca}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
 
@@ -117,7 +131,14 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Nombre" Width="*" Binding="{Binding nombre_marca}"/>
+                <DataGridTextColumn Header="Nombre" Width="*" Binding="{Binding nombre_marca}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="3,0,0,0"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="dgCategoria" HorizontalAlignment="Right" Height="116" VerticalAlignment="Top" Width="429" AutoGenerateColumns="False" Margin="0,320,7,0" CanUserAddRows="False" SelectionMode="Single" IsReadOnly="True" HeadersVisibility="Column">
@@ -125,7 +146,7 @@
                 <Style TargetType="{x:Type DataGridCell}">
                     <Setter Property="Height" Value="30"/>
                     <Setter Property="Background" Value="White"/>
-                    <Setter Property="FontSize" Value="18"/>
+                    <Setter Property="FontSize" Value="13"/>
                     <Setter Property="FontFamily" Value="Microsoft JhengHei"/>
                     <Setter Property="BorderBrush" Value="gray"/>
                     <Setter Property="BorderThickness" Value="1"/>
@@ -148,7 +169,7 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="50" Binding="{Binding idCategoria}">
+                <DataGridTextColumn Header="ID" Width="33" Binding="{Binding idCategoria}">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
 
@@ -157,8 +178,22 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Nombre" Width="*" Binding="{Binding nombre_categoria}"/>
-                <DataGridTextColumn Header="Descripcion" Width="*" Binding="{Binding descripcion}"/>
+                <DataGridTextColumn Header="Nombre" Width="*" Binding="{Binding nombre_categoria}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="3,0,0,0"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Descripcion" Width="*" Binding="{Binding descripcion}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="3,0,0,0"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         <DataGrid x:Name="dgProveedor" HorizontalAlignment="Right" Height="116" VerticalAlignment="Top" Width="429" AutoGenerateColumns="False" Margin="0,97,7,0" CanUserAddRows="False" SelectionMode="Single" IsReadOnly="True" HeadersVisibility="Column" RenderTransformOrigin="0.5,0.5">
@@ -166,7 +201,7 @@
                 <Style TargetType="{x:Type DataGridCell}">
                     <Setter Property="Height" Value="30"/>
                     <Setter Property="Background" Value="White"/>
-                    <Setter Property="FontSize" Value="18"/>
+                    <Setter Property="FontSize" Value="13"/>
                     <Setter Property="FontFamily" Value="Microsoft JhengHei"/>
                     <Setter Property="BorderBrush" Value="gray"/>
                     <Setter Property="BorderThickness" Value="1"/>
@@ -189,7 +224,7 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Width="50" Binding="{Binding idProveedor}" IsReadOnly="True">
+                <DataGridTextColumn Header="ID" Width="33" Binding="{Binding idProveedor}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
 
@@ -198,9 +233,24 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Nombre" Width="*" Binding="{Binding nombre_proveedor}" />
-                <DataGridTextColumn Header="Direccion" Width="*" Binding="{Binding direccion_proveedor}"/>
-                <DataGridTextColumn Header="Numero" Width="100" Binding="{Binding numero_contacto}">
+                <DataGridTextColumn Header="Nombre" Width="*" Binding="{Binding nombre_proveedor}" >
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="3,0,0,0"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Direccion" Width="*" Binding="{Binding direccion_proveedor}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Padding" Value="3,0,0,0"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Numero" Width="70
+                                    " Binding="{Binding numero_contacto}">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
 

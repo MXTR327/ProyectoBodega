@@ -24,13 +24,16 @@ namespace ProyectoBodega
             btnAgregarProveedor.Content = "Actualizar Proveedor";
             txtCodigo.Visibility = Visibility.Visible;
             lblCodigo.Visibility = Visibility.Visible;
-
-
             txtbNombre.Visibility = Visibility.Collapsed;
 
-            if (string.IsNullOrWhiteSpace(txtDireccion.Text)) txtbDireccion.Visibility = Visibility.Collapsed;
-
-            if (string.IsNullOrWhiteSpace(txtNumero.Text)) txtbNumero.Visibility = Visibility.Collapsed;
+            if (string.IsNullOrWhiteSpace(txtDireccion.Text)) 
+            {
+                txtbDireccion.Visibility = Visibility.Collapsed;
+            }
+            if (string.IsNullOrWhiteSpace(txtNumero.Text)) 
+            {
+                txtbNumero.Visibility = Visibility.Collapsed;
+            }
             //------------------------------------------------------------------------------------------------------------------------------\\
             DataRowView filaSeleccionada = (DataRowView)ventanaProducto.dgProveedor.SelectedItem;
             string Id = filaSeleccionada["idProveedor"].ToString();

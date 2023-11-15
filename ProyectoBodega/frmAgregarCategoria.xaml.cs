@@ -37,10 +37,15 @@ namespace ProyectoBodega
             txtCodigo.Text = Id;
             txtNombre.Text = nombre;
 
+            if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+            {
+                txtbDescripcion.Visibility = Visibility.Collapsed;
+            }
+
             if (string.IsNullOrEmpty(descripcion)) return;
 
             chkDescripcion.IsChecked = true;
-            txtDescripcion.IsReadOnly = true;
+            txtDescripcion.IsReadOnly = false;
             txtDescripcion.Text = descripcion;
         }
         private void chkDescripcion_Click(object sender, RoutedEventArgs e)

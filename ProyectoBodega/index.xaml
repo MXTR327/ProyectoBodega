@@ -257,7 +257,7 @@
                             </Style>
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn x:Name="TopColumn" Header="Top" Width="70" Binding="{Binding Top}">
+                            <DataGridTextColumn x:Name="TopColumn" Header="Top" Width="50" Binding="{Binding Top}">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
 
@@ -266,7 +266,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn x:Name="idProducto" Header="ID" Width="50" Binding="{Binding idProducto}" >
+                            <DataGridTextColumn x:Name="idProducto" Header="ID" Width="40" Binding="{Binding idProducto}" >
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
 
@@ -275,8 +275,15 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn x:Name="nombre_producto" Header="Nombre" Width="*" Binding="{Binding nombre_producto}" />
-                            <DataGridTextColumn x:Name="precio_compra" Header="Prec. Compra" Width="140" Binding="{Binding precio_compra}" >
+                            <DataGridTextColumn x:Name="nombre_producto" Header="Nombre" Width="*" Binding="{Binding nombre_producto}" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Padding" Value="3,0,0,0"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn x:Name="precio_compra" Header="Prec. Compra" Width="120" Binding="{Binding precio_compra}" >
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
 
@@ -285,7 +292,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn x:Name="precio_venta" Header="Prec. venta" Width="130" Binding="{Binding precio_venta}" >
+                            <DataGridTextColumn x:Name="precio_venta" Header="Prec. venta" Width="120" Binding="{Binding precio_venta}" >
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
 
@@ -294,7 +301,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn x:Name="stock" Header="Stock" Width="100" Binding="{Binding stock}" >
+                            <DataGridTextColumn x:Name="stock" Header="Stock" Width="70" Binding="{Binding stock}" >
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
 
@@ -303,7 +310,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn x:Name="nombre_categoria" Header="Categoria" Width="140" Binding="{Binding nombre_categoria}" >
+                            <DataGridTextColumn x:Name="nombre_categoria" Header="Categoria" Width="155" Binding="{Binding nombre_categoria}" >
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
 
@@ -369,7 +376,14 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn x:Name="nombreproductoVenta" Header="Nombre Producto" Width="*" Binding="{Binding nombre_producto}" />
+                            <DataGridTextColumn x:Name="nombreproductoVenta" Header="Nombre Producto" Width="*" Binding="{Binding nombre_producto}" >
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Setter Property="Padding" Value="3,0,0,0"/>
+                                        <Setter Property="VerticalAlignment" Value="Center"/>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="Precio" Header="Precio" Width="120" Binding="{Binding precio_compra}" >
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">

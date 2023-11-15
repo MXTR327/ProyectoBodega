@@ -24,7 +24,7 @@
                     <TextBlock x:Name="txtbBuscar" VerticalAlignment="Top" Foreground="Gray" FontSize="30" Text="Nombre del Producto" Padding="45,0,0,0" Height="50" Margin="0,25,0,0"/>
                     <TextBox x:Name="txtBuscadorProducto" Height="60" VerticalAlignment="Top" FontSize="30" FontFamily="Microsoft Sans Serif" FontWeight="Bold" VerticalContentAlignment="Bottom" TextChanged="txtBuscadorProducto_TextChanged" Margin="0,5,0,0" BorderThickness="0,0,0,2" Background="{x:Null}" Padding="45,0,0,0" GotFocus="txtBuscadorProducto_GotFocus" LostFocus="txtBuscadorProducto_LostFocus" />
                 </Grid>
-                <Grid x:Name="gdCalcPaq" HorizontalAlignment="Left" VerticalAlignment="Top" Width="379" Margin="922,206,0,0" Height="96" Visibility="Hidden" >
+                <Grid x:Name="gdCalcPaq" HorizontalAlignment="Left" VerticalAlignment="Top" Width="379" Margin="922,188,0,0" Height="96" Visibility="Hidden" >
                     <Label Content="Paquetes" Margin="0,-1,224,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30" HorizontalAlignment="Right" Width="134"/>
                     <Label Content="Unidades" Margin="0,-1,17,0" VerticalAlignment="Top" FontFamily="Bahnschrift" FontSize="30" HorizontalAlignment="Right" Width="134"/>
 

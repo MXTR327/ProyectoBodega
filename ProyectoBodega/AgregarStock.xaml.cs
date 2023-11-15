@@ -184,14 +184,14 @@ namespace ProyectoBodega
             {
                 gdCalcPaq.Visibility = Visibility.Visible;
                 txtPaquetes.Focus();
-                gdAgregarUnidades.Margin = new Thickness(922, 300, 0, 275);
+                gdAgregarUnidades.Margin = new Thickness(922, 270, 0, 0);
             }
             else
             {
                 txtPaquetes.Text = "";
                 txtUnidades.Text = "";
                 gdCalcPaq.Visibility = Visibility.Hidden;
-                gdAgregarUnidades.Margin = new Thickness(922, 201, 0, 275);
+                gdAgregarUnidades.Margin = new Thickness(922, 201, 0, 0);
             }
         }
 
