@@ -1,4 +1,5 @@
 ﻿using Negocio;
+using System;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
@@ -114,9 +115,11 @@ namespace ProyectoBodega
 
             if (!string.IsNullOrEmpty(textBox.Text))
             {
-                string newText = char.ToUpper(textBox.Text[0]) + textBox.Text.Substring(1).ToLower();
-                textBox.Text = newText;
-                textBox.SelectionStart = textBox.Text.Length;
+                int cursorPosition = textBox.SelectionStart;
+                string nuevoTexto = char.ToUpper(textBox.Text[0]) + textBox.Text.Substring(1).ToLower();
+                textBox.Text = nuevoTexto;
+                textBox.SelectionStart = Math.Min(cursorPosition, textBox.Text.Length);
+                textBox.SelectionLength = 0;
             }
         }
         private void Window_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)

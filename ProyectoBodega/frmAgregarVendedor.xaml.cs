@@ -1,4 +1,5 @@
 ﻿using Negocio;
+using System;
 using System.Data;
 using System.Linq;
 using System.Windows;
@@ -104,9 +105,11 @@ namespace ProyectoBodega
 
             if (!string.IsNullOrEmpty(textBox.Text))
             {
-                textBox.Text = textBox.Text.First().ToString().ToUpper() + textBox.Text.Substring(1);
-                textBox.Text = textBox.Text;
-                textBox.SelectionStart = textBox.Text.Length;
+                int cursorPosition = textBox.SelectionStart;
+                string nuevoTexto = char.ToUpper(textBox.Text[0]) + textBox.Text.Substring(1).ToLower();
+                textBox.Text = nuevoTexto;
+                textBox.SelectionStart = Math.Min(cursorPosition, textBox.Text.Length);
+                textBox.SelectionLength = 0;
             }
         }
         private void txtTelefono_PreviewKeyDown(object sender, KeyEventArgs e)

@@ -9,11 +9,11 @@ namespace Datos
     {
         private SQLiteDataAdapter da;
         private DataTable dt;
-        public DataTable Consultar(string filas, string tabla)
+        public DataTable Consultar(string filaID,string filaNombre, string tabla)
         {
             try
             {
-                string consulta = $"SELECT {filas} FROM {tabla}";
+                string consulta = $"SELECT {filaID},{filaNombre} FROM {tabla} order by {filaNombre}";
                 Conexion.Conectar();
                 da = new SQLiteDataAdapter(consulta, Conexion.con);
                 dt = new DataTable();
@@ -27,15 +27,15 @@ namespace Datos
         }
         public DataTable ConsultarProveedor()
         {
-            return Consultar("idProveedor, nombre_proveedor", "proveedor");
+            return Consultar("idProveedor", "nombre_proveedor", "proveedor");
         }
         public DataTable ConsultarCategoria()
         {
-            return Consultar("idCategoria, nombre_categoria", "categoria");
+            return Consultar("idCategoria", "nombre_categoria", "categoria");
         }
         public DataTable ConsultarMarca()
         {
-            return Consultar("idMarca, nombre_marca", "marca");
+            return Consultar("idMarca", "nombre_marca", "marca");
         }
     }
 }

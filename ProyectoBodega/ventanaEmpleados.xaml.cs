@@ -1,13 +1,13 @@
 ﻿using Negocio;
+using System;
 using System.Data;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace ProyectoBodega
 {
-    /// <summary>
-    /// Lógica de interacción para ventanaEmpleados.xaml
-    /// </summary>
     public partial class ventanaEmpleados : Window
     {
         CN_ventanaEmpleados cn_ventanaempleados = new CN_ventanaEmpleados();
@@ -39,8 +39,18 @@ namespace ProyectoBodega
             dgVendedores.ItemsSource = dt.DefaultView;
         }
         
-        private void txtBuscadorVendedor_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void txtBuscadorVendedor_TextChanged(object sender, TextChangedEventArgs e)
         {
+            TextBox textBox = (TextBox)sender;
+            if (!string.IsNullOrEmpty(textBox.Text))
+            {
+                int cursorPosition = textBox.SelectionStart;
+                string nuevoTexto = char.ToUpper(textBox.Text[0]) + textBox.Text.Substring(1).ToLower();
+                textBox.Text = nuevoTexto;
+                textBox.SelectionStart = Math.Min(cursorPosition, textBox.Text.Length);
+                textBox.SelectionLength = 0;
+            }
+
             filtro = txtBuscadorVendedor.Text;
             CargarVendedores();
         }

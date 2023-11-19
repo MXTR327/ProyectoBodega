@@ -142,9 +142,9 @@
                 </Viewbox>
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
 
-                <ComboBox x:Name="cmbCategoria" HorizontalAlignment="Left" Margin="373,195,0,0" VerticalAlignment="Top" Width="350" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="20"/>
-                <ComboBox x:Name="cmbMarca" Margin="732,195,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="350" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="20"/>
-                <ComboBox x:Name="cmbProveedor" HorizontalAlignment="Left" Margin="15,195,0,0" VerticalAlignment="Top" Width="350" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="20"/>
+                <ComboBox x:Name="cmbCategoria" HorizontalAlignment="Left" Margin="373,195,0,0" VerticalAlignment="Top" Width="350" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="20" MaxDropDownHeight="200"/>
+                <ComboBox x:Name="cmbMarca" Margin="732,195,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="350" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="20" MaxDropDownHeight="200"/>
+                <ComboBox x:Name="cmbProveedor" HorizontalAlignment="Left" Margin="15,195,0,0" VerticalAlignment="Top" Width="350" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="20" MaxDropDownHeight="200"/>
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
 
                 <Button x:Name="btnAgregarPaquete" Content="Agregar Paquete( Intro )" Margin="0,620,0,0" FontSize="28" FontFamily="Calibri" VerticalContentAlignment="Center" Click="btnAgregarPaquete_Click" Height="54" VerticalAlignment="Center" HorizontalAlignment="Center" Width="510">

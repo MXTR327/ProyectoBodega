@@ -89,9 +89,9 @@
                     <CheckBox x:Name="chkDescripcion"  Height="15" Width="16" IsChecked="False" Click="chkDescripcion_Click"/>
                 </Viewbox>
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <ComboBox x:Name="cmbMarca" Height="50" Margin="748,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341"/>
-                <ComboBox x:Name="cmbProveedor" Height="50" Margin="389,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341" BorderBrush="White"/>
-                <ComboBox x:Name="cmbCategoria" Height="50" Margin="28,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341"/>
+                <ComboBox x:Name="cmbMarca" Height="50" Margin="748,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341" MaxDropDownHeight="200"/>
+                <ComboBox x:Name="cmbProveedor" Height="50" Margin="389,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341" BorderBrush="White" MaxDropDownHeight="200"/>
+                <ComboBox x:Name="cmbCategoria" Height="50" Margin="28,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341" MaxDropDownHeight="200"/>
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
                 <Button x:Name="btnAgregarProducto" Content="Agregar Producto( Intro )" Height="54" Width="510" Margin="0,590,0,0" FontFamily="Calibri" FontSize="28" Click="btnAgregarProducto_Click" HorizontalAlignment="Center" VerticalAlignment="Center">

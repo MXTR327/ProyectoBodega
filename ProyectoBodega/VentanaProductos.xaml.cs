@@ -103,21 +103,25 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtBuscadorProducto_TextChanged(object sender, TextChangedEventArgs e)
         {
+            txtPrimeraLetraMayuscula_TextChanged(sender,e);
             filtro = txtBuscadorProducto.Text;
             CargarProducto();
         }
         private void txtBuscarProveedor_TextChanged(object sender, TextChangedEventArgs e)
         {
+            txtPrimeraLetraMayuscula_TextChanged(sender, e);
             filtro = txtBuscadorProveedor.Text;
             CargarProveedor();
         }
         private void txtBuscarCategoria_TextChanged(object sender, TextChangedEventArgs e)
         {
+            txtPrimeraLetraMayuscula_TextChanged(sender, e);
             filtro = txtBuscadorCategoria.Text;
             CargarCategoria();
         }
         private void txtBuscarMarca_TextChanged(object sender, TextChangedEventArgs e)
         {
+            txtPrimeraLetraMayuscula_TextChanged(sender, e);
             filtro = txtBuscadorMarca.Text;
             CargarMarca();
         }
@@ -268,6 +272,10 @@ namespace ProyectoBodega
                 return;
             }
             CargarProducto();
+            if (ventanaIndex != null)
+            {
+                ventanaIndex.CargarProducto();
+            }
             if (dgProducto.Items.Count > 0) dgProducto.SelectedIndex = 0;
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
@@ -444,27 +452,12 @@ namespace ProyectoBodega
         }
         private void txtControlarDouble_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Enter || e.Key == Key.Escape || e.Key == Key.Tab || e.Key == Key.Back)
+            {
+                return;
+            }
             TextBox textBox = sender as TextBox;
-
-            if (!(Char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) ||
-                  (e.Key == Key.OemComma && textBox.Text.IndexOf(',') == -1) ||
-                  e.Key == Key.Left || e.Key == Key.Right || e.Key == Key.Back || e.Key == Key.Delete || e.Key == Key.Home || e.Key == Key.End))
-            {
-                e.Handled = true;
-            }
-            if (e.Key == Key.OemComma && textBox.Text.IndexOf(',') != -1)
-            {
-                e.Handled = true;
-            }
-            if (e.Key == Key.OemComma)
-            {
-                int commaIndex = textBox.Text.IndexOf(',');
-                if (commaIndex != -1 && textBox.Text.Length - commaIndex > 2)
-                {
-                    e.Handled = true;
-                }
-            }
-            int indexOfComma = textBox.Text.IndexOf(',');
+            int indexOfComma = textBox.Text.IndexOf('.');
             if (indexOfComma != -1)
             {
                 string decimalPart = textBox.Text.Substring(indexOfComma + 1);
@@ -472,6 +465,21 @@ namespace ProyectoBodega
                 {
                     e.Handled = true;
                 }
+            }
+            if (textBox.Text.Contains(".") && (e.Key == Key.OemPeriod || e.Key == Key.Decimal))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (textBox.SelectionStart == 0 && (e.Key == Key.OemPeriod || e.Key == Key.Decimal))
+            {
+                e.Handled = true;
+                return;
+            }
+            if (!((e.Key >= Key.D0 && e.Key <= Key.D9) || (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || e.Key == Key.OemPeriod || e.Key == Key.Decimal || (e.Key == Key.Left || e.Key == Key.Right)))
+            {
+                e.Handled = true;
             }
         }
         private void btnAgregarProductoPaquete_Click(object sender, RoutedEventArgs e)
@@ -486,12 +494,14 @@ namespace ProyectoBodega
         private void txtPrimeraLetraMayuscula_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-
-            if (string.IsNullOrEmpty(textBox.Text)) return;
-
-            string newText = char.ToUpper(textBox.Text[0]) + textBox.Text.Substring(1).ToLower();
-            textBox.Text = newText;
-            textBox.SelectionStart = textBox.Text.Length;
+            if (!string.IsNullOrEmpty(textBox.Text))
+            {
+                int cursorPosition = textBox.SelectionStart;
+                string nuevoTexto = char.ToUpper(textBox.Text[0]) + textBox.Text.Substring(1).ToLower();
+                textBox.Text = nuevoTexto;
+                textBox.SelectionStart = Math.Min(cursorPosition, textBox.Text.Length);
+                textBox.SelectionLength = 0;
+            }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtBuscadorProducto_GotFocus(object sender, RoutedEventArgs e)

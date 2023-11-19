@@ -26,7 +26,7 @@
                 <Grid Cursor="IBeam" ForceCursor="True" Margin="0,225,1,0" Height="64" VerticalAlignment="Top">
                     <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/nombreP.png" Stretch="Fill" Opacity="0.55"/>
                     <TextBlock x:Name="txtbNombre" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="69,0,0,14" Foreground="Gray" FontSize="30" Width="461"><Run Language="es-pe" Text="Ingrese el nombre de la Categoría"/></TextBlock>
-                    <TextBox x:Name="txtNombre" Height="50" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" TextChanged="txtNombre_TextChanged" Margin="32,3,31,0" BorderThickness="0,0,0,2" Padding="37,0,0,0" GotFocus="txtNombre_GotFocus" LostFocus="txtNombre_LostFocus" Background="{x:Null}" />
+                    <TextBox x:Name="txtNombre" Height="50" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" Margin="32,3,31,0" BorderThickness="0,0,0,2" Padding="37,0,0,0" GotFocus="txtNombre_GotFocus" LostFocus="txtNombre_LostFocus" Background="{x:Null}" TextChanged="PrimeraLetraMayuscula_TextChanged" />
                 </Grid>
                 <Button x:Name="btnAgregar" Content="Agregar Categoría( Intro )" Margin="0,370,0,0" FontFamily="Calibri" FontSize="28" Click="btnAgregar_Click" Width="510" HorizontalAlignment="Center" Height="54" VerticalAlignment="Center" Cursor="Hand">
                     <Button.Triggers>
@@ -132,7 +132,7 @@
                 <Grid x:Name="gridDescripcion" Cursor="Arrow" ForceCursor="True" Margin="0,389,1,0" Height="64" VerticalAlignment="Top">
                     <Image HorizontalAlignment="Left" Height="33" Margin="35,12,0,0" VerticalAlignment="Top" Width="33" Source="img/descr.png" Stretch="Fill" Opacity="0.5"/>
                     <TextBlock x:Name="txtbDescripcion" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="69,0,0,14" Foreground="Gray" FontSize="30" Width="461"><Run Language="es-pe" Text="Ingrese la Descripción( Opcional )"/></TextBlock>
-                    <TextBox x:Name="txtDescripcion" Height="50" Margin="35,3,29,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" TextChanged="txtDescripcion_TextChanged" BorderThickness="0,0,0,2" Padding="37,0,0,0" GotFocus="txtDescripcion_GotFocus" LostFocus="txtDescripcion_LostFocus" Background="{x:Null}" />
+                    <TextBox x:Name="txtDescripcion" Height="50" Margin="35,3,29,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="30" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="37,0,0,0" GotFocus="txtDescripcion_GotFocus" LostFocus="txtDescripcion_LostFocus" Background="{x:Null}" TextChanged="PrimeraLetraMayuscula_TextChanged" />
                 </Grid>
             </Grid>
         </Border>

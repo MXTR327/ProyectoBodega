@@ -1,20 +1,10 @@
-﻿using ControlzEx.Standard;
-using Negocio;
+﻿using Negocio;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace ProyectoBodega
 {
@@ -54,21 +44,19 @@ namespace ProyectoBodega
         }
         private void txtBuscadorProducto_TextChanged(object sender, TextChangedEventArgs e)
         {
+            TextBox textBox = (TextBox)sender;
+
+            if (!string.IsNullOrEmpty(textBox.Text))
+            {
+                int cursorPosition = textBox.SelectionStart;
+                string nuevoTexto = char.ToUpper(textBox.Text[0]) + textBox.Text.Substring(1).ToLower();
+                textBox.Text = nuevoTexto;
+                textBox.SelectionStart = Math.Min(cursorPosition, textBox.Text.Length);
+                textBox.SelectionLength = 0;
+            }
+
             filtro = txtBuscadorProducto.Text;
-            CargarProducto(); 
-            if (dgProducto.Items.Count > 0)
-            {
-                dgProducto.SelectedIndex = 0;
-                txtCantidad.Text = "";
-                txtbCantidad.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                txtbCantidad.Visibility = Visibility.Collapsed;
-                txtCantidad.Text = "Sin productos";
-                txtStockInicial.Text = "0";
-                txtStockFinal.Text = "0";
-            }
+            CargarProducto();
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtStock_GotFocus(object sender, RoutedEventArgs e)

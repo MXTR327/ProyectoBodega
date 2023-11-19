@@ -275,9 +275,9 @@
         <TextBox x:Name="txtGananciaUnidad" CharacterCasing="Upper" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="17" IsReadOnly="True" Margin="494,645,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" />
         <TextBox x:Name="txtGananciaTotal" CharacterCasing="Upper" VerticalAlignment="Top" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.5,0.5" FontSize="17" IsReadOnly="True" Margin="494,678,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" Height="25" />
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-        <ComboBox x:Name="cmbCategoria" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="205" Margin="494,516,0,0" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" FontSize="15"/>
-        <ComboBox x:Name="cmbProveedor" HorizontalAlignment="Left" Height="25" Margin="494,547,0,0" VerticalAlignment="Top" Width="205" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" FontSize="15"/>
-        <ComboBox x:Name="cmbMarca" HorizontalAlignment="Left" Height="25" Margin="494,578,0,0" VerticalAlignment="Top" Width="205" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" FontSize="15"/>
+        <ComboBox x:Name="cmbCategoria" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="205" Margin="494,516,0,0" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" FontSize="15" MaxDropDownHeight="150"/>
+        <ComboBox x:Name="cmbProveedor" HorizontalAlignment="Left" Height="25" Margin="494,547,0,0" VerticalAlignment="Top" Width="205" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" FontSize="15" MaxDropDownHeight="150"/>
+        <ComboBox x:Name="cmbMarca" HorizontalAlignment="Left" Height="25" Margin="494,578,0,0" VerticalAlignment="Top" Width="205" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" FontSize="15" MaxDropDownHeight="150"/>
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
         <Label Content="ID" FontSize="17" FontFamily="Bahnschrift" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="7,519,0,0" />
         <Label Content="Nombre" FontSize="17" FontFamily="Bahnschrift" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,546,0,0" />

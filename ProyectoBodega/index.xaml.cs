@@ -87,15 +87,7 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtBuscadorProducto_TextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
-
-            if (!string.IsNullOrEmpty(textBox.Text))
-            {
-                string newText = char.ToUpper(textBox.Text[0]) + textBox.Text.Substring(1);
-                textBox.Text = newText;
-                textBox.SelectionStart = textBox.Text.Length;
-            }
-
+            txtPrimeraLetraMayuscula_TextChanged(sender,e);
             filtroProductos = txtBuscadorProducto.Text;
             CargarProducto();
         }
@@ -291,9 +283,11 @@ namespace ProyectoBodega
 
             if (!string.IsNullOrEmpty(textBox.Text))
             {
-                string newText = char.ToUpper(textBox.Text[0]) + textBox.Text.Substring(1);
-                textBox.Text = newText;
-                textBox.SelectionStart = textBox.Text.Length;
+                int cursorPosition = textBox.SelectionStart;
+                string nuevoTexto = char.ToUpper(textBox.Text[0]) + textBox.Text.Substring(1).ToLower();
+                textBox.Text = nuevoTexto;
+                textBox.SelectionStart = Math.Min(cursorPosition, textBox.Text.Length);
+                textBox.SelectionLength = 0;
             }
         }
         private void txtCantidad_PreviewKeyDown(object sender, KeyEventArgs e)
