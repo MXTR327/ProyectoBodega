@@ -548,6 +548,34 @@ namespace ProyectoBodega
         {
             if(e.Key == Key.Escape) Close();
         }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void VerCategorias_Click(object sender, RoutedEventArgs e)
+        {
+            this.ShowInTaskbar = false;
+            BuscarCombobox buscar = new BuscarCombobox();
+            buscar.Tag = "categoria";
+            buscar.VentanaProductos = this;
+            buscar.ShowDialog();
+            this.ShowInTaskbar = true;
+        }
+        private void VerProveedor_Click(object sender, RoutedEventArgs e)
+        {
+            this.ShowInTaskbar = false;
+            BuscarCombobox buscar = new BuscarCombobox();
+            buscar.Tag = "proveedor";
+            buscar.VentanaProductos = this;
+            buscar.ShowDialog();
+            this.ShowInTaskbar = true;
+        }
+        private void VerMarca_Click(object sender, RoutedEventArgs e)
+        {
+            this.ShowInTaskbar = false;
+            BuscarCombobox buscar = new BuscarCombobox();
+            buscar.Tag = "marca";
+            buscar.VentanaProductos = this;
+            buscar.ShowDialog();
+            this.ShowInTaskbar = true;
+        }
     }
 }
 

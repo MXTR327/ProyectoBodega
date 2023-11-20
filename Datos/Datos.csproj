@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CD_BuscarCombobox.cs" />
     <Compile Include="CD_CargarLista.cs" />
     <Compile Include="CD_frmAgregarCategoria.cs" />
     <Compile Include="CD_frmAgregarMarca.cs" />

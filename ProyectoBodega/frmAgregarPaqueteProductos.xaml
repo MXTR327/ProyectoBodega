@@ -10,16 +10,33 @@
         <Grid.Background>
             <ImageBrush ImageSource="img/fondo.jpg"/>
         </Grid.Background>
+
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
         <Border HorizontalAlignment="Center" CornerRadius="10" Width="1104" Background="White" Opacity="0.99" Height="686" VerticalAlignment="Center">
             <Grid>
+
+                <Button x:Name="VerCategorias" HorizontalAlignment="Left" Margin="331,195,0,0" VerticalAlignment="Top" Height="30" Width="33" Click="VerCategorias_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/img/lupa.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="VerProveedor" HorizontalAlignment="Left" Margin="697,195,0,0" VerticalAlignment="Top" Height="30" Width="33" Click="VerProveedor_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/img/lupa.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="VerMarca" HorizontalAlignment="Left" Margin="1061,195,0,0" VerticalAlignment="Top" Height="30" Width="33" Click="VerMarca_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/img/lupa.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
                 <Label Content="Agregar Producto Y Paquete" HorizontalAlignment="Center" Margin="0,12,0,0" VerticalAlignment="Top" Width="1104" FontSize="20" FontFamily="Microsoft JhengHei" VerticalContentAlignment="Center" FontWeight="Bold" HorizontalContentAlignment="Center"/>
                 <Label Content="Nombre" HorizontalAlignment="Left" Margin="15,42,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" Width="102"/>
                 <Label Content="Medida" HorizontalAlignment="Left" Margin="580,41,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
                 <Label Content="Descripción" HorizontalAlignment="Left" Margin="13,104,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
-                <Label Content="Proveedor" HorizontalAlignment="Left" Margin="12,166,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
-                <Label Content="Categoría" HorizontalAlignment="Left" Margin="370,166,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
-                <Label Content="Marca" HorizontalAlignment="Left" Margin="729,166,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
+                <Label Content="Proveedor" HorizontalAlignment="Left" Margin="373,166,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
+                <Label Content="Categoría" HorizontalAlignment="Left" Margin="5,166,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
+                <Label Content="Marca" HorizontalAlignment="Left" Margin="736,166,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
                 <Label Content="Stock Unidades" HorizontalAlignment="Left" Margin="558,279,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
                 <Label Content="Cantidad de Paquetes" HorizontalAlignment="Left" Margin="11,253,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
                 <Label Content="Información del Paquete" HorizontalAlignment="Left" Margin="12,230,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
@@ -142,9 +159,9 @@
                 </Viewbox>
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
 
-                <ComboBox x:Name="cmbCategoria" HorizontalAlignment="Left" Margin="373,195,0,0" VerticalAlignment="Top" Width="350" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="20" MaxDropDownHeight="200"/>
-                <ComboBox x:Name="cmbMarca" Margin="732,195,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="350" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="20" MaxDropDownHeight="200"/>
-                <ComboBox x:Name="cmbProveedor" HorizontalAlignment="Left" Margin="15,195,0,0" VerticalAlignment="Top" Width="350" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="20" MaxDropDownHeight="200"/>
+                <ComboBox x:Name="cmbCategoria" HorizontalAlignment="Left" Margin="11,195,0,0" VerticalAlignment="Top" Width="320" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="20" MaxDropDownHeight="200"/>
+                <ComboBox x:Name="cmbMarca" Margin="741,195,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="20" MaxDropDownHeight="200"/>
+                <ComboBox x:Name="cmbProveedor" HorizontalAlignment="Left" Margin="377,195,0,0" VerticalAlignment="Top" Width="320" BorderThickness="0,0,0,1" VerticalContentAlignment="Center" FontFamily="Bahnschrift" FontSize="20" MaxDropDownHeight="200"/>
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
 
                 <Button x:Name="btnAgregarPaquete" Content="Agregar Paquete( Intro )" Margin="0,620,0,0" FontSize="28" FontFamily="Calibri" VerticalContentAlignment="Center" Click="btnAgregarPaquete_Click" Height="54" VerticalAlignment="Center" HorizontalAlignment="Center" Width="510">

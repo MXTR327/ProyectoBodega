@@ -275,9 +275,9 @@
         <TextBox x:Name="txtGananciaUnidad" CharacterCasing="Upper" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="17" IsReadOnly="True" Margin="494,645,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" />
         <TextBox x:Name="txtGananciaTotal" CharacterCasing="Upper" VerticalAlignment="Top" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.5,0.5" FontSize="17" IsReadOnly="True" Margin="494,678,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" Height="25" />
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-        <ComboBox x:Name="cmbCategoria" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="205" Margin="494,516,0,0" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" FontSize="15" MaxDropDownHeight="150"/>
-        <ComboBox x:Name="cmbProveedor" HorizontalAlignment="Left" Height="25" Margin="494,547,0,0" VerticalAlignment="Top" Width="205" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" FontSize="15" MaxDropDownHeight="150"/>
-        <ComboBox x:Name="cmbMarca" HorizontalAlignment="Left" Height="25" Margin="494,578,0,0" VerticalAlignment="Top" Width="205" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" FontSize="15" MaxDropDownHeight="150"/>
+        <ComboBox x:Name="cmbCategoria" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="185" Margin="494,516,0,0" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" FontSize="15" MaxDropDownHeight="150"/>
+        <ComboBox x:Name="cmbProveedor" HorizontalAlignment="Left" Height="25" Margin="494,547,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" FontSize="15" MaxDropDownHeight="150"/>
+        <ComboBox x:Name="cmbMarca" HorizontalAlignment="Left" Height="25" Margin="494,578,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" FontSize="15" MaxDropDownHeight="150"/>
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
         <Label Content="ID" FontSize="17" FontFamily="Bahnschrift" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="7,519,0,0" />
         <Label Content="Nombre" FontSize="17" FontFamily="Bahnschrift" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5,546,0,0" />
@@ -919,6 +919,21 @@
         <Label Content="Buscar" FontSize="20" FontFamily="Bahnschrift" Margin="906,511,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="88" />
         <Label Content="Inventario Productos" HorizontalAlignment="Center" VerticalAlignment="Top" Width="430" FontSize="30" FontFamily="Bahnschrift" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,4,0,0"/>
         <Label Content="Productos" HorizontalAlignment="Left" Margin="3,27,0,0" VerticalAlignment="Top" Width="156" FontSize="25" FontFamily="Bahnschrift" VerticalContentAlignment="Center"/>
+        <Button x:Name="VerCategorias" HorizontalAlignment="Left" Margin="679,517,0,0" VerticalAlignment="Top" Height="24" Width="20" Click="VerCategorias_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/img/lupa.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="VerProveedor" HorizontalAlignment="Left" Margin="679,547,0,0" VerticalAlignment="Top" Height="24" Width="20" Click="VerProveedor_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/img/lupa.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="VerMarca" HorizontalAlignment="Left" Margin="679,579,0,0" VerticalAlignment="Top" Height="24" Width="20" Click="VerMarca_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/img/lupa.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

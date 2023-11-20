@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CN_BuscarCombobox.cs" />
     <Compile Include="CN_CargarLista.cs" />
     <Compile Include="CN_frmAgregarCategoria.cs" />
     <Compile Include="CN_frmAgregarMarca.cs" />

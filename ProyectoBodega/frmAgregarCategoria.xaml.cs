@@ -61,7 +61,10 @@ namespace ProyectoBodega
             else
             {
                 gridDescripcion.Cursor = Cursors.Arrow;
-                txtbDescripcion.Visibility = Visibility.Visible;
+                if (string.IsNullOrEmpty(txtDescripcion.Text))
+                {
+                    txtbDescripcion.Visibility = Visibility.Visible;
+                }
             }
         }
         private void btnSalir_Click(object sender, RoutedEventArgs e)

@@ -21,9 +21,9 @@
 
                 <Label Content="Medida" FontSize="25" FontFamily="Bahnschrift" Height="43" VerticalAlignment="Top" Margin="694,83,0,0" HorizontalAlignment="Left" Width="296" />
                 <Label Content="Stock" FontSize="25" FontFamily="Bahnschrift" Height="43" VerticalAlignment="Top" Margin="694,179,0,0" HorizontalAlignment="Left" Width="296" />
-                <Label Content="Marca" FontSize="25" FontFamily="Bahnschrift" Margin="748,280,219,0" Height="43" VerticalAlignment="Top" />
-                <Label Content="Categoría" FontSize="25" FontFamily="Bahnschrift" Margin="20,280,887,0" Height="43" VerticalAlignment="Top" />
-                <Label Content="Proveedor" FontSize="25" FontFamily="Bahnschrift" Margin="389,280,498,0" Height="43" VerticalAlignment="Top" />
+                <Label Content="Marca" FontSize="25" FontFamily="Bahnschrift" Margin="733,280,234,0" Height="43" VerticalAlignment="Top" />
+                <Label Content="Categoría" FontSize="25" FontFamily="Bahnschrift" Margin="13,280,894,0" Height="43" VerticalAlignment="Top" />
+                <Label Content="Proveedor" FontSize="25" FontFamily="Bahnschrift" Margin="372,280,515,0" Height="43" VerticalAlignment="Top" />
                 <Label Content="Nombre del producto" FontSize="25" FontFamily="Bahnschrift" Margin="20,83,0,0" Height="43" VerticalAlignment="Top" HorizontalAlignment="Left" Width="296" />
                 <Label Content="Descripción del Producto" FontSize="25" FontFamily="Bahnschrift" Margin="20,179,0,0" Height="43" VerticalAlignment="Top" HorizontalAlignment="Left" Width="296" />
 
@@ -89,9 +89,9 @@
                     <CheckBox x:Name="chkDescripcion"  Height="15" Width="16" IsChecked="False" Click="chkDescripcion_Click"/>
                 </Viewbox>
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <ComboBox x:Name="cmbMarca" Height="50" Margin="748,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341" MaxDropDownHeight="200"/>
-                <ComboBox x:Name="cmbProveedor" Height="50" Margin="389,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341" BorderBrush="White" MaxDropDownHeight="200"/>
-                <ComboBox x:Name="cmbCategoria" Height="50" Margin="28,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="341" MaxDropDownHeight="200"/>
+                <ComboBox x:Name="cmbMarca" Height="50" Margin="737,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="314" MaxDropDownHeight="200"/>
+                <ComboBox x:Name="cmbProveedor" Height="50" Margin="377,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="314" BorderBrush="White" MaxDropDownHeight="200"/>
+                <ComboBox x:Name="cmbCategoria" Height="50" Margin="17,318,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" HorizontalAlignment="Left" Width="314" MaxDropDownHeight="200"/>
 
                 <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
                 <Button x:Name="btnAgregarProducto" Content="Agregar Producto( Intro )" Height="54" Width="510" Margin="0,590,0,0" FontFamily="Calibri" FontSize="28" Click="btnAgregarProducto_Click" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -177,6 +177,21 @@
                             <GradientStop Color="#FF953232" Offset="0.5"/>
                             <GradientStop Color="#FF701616" Offset="1"/>
                         </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="VerCategorias" HorizontalAlignment="Left" Margin="330,318,0,0" VerticalAlignment="Top" Height="50" Width="39" Click="VerCategorias_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/img/lupa.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="VerProveedores" HorizontalAlignment="Left" Margin="691,318,0,0" VerticalAlignment="Top" Height="50" Width="39" Click="VerProveedores_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/img/lupa.png" Stretch="Uniform"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="VerMarcas" HorizontalAlignment="Left" Margin="1050,318,0,0" VerticalAlignment="Top" Height="50" Width="39" Click="VerMarcas_Click">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/img/lupa.png" Stretch="Uniform"/>
                     </Button.Background>
                 </Button>
             </Grid>

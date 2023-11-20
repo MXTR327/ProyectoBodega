@@ -325,5 +325,35 @@ namespace ProyectoBodega
             if (e.Key == Key.Escape) Close();
             else if (e.Key == Key.Enter) btnAgregarProducto_Click(sender, e);
         }
+        //------------------------------------------------------------------------------------------------------------------------------\\
+        private void VerCategorias_Click(object sender, RoutedEventArgs e)
+        {
+            this.ShowInTaskbar = false;
+            BuscarCombobox buscar = new BuscarCombobox();
+            buscar.Tag = "categoria";
+            buscar.frmAgregarProducto = this;
+            buscar.ShowDialog();
+            this.ShowInTaskbar = true;
+        }
+
+        private void VerProveedores_Click(object sender, RoutedEventArgs e)
+        {
+            this.ShowInTaskbar = false;
+            BuscarCombobox buscar = new BuscarCombobox();
+            buscar.Tag = "proveedor";
+            buscar.frmAgregarProducto = this;
+            buscar.ShowDialog();
+            this.ShowInTaskbar = true;
+        }
+
+        private void VerMarcas_Click(object sender, RoutedEventArgs e)
+        {
+            this.ShowInTaskbar = false;
+            BuscarCombobox buscar = new BuscarCombobox();
+            buscar.Tag = "marca";
+            buscar.frmAgregarProducto = this;
+            buscar.ShowDialog();
+            this.ShowInTaskbar = true;
+        }
     }
 }
