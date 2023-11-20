@@ -120,9 +120,6 @@
     <Compile Include="frmAgregarMarca.xaml.cs">
       <DependentUpon>frmAgregarMarca.xaml</DependentUpon>
     </Compile>
-    <Compile Include="frmAgregarPaqueteProductos.xaml.cs">
-      <DependentUpon>frmAgregarPaqueteProductos.xaml</DependentUpon>
-    </Compile>
     <Compile Include="frmAgregarProducto.xaml.cs">
       <DependentUpon>frmAgregarProducto.xaml</DependentUpon>
     </Compile>
@@ -190,10 +187,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="frmAgregarMarca.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="frmAgregarPaqueteProductos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

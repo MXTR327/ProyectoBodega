@@ -2,6 +2,7 @@
 using Presentacion;
 using System;
 using System.Data;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -65,12 +66,12 @@ namespace ProyectoBodega
 
             foreach (var item in dgVenta.Items)
             {
-                if (item is DataRowView dataRowView && decimal.TryParse(dataRowView["total"]?.ToString(), out decimal total))
+                if (item is DataRowView dataRowView && decimal.TryParse(dataRowView["total"]?.ToString(), NumberStyles.Number, CultureInfo.InvariantCulture, out decimal total))
                 {
                     suma += total;
                 }
             }
-            lblTotal.Content = suma.ToString("F2");
+            lblTotal.Content = suma.ToString("F2", CultureInfo.InvariantCulture);
         }
 
         public void ContadorProductosVenta()

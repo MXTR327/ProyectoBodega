@@ -1,6 +1,7 @@
 ﻿    using Negocio;
 using System;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -334,42 +335,33 @@ namespace ProyectoBodega
             DataRowView filaSeleccionada = dgProducto.SelectedItem as DataRowView;
 
             if (filaSeleccionada == null || !filaSeleccionada.Row.Table.Columns.Contains("idProducto")) return;
-
             object idValue = filaSeleccionada["idProducto"];
-
             string idProducto = idValue.ToString();
-
             DataTable dt = new DataTable();
             dt = cn_ventanaproductos.ObtenerDatosProducto(idProducto);
-
             txtID.Text = idProducto;
             txtNombre.Text = dt.Rows[0][1].ToString();
-
             nombreProductoOriginal = dt.Rows[0][1].ToString();
-
             txtDescripcion.Text = dt.Rows[0][2].ToString();
 
             int idCategoria = Convert.ToInt32(dt.Rows[0][7]);
             int idProveedor = Convert.ToInt32(dt.Rows[0][8]);
             int idMarca = Convert.ToInt32(dt.Rows[0][9]);
-
-            double precioCompra = Convert.ToDouble(dt.Rows[0][3]);
-            double precioVenta = Convert.ToDouble(dt.Rows[0][4]);
-
+            decimal precioCompra = Convert.ToDecimal(dt.Rows[0][3]);
+            decimal precioVenta = Convert.ToDecimal(dt.Rows[0][4]);
             int Stock = Convert.ToInt32(dt.Rows[0][6]);
-
             cmbCategoria.SelectedValue = cmbCategoria.Items.Cast<DataRowView>().Any(item => Convert.ToInt32(item.Row[0]) == idCategoria) ? idCategoria : 0;
             cmbProveedor.SelectedValue = cmbProveedor.Items.Cast<DataRowView>().Any(item => Convert.ToInt32(item.Row[0]) == idProveedor) ? idProveedor : 0;
             cmbMarca.SelectedValue = cmbMarca.Items.Cast<DataRowView>().Any(item => Convert.ToInt32(item.Row[0]) == idMarca) ? idMarca : 0;
 
-            txtPrecioCompra.Text = precioCompra.ToString();
-            txtPrecioVenta.Text = precioVenta.ToString();
+            txtPrecioCompra.Text = precioCompra.ToString("F2", CultureInfo.InvariantCulture);
+            txtPrecioVenta.Text = precioVenta.ToString("F2", CultureInfo.InvariantCulture);
             txtMedida.Text = dt.Rows[0][5].ToString();
             txtStock.Text = Stock.ToString();
 
-            double gananciaUnidad = precioVenta - precioCompra;
-            txtGananciaUnidad.Text = gananciaUnidad.ToString("F2");
-            txtGananciaTotal.Text = (gananciaUnidad * Stock).ToString("F2");
+            decimal gananciaUnidad = precioVenta - precioCompra;
+            txtGananciaUnidad.Text = gananciaUnidad.ToString("F2", CultureInfo.InvariantCulture);
+            txtGananciaTotal.Text = (gananciaUnidad * Stock).ToString("F2", CultureInfo.InvariantCulture);
         }
         private void btnActualizarProducto_Click(object sender, RoutedEventArgs e)
         {
@@ -380,11 +372,23 @@ namespace ProyectoBodega
                 MessageBox.Show("Seleccione una fila a Actualizar", "Error");
                 return;
             }
+
+            string Id = filaSeleccionada["idProducto"].ToString();
+            string nombre = filaSeleccionada["nombre_producto"].ToString();
+            MessageBoxResult result = MessageBox.Show($"¿Seguro que desea actualizar el siguiente Producto?:\nID: {Id} \nNombre: {nombre}", "Confirmación", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result != MessageBoxResult.Yes) return;
+
             string idProducto = txtID.Text;
             string nombreProducto = txtNombre.Text;
             string descripcion = txtDescripcion.Text;
-            string precioCompra = txtPrecioCompra.Text;
-            string precioVenta = txtPrecioVenta.Text;
+
+            decimal precioCompra,precioVenta;
+            if (!decimal.TryParse(txtPrecioCompra.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out precioCompra) ||
+                !decimal.TryParse(txtPrecioVenta.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out precioVenta))
+            {
+                MessageBox.Show("Ingrese valores válidos para precio compra y precio venta.", "Error en el formato");
+                return;
+            }
             string medida = txtMedida.Text;
             string stock = txtStock.Text;
 
@@ -428,18 +432,17 @@ namespace ProyectoBodega
         private void txtPrecioCompra_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (int.TryParse(txtStock.Text, out int stock) &&
-                double.TryParse(txtPrecioCompra.Text, out double precioCompra) &&
-                double.TryParse(txtPrecioVenta.Text, out double precioVenta))
+                decimal.TryParse(txtPrecioCompra.Text,NumberStyles.Number, CultureInfo.InvariantCulture, out decimal precioCompra) &&
+                decimal.TryParse(txtPrecioVenta.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out decimal precioVenta))
             {
-                double gananciaUnidad = precioVenta - precioCompra;
-
-                txtGananciaUnidad.Text = gananciaUnidad.ToString("F2");
-                txtGananciaTotal.Text = (gananciaUnidad * stock).ToString("F2");
+                decimal gananciaUnidad = precioVenta - precioCompra;
+                txtGananciaUnidad.Text = gananciaUnidad.ToString("F2", CultureInfo.InvariantCulture);
+                txtGananciaTotal.Text = (gananciaUnidad * stock).ToString("F2", CultureInfo.InvariantCulture);
             }
             else
             {
-                txtGananciaUnidad.Text = "0,00";
-                txtGananciaTotal.Text = "0,00";
+                txtGananciaUnidad.Text = "0.00";
+                txtGananciaTotal.Text = "0.00";
             }
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
@@ -452,45 +455,45 @@ namespace ProyectoBodega
         }
         private void txtControlarDouble_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter || e.Key == Key.Escape || e.Key == Key.Tab || e.Key == Key.Back)
+            TextBox textBox = sender as TextBox;
+            string text = textBox.Text;
+            int cursorIndex = textBox.SelectionStart;
+            int indexOfDot = text.IndexOf('.');
+            bool dotPressed = e.Key == Key.OemPeriod || e.Key == Key.Decimal;
+            if (e.Key == Key.Enter || e.Key == Key.Escape || e.Key == Key.Tab || e.Key == Key.Back ||
+                e.Key == Key.Left || e.Key == Key.Right)
             {
                 return;
             }
-            TextBox textBox = sender as TextBox;
-            int indexOfComma = textBox.Text.IndexOf('.');
-            if (indexOfComma != -1)
+            bool isValidInput = (e.Key >= Key.D0 && e.Key <= Key.D9) || (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || dotPressed;
+            if (!isValidInput)
             {
-                string decimalPart = textBox.Text.Substring(indexOfComma + 1);
+                e.Handled = true;
+                return;
+            }
+            bool textContainsDot = text.Contains(".");
+            if (dotPressed && textContainsDot)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (dotPressed)
+            {
+                bool isValidDotPosition = (cursorIndex > 0 && cursorIndex == text.Length);
+                e.Handled = !isValidDotPosition;
+                return;
+            }
+            if (indexOfDot != -1 && cursorIndex > indexOfDot)
+            {
+                string decimalPart = text.Substring(indexOfDot + 1);
                 if (decimalPart.Length >= 2 && e.Key != Key.Back)
                 {
                     e.Handled = true;
+                    return;
                 }
             }
-            if (textBox.Text.Contains(".") && (e.Key == Key.OemPeriod || e.Key == Key.Decimal))
-            {
-                e.Handled = true;
-                return;
-            }
+        }
 
-            if (textBox.SelectionStart == 0 && (e.Key == Key.OemPeriod || e.Key == Key.Decimal))
-            {
-                e.Handled = true;
-                return;
-            }
-            if (!((e.Key >= Key.D0 && e.Key <= Key.D9) || (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || e.Key == Key.OemPeriod || e.Key == Key.Decimal || (e.Key == Key.Left || e.Key == Key.Right)))
-            {
-                e.Handled = true;
-            }
-        }
-        private void btnAgregarProductoPaquete_Click(object sender, RoutedEventArgs e)
-        {
-            this.ShowInTaskbar = false;
-            frmAgregarPaqueteProductos frmagregarpaqueteproductos = new frmAgregarPaqueteProductos();
-            frmagregarpaqueteproductos.VentanaProductos = this;
-            frmagregarpaqueteproductos.VentanaIndex = ventanaIndex;
-            frmagregarpaqueteproductos.ShowDialog();
-            this.ShowInTaskbar = true;
-        }
         private void txtPrimeraLetraMayuscula_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = (TextBox)sender;

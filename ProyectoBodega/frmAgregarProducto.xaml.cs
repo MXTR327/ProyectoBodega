@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -89,24 +90,32 @@ namespace ProyectoBodega
             }
             string nombre_producto = txtNombre.Text;
             string descripcion = txtDescripcion.Text;
-            double precio_compra = double.Parse(txtPrecioCompra.Text);
-            double precio_venta = double.Parse(txtPrecioVenta.Text);
+            decimal precio_compra,precio_venta;
+            if (!decimal.TryParse(txtPrecioCompra.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out precio_compra) ||
+                !decimal.TryParse(txtPrecioVenta.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out precio_venta))
+            {
+                MessageBox.Show("Ingrese valores válidos para precio compra y precio venta.", "Error en el formato");
+                return;
+            }
             string medida = txtMedida.Text;
-            int stock = int.Parse(txtStock.Text);
+            int stock;
+            if (!int.TryParse(txtStock.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out stock))
+            {
+                MessageBox.Show("Ingrese un valor válido para el stock.", "Error en el formato");
+                return;
+            }
             string nombre_Categoria = cmbCategoria.SelectedValue.ToString();
             string nombre_Proveedor = cmbProveedor.SelectedValue.ToString();
             string nombre_Marca = cmbMarca.SelectedValue.ToString();
-
             if (!verificar.VerificarExistencia(nombre_producto))
             {
                 MessageBox.Show("El producto ya EXISTE", "Producto ya existente");
                 return;
             }
             CN_frmAgregarProductos productos = new CN_frmAgregarProductos(nombre_producto, descripcion, precio_compra, precio_venta, medida, stock, nombre_Categoria, nombre_Proveedor, nombre_Marca);
-
             if (!productos.SubirProducto())
             {
-                MessageBox.Show("Ocurrio un error al intentar subir a la Base de datos", "Error al Insertar");
+                MessageBox.Show("Ocurrió un error al intentar subir a la Base de datos", "Error al Insertar");
             }
             else
             {
@@ -115,9 +124,7 @@ namespace ProyectoBodega
                     VentanaProductos.CargarProducto();
                     if (VentanaProductos.dgProducto.Items.Count > 0) VentanaProductos.dgProducto.SelectedIndex = 0;
                 }
-
                 if (VentanaIndex != null) VentanaIndex.CargarProducto();
-
                 MessageBox.Show("El producto se subió correctamente", "Éxito");
                 txtNombre.Text = "";
                 txtDescripcion.Text = "";
@@ -136,6 +143,7 @@ namespace ProyectoBodega
                 txtbPrecioVenta.Visibility = Visibility.Visible;
             }
         }
+
         private bool validar()
         {
             bool rpta = true;
@@ -205,13 +213,12 @@ namespace ProyectoBodega
         private void txtCalcularGanancias_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (int.TryParse(txtStock.Text, out int stock) &&
-                decimal.TryParse(txtPrecioCompra.Text, out decimal precioCompra) &&
-                decimal.TryParse(txtPrecioVenta.Text, out decimal precioVenta))
+                decimal.TryParse(txtPrecioCompra.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out decimal precioCompra) &&
+                decimal.TryParse(txtPrecioVenta.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out decimal precioVenta))
             {
                 decimal gananciaUnidad = precioVenta - precioCompra;
-
-                txtGananciaPorUnidad.Text = gananciaUnidad.ToString("F2");
-                txtGananciaTotal.Text = (gananciaUnidad * stock).ToString("F2");
+                txtGananciaPorUnidad.Text = gananciaUnidad.ToString("F2", CultureInfo.InvariantCulture);
+                txtGananciaTotal.Text = (gananciaUnidad * stock).ToString("F2", CultureInfo.InvariantCulture);
             }
             else
             {
@@ -219,7 +226,6 @@ namespace ProyectoBodega
                 txtGananciaTotal.Text = "00.00";
             }
         }
-
         private void txtStock_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter || e.Key == Key.Escape) return;
@@ -231,34 +237,42 @@ namespace ProyectoBodega
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtControlarDouble_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter || e.Key == Key.Escape || e.Key == Key.Tab || e.Key == Key.Back)
+            TextBox textBox = sender as TextBox;
+            string text = textBox.Text;
+            int cursorIndex = textBox.SelectionStart;
+            int indexOfDot = text.IndexOf('.');
+            bool dotPressed = e.Key == Key.OemPeriod || e.Key == Key.Decimal;
+            if (e.Key == Key.Enter || e.Key == Key.Escape || e.Key == Key.Tab || e.Key == Key.Back ||
+                e.Key == Key.Left || e.Key == Key.Right)
             {
                 return;
             }
-            TextBox textBox = sender as TextBox;
-            int indexOfComma = textBox.Text.IndexOf('.');
-            if (indexOfComma != -1)
+            bool isValidInput = (e.Key >= Key.D0 && e.Key <= Key.D9) || (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || dotPressed;
+            if (!isValidInput)
             {
-                string decimalPart = textBox.Text.Substring(indexOfComma + 1);
+                e.Handled = true;
+                return;
+            }
+            bool textContainsDot = text.Contains(".");
+            if (dotPressed && textContainsDot)
+            {
+                e.Handled = true;
+                return;
+            }
+            if (dotPressed)
+            {
+                bool isValidDotPosition = (cursorIndex > 0 && cursorIndex == text.Length);
+                e.Handled = !isValidDotPosition;
+                return;
+            }
+            if (indexOfDot != -1 && cursorIndex > indexOfDot)
+            {
+                string decimalPart = text.Substring(indexOfDot + 1);
                 if (decimalPart.Length >= 2 && e.Key != Key.Back)
                 {
                     e.Handled = true;
+                    return;
                 }
-            }
-            if (textBox.Text.Contains(".") && (e.Key == Key.OemPeriod || e.Key == Key.Decimal))
-            {
-                e.Handled = true;
-                return;
-            }
-
-            if (textBox.SelectionStart == 0 && (e.Key == Key.OemPeriod || e.Key == Key.Decimal))
-            {
-                e.Handled = true;
-                return;
-            }
-            if (!((e.Key >= Key.D0 && e.Key <= Key.D9) || (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || e.Key == Key.OemPeriod || e.Key == Key.Decimal || (e.Key == Key.Left || e.Key == Key.Right)))
-            {
-                e.Handled = true;
             }
         }
 

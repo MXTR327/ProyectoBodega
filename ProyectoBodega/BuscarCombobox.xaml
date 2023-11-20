@@ -20,7 +20,7 @@
                 <TextBox x:Name="txtBuscador" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="20" TextChanged="txtBuscar_TextChanged" BorderThickness="0,0,0,2" Background="{x:Null}" GotFocus="txtBuscadorMarca_GotFocus" LostFocus="txtBuscadorMarca_LostFocus" Margin="0,1,0,0" />
             </Grid>
 
-            <DataGrid x:Name="dgTabla" HorizontalAlignment="Center" Height="403" VerticalAlignment="Top" Width="676" CanUserAddRows="False" SelectionMode="Single" IsReadOnly="True" HeadersVisibility="Column" Margin="0,162,0,0" AutoGenerateColumns="False" MouseDoubleClick="dgTabla_MouseDoubleClick">
+            <DataGrid x:Name="dgTabla" HorizontalAlignment="Center" Height="414" VerticalAlignment="Top" Width="676" CanUserAddRows="False" SelectionMode="Single" IsReadOnly="True" HeadersVisibility="Column" Margin="0,158,0,0" AutoGenerateColumns="False" MouseDoubleClick="dgTabla_MouseDoubleClick">
                 <DataGrid.Resources>
                     <Style TargetType="{x:Type DataGridCell}">
                         <Setter Property="Height" Value="30"/>

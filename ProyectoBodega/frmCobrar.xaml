@@ -29,20 +29,20 @@
             <Grid Cursor="Arrow" ForceCursor="True" Margin="0,261,0,373" HorizontalAlignment="Center">
                 <Image HorizontalAlignment="Left" Height="44" Margin="84,6,0,0" VerticalAlignment="Top" Width="44" Source="img/precioVenta.png" Stretch="Fill" Opacity="0.7"/>
                 <Label Content="S/." FontSize="36" FontFamily="Bahnschrift" Margin="129,0,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="66" Height="50" FontWeight="Light" />
-                <TextBox x:Name="txtTotal" HorizontalAlignment="Center" Height="40" Margin="0,15,0,0" TextWrapping="Wrap" Text="9999,00" VerticalAlignment="Top" Width="470" VerticalContentAlignment="Bottom" FontSize="30" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="0,0,0,-1" Background="{x:Null}"/>
+                <TextBox x:Name="txtTotal" HorizontalAlignment="Center" Height="40" Margin="0,15,0,0" TextWrapping="Wrap" Text="9999.00" VerticalAlignment="Top" Width="470" VerticalContentAlignment="Bottom" FontSize="30" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="0,0,0,-1" Background="{x:Null}"/>
             </Grid>
 
             <Grid Cursor="IBeam" ForceCursor="True" Margin="0,359,0,275" HorizontalAlignment="Center">
                 <Image HorizontalAlignment="Left" Height="44" Margin="84,6,0,0" VerticalAlignment="Top" Width="44" Source="img/ganancia.png" Stretch="Fill" Opacity="0.7"/>
                 <Label Content="S/." FontSize="36" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="66" Height="50" FontWeight="Light" Margin="130,0,0,0" />
-                <TextBlock x:Name="txtbPago" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,14,0,0" Foreground="Gray" FontSize="30" Width="416" Height="42" TextAlignment="Center"><Run Text=""/><Run Language="es-pe" Text="0,00"/></TextBlock>
+                <TextBlock x:Name="txtbPago" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,14,0,0" Foreground="Gray" FontSize="30" Width="416" Height="42" TextAlignment="Center"><Run Text=""/><Run Language="es-pe" Text="0.00"/></TextBlock>
                 <TextBox x:Name="txtPago" HorizontalAlignment="Center" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="470" VerticalContentAlignment="Center" FontSize="30" FontFamily="Bahnschrift" TextChanged="txtPago_TextChanged" BorderThickness="0,0,0,2" Margin="0,16,0,0" Padding="0,0,0,-1" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" Background="{x:Null}" HorizontalContentAlignment="Center" GotFocus="txtPago_GotFocus" LostFocus="txtPago_LostFocus" Foreground="#FF040404"/>
             </Grid>
 
             <Grid Cursor="Arrow" ForceCursor="True" Margin="0,466,0,168" HorizontalAlignment="Center">
                 <Image HorizontalAlignment="Left" Height="44" Margin="84,6,0,0" VerticalAlignment="Top" Width="44" Source="img/gananciaT.png" Stretch="Fill" Opacity="0.7"/>
                 <Label Content="S/." FontSize="36" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="66" Height="50" FontWeight="Light" Margin="133,0,0,0" />
-                <TextBox x:Name="txtCambio" HorizontalAlignment="Center" Height="40" Margin="0,15,0,0" TextWrapping="Wrap" Text="0,00" VerticalAlignment="Top" Width="470" VerticalContentAlignment="Bottom" FontSize="30" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="0,0,0,-1" Background="{x:Null}"/>
+                <TextBox x:Name="txtCambio" HorizontalAlignment="Center" Height="40" Margin="0,15,0,0" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" Width="470" VerticalContentAlignment="Bottom" FontSize="30" FontFamily="Bahnschrift" HorizontalContentAlignment="Center" IsReadOnly="True" BorderThickness="0,0,0,2" Padding="0,0,0,-1" Background="{x:Null}"/>
             </Grid>
 
 

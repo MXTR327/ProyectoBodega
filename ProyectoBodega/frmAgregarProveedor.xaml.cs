@@ -60,7 +60,6 @@ namespace ProyectoBodega
         }
         private void chkDireccion_Click(object sender, RoutedEventArgs e)
         {
-            txtDireccion.Text = "";
             txtDireccion.IsReadOnly = !txtDireccion.IsReadOnly;
             if (txtDireccion.IsReadOnly == false)
             {
@@ -70,12 +69,11 @@ namespace ProyectoBodega
             else
             {
                 gridDireccion.Cursor = Cursors.Arrow;
-                txtbDireccion.Visibility = Visibility.Visible;
+                if(string.IsNullOrEmpty(txtDireccion.Text)) txtbDireccion.Visibility = Visibility.Visible;
             }
         }
         private void chkNumero_Click(object sender, RoutedEventArgs e)
         {
-            txtNumero.Text = "";
             txtNumero.IsReadOnly = !txtNumero.IsReadOnly;
             if (txtNumero.IsReadOnly == false)
             {
@@ -85,7 +83,7 @@ namespace ProyectoBodega
             else
             {
                 gridNumero.Cursor = Cursors.Arrow;
-                txtbNumero.Visibility = Visibility.Visible;
+                if(string.IsNullOrEmpty(txtNumero.Text)) txtbNumero.Visibility = Visibility.Visible;
             }
         }
         private void btnSalir_Click(object sender, RoutedEventArgs e)

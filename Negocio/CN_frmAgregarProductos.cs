@@ -7,8 +7,8 @@ namespace Negocio
         CD_frmAgregarProductos cd_frmproductos = new CD_frmAgregarProductos();
         public string nombre_producto { get; set; }
         public string descripcion { get; set; }
-        public double precio_compra { get; set; }
-        public double precio_venta { get; set; }
+        public decimal precio_compra { get; set; }
+        public decimal precio_venta { get; set; }
         public string medida { get; set; }
         public int stock { get; set; }
         public string nombre_Categoria { get; set; }
@@ -17,7 +17,7 @@ namespace Negocio
         public CN_frmAgregarProductos()
         {
         }
-        public CN_frmAgregarProductos(string nombre_producto, string descripcion, double precio_compra, double precio_venta, string medida, int stock, string nombre_Categoria, string nombre_Proveedor, string nombre_Marca)
+        public CN_frmAgregarProductos(string nombre_producto, string descripcion, decimal precio_compra, decimal precio_venta, string medida, int stock, string nombre_Categoria, string nombre_Proveedor, string nombre_Marca)
         {
             this.nombre_producto = nombre_producto;
             this.descripcion = descripcion;

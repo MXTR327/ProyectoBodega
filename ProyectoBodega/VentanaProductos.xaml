@@ -267,13 +267,13 @@
         <TextBox x:Name="txtNombre" CharacterCasing="Upper" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="17" VerticalContentAlignment="Center" TextChanged="txtPrimeraLetraMayuscula_TextChanged" Margin="134,547,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" Height="25" />
         <TextBox x:Name="txtDescripcion" CharacterCasing="Upper" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="17" VerticalContentAlignment="Center" TextChanged="txtPrimeraLetraMayuscula_TextChanged" Margin="134,578,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" Height="25" />
         <TextBox x:Name="txtStock" CharacterCasing="Upper" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="17" VerticalContentAlignment="Center" TextChanged="txtPrecioCompra_TextChanged" PreviewKeyDown="txtStock_PreviewKeyDown" Margin="134,611,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" Height="25"/>
-        <TextBox x:Name="txtPrecioCompra" CharacterCasing="Upper" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="17" VerticalContentAlignment="Center" TextChanged="txtPrecioCompra_TextChanged" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" Margin="134,645,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" Height="25" />
-        <TextBox x:Name="txtPrecioVenta" CharacterCasing="Upper" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="17" VerticalContentAlignment="Center" TextChanged="txtPrecioCompra_TextChanged" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" Margin="134,677,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" Height="25"/>
+        <TextBox x:Name="txtPrecioCompra" Language="en-US" CharacterCasing="Upper" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="17" VerticalContentAlignment="Center" TextChanged="txtPrecioCompra_TextChanged" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" Margin="134,645,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" Height="25" />
+        <TextBox x:Name="txtPrecioVenta" Language="en-US" CharacterCasing="Upper" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="17" VerticalContentAlignment="Center" TextChanged="txtPrecioCompra_TextChanged" PreviewKeyDown="txtControlarDouble_PreviewKeyDown" Margin="134,677,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" Height="25"/>
 
 
         <TextBox x:Name="txtMedida" CharacterCasing="Upper" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" FontSize="17" VerticalContentAlignment="Center" Margin="494,611,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" Height="25" />
-        <TextBox x:Name="txtGananciaUnidad" CharacterCasing="Upper" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="17" IsReadOnly="True" Margin="494,645,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" />
-        <TextBox x:Name="txtGananciaTotal" CharacterCasing="Upper" VerticalAlignment="Top" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.5,0.5" FontSize="17" IsReadOnly="True" Margin="494,678,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" Height="25" />
+        <TextBox x:Name="txtGananciaUnidad" CharacterCasing="Upper" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" FontSize="17" IsReadOnly="True" Margin="494,645,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" Cursor="Arrow" />
+        <TextBox x:Name="txtGananciaTotal" CharacterCasing="Upper" VerticalAlignment="Top" VerticalContentAlignment="Bottom" RenderTransformOrigin="0.5,0.5" FontSize="17" IsReadOnly="True" Margin="494,678,0,0" BorderThickness="0,0,0,2" HorizontalAlignment="Left" Width="205" Height="25" Cursor="Arrow" />
         <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
         <ComboBox x:Name="cmbCategoria" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="185" Margin="494,516,0,0" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" FontSize="15" MaxDropDownHeight="150"/>
         <ComboBox x:Name="cmbProveedor" HorizontalAlignment="Left" Height="25" Margin="494,547,0,0" VerticalAlignment="Top" Width="185" BorderThickness="0,0,0,1" FontFamily="Bahnschrift" FontSize="15" MaxDropDownHeight="150"/>
@@ -676,14 +676,13 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-
-        <Button x:Name="btnAgregarProductoPaquete" Content="Agregar Paquete" HorizontalAlignment="Center" Height="40" VerticalAlignment="Center" Width="142" FontFamily="Calibri" FontSize="17" Click="btnAgregarProductoPaquete_Click" Margin="217,455,0,0" Cursor="Hand">
+        <Button x:Name="btnAgregarProductoUnidad" Content="Agregar Producto " HorizontalAlignment="Center" Height="90" VerticalAlignment="Center" Width="142" FontFamily="Calibri" FontSize="17" Click="btnAgregarProductoUnidad_Click" Margin="217,401,0,0" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="UIElement.MouseEnter">
                     <BeginStoryboard>
                         <Storyboard>
                             <DoubleAnimation To="147" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                            <DoubleAnimation To="43" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                            <DoubleAnimation To="93" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
@@ -691,7 +690,7 @@
                     <BeginStoryboard>
                         <Storyboard>
                             <DoubleAnimation To="142" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                            <DoubleAnimation To="40" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                            <DoubleAnimation To="90" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
@@ -719,13 +718,13 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button x:Name="btnAgregarProductoUnidad" Content="Agregar Producto " HorizontalAlignment="Center" Height="40" VerticalAlignment="Center" Width="142" FontFamily="Calibri" FontSize="17" Click="btnAgregarProductoUnidad_Click" Margin="217,355,0,0" Cursor="Hand">
+        <Button x:Name="btnActualizarProducto" Content="Actualizar Producto" HorizontalAlignment="Center" Height="50" VerticalAlignment="Center" Width="142" FontFamily="Calibri" FontSize="17" Click="btnActualizarProducto_Click" RenderTransformOrigin="0.223,0.359" Margin="217,553,0,0" Cursor="Hand">
             <Button.Triggers>
                 <EventTrigger RoutedEvent="UIElement.MouseEnter">
                     <BeginStoryboard>
                         <Storyboard>
                             <DoubleAnimation To="147" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                            <DoubleAnimation To="43" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                            <DoubleAnimation To="53" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
@@ -733,49 +732,7 @@
                     <BeginStoryboard>
                         <Storyboard>
                             <DoubleAnimation To="142" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                            <DoubleAnimation To="40" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Button.Triggers>
-            <Button.Style>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Foreground" Value="White" />
-                    <Setter Property="Width" Value="476" />
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Button}">
-                                <Border Background="{TemplateBinding Background}" CornerRadius="10">
-                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </Button.Style>
-            <Button.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#FFEB85FD" Offset="0"/>
-                    <GradientStop Color="#FF0BC2FF" Offset="0.5"/>
-                    <GradientStop Color="#FF5596EC" Offset="0.8"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="btnActualizarProducto" Content="Actualizar Producto" HorizontalAlignment="Center" Height="40" VerticalAlignment="Center" Width="142" FontFamily="Calibri" FontSize="17" Click="btnActualizarProducto_Click" RenderTransformOrigin="0.223,0.359" Margin="217,555,0,0" Cursor="Hand">
-            <Button.Triggers>
-                <EventTrigger RoutedEvent="UIElement.MouseEnter">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation To="147" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                            <DoubleAnimation To="43" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-                <EventTrigger RoutedEvent="UIElement.MouseLeave">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation To="142" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
-                            <DoubleAnimation To="40" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
+                            <DoubleAnimation To="50" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>

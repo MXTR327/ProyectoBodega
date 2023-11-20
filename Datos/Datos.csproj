@@ -89,7 +89,6 @@
     <Compile Include="CD_CargarLista.cs" />
     <Compile Include="CD_frmAgregarCategoria.cs" />
     <Compile Include="CD_frmAgregarMarca.cs" />
-    <Compile Include="CD_frmAgregarPaqueteProductos.cs" />
     <Compile Include="CD_frmAgregarProductos.cs" />
     <Compile Include="CD_frmAgregarProveedor.cs" />
     <Compile Include="CD_frmAgregarVendedor.cs" />

@@ -29,12 +29,12 @@
             <Label Content="Stock inicial" HorizontalAlignment="Left" Margin="21,0,0,349" VerticalAlignment="Bottom" Width="144" FontSize="25" FontFamily="Bahnschrift" HorizontalContentAlignment="Center"/>
             <Label Content="Stock final" HorizontalAlignment="Left" Margin="214,0,0,350" VerticalAlignment="Bottom" Width="139" FontSize="25" FontFamily="Bahnschrift" HorizontalContentAlignment="Center"/>
             <!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-            <Button x:Name="btnCambiarPrecio" Content="-" HorizontalAlignment="Center" Height="44" Margin="0,0,120,213" VerticalAlignment="Center" Width="45" Click="btnCambiarPrecio_Click" FontFamily="Maiandra GD" FontSize="30" Foreground="Black" FontWeight="Bold" Cursor="Hand">
+            <Button x:Name="btnCambiarPrecio" Content="Editar" HorizontalAlignment="Center" Height="44" Margin="0,0,103,210" VerticalAlignment="Center" Width="65" Click="btnCambiarPrecio_Click" FontFamily="Arial" FontSize="25" Foreground="Black" Cursor="Hand">
                 <Button.Triggers>
                     <EventTrigger RoutedEvent="UIElement.MouseEnter">
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation To="48" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                <DoubleAnimation To="70" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
                                 <DoubleAnimation To="47" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                             </Storyboard>
                         </BeginStoryboard>
@@ -42,7 +42,7 @@
                     <EventTrigger RoutedEvent="UIElement.MouseLeave">
                         <BeginStoryboard>
                             <Storyboard>
-                                <DoubleAnimation To="45" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
+                                <DoubleAnimation To="65" Duration="0:0:0.1" Storyboard.TargetProperty="Width" />
                                 <DoubleAnimation To="44" Duration="0:0:0.1" Storyboard.TargetProperty="Height" />
                             </Storyboard>
                         </BeginStoryboard>
@@ -184,10 +184,10 @@
             </Grid>
             <TextBox x:Name="txtID" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="120" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="1234" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Margin="62,0,0,623" Cursor="Arrow"/>
 
-            <Grid Cursor="Arrow" ForceCursor="True" Margin="0,0,0,395" HorizontalAlignment="Left" Width="370" Height="58" VerticalAlignment="Bottom">
+            <Grid x:Name="txtbPrecio" Cursor="Arrow" ForceCursor="True" Margin="0,0,0,395" HorizontalAlignment="Left" Width="370" Height="58" VerticalAlignment="Bottom">
                 <Image HorizontalAlignment="Left" Height="44" Margin="25,0,0,12" VerticalAlignment="Bottom" Width="44" Source="img/precioVenta.png" Stretch="Fill" Opacity="0.7"/>
                 <Label Content="S/." FontSize="36" FontFamily="Bahnschrift" Margin="65,0,0,0" HorizontalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="66" Height="50" FontWeight="Light" />
-                <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="0,00" PreviewKeyDown="txtPrecio_PreviewKeyDown" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Width="342" Background="{x:Null}" Margin="25,0,0,0" Cursor="Arrow"/>
+                <TextBox x:Name="txtPrecio" Language="en-US" HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="25" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" IsReadOnly="True" Text="0.00" PreviewKeyDown="txtPrecio_PreviewKeyDown" BorderThickness="0,0,0,2" FontFamily="Bahnschrift" Width="342" Background="{x:Null}" Margin="25,0,0,0" Cursor="Arrow"/>
             </Grid>
 
 

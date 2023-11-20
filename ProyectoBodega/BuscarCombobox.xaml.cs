@@ -20,8 +20,6 @@ namespace ProyectoBodega
     {
         internal frmAgregarProducto frmAgregarProducto;
 
-        internal frmAgregarPaqueteProductos frmAgregarPaqueteProductos;
-
         internal VentanaProductos VentanaProductos;
 
         CN_BuscarCombobox cn_buscar = new CN_BuscarCombobox();
@@ -34,7 +32,7 @@ namespace ProyectoBodega
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (frmAgregarProducto != null || frmAgregarPaqueteProductos != null || VentanaProductos != null)
+            if (frmAgregarProducto != null || VentanaProductos != null)
             {
                 lblTitulo.Content = "Elegir "+(string)this.Tag;
                 
@@ -113,19 +111,16 @@ namespace ProyectoBodega
             if ((string)this.Tag == "categoria")
             {
                 AsignarValorComboBox(frmAgregarProducto?.cmbCategoria, "idCategoria");
-                AsignarValorComboBox(frmAgregarPaqueteProductos?.cmbCategoria, "idCategoria");
                 AsignarValorComboBox(VentanaProductos?.cmbCategoria, "idCategoria");
             }
             else if ((string)this.Tag == "proveedor")
             {
                 AsignarValorComboBox(frmAgregarProducto?.cmbProveedor, "idProveedor");
-                AsignarValorComboBox(frmAgregarPaqueteProductos?.cmbProveedor, "idProveedor");
                 AsignarValorComboBox(VentanaProductos?.cmbProveedor, "idProveedor");
             }
             else if ((string)this.Tag == "marca")
             {
                 AsignarValorComboBox(frmAgregarProducto?.cmbMarca, "idMarca");
-                AsignarValorComboBox(frmAgregarPaqueteProductos?.cmbMarca, "idMarca");
                 AsignarValorComboBox(VentanaProductos?.cmbMarca, "idMarca");
             }
 

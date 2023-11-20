@@ -1,6 +1,7 @@
 ﻿using Negocio;
 using System;
 using System.Data;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -52,13 +53,14 @@ namespace ProyectoBodega
 
                 if (fila is DataRowView dataRowView)
                 {
-                    if (decimal.TryParse(dataRowView["ganancia"]?.ToString(), out decimal ganancia))
+                    if (decimal.TryParse(dataRowView["ganancia"]?.ToString(),
+                        NumberStyles.Number, CultureInfo.InvariantCulture, out decimal ganancia))
                     {
                         suma += ganancia;
                     }
                 }
             }
-            lblGanancia.Content = suma.ToString("F2");
+            lblGanancia.Content = suma.ToString("F2", CultureInfo.InvariantCulture);
         }
         private void Total()
         {
@@ -69,13 +71,13 @@ namespace ProyectoBodega
 
                 if (fila is DataRowView dataRowView)
                 {
-                    if (decimal.TryParse(dataRowView["Total_Venta"]?.ToString(), out decimal totalVenta))
+                    if (decimal.TryParse(dataRowView["Total_Venta"]?.ToString(), NumberStyles.Number, CultureInfo.InvariantCulture, out decimal totalVenta))
                     {
                         suma += totalVenta;
                     }
                 }
             }
-            lblTotal.Content = suma.ToString("F2");
+            lblTotal.Content = suma.ToString("F2", CultureInfo.InvariantCulture);
         }
 
         //------------------------------------------------------------------------------------------------------------------------------\\
@@ -93,7 +95,7 @@ namespace ProyectoBodega
                 dgProductosVenta.ItemsSource = null;
                 txtID.Text = "Sin Productos";
                 txtNombre.Text = txtDescripcion.Text = txtCategoria.Text = txtProveedor.Text = txtMarca.Text = txtPrecioCompra.Text =
-                txtPrecioVenta.Text = txtMedida.Text = txtStock.Text = txtUnidadGanancia.Text = txtGananciaTotal.Text = "Inexistente";
+                txtPrecioVenta.Text = txtMedida.Text = txtCantidadVendida.Text = txtUnidadGanancia.Text = txtGananciaTotal.Text = "Inexistente";
 
                 return;
             }
@@ -110,16 +112,12 @@ namespace ProyectoBodega
         private void CargarDetalleProductos()
         {
             if (dgProductosVenta.Items.Count <= 0) return;
-
             DataRowView filaSeleccionada = (DataRowView)dgProductosVenta.SelectedItem;
             if (filaSeleccionada == null) return;
-
             string IdProducto = filaSeleccionada["idProducto"].ToString();
-            string cantidad = filaSeleccionada["Cantidad"].ToString();
+            int cantidadVendida = int.Parse(filaSeleccionada["Cantidad"].ToString());
             DataTable DetalleProducto = cn_ventanaventas.tblDetalleProducto(IdProducto);
-
             if (DetalleProducto.Rows.Count <= 0) return;
-
             DataRow Filaproducto = DetalleProducto.Rows[0];
             txtID.Text = IdProducto;
             txtNombre.Text = Filaproducto["nombre_producto"].ToString();
@@ -127,14 +125,27 @@ namespace ProyectoBodega
             txtCategoria.Text = Filaproducto["nombre_categoria"].ToString();
             txtProveedor.Text = Filaproducto["nombre_proveedor"].ToString();
             txtMarca.Text = Filaproducto["nombre_marca"].ToString();
-            txtPrecioCompra.Text = Filaproducto["precio_compra"].ToString();
-            txtPrecioVenta.Text = Filaproducto["precio_venta"].ToString();
+            string precioCompraString = Filaproducto["precio_compra"].ToString().Replace(',', '.');
+            string precioVentaString = Filaproducto["precio_venta"].ToString().Replace(',', '.');
+            if (decimal.TryParse(precioCompraString, NumberStyles.Number, CultureInfo.InvariantCulture, out decimal precioCompra) &&
+                decimal.TryParse(precioVentaString, NumberStyles.Number, CultureInfo.InvariantCulture, out decimal precioVenta))
+            {
+                txtPrecioCompra.Text = precioCompra.ToString("F2", CultureInfo.InvariantCulture);
+                txtPrecioVenta.Text = precioVenta.ToString("F2", CultureInfo.InvariantCulture);
+                decimal gananciaUnidad = precioVenta - precioCompra;
+                decimal gananciaTotal = gananciaUnidad * cantidadVendida;
+                txtUnidadGanancia.Text = gananciaUnidad.ToString("F2", CultureInfo.InvariantCulture);
+                txtGananciaTotal.Text = gananciaTotal.ToString("F2", CultureInfo.InvariantCulture);
+            }
+            else
+            {
+                txtPrecioCompra.Text = "Error";
+                txtPrecioVenta.Text = "Error";
+                txtUnidadGanancia.Text = "Error";
+                txtGananciaTotal.Text = "Error";
+            }
             txtMedida.Text = Filaproducto["medida"].ToString();
-            txtStock.Text = Filaproducto["stock"].ToString();
-            double gananciaUnidad = double.Parse(txtPrecioVenta.Text) - double.Parse(txtPrecioCompra.Text);
-            double gananciaTotal = gananciaUnidad * int.Parse(cantidad);
-            txtUnidadGanancia.Text = gananciaUnidad.ToString();
-            txtGananciaTotal.Text = gananciaTotal.ToString();
+            txtCantidadVendida.Text = cantidadVendida.ToString();
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void dgVentas_SelectionChanged(object sender, SelectionChangedEventArgs e)

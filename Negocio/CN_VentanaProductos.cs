@@ -14,12 +14,12 @@ namespace Negocio
         public string idCategoriaProducto { get; set; }
         public string idProveedorProducto { get; set; }
         public string idMarcaProducto { get; set; }
-        public string precioCompra { get; set; }
-        public string precioVenta { get; set; }
+        public decimal precioCompra { get; set; }
+        public decimal precioVenta { get; set; }
         public string medida { get; set; }
         public string stock { get; set; }
 
-        public CN_VentanaProductos(string idProducto, string nombreProducto, string descripcion, string precioCompra, string precioVenta, string medida, string stock, string idCategoria, string idProveedor, string idMarca)
+        public CN_VentanaProductos(string idProducto, string nombreProducto, string descripcion, decimal precioCompra, decimal precioVenta, string medida, string stock, string idCategoria, string idProveedor, string idMarca)
         {
             this.idProducto = idProducto;
             this.nombreProducto = nombreProducto;

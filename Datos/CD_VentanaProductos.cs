@@ -142,7 +142,7 @@ namespace Datos
             return VerificarExistencia("producto", "nombre_producto", texto_entrada);
         }
         //------------------------------------------------------------------------------------------------------------------------------\\
-        public bool ActualizarProductoDB(string idProducto, string nombreProducto, string descripcionProducto, string precioCompra, string precioVenta, string medida, string stock, string idCategoriaProducto, string idProveedorProducto, string idMarcaProducto)
+        public bool ActualizarProductoDB(string idProducto, string nombreProducto, string descripcionProducto, decimal precioCompra, decimal precioVenta, string medida, string stock, string idCategoriaProducto, string idProveedorProducto, string idMarcaProducto)
         {
             try
             {
@@ -153,8 +153,8 @@ namespace Datos
                 cmd.Parameters.AddWithValue("@idProducto", idProducto);
                 cmd.Parameters.AddWithValue("@nombre", nombreProducto);
                 cmd.Parameters.AddWithValue("@descripcion", descripcionProducto);
-                cmd.Parameters.AddWithValue("@precio_compra", Convert.ToDouble(precioCompra)); // Convierte el valor a double
-                cmd.Parameters.AddWithValue("@precio_venta", Convert.ToDouble(precioVenta)); // Convierte el valor a double
+                cmd.Parameters.AddWithValue("@precio_compra", precioCompra);
+                cmd.Parameters.AddWithValue("@precio_venta", precioVenta); 
                 cmd.Parameters.AddWithValue("@medida", medida);
                 cmd.Parameters.AddWithValue("@stock", stock);
                 cmd.Parameters.AddWithValue("@Categoria_idCategoria", idCategoriaProducto);

@@ -27,7 +27,7 @@ namespace Datos
             }
             return Noexiste;
         }
-        public bool SubirProductoDB(string nombre_producto, string descripcion, double precio_compra, double precio_venta, string medida, int stock, string nombre_Categoria, string nombre_Proveedor, string nombre_Marca)
+        public bool SubirProductoDB(string nombre_producto, string descripcion, decimal precio_compra, decimal precio_venta, string medida, int stock, string nombre_Categoria, string nombre_Proveedor, string nombre_Marca)
         {
             bool rpta = false;
             try

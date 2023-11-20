@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using Negocio;
 using System.Data;
 using System.Windows.Media;
+using System.Globalization;
 
 namespace ProyectoBodega
 {
@@ -30,15 +31,14 @@ namespace ProyectoBodega
         {
             if (string.IsNullOrWhiteSpace(txtPago.Text) || string.IsNullOrWhiteSpace(txtTotal.Text))
             {
-                txtCambio.Text = "0,00";
+                txtCambio.Text = "0.00";
                 return;
             }
-
-            if (decimal.TryParse(txtPago.Text, out decimal pago) && decimal.TryParse(txtTotal.Text, out decimal total))
+            if (decimal.TryParse(txtPago.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out decimal pago)
+                && decimal.TryParse(txtTotal.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out decimal total))
             {
                 decimal cambio = pago - total;
-                txtCambio.Text = cambio.ToString("F2");
-
+                txtCambio.Text = cambio.ToString("F2", CultureInfo.InvariantCulture);
                 txtCambio.Foreground = cambio < 0 ? Brushes.Red : Brushes.Green;
             }
             else
@@ -46,41 +46,44 @@ namespace ProyectoBodega
                 txtCambio.Text = "-1";
             }
         }
-
-
         //------------------------------------------------------------------------------------------------------------------------------\\
         private void txtControlarDouble_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter || e.Key == Key.Escape) return;
-
             TextBox textBox = sender as TextBox;
-
-            if (e.Key == Key.OemComma && textBox.Text.Length == 0) e.Handled = true;
-
-            if (e.Key == Key.Right || e.Key == Key.Left) e.Handled = true;
-
-            if (!(Char.IsDigit((char)KeyInterop.VirtualKeyFromKey(e.Key)) || (e.Key == Key.OemComma && textBox.Text.IndexOf(',') == -1) || e.Key == Key.Back))
+            string text = textBox.Text;
+            int cursorIndex = textBox.SelectionStart;
+            int indexOfDot = text.IndexOf('.');
+            bool dotPressed = e.Key == Key.OemPeriod || e.Key == Key.Decimal;
+            if (e.Key == Key.Enter || e.Key == Key.Escape || e.Key == Key.Tab || e.Key == Key.Back ||
+                e.Key == Key.Left || e.Key == Key.Right)
+            {
+                return;
+            }
+            bool isValidInput = (e.Key >= Key.D0 && e.Key <= Key.D9) || (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || dotPressed;
+            if (!isValidInput)
             {
                 e.Handled = true;
+                return;
             }
-            
-            if (e.Key == Key.OemComma && textBox.Text.IndexOf(',') != -1) e.Handled = true;
-
-            if (e.Key == Key.OemComma)
+            bool textContainsDot = text.Contains(".");
+            if (dotPressed && textContainsDot)
             {
-                int commaIndex = textBox.Text.IndexOf(',');
-                if (commaIndex != -1 && textBox.Text.Length - commaIndex > 2)
-                {
-                    e.Handled = true;
-                }
+                e.Handled = true;
+                return;
             }
-            int indexOfComma = textBox.Text.IndexOf(',');
-            if (indexOfComma != -1)
+            if (dotPressed)
             {
-                string decimalPart = textBox.Text.Substring(indexOfComma + 1);
+                bool isValidDotPosition = (cursorIndex > 0 && cursorIndex == text.Length);
+                e.Handled = !isValidDotPosition;
+                return;
+            }
+            if (indexOfDot != -1 && cursorIndex > indexOfDot)
+            {
+                string decimalPart = text.Substring(indexOfDot + 1);
                 if (decimalPart.Length >= 2 && e.Key != Key.Back)
                 {
                     e.Handled = true;
+                    return;
                 }
             }
         }
@@ -116,20 +119,21 @@ namespace ProyectoBodega
                 Seleccionar();
             }
         }
-        private void Seleccionar()
+
+    private void Seleccionar()
         {
             string nombre_cliente = txtNombre.Text;
             int idVendedor = Convert.ToInt32(indexVentana.idvendedor);
 
-            if (!double.TryParse(txtTotal.Text, out double total_venta))
+            if (!decimal.TryParse(txtTotal.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out decimal total_venta))
             {
                 MessageBox.Show("El valor en el campo 'Total' no es válido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            double ganancia = 0;
+            decimal ganancia = 0;
 
-            if (!double.TryParse(txtCambio.Text, out double vuelto))
+            if (!decimal.TryParse(txtCambio.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out decimal vuelto))
             {
                 MessageBox.Show("El valor en el campo 'Cambio' no es válido.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -138,7 +142,7 @@ namespace ProyectoBodega
             CN_frmCobrar venta = new CN_frmCobrar(nombre_cliente, idVendedor, total_venta, ganancia, vuelto);
             int idVenta = venta.AgregarVenta();
 
-            double gananciaTotalProductos = 0;
+            decimal gananciaTotalProductos = 0;
 
             if (indexVentana.dgVenta.Items.Count > 0)
             {
@@ -147,10 +151,10 @@ namespace ProyectoBodega
                     DataRowView fila = (DataRowView)item;
                     int idProducto = Convert.ToInt32(fila["idProducto"]);
                     int cantidadProducto = Convert.ToInt32(fila["Cantidad"]);
-                    double precioUnitarioProducto = Convert.ToDouble(fila["precio_compra"]);
+                    decimal precioUnitarioProducto = Convert.ToDecimal(fila["precio_compra"], CultureInfo.InvariantCulture);
 
                     CN_frmCobrar detalleVenta = new CN_frmCobrar(idVenta, idProducto, cantidadProducto, precioUnitarioProducto);
-                    double gananciaProducto = detalleVenta.AgregarDetalleVenta();
+                    decimal gananciaProducto = detalleVenta.AgregarDetalleVenta();
 
                     gananciaTotalProductos += gananciaProducto;
                 }
@@ -165,8 +169,8 @@ namespace ProyectoBodega
             indexVentana.CalcularSumaTotal();
             Close();
         }
-        //------------------------------------------------------------------------------------------------------------------------------\\
-        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    //------------------------------------------------------------------------------------------------------------------------------\\
+    private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
